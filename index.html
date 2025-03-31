@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BhoomiTechZone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+     <link href="style.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Lobster&family=Mea+Culpa&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spicy+Rice&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+   
+</head>
+<body>
+    <!-- Top Bar with Logo, Contact Info, and Social Media -->
+    <div class="container top-bar">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <a href="index.html" class="navbar-brand">
+                    <img src="image/logo-removebg-preview (3).webp" alt="BhoomiTech Zone Pvt. Ltd." class="logo-img">
+                </a>
+            </div>
+            <div class="col-md-5 text-end contact-info">
+                <a href="tel:+91
+                8130787194" class="text-decoration-none">
+                    <i class="fas fa-phone-alt flip-horizontal "></i> <span class="tx text-black"> +91
+                        8130787194</span></a>&nbsp;
+                <a href="mailto:info@bhoomitechzone.in" class="text-decoration-none">
+                    <i class="fas fa-envelope"></i><span class="tx text-black">
+                        &nbsp;info@bhoomitechzone.in</span>
+                </a>
+            </div>
+            <div class="col-md-3 text-end social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="solution.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact-Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfoli.html">Portfolio</a>
+                    </li>
+                </ul>
+                <a href="contact.html" class="get-in-touch-btn text-decoration-none">Get In Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Slider -->
+    <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" style="border-bottom-right-radius: 15%; border-bottom-left-radius: 15%;" >
+            <!-- Slide 1 -->
+            <div class="carousel-item active hero-section " data-bs-interval="2000"style="background-image: url('/image/marvin-meyer-SYTO3xs06fU-unsplash.jpg')">
+            <div class="overlay"></div>
+                <div class=" carousel-caption container text-center">
+                    <h1 class="hero-title lobster-regular"><a class="text-decoration-none bh" href="https://www.bhoomitechzone.in/">Bhoomi TechZone PVT LTD</a></h1>
+                    <p class="hero-text">Bhoomi Techzone is a premier IT services company based in India, dedicated to providing top-notch technology solutions that drive business growth and innovation. </p>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: url('/image/michal-kubalczyk-WecngmAT-KY-unsplash.jpg');">
+                <div class="overlay"></div>
+                <div class="carousel-caption container text-center">
+                    <h1 class="hero-title">Innovative IT Solutions</h1>
+                    <p class="hero-text">Our team of creative designers crafts custom websites tailored to reflect your brand's identity and meet your specific business needs. </p>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/image/firmbee-com-DfMMzzi3rmg-unsplash.jpg');">
+                <div class="overlay"></div>
+                <div class=" carousel-caption container text-center">
+                    <h1 class="hero-title">Digital Marketing</h1>
+                    <p class="hero-text">Harness the power of digital marketing to reach your target audience and achieve your business goals. Our digital marketing services include comprehensive strategies that encompass SEO, social media, content marketing, and more.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation Arrows -->
+        <button class="nav-arrow left carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="nav-arrow right carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-title" data-aos="fade-up">Smart Services</div>
+            <h2 class="main-heading" data-aos="fade-up" data-aos-delay="200">BhoomiTechZone Provide All Kind Of Tech Solutions</h2>
+            <p class="section-description" data-aos="fade-up" data-aos-delay="300">
+                BhoomiTechZone delivers comprehensive tech solutions tailored to meet diverse business needs.
+                From software development to IT consulting, we ensure innovation and excellence.
+            </p>
+
+            <!-- Services Cards -->
+            <div class="row">
+                <!-- Visual Design -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <img src="/image/s1.png" alt="Visual Design" class="service-icon">
+                        <h3 class="service-title">Visual Design</h3>
+                        <p class="service-description">
+                            At BhoomiTechZone Software Solutions, we believe design isn't just about making things look pretty it's about making them work beautifully.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Development -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card">
+                        <img src="/image/s2.png" alt="Development" class="service-icon">
+                        <h3 class="service-title">Development</h3>
+                        <p class="service-description">
+                            We develop websites, apps, and dashboards that are fast, smooth, and user-friendly. At BhoomiTechZone Software Solutions, we focus on reliable development.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- QA Testing -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <img src="/image/s3.png" alt="QA Testing" class="service-icon">
+                        <h3 class="service-title">QA Testing</h3>
+                        <p class="service-description">
+                            At BhoomiTechZone, our QA testing ensures every website, app, and dashboard runs smoothly, fast, and error-free for all users.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Visual Design -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <img src="/image/digital.png" alt="Visual Design" class="service-icon">
+                        <h3 class="service-title">Digital Marketing</h3>
+                        <p class="service-description">
+                            At BhoomiTechZone, we help businesses get noticed online with smart digital marketing strategies. From SEO and social media to ads and branding, we make sure your business reaches the right people and grows faster.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Development -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card">
+                        <img src="/image/ecommerce.png" alt="Development" class="service-icon">
+                        <h3 class="service-title">E-Commerce Applications</h3>
+                        <p class="service-description">
+                            At BhoomiTechZone Pvt. Ltd., we build robust, scalable E-Commerce Applications with secure payments, intuitive UI/UX, efficient inventory management for a seamless shopping experience.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- QA Testing -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <img src="/image/nfc.png" alt="QA Testing" class="service-icon">
+                        <h3 class="service-title">NFC Cards</h3>
+                        <p class="service-description">
+                            At BhoomiTechZone, we provide smart NFC cards for quick, secure, and contactless transactions. Whether for payments, access control, or digital sharing, our NFC solutions make life faster and easier.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-image">
+                        <img src="/image/bhoo.webp" alt="About">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-text">
+                        <div class="section-title">About Us</div>
+                        <h3>Transforming Business Through Technology</h3>
+                        <p>
+                            BhoomiTechZone Pvt. Ltd. is a leading IT service provider with a focus on delivering innovative and scalable solutions to businesses of all sizes. Our team of experts combines creativity with technical expertise to help organizations achieve their digital transformation goals.
+                        </p>
+                        <p>
+                            With years of experience in the industry, we understand the challenges businesses face in today's digital landscape and provide tailored solutions to overcome them.
+                        </p>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i> Software Development
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i> Mobile App Development
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i> Website Development
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i> Website Design
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i> Social Medial Marketing
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i> 
+                            SEO Optimization
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i> Digital Marketing Services
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="solution.html" class="custom-button">Know More About Our Projects</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="quality-section">
+        <div class="container">
+            <h1>Quality And Innovation Drive Us.</h1>
+            <p>Our streamlined working process combines thorough consultation, agile development, and rigorous QA testing to deliver tailored tech solutions that meet your unique business needs.</p>
+            
+            <div class="process-flow">
+                <div class="process-item">
+                    <img src="image/client.png" alt="Client">
+                </div>
+                
+                <div class="arrow-container">
+                    <div class="arrow-line"></div>
+                    <div class="arrow-icon">
+                        <i class="fas fa-arrow-right text-white"></i>
+                    </div>
+                </div>
+                
+                <div class="process-item">
+                    <img src="/image/p3.png" alt="Development">
+                </div>
+                
+                <div class="arrow-container">
+                    <div class="arrow-line"></div>
+                    <div class="arrow-icon">
+                        <i class="fas fa-arrow-right text-white"></i>
+                    </div>
+                </div>
+                
+                <div class="process-item">
+                    <img src="/image/p2.png" alt="Testing">
+                </div>
+                
+                <div class="arrow-container">
+                    <div class="arrow-line"></div>
+                    <div class="arrow-icon">
+                        <i class="fas fa-arrow-right text-white"></i>
+                    </div>
+                </div>
+                
+                <div class="process-item">
+                    <img src="/image/p4.png" alt="Handover">
+                </div>
+            </div>
+            
+            <div class="step-content">
+                <div class="step">
+                    <h3>Client Approach</h3>
+                    <p>Clients of BhoomiTechZone with their ideas, and we listen, understand, and discuss their project needs. We ensure they feel well-received.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Development</h3>
+                    <p>After receiving the project from Client, we develop it as per the client's needs, ensuring it looks great, works smoothly, and delivers the best experience.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Testing</h3>
+                    <p>Once development is complete, we test everything carefully to ensure the project is error-free, efficient, and ready for use before handover.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Project Handover</h3>
+                    <p>After thorough testing, we hand over the project fully polished and ready to use, ensuring it meets the client's expectations. Our goal is a smooth delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+ 
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <!-- Stat 1 -->
+                <div class="col-md-3 col-6" data-aos="fade-up">
+                    <div class="stats-item">
+                        <div class="stats-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <div class="stats-count count" data-count="500">500+</div>
+                        <div class="stats-title">Happy Clients</div>
+                    </div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-item">
+                        <div class="stats-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stats-count count" data-count="750">750+</div>
+                        <div class="stats-title">Projects Completed</div>
+                    </div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stats-item">
+                        <div class="stats-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stats-count count" data-count="15">5+</div>
+                        <div class="stats-title">Years of Experience</div>
+                    </div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="stats-item">
+                        <div class="stats-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stats-count count" data-count="25">25+</div>
+                        <div class="stats-title">Awards Won</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- <section class="contact-section">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up">Contact Us</div>
+            <h2 class="main-heading text-center" data-aos="fade-up" data-aos-delay="200">Get In Touch With Us</h2>
+            <p class="section-description text-center" data-aos="fade-up" data-aos-delay="300">
+                Have a project in mind or want to learn more about our services? Reach out to us, and our team will get back to you as soon as possible.
+            </p>
+
+            <div class="row">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    
+                    <div class="contact-info-box">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Our Location</h5>
+                            <p>123 Main Street, Rajahmundry, Andhra Pradesh, India</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-box">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Phone Number</h5>
+                            <p>+91 - 77998 22811</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-box">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Email Address</h5>
+                            <p>info@godavariwave.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="500">
+                   
+                    <div class="contact-form">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" placeholder="Your Email">
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Subject">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up">Testimonials</div>
+            <h2 class="main-heading text-center" data-aos="fade-up" data-aos-delay="200">What Our Clients Say</h2>
+            <p class="section-description text-center" data-aos="fade-up" data-aos-delay="300">
+                Don't just take our word for it - see what our clients have to say about our services and solutions.
+                We take pride in our client satisfaction and long-term relationships.
+            </p>
+
+            <div class="row">
+            
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left me-2 text-primary"></i>
+                            Godavari Wave Technologies helped us develop a custom CRM system that perfectly fits our business needs. Their team was professional, responsive, and delivered the project on time and within budget.
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/image/client.png" alt="Client 1">
+                            <div class="author-info">
+                                <h5>John Smith</h5>
+                                <p>CEO, ABC Company</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left me-2 text-primary"></i>
+                            We've been working with Godavari Wave for our digital marketing needs, and the results have been outstanding. Their strategic approach and creativity have helped us increase our online visibility significantly.
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/image/client.png" alt="Client 2">
+                            <div class="author-info">
+                                <h5>Sarah Johnson</h5>
+                                <p>Marketing Director, XYZ Corp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left me-2 text-primary"></i>
+                            The mobile app developed by Godavari Wave has been a game-changer for our business. It's user-friendly, feature-rich, and has received excellent feedback from our customers.
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/image/client.png" alt="Client 3">
+                            <div class="author-info">
+                                <h5>Michael Brown</h5>
+                                <p>Founder, Tech Innovations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-about">
+                        <img src="/image/6786f6bb-39fb-467c-ac73-2af12742e326-removebg-preview (2).png" style="width: 200px;" alt="" class="footer-logo">
+                        <p>
+                            BhoomiTechZone Pvt. Ltd. is a leading provider of innovative digital solutions and IT services, helping businesses transform and grow in the digital age.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solution.html">Services</a></li>
+                        <li><a href="portfoli.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <h4>Our Services</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="solution.html">Web Development</a></li>
+                        <li><a href="solution.html">Mobile App Development</a></li>
+                        <li><a href="solution.html">UI/UX Design</a></li>
+                        <li><a href="solution.html">Digital Marketing</a></li>
+                        <li><a href="solution.html">E-Commerce Applications</a></li>
+                        <li><a href="solution.html">WEbsite Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4>Contact Info</h4>
+                    <ul class="list-unstyled footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>A-43,Sector-63,Noida(201301) U.P India</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 8130787194
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@bhoomitechzone.in</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Saturday: 9:00 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                   
+                </div>
+                <div class="footer-bottom text-center">
+                    <div class="container">
+                        <p>&copy; 2025 BhoomiTechZone Pvt. Ltd. All Rights Reserved.</p>
+                    </div>
+            </div>
+           
+        </div>
+       
+       
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="#" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    let cards = document.querySelectorAll(".service-card");
+
+    cards.forEach(card => {
+        card.addEventListener("click", function () {
+            // Remove 'clicked' class from other cards
+            cards.forEach(c => c.classList.remove("clicked"));
+            // Add 'clicked' class to the clicked card
+            this.classList.add("clicked");
+        });
+    });
+});
+
+</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    var heroSlider = document.getElementById("heroSlider");
+    var carousel = new bootstrap.Carousel(heroSlider, {
+        interval: 2000, // Set slide duration to 5 seconds
+        ride: "carousel"
+    });
+});
+    </script>
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Counter Animation for Stats
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.count');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-count');
+                    const count = +counter.innerText.replace('+', '');
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc) + '+';
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target + '+';
+                    }
+                };
+                updateCount();
+            });
+        });
+
+        // Portfolio Filters
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Implement filtering functionality here
+                    // This would typically involve showing/hiding portfolio items
+                    // based on their category
+                });
+            });
+        });
+    </script>
+</body>
+</html>

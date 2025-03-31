@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BhoomiTechZone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+     <link href="style.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Lobster&family=Mea+Culpa&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spicy+Rice&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+   
+    <style>
+        :root {
+            --primary-color: #050f6b;
+            --secondary-color: #f8b133;
+        }
+    
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/api/placeholder/1200/400") no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb-item, .breadcrumb-item a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--secondary-color);
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .gallery-filter {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .filter-button {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .filter-button:hover,
+        .filter-button.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .gallery-item {
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 250px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 107, 59, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-icon {
+            color: white;
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-icon {
+            transform: rotate(360deg);
+        }
+        
+       
+        
+        /* Animation for gallery items */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.6s ease-in-out forwards;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .gallery-item {
+                height: 220px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 30px;
+            }
+            
+            .filter-button {
+                margin-bottom: 10px;
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Top Bar with Logo, Contact Info, and Social Media -->
+     <div class="container top-bar">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <a href="index.html" class="navbar-brand">
+                    <img src="image/logo-removebg-preview (3).webp" alt="BhoomiTech Zone Pvt. Ltd." class="logo-img">
+                </a>
+            </div>
+            <div class="col-md-5 text-end contact-info">
+                <a href="tel:+91
+                8130787194" class="text-decoration-none">
+                    <i class="fas fa-phone-alt flip-horizontal "></i> <span class="tx text-black"> +91
+                        8130787194</span></a>&nbsp;
+                <a href="mailto:info@bhoomitechzone.in" class="text-decoration-none">
+                    <i class="fas fa-envelope"></i><span class="tx text-black">
+                        &nbsp;info@bhoomitechzone.in</span>
+                </a>
+            </div>
+            <div class="col-md-3 text-end social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact-Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfoli.html">Portfolio</a>
+                    </li>
+                </ul>
+                <a href="contact.html" class="get-in-touch-btn text-decoration-none">Get In Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="header-section">
+        <!-- Animated shapes -->
+        <div class="shape cross"></div>
+        <div class="shape square"></div>
+        <div class="shape circle-red"></div>
+        <div class="shape circle-blue"></div>
+        
+        <!-- Content -->
+        <h1>Gallery</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="separator">■</span>
+            <span class="current-page">Gallery</span>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Beautiful Moments</h2>
+                <p>Explore our collection of breathtaking views and memorable experiences</p>
+            </div>
+
+            <!-- Gallery Filters -->
+            <div class="gallery-filter">
+                <button class="filter-button active" data-filter="all">All</button>
+                <button class="filter-button" data-filter="nature">Nature</button>
+                <button class="filter-button" data-filter="resort">Resort</button>
+                <button class="filter-button" data-filter="activities">Activities</button>
+                <button class="filter-button" data-filter="food">Food & Dining</button>
+            </div>
+
+            <!-- Gallery Items -->
+            <div class="row gallery-container">
+                <!-- Nature Category -->
+                <div class="col-lg-4 col-md-6 gallery-grid-item nature">
+                    <div class="gallery-item">
+                        <img src="/image/ga.jpg" alt="Nature View">
+                        <a href="/api/placeholder/1200/800" data-lightbox="gallery" data-title="Beautiful River View">
+                            <div class="gallery-overlay">
+                                <div class="gallery-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 gallery-grid-item nature">
+                    <div class="gallery-item">
+                        <img src="/image/g2.jpg" alt="Nature View">
+                        <a href="/api/placeholder/1200/800" data-lightbox="gallery" data-title="Sunset at Godavari">
+                            <div class="gallery-overlay">
+                                <div class="gallery-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Resort Category -->
+                <div class="col-lg-4 col-md-6 gallery-grid-item resort">
+                    <div class="gallery-item">
+                        <img src="/image/g3.avif" alt="Resort View">
+                        <a href="/api/placeholder/1200/800" data-lightbox="gallery" data-title="Luxury Accommodation">
+                            <div class="gallery-overlay">
+                                <div class="gallery-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 gallery-grid-item resort">
+                    <div class="gallery-item">
+                        <img src="/image/g4.avif" alt="Resort View">
+                        <a href="/api/placeholder/1200/800" data-lightbox="gallery" data-title="Pool Side Relaxation">
+                            <div class="gallery-overlay">
+                                <div class="gallery-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Activities Category -->
+                <div class="col-lg-4 col-md-6 gallery-grid-item activities">
+                    <div class="gallery-item">
+                        <img src="/image/ga.jpg" alt="Activity View">
+                        <a href="/api/placeholder/1200/800" data-lightbox="gallery" data-title="Water Sports">
+                            <div class="gallery-overlay">
+                                <div class="gallery-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 gallery-grid-item activities">
+                    <div class="gallery-item">
+                        <img src="/image/g2.jpg" alt="Activity View">
+                        <a href="/api/placeholder/1200/800" data-lightbox="gallery" data-title="Hiking Adventure">
+                            <div class="gallery-overlay">
+                                <div class="gallery-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Food Category -->
+                <div class="col-lg-4 col-md-6 gallery-grid-item food">
+                    <div class="gallery-item">
+                        <img src="/image/g3.avif" alt="Food View">
+                        <a href="/api/placeholder/1200/800" data-lightbox="gallery" data-title="Gourmet Dining">
+                            <div class="gallery-overlay">
+                                <div class="gallery-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 gallery-grid-item food">
+                    <div class="gallery-item">
+                        <img src="/image/g4.avif" alt="Food View">
+                        <a href="/api/placeholder/1200/800" data-lightbox="gallery" data-title="Local Cuisine">
+                            <div class="gallery-overlay">
+                                <div class="gallery-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 gallery-grid-item nature">
+                    <div class="gallery-item">
+                        <img src="/image/ga.jpg" alt="Nature View">
+                        <a href="/api/placeholder/1200/800" data-lightbox="gallery" data-title="Mountain View">
+                            <div class="gallery-overlay">
+                                <div class="gallery-icon">
+                                    <i class="fas fa-search-plus"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-about">
+                        <img src="/image/6786f6bb-39fb-467c-ac73-2af12742e326-removebg-preview (2).png" style="width: 200px;" alt="" class="footer-logo">
+                        <p>
+                            BhoomiTechZone Pvt. Ltd. is a leading provider of innovative digital solutions and IT services, helping businesses transform and grow in the digital age.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solution.html">Services</a></li>
+                        <li><a href="portfoli.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <h4>Our Services</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="solution.html">Web Development</a></li>
+                        <li><a href="solution.html">Mobile App Development</a></li>
+                        <li><a href="solution.html">UI/UX Design</a></li>
+                        <li><a href="solution.html">Digital Marketing</a></li>
+                        <li><a href="solution.html">E-Commerce Applications</a></li>
+                        <li><a href="solution.html">WEbsite Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4>Contact Info</h4>
+                    <ul class="list-unstyled footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>A-43,Sector-63,Noida(201301) U.P India</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 8130787194
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@bhoomitechzone.in</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Saturday: 9:00 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                   
+                </div>
+                <div class="footer-bottom text-center">
+                    <div class="container">
+                        <p>&copy; 2025 BhoomiTechZone Pvt. Ltd. All Rights Reserved.</p>
+                    </div>
+            </div>
+           
+        </div>
+       
+       
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Isotope for filtering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Initialize Lightbox
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'disableScrolling': true
+            });
+            
+            // Initialize Isotope for filtering
+            var $grid = $('.gallery-container').isotope({
+                itemSelector: '.gallery-grid-item',
+                layoutMode: 'fitRows'
+            });
+            
+            // Filter items on button click
+            $('.filter-button').on('click', function() {
+                var filterValue = $(this).attr('data-filter');
+                
+                $('.filter-button').removeClass('active');
+                $(this).addClass('active');
+                
+                if (filterValue === 'all') {
+                    $grid.isotope({ filter: '*' });
+                } else {
+                    $grid.isotope({ filter: '.' + filterValue });
+                }
+            });
+            
+            // Animation when scrolling
+            $(window).on('scroll', function() {
+                $('.gallery-item').each(function() {
+                    if ($(this).offset().top < $(window).scrollTop() + $(window).height() - 100) {
+                        $(this).addClass('animate');
+                    }
+                });
+            });
+            
+            // Trigger scroll once on page load
+            $(window).trigger('scroll');
+        });
+    </script>
+</body>
+</html>

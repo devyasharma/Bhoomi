@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Animated Projects</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #10b981;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --accent-color: #f43f5e;
+            --gray-color: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        .projects-section {
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        /* Background elements */
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(50px);
+            opacity: 0.5;
+        }
+        
+        .bg-element-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, #6366f1, #818cf8);
+            top: 10%;
+            left: -200px;
+            animation: float 15s ease-in-out infinite alternate;
+        }
+        
+        .bg-element-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, #10b981, #34d399);
+            bottom: 10%;
+            right: -150px;
+            animation: float 12s ease-in-out infinite alternate-reverse;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-50px) rotate(10deg);
+            }
+        }
+        
+        /* Section header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .section-description {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--gray-color);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        /* Project filters */
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: white;
+            border: none;
+            border-radius: 12px;
+            color: var(--gray-color);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .filter-btn:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+        
+        /* Project grid */
+        .projects-grid {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-image {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 25px;
+            position: relative;
+        }
+        
+        .project-tag {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 15px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(244, 63, 94, 0.2);
+        }
+        
+        .project-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .project-description {
+            color: var(--gray-color);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .tech-stack {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .tech-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+        
+        .project-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            transform: translateZ(20px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
+        }
+        
+        .project-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateZ(30px) scale(1.1);
+        }
+        
+        /* Featured project */
+        .featured-project {
+            margin-bottom: 60px;
+        }
+        
+        .featured-project .project-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+        
+        .featured-project .project-image {
+            height: 400px;
+        }
+        
+        .featured-project .project-content {
+            padding: 35px;
+        }
+        
+        .featured-project .project-tag {
+            background: var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.2);
+        }
+        
+        .featured-project .project-title {
+            font-size: 28px;
+        }
+        
+        .featured-project .project-description {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .featured-project .tech-stack {
+            gap: 12px;
+        }
+        
+        .featured-project .tech-icon {
+            width: 35px;
+            height: 35px;
+            font-size: 16px;
+        }
+        
+        .featured-project .project-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+        }
+        
+        /* Project hover effects */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* View all projects button */
+        .view-all-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .view-all-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .view-all-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+        }
+        
+        .view-all-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            z-index: -1;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+        
+        .view-all-btn:hover::before {
+            opacity: 1;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .projects-section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .featured-project .project-image {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .featured-project .project-card {
+                margin-bottom: 40px;
+            }
+            
+            .featured-project .project-image {
+                height: 300px;
+            }
+            
+            .featured-project .project-content {
+                padding: 25px;
+            }
+            
+            .featured-project .project-title {
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .projects-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .featured-project .project-image {
+                height: 250px;
+            }
+        }
+        :root {
+            --primary-color: #3a36db;
+            --secondary-color: #ff6b6b;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        .app-dev-section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        /* Animated background shapes */
+        .app-dev-section::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(58, 54, 219, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            z-index: -1;
+        }
+        
+        .app-dev-section::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 107, 107, 0.05);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            z-index: -1;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        
+        .main-heading {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .main-heading::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            line-height: 1.7;
+        }
+        
+        /* App Feature Item Styles */
+        .app-feature-item {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+        }
+        
+        .app-feature-item::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .app-feature-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(58, 54, 219, 0.15);
+        }
+        
+        .app-feature-item:hover::before {
+            opacity: 1;
+        }
+        
+        .app-feature-item:hover h4,
+        .app-feature-item:hover p {
+            color: white;
+        }
+        
+        .app-feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(58, 54, 219, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .app-feature-item:hover .app-feature-icon {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        .app-feature-item h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+        
+        .app-feature-item p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.7;
+            transition: var(--transition);
+        }
+        
+        /* App Image Styles */
+        .app-image {
+            position: relative;
+            padding: 15px;
+            perspective: 1000px;
+        }
+        
+        .app-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .app-image img:hover {
+            transform: scale(1.05) rotateY(10deg);
+            box-shadow: 0 20px 40px rgba(58, 54, 219, 0.2);
+        }
+        
+        /* Custom cursor styles */
+        .custom-cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+            display: none;
+        }
+        
+        .custom-cursor.active {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(58, 54, 219, 0.1);
+            border-width: 3px;
+        }
+        
+        /* Shine effect for images */
+        .app-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+            transform: skewX(-25deg);
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+        
+        .app-image:hover::before {
+            animation: shine 1.5s;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -75%;
+                opacity: 1;
+            }
+            100% {
+                left: 150%;
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .app-dev-section {
+                padding: 80px 0;
+            }
+            
+            .main-heading {
+                font-size: 36px;
+            }
+            
+            .app-image {
+                margin: 30px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .app-dev-section {
+                padding: 60px 0;
+            }
+            
+            .main-heading {
+                font-size: 30px;
+            }
+            
+            .section-description {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+            
+            .app-feature-item {
+                padding: 25px 20px;
+            }
+        }
+        
+        /* Tilt effect with vanilla JS (fallback if no jQuery) */
+        .js-tilt {
+            transition: transform 0.1s ease;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+    </style>
+</head>
+<body>
+    <section class="projects-section">
+        <!-- Background elements -->
+        <div class="bg-element bg-element-1"></div>
+        <div class="bg-element bg-element-2"></div>
+        
+        <div class="container">
+            <!-- Section header -->
+            <div class="section-header">
+                <span class="section-tag animate-fadeInUp">Our Work</span>
+                <h2 class="section-title animate-fadeInUp delay-100">Featured Projects</h2>
+                <p class="section-description animate-fadeInUp delay-200">Discover our innovative solutions and creative projects that showcase our expertise in delivering exceptional digital experiences.</p>
+            </div>
+            
+            <!-- Project filters -->
+            <div class="projects-filter animate-fadeInUp delay-300">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="ui">UI/UX</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            </div>
+            
+            <!-- Featured project -->
+            <div class="featured-project animate-fadeInUp delay-400">
+                <div class="project-card">
+                    <img src="/image/christopher-gower-m_HRfLhgABo-unsplash (1).jpg" alt="Featured Project" class="project-image">
+                    <div class="project-content">
+                        <span class="project-tag">Featured</span>
+                        <h3 class="project-title">Enterprise Dashboard Platform</h3>
+                        <p class="project-description">A comprehensive analytics dashboard that helps businesses visualize key metrics and make data-driven decisions. Built with scalability in mind, this platform integrates with multiple data sources and provides real-time insights.</p>
+                        <div class="project-meta">
+                            <div class="tech-stack">
+                                <div class="tech-icon"><i class="fab fa-react"></i></div>
+                                <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                                <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                <div class="tech-icon"><i class="fab fa-aws"></i></div>
+                            </div>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projects grid -->
+            <div class="projects-grid">
+                <div class="row">
+                    <!-- Project 1 -->
+                    <div class="col-lg-4 col-md-6 project-item web animate-fadeInUp">
+                        <div class="project-card">
+                            <img src="/api/placeholder/600/400" alt="Project 1" class="project-image">
+                            <div class="project-content">
+                                <span class="project-tag">Web App</span>
+                                <h3 class="project-title">Health & Fitness Tracker</h3>
+                                <p class="project-description">A web application that helps users track their fitness goals, nutrition, and overall wellness journey.</p>
+                                <div class="project-meta">
+                                    <div class="tech-stack">
+                                        <div class="tech-icon"><i class="fab fa-angular"></i></div>
+                                        <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                                        <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="col-lg-4 col-md-6 project-item mobile animate-fadeInUp delay-100">
+                        <div class="project-card">
+                            <img src="/api/placeholder/600/400" alt="Project 2" class="project-image">
+                            <div class="project-content">
+                                <span class="project-tag">Mobile App</span>
+                                <h3 class="project-title">Travel Companion</h3>
+                                <p class="project-description">A mobile application that serves as a digital travel guide with personalized recommendations and planning tools.</p>
+                                <div class="project-meta">
+                                    <div class="tech-stack">
+                                        <div class="tech-icon"><i class="fab fa-react"></i></div>
+                                        <div class="tech-icon"><i class="fab fa-android"></i></div>
+                                        <div class="tech-icon"><i class="fab fa-apple"></i></div>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="col-lg-4 col-md-6 project-item ecommerce animate-fadeInUp delay-200">
+                        <div class="project-card">
+                            <img src="/api/placeholder/600/400" alt="Project 3" class="project-image">
+                            <div class="project-content">
+                                <span class="project-tag">E-commerce</span>
+                                <h3 class="project-title">Luxury Boutique Store</h3>
+                                <p class="project-description">An elegant e-commerce platform for a luxury fashion brand with a focus on premium user experience.</p>
+                                <div class="project-meta">
+                                    <div class="tech-stack">
+                                        <div class="tech-icon"><i class="fab fa-shopify"></i></div>
+                                        <div class="tech-icon"><i class="fab fa-js"></i></div>
+                                        <div class="tech-icon"><i class="fab fa-sass"></i></div>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="col-lg-4 col-md-6 project-item ui animate-fadeInUp">
+                        <div class="project-card">
+                            <img src="/api/placeholder/600/400" alt="Project 4" class="project-image">
+                            <div class="project-content">
+                                <span class="project-tag">UI/UX</span>
+                                <h3 class="project-title">Banking App Redesign</h3>
+                                <p class="project-description">A complete redesign of a banking application focusing on simplicity, accessibility, and enhanced user experience.</p>
+                                <div class="project-meta">
+                                    <div class="tech-stack">
+                                        <div class="tech-icon"><i class="fab fa-figma"></i></div>
+                                        <div class="tech-icon"><i class="fab fa-sketch"></i></div>
+                                        <div class="tech-icon"><i class="fas fa-mobile-alt"></i></div>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="col-lg-4 col-md-6 project-item web animate-fadeInUp delay-100">
+                        <div class="project-card">
+                            <img src="/api/placeholder/600/400" alt="Project 5" class="project-image">
+                            <div class="project-content">
+                                <span class="project-tag">Web App</span>
+                                <h3 class="project-title">Learning Management System</h3>
+                                <p class="project-description">A comprehensive platform for educational institutions to manage courses, students, and learning materials.</p>
+                                <div class="project-meta">
+                                    <div class="tech-stack">
+                                        <div class="tech-icon"><i class="fab fa-vuejs"></i></div>
+                                        <div class="tech-icon"><i class="fab fa-laravel"></i></div>
+                                        <div class="tech-icon"><i class="fas fa-database"></i></div>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="col-lg-4 col-md-6 project-item mobile animate-fadeInUp delay-200">
+                        <div class="project-card">
+                            <img src="/api/placeholder/600/400" alt="Project 6" class="project-image">
+                            <div class="project-content">
+                                <span class="project-tag">Mobile App</span>
+                                <h3 class="project-title">Food Delivery Service</h3>
+                                <p class="project-description">A mobile app that connects users with local restaurants and provides a seamless food ordering experience.</p>
+                                <div class="project-meta">
+                                    <div class="tech-stack">
+                                        <div class="tech-icon"><i class="fab fa-react"></i></div>
+                                        <div class="tech-icon"><i class="fab fa-android"></i></div>
+                                        <div class="tech-icon"><i class="fab fa-apple"></i></div>
+                                    </div>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View all projects button -->
+            <div class="view-all-container animate-fadeInUp delay-500">
+                <a href="#" class="view-all-btn">View All Projects <i class="fas fa-long-arrow-alt-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+    <div class="custom-cursor"></div>
+    
+    <section class="app-dev-section">
+        <div class="container">
+            <div class="section-title text-center" data-aos="fade-up">Mobile Solutions</div>
+            <h2 class="main-heading text-center" data-aos="fade-up" data-aos-delay="200">Mobile App Development</h2>
+            <p class="section-description text-center" data-aos="fade-up" data-aos-delay="300">
+                We develop innovative mobile applications for iOS and Android platforms that help businesses
+                connect with their customers on-the-go and optimize their operations.
+            </p>
+            
+            <div class="row">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="app-feature-item js-tilt" data-tilt data-tilt-max="10">
+                        <div class="app-feature-icon">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <h4>iOS Development</h4>
+                        <p>
+                            We create native iOS applications that provide exceptional user experience on iPhone and iPad devices. Our apps are optimized for performance and adhere to Apple's design guidelines.
+                        </p>
+                    </div>
+                    
+                    <div class="app-feature-item js-tilt" data-tilt data-tilt-max="10">
+                        <div class="app-feature-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <h4>Android Development</h4>
+                        <p>
+                            Our Android development team builds high-quality applications that work seamlessly across the diverse Android ecosystem, from smartphones to tablets.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="app-image">
+                        <img src="/api/placeholder/400/250" class="js-tilt" data-tilt data-tilt-max="10" alt="Mobile App Development">
+                        <img class="mt-3 js-tilt" data-tilt data-tilt-max="10" src="/api/placeholder/400/250" alt="Mobile App Development">
+                        <img class="mt-3 js-tilt" data-tilt data-tilt-max="10" src="/api/placeholder/400/250" alt="Mobile App Development">
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="app-feature-item js-tilt" data-tilt data-tilt-max="10">
+                        <div class="app-feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Cross-Platform Solutions</h4>
+                        <p>
+                            We leverage frameworks like React Native and Flutter to develop cross-platform applications that run on both iOS and Android, saving time and resources.
+                        </p>
+                    </div>
+                    
+                    <div class="app-feature-item js-tilt" data-tilt data-tilt-max="10">
+                        <div class="app-feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>App Maintenance & Support</h4>
+                        <p>
+                            We provide ongoing maintenance and support services to ensure your app remains up-to-date with the latest OS versions and operates smoothly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Isotope for filtering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Tilt.js for 3D hover effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+                mirror: false
+            });
+            
+            // Initialize tilt effect
+            $('.js-tilt').tilt({
+                maxTilt: 5,
+                perspective: 1000,
+                speed: 300,
+                scale: 1.03,
+                glare: true,
+                maxGlare: 0.1
+            });
+            
+            // Custom cursor logic
+            const cursor = $('.custom-cursor');
+            
+            // Only enable custom cursor on desktop
+            if (window.innerWidth > 992) {
+                cursor.show();
+                
+                $(document).on('mousemove', function(e) {
+                    cursor.css({
+                        'left': e.clientX,
+                        'top': e.clientY
+                    });
+                });
+                
+                // Add active class on hoverable elements
+                $('.app-feature-item, .app-image img').on('mouseenter', function() {
+                    cursor.addClass('active');
+                }).on('mouseleave', function() {
+                    cursor.removeClass('active');
+                });
+            }
+            
+            // Animate card icons on hover
+            $('.app-feature-item').hover(
+                function() {
+                    $(this).find('.app-feature-icon i').addClass('fa-beat');
+                },
+                function() {
+                    $(this).find('.app-feature-icon i').removeClass('fa-beat');
+                }
+            );
+            
+            // Add smooth shine effect on image hover
+            $('.app-image').each(function() {
+                $(this).on('mouseenter', function() {
+                    $(this).addClass('shine-effect');
+                    setTimeout(() => {
+                        $(this).removeClass('shine-effect');
+                    }, 1000);
+                });
+            });
+        });
+        
+        // Fallback tilt effect for browsers without jQuery
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof(jQuery) === 'undefined' || typeof($.fn.tilt) === 'undefined') {
+                const tiltElements = document.querySelectorAll('.js-tilt');
+                
+                tiltElements.forEach(element => {
+                    element.addEventListener('mousemove', function(e) {
+                        const rect = this.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        
+                        const tiltX = (x - centerX) / centerX * 5;
+                        const tiltY = (y - centerY) / centerY * 5;
+                        
+                        this.style.transform = `perspective(1000px) rotateX(${-tiltY}deg) rotateY(${tiltX}deg) scale3d(1.03, 1.03, 1.03)`;
+                    });
+                    
+                    element.addEventListener('mouseleave', function() {
+                        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                    });
+                });
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Initialize Isotope
+            var $grid = $('.projects-grid .row').isotope({
+                itemSelector: '.project-item',
+                layoutMode: 'fitRows'
+            });
+            
+            // Filter projects when clicking filter buttons
+            $('.filter-btn').on('click', function() {
+                var filterValue = $(this).attr('data-filter');
+                
+                // Update active class
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                // Filter items
+                if(filterValue === 'all') {
+                    $grid.isotope({ filter: '*' });
+                } else {
+                    $grid.isotope({ filter: filterValue });
+                }
+            });
+            
+            // 3D tilt effect for project cards
+            $('.project-card').on('mousemove', function(e) {
+                const card = $(this);
+                const cardWidth = card.width();
+                const cardHeight = card.height();
+                const centerX = card.offset().left + cardWidth / 2;
+                const centerY = card.offset().top + cardHeight / 2;
+                const mouseX = e.pageX - centerX;
+                const mouseY = e.pageY - centerY;
+                const rotateY = (mouseX / (cardWidth / 2)) * 5;
+                const rotateX = -((mouseY / (cardHeight / 2)) * 5);
+                
+                card.css('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`);
+            });
+            
+            $('.project-card').on('mouseleave', function() {
+                $(this).css('transform', 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)');
+                setTimeout(() => {
+                    $(this).css('transition', 'all 0.5s ease');
+                }, 100);
+            });
+            
+            $('.project-card').on('mouseenter', function() {
+                $(this).css('transition', 'all 0.1s ease');
+            });
+            
+            // Handle animations on scroll
+            $(window).on('scroll', function() {
+                $('.animate-fadeInUp').each(function() {
+                    const elementTop = $(this).offset().top;
+                    const viewportBottom = $(window).scrollTop() + $(window).height();
+                    
+                    if (viewportBottom > elementTop + 100) {
+                        $(this).css('opacity', '1');
+                    }
+                });
+            });
+            
+            // Trigger scroll event on page load
+            $(window).trigger('scroll');
+        });
+    </script>
+</body>
+</html>

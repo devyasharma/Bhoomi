@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Godavari Wave</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .contact-section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .contact-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-container {
+            background-color: #2962ff;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .icon {
+            color: white;
+            font-size: 24px;
+        }
+        
+        .contact-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #263238;
+        }
+        
+        .contact-info {
+            margin-bottom: 15px;
+            color: #546e7a;
+        }
+        
+        .contact-info a {
+            color: #2962ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #0039cb;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-card {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+          
+        .section-spacing {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .contact-map-section {
+            position: relative;
+        }
+        
+        .combined-container {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Contact Form Styles */
+        .contact-form {
+            padding: 40px;
+            height: 100%;
+        }
+        
+        .form-control {
+            height: 55px;
+            padding: 10px 20px;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Map Styles */
+        .map-container {
+            height: 100%;
+            min-height: 450px;
+            overflow: hidden;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            border: 0;
+        }
+        
+        /* Animation */
+        .animated {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .animated.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .section-spacing {
+                padding: 60px 0;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .map-container {
+                border-radius: 0 0 10px 10px;
+                min-height: 350px;
+            }
+            
+            .map-container iframe {
+                min-height: 350px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .combined-container {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .map-container {
+                min-height: 300px;
+            }
+            
+            .map-container iframe {
+                min-height: 300px;
+            }
+        }
+    
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+     <!-- Top Bar with Logo, Contact Info, and Social Media -->
+     <div class="container top-bar">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <a href="index.html" class="navbar-brand">
+                    <img src="image/logo-removebg-preview (3).webp" alt="BhoomiTech Zone Pvt. Ltd." class="logo-img">
+                </a>
+            </div>
+            <div class="col-md-5 text-end contact-info">
+                <a href="tel:+91
+                8130787194" class="text-decoration-none">
+                    <i class="fas fa-phone-alt flip-horizontal "></i> <span class="tx text-black"> +91
+                        8130787194</span></a>&nbsp;
+                <a href="mailto:info@bhoomitechzone.in" class="text-decoration-none">
+                    <i class="fas fa-envelope"></i><span class="tx text-black">
+                        &nbsp;info@bhoomitechzone.in</span>
+                </a>
+            </div>
+            <div class="col-md-3 text-end social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact-Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfoli.html">Portfolio</a>
+                    </li>
+                </ul>
+                <a href="contact.html" class="get-in-touch-btn text-decoration-none">Get In Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="header-section">
+        <!-- Animated shapes -->
+        <div class="shape cross"></div>
+        <div class="shape square"></div>
+        <div class="shape circle-red"></div>
+        <div class="shape circle-blue"></div>
+        
+        <!-- Content -->
+        <h1>Contact-Us</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="separator">■</span>
+            <span class="current-page">Contact</span>
+        </div>
+    </section>
+
+    <!-- Contact Info Boxes -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Email Card -->
+            <div class="contact-card">
+                <div class="icon-container">
+                    <i class="fas fa-envelope icon"></i>
+                </div>
+                <h3 class="contact-title">Email</h3>
+                <div class="contact-info">
+                    <a href="mailto:info@bhoomitechzone.in">info@bhoomitechzone.in</a>
+                </div>
+                <!-- <div class="contact-info">
+                    <a href="mailto:hr@godavariwave.com">hr@godavariwave.com</a>
+                </div> -->
+            </div>
+            
+            <!-- Address Card -->
+            <div class="contact-card">
+                <div class="icon-container">
+                    <i class="fas fa-map-marker-alt icon"></i>
+                </div>
+                <h3 class="contact-title">Address</h3>
+                <div class="contact-info">
+                    A-43,Sector-63,Noida(201301) U.P India<br>
+                   
+                </div>
+            </div>
+            
+            <!-- Phone Card -->
+            <div class="contact-card">
+                <div class="icon-container">
+                    <i class="fas fa-phone-alt icon"></i>
+                </div>
+                <h3 class="contact-title">Phone</h3>
+                <div class="contact-info">
+                    <a href="tel:+91
+                    8130787194">+91
+                        8130787194</a>
+                </div>
+                <!-- <div class="contact-info">
+                    <a href="tel:+917799822799">+91-7799822799</a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-map-section section-spacing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>We'd love to hear from you. Feel free to reach out with any questions or feedback.</p>
+            </div>
+            
+            <div class="combined-container">
+                <div class="row g-0">
+                    <!-- Contact Form Column -->
+                    <div class="col-lg-6 animated" data-animation-delay="0.3s">
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" placeholder="Email Address" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="tel" class="form-control" placeholder="Phone Number">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Subject">
+                                    </div>
+                                </div>
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Column -->
+                    <div class="col-lg-6 animated" data-animation-delay="0.5s">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.033606171682!2d77.37895601094927!3d28.628754875565342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef73cfda29c5%3A0xc90f0b9706268d80!2sA%2043!5e0!3m2!1sen!2sin!4v1743420912501!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-about">
+                        <img src="/image/6786f6bb-39fb-467c-ac73-2af12742e326-removebg-preview (2).png" style="width: 200px;" alt="" class="footer-logo">
+                        <p>
+                            BhoomiTechZone Pvt. Ltd. is a leading provider of innovative digital solutions and IT services, helping businesses transform and grow in the digital age.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solution.html">Services</a></li>
+                        <li><a href="portfoli.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <h4>Our Services</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="solution.html">Web Development</a></li>
+                        <li><a href="solution.html">Mobile App Development</a></li>
+                        <li><a href="solution.html">UI/UX Design</a></li>
+                        <li><a href="solution.html">Digital Marketing</a></li>
+                        <li><a href="solution.html">E-Commerce Applications</a></li>
+                        <li><a href="solution.html">WEbsite Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h4>Contact Info</h4>
+                    <ul class="list-unstyled footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>A-43,Sector-63,Noida(201301) U.P India</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 8130787194
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@bhoomitechzone.in</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Saturday: 9:00 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                   
+                </div>
+                <div class="footer-bottom text-center">
+                    <div class="container">
+                        <p>&copy; 2025 BhoomiTechZone Pvt. Ltd. All Rights Reserved.</p>
+                    </div>
+            </div>
+           
+        </div>
+       
+       
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Form submission (prevent default for demo)
+            $("#contactForm").on("submit", function(e) {
+                e.preventDefault();
+                alert("Your message has been sent. We'll get back to you soon!");
+                this.reset();
+            });
+            
+            // Scroll animation
+            function checkAnimation() {
+                $('.animated').each(function() {
+                    if ($(this).offset().top < $(window).scrollTop() + $(window).height() - 100) {
+                        $(this).css('opacity', '1');
+                    }
+                });
+            }
+            
+            // Initialize elements as invisible
+            $('.animated').css('opacity', '0');
+            
+            // Check on page load
+            checkAnimation();
+            
+            // Check on scroll
+            $(window).on('scroll', function() {
+                checkAnimation();
+            });
+        });
+    </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+     <script>
+         document.addEventListener('DOMContentLoaded', function() {
+             // Animate elements when they come into view
+             function animateElements() {
+                 const animatedElements = document.querySelectorAll('.animated');
+                 
+                 animatedElements.forEach(element => {
+                     const elementPosition = element.getBoundingClientRect().top;
+                     const windowHeight = window.innerHeight;
+                     const delay = element.getAttribute('data-animation-delay') || 0;
+                     
+                     if (elementPosition < windowHeight - 50) {
+                         setTimeout(() => {
+                             element.classList.add('appear');
+                         }, delay * 1000);
+                     }
+                 });
+             }
+             
+             // Run animation check on page load
+             animateElements();
+             
+             // Run animation check on scroll
+             window.addEventListener('scroll', animateElements);
+             
+             // Form submission handling
+             const contactForm = document.getElementById('contactForm');
+             contactForm.addEventListener('submit', function(e) {
+                 e.preventDefault();
+                 
+                 // Here you would typically add AJAX form submission
+                 const submitBtn = contactForm.querySelector('.submit-btn');
+                 const originalText = submitBtn.innerHTML;
+                 
+                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                 submitBtn.disabled = true;
+                 
+                 // Simulate form submission (replace with actual form submission)
+                 setTimeout(() => {
+                     submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                     submitBtn.style.backgroundColor = '#10b981';
+                     
+                     // Reset form after delay
+                     setTimeout(() => {
+                         contactForm.reset();
+                         submitBtn.innerHTML = originalText;
+                         submitBtn.style.backgroundColor = '';
+                         submitBtn.disabled = false;
+                     }, 3000);
+                 }, 2000);
+             });
+         });
+     </script>
+</body>
+</html>

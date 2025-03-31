@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form and Map Section</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #056b3b;
+            --secondary-color: #f8b133;
+            --dark-color: #333;
+            --light-color: #ffffff;
+            --gray-color: #f8f9fa;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--gray-color);
+        }
+        
+        .section-spacing {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .contact-map-section {
+            position: relative;
+        }
+        
+        .combined-container {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Contact Form Styles */
+        .contact-form {
+            padding: 40px;
+            height: 100%;
+        }
+        
+        .form-control {
+            height: 55px;
+            padding: 10px 20px;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Map Styles */
+        .map-container {
+            height: 100%;
+            min-height: 450px;
+            overflow: hidden;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            border: 0;
+        }
+        
+        /* Animation */
+        .animated {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .animated.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .section-spacing {
+                padding: 60px 0;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .map-container {
+                border-radius: 0 0 10px 10px;
+                min-height: 350px;
+            }
+            
+            .map-container iframe {
+                min-height: 350px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .combined-container {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .map-container {
+                min-height: 300px;
+            }
+            
+            .map-container iframe {
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="contact-map-section section-spacing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>We'd love to hear from you. Feel free to reach out with any questions or feedback.</p>
+            </div>
+            
+            <div class="combined-container">
+                <div class="row g-0">
+                    <!-- Contact Form Column -->
+                    <div class="col-lg-6 animated" data-animation-delay="0.3s">
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" placeholder="Email Address" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="tel" class="form-control" placeholder="Phone Number">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Subject">
+                                    </div>
+                                </div>
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Column -->
+                    <div class="col-lg-6 animated" data-animation-delay="0.5s">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.033606171682!2d77.37895601094927!3d28.628754875565342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef73cfda29c5%3A0xc90f0b9706268d80!2sA%2043!5e0!3m2!1sen!2sin!4v1743420912501!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bootstrap JS Bundle (optional) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements when they come into view
+            function animateElements() {
+                const animatedElements = document.querySelectorAll('.animated');
+                
+                animatedElements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    const delay = element.getAttribute('data-animation-delay') || 0;
+                    
+                    if (elementPosition < windowHeight - 50) {
+                        setTimeout(() => {
+                            element.classList.add('appear');
+                        }, delay * 1000);
+                    }
+                });
+            }
+            
+            // Run animation check on page load
+            animateElements();
+            
+            // Run animation check on scroll
+            window.addEventListener('scroll', animateElements);
+            
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically add AJAX form submission
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
+                // Simulate form submission (replace with actual form submission)
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                    submitBtn.style.backgroundColor = '#10b981';
+                    
+                    // Reset form after delay
+                    setTimeout(() => {
+                        contactForm.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.backgroundColor = '';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
