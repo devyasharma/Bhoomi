@@ -512,7 +512,7 @@
 
         /* Footer */
         .footer {
-            background-image: url('/image/ales-nesetril-Im7lZjxeLhg-unsplash.jpg');
+            background-image: url('image/ales-nesetril-Im7lZjxeLhg-unsplash.jpg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -680,7 +680,7 @@
     font-size: 18px;
 }
 .carousel-item .bh {
-    background-image: url('/image/green-park-view_1417-1494.avif');
+    background-image: url('image/green-park-view_1417-1494.avif');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
