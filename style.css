@@ -1314,14 +1314,15 @@ transform: translateY(0);
     font-size: 18px;
 }
 .carousel-item .bh {
-    background-image: url('image/green-park-view_1417-1494.avif');
+    /* background-image: url('image/green-park-view_1417-1494.avif');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    -webkit-background-clip: text; */
+    color: white;
     font-size: 4rem;
+    font-weight: 800;
 }
 .image-layer {
     position: absolute;

@@ -12,7 +12,132 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <!-- Custom CSS -->
-   
+    <style>
+        /* Video Hero Section Styles */
+        .video-hero-section {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 400px;
+            overflow: hidden;
+        }
+        
+        .video-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: -77px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This makes the video cover the container while maintaining aspect ratio */
+            z-index: 1;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: -77px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent; /* Dark blue overlay with opacity */
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-content {
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        
+        .hero-breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .hero-breadcrumb a:hover {
+            color: #ff5e7d;
+        }
+        
+        .hero-breadcrumb .separator {
+            margin: 0 10px;
+            color: #5d6c92;
+        }
+        
+        .hero-breadcrumb .current-page {
+            color: #6e7bb1;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .video-hero-section {
+                height: 60vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .video-hero-section {
+                height: 50vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-breadcrumb {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .video-hero-section {
+                height: 40vh;
+                min-height: 300px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Fallback for devices that restrict autoplay */
+        .no-autoplay .hero-video {
+            display: none;
+        }
+        
+        .no-autoplay .video-overlay {
+            background: linear-gradient(rgba(10, 16, 51, 0.8), rgba(25, 71, 89, 0.8)), url('image/about-hero-fallback.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        </style>
 </head>
 <body>
     <!-- Top Bar with Logo, Contact Info, and Social Media -->
@@ -78,23 +203,48 @@
     </nav>
 
     <!-- Page Banner -->
-    <section class="header-section">
-        <!-- Animated shapes -->
+    <section class="video-hero-section">
+        <div class="video-container">
+            <!-- Video Element -->
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="image/WEBSIT BANER VIDEO.mp4" type="video/mp4">
+                <!-- Fallback image for browsers that don't support video -->
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- Overlay with text -->
+            <!-- <div class="video-overlay">
+                <div class="container">
+                    <div class="hero-content text-center">
+                        <h1>About Us</h1>
+                        <div class="hero-breadcrumb">
+                            <a href="index.html">Home</a>
+                            <span class="separator">■</span>
+                            <span class="current-page">About</span>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+    
+    <!-- <section class="header-section">
+        
         <div class="shape cross"></div>
         <div class="shape square"></div>
         <div class="shape circle-red"></div>
         <div class="shape circle-blue"></div>
         
-        <!-- Content -->
+        
         <h1>About</h1>
         <div class="breadcrumb">
             <a href="index.html">Home</a>
             <span class="separator">■</span>
             <span class="current-page">About</span>
         </div>
-    </section>
+    </section> -->
 
-    <!-- About Overview Section -->
+   
     <section class="about-overview">
         <div class="container">
             <div class="row align-items-center">
@@ -379,7 +529,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
 
-   
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.hero-video');
+            
+            // Check if video can autoplay
+            video.play().catch(function() {
+                // If autoplay fails, add a class to use fallback background
+                document.querySelector('.video-hero-section').classList.add('no-autoplay');
+            });
+            
+            // Preload video for better performance
+            video.preload = 'auto';
+        });
+    </script>
     <script>
         // Initialize AOS Animation
         AOS.init({
