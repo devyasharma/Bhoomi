@@ -12,10 +12,10 @@
             /* overflow-x: hidden; */
             /* width: 100%; */
         }
-        html, body {
+        /* html, body {
             overflow-x: hidden;
             width: 100%;
-        }
+        } */
         
         section {
             padding: 80px 0;
@@ -27,7 +27,7 @@
             margin-bottom: 20px;
             font-weight: 500;
         }
-        
+       
         .main-heading {
             color: #2a3855;
             font-size: 42px;
@@ -65,15 +65,58 @@
             font-size: 14px;
         } */
         
-        .social-icons a {
-            margin-left: 15px;
-            color: #666;
-            font-size: 1.2rem;
-            transition: color 0.3s;
+        .social-icons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
         }
         
-        .social-icons a:hover {
-            color: #0d6efd;
+        .social-icon-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            color: #1d4ed8;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon-link i {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon-link:hover {
+            background-color: #1d4ed8;
+            color: #ffffff !important;
+            box-shadow: 0 6px 15px rgba(29, 78, 216, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .social-icon-link:hover i {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .social-icons {
+                justify-content: center;
+                margin-top: 15px;
+            }
+            
+            .social-icon-link {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .social-icon-link i {
+                font-size: 16px;
+            }
         }
 
         /* Navigation */
@@ -179,11 +222,16 @@
         
         .service-card:hover {
             transform: translateY(-10px);
+            color: white !important;
+            background-image:linear-gradient(to right, rgb(2, 2, 63),rgb(87, 150, 245));
         }
         
         .service-icon {
             max-width: 80px;
             margin-bottom: 25px;
+        }
+        .service-card:hover * {  
+            color: white !important;  /* Ensures all text inside turns white */
         }
         
         .service-title {
@@ -1052,55 +1100,7 @@ transform: translateY(0);
     left: 10%;
     z-index: 2;
 }
-.service-card {
-    position: relative;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    cursor: pointer;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
-/* Hover Effect */
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Click Animation */
-.service-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #02013f, #315b86f5);
-    transition: left 0.5s ease-in-out;
-    z-index: 0;
-    border-radius: 10px;
-}
-
-.service-card.clicked::before {
-    left: 0;
-}
-
-.service-card h3,
-.service-card p,
-.service-card img {
-    position: relative;
-    z-index: 1;
-    transition: color 0.5s ease-in-out;
-}
-
-/* Change text color when clicked */
-.service-card.clicked h3,
-.service-card.clicked p {
-    color: white;
-}
 .button-container {
     display: flex;
     justify-content: flex-end; /* Aligns button to the right */
@@ -1370,16 +1370,16 @@ section {
 }
 
 .get-in-touch-btn {
-    background-color: #0d6efd;
+    background:linear-gradient(#a7a402, rgb(1, 1, 173)) ;
     color: white !important;
     padding: 10px 25px;
-    border-radius: 5px;
+    border-radius: 30px;
     font-weight: 500;
     transition: background-color 0.3s;
 }
 
-.get-in-touch-btn:hover {
-    background-color: #0b5ed7;
+.get-in-touch-btn:hover{
+    background-color: #7c9dcf !important;
 }
 
 /* Page Banner */
