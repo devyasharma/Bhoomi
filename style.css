@@ -102,12 +102,14 @@
             transform: scale(1.1);
         }
         
+        
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .social-icons {
                 justify-content: center;
-                margin-top: -135px;
-                margin-left: 115px;
+                /* margin-top: -135px; */
+                /* margin-left: 115px; */
+                gap: 0px;
             }
             
             .social-icon-link {

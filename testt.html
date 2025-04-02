@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Smooth Animated Cursor</title>
+    <style>
+        body {
+            cursor: none; /* Hide default cursor */
+            background: #121212;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2rem;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* Small main cursor */
+        .cursor {
+            width: 15px;
+            height: 15px;
+            background: cyan;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            mix-blend-mode: difference;
+            transition: transform 0.15s ease-out, background 0.5s ease-in-out;
+        }
+
+        /* Larger trailing effect */
+        .follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: transform 0.2s ease-out, background 0.5s ease-in-out;
+        }
+
+        /* Click ripple effect */
+        .ripple {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid cyan;
+            border-radius: 50%;
+            opacity: 0.8;
+            transform: translate(-50%, -50%) scale(1);
+            animation: rippleEffect 0.5s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes rippleEffect {
+            from {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Move & Click to See the Smooth Magic! 🎨✨</h1>
+    <div class="follower" id="follower"></div>
+    <div class="cursor" id="cursor"></div>
+
+    <script>
+        const cursor = document.getElementById("cursor");
+        const follower = document.getElementById("follower");
+
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+
+            follower.style.left = `${e.clientX}px`;
+            follower.style.top = `${e.clientY}px`;
+        });
+
+        document.addEventListener("mousedown", (e) => {
+            cursor.style.transform = "scale(1.5)";
+            follower.style.transform = "scale(2)";
+            
+            // Ripple effect on click
+            const ripple = document.createElement("div");
+            ripple.classList.add("ripple");
+            ripple.style.left = `${e.clientX}px`;
+            ripple.style.top = `${e.clientY}px`;
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 500);
+        });
+
+        document.addEventListener("mouseup", () => {
+            cursor.style.transform = "scale(1)";
+            follower.style.transform = "scale(1)";
+        });
+
+        // Change cursor color dynamically with smooth transition
+        setInterval(() => {
+            const colors = ["cyan", "magenta", "lime", "yellow", "orange", "red"];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            cursor.style.background = randomColor;
+            follower.style.background = randomColor + "33"; // Transparent effect
+        }, 1000);
+    </script>
+</body>
+</html>
