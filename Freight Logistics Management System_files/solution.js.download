@@ -1,0 +1,48 @@
+
+const inputs = document.querySelectorAll("input");
+const div = document.querySelector("li");
+
+function handleInputChange() {
+    const units = this.dataset.units || "";
+
+    document.documentElement.style.setProperty(
+        `--${this.name}`,
+        this.value + units
+    );
+}
+
+inputs.forEach((input) => input.addEventListener("input", handleInputChange));
+var range = $("input#range"),
+    value = $(".range-value");
+value.html(range.attr("value"));
+range.on("input", function () {
+    value.html(this.value);
+});
+
+// Instantiate the Bootstrap carousel
+$('.multi-item-carousel').carousel({
+    interval: false
+});
+
+// for every slide in carousel, copy the next slide's item in the slide.
+// Do the same for the next, next item.
+$('.multi-item-carousel .item').each(function () {
+    var next = $(this).next();
+    if (!next.length) {
+        next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+
+    if (next.next().length > 0) {
+        next.next().children(':first-child').clone().appendTo($(this));
+    } else {
+        $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+    }
+});
+
+
+$(".hover").mouseLeave(function () {
+    $(this).removeClass("hover");
+});
+
+// ===============================================

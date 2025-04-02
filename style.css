@@ -1074,7 +1074,7 @@
     left: 0;
     width: 50px;
     height: 3px;
-    background-color: var(--primary);
+    background-color: transparent;
 }
 
 .title-center h2::after {
@@ -1307,7 +1307,13 @@ opacity: 1;
 transform: translateY(0);
 }
 }
-
+.mea-culpa-regular {
+    font-family: "Mea Culpa", cursive;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  
 .social-icons a {
     color: #1d4ed8;
     margin: 0 8px;
@@ -1322,7 +1328,7 @@ transform: translateY(0);
     -webkit-background-clip: text; */
     color: white;
     font-size: 4rem;
-    font-weight: 800;
+    /* font-weight: 800; */
 }
 .image-layer {
     position: absolute;
@@ -1621,7 +1627,7 @@ section {
 }
 
 .get-in-touch-btn {
-    background:linear-gradient(#a7a402, rgb(1, 1, 173)) ;
+    background:linear-gradient(#0b0191, rgb(38, 250, 250)) ;
     color: white !important;
     padding: 10px 25px;
     border-radius: 30px;
@@ -3090,6 +3096,7 @@ h1 {
 
 .app-image {
     text-align: center;
+    /* height: 30vh; */
 }
 
 .app-image img {

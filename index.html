@@ -13,7 +13,9 @@
     <!-- Custom CSS -->
     <link href="style.css" rel="stylesheet">
    
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Lobster&family=Mea+Culpa&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spicy+Rice&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Top Bar with Logo, Contact Info, and Social Media -->
@@ -83,15 +85,15 @@
     <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner" style="border-bottom-right-radius: 15%; border-bottom-left-radius: 15%;" >
             <!-- Slide 1 -->
-            <div class="carousel-item active hero-section " data-bs-interval="2000"style="background-image: url('image/marvin-meyer-SYTO3xs06fU-unsplash.jpg')">
+            <div class="carousel-item active hero-section " data-bs-interval="2000"style="background-image: url('image/banner.avif')">
             <div class="overlay"></div>
                 <div class=" carousel-caption container text-center">
-                    <h1 class="hero-title lobster-regular"><a class="text-decoration-none bh" href="https://www.bhoomitechzone.in/">Bhoomi TechZone PVT LTD</a></h1>
+                    <h1 class="hero-title mea-culpa-regular"><a class="text-decoration-none bh" href="https://www.bhoomitechzone.in/"> <span id="heroskills"></span></a></h1>
                     <p class="hero-text">Bhoomi Techzone is a premier IT services company based in India, dedicated to providing top-notch technology solutions that drive business growth and innovation. </p>
                 </div>
             </div>
             <!-- Slide 2 -->
-            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: url('image/it.jpg');">
+            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: url('image/ban.avif');">
                 <div class="overlay"></div>
                 <div class="carousel-caption container text-center">
                     <h1 class="hero-title">Innovative IT Solutions</h1>
@@ -99,11 +101,11 @@
                 </div>
             </div>
             <!-- Slide 3 -->
-            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image/firmbee-com-DfMMzzi3rmg-unsplash.jpg');">
+            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: url('image/seo.jpg');">
                 <div class="overlay"></div>
                 <div class=" carousel-caption container text-center">
                     <h1 class="hero-title">Social Media Marketing</h1>
-                    <p class="hero-text">Harness the power of digital marketing to reach your target audience and achieve your business goals. Our digital marketing services include comprehensive strategies that encompass SEOand more.</p>
+                    <p class="hero-text">Harness the power of digital marketing to reach your target audience and achieve your business goals. Our digital marketing services include comprehensive strategies that encompass SEO and more.</p>
                 </div>
             </div>
         </div>
@@ -207,7 +209,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="about-image">
-                        <img src="image/bhoo.webp" alt="About">
+                        <img src="image/web-design-icons-set_1284-10684.avif" alt="About">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
@@ -523,7 +525,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
+    <!-- typescript start -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typed = new Typed('#heroskills', {
+          strings: ['Bhoomi Tech Zone'],
+          typeSpeed: 50,
+          loop: true,
+        });
+      </script>
+      <!-- typescript end -->
+
     <!-- Custom JS -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {

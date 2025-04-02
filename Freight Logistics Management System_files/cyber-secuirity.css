@@ -1,0 +1,113 @@
+
+
+.cardn-content-cyber {
+
+  
+  color: #ffffff;
+  border-radius: 2rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas: "text img";
+  /*grid-template-columns: 1fr 1fr;*/
+  grid-template-rows: auto;
+  align-items: stretch;
+ /* padding: 1.4em;*/
+}
+
+.background-cyber-secuirity {
+ 
+  background: linear-gradient(to right, #253a58 19%, #000000 52%);
+}
+.cardn-content-cyber > div {
+  grid-area: text;
+  width: 95%;
+ /* max-width: 800px;*/
+  place-self: center;
+  text-align: left;
+  display: grid;
+  /*gap: 1em;*/
+  place-items: start;
+}
+
+
+.cardn-content-cyber > figure {
+  grid-area: img;
+  overflow: hidden;
+}
+.cardn-content-cyber > figure > img {
+/*  width: 100%;
+  height: 100%;*/
+  /* object-fit: cover; */
+  border-radius: 0.4em;
+}
+
+.cyber-secuirity-image {
+  border: solid 1px #cfcfcf;
+    border-radius: 3px;
+    box-shadow: 10px 10px 10px #cfcfcf;
+    text-align: center;
+
+   /* padding: 5px;*/
+}
+
+
+.cyber-secuirity-card-our-services {
+  border-radius: 5px;
+    border: solid 1px #cfc8ff;
+    padding: 14px;
+    height: 290px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    margin-bottom: 20px;
+}
+
+.cyber-secuirity-card-our-services:hover {
+ /*
+background: #e31e24; */
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    -webkit-transition: all .5s ease 0;
+    transition: all .5s ease 0;
+    transition: all 0.5s ease 0s;
+  }
+
+
+  .Icc-Data-table {
+    background-color: #226b6d;
+    color: white;
+  }
+  .icc-member-tr {
+    background-color: #f8f8f8;
+  }
+  .icc-list-style {
+    list-style-type: circle;
+  }
+
+  .icc-member-span {
+    color: red;
+  }
+
+
+  .padding-col-clientele {
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+/*  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);*/
+    transition: all .2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    min-width: 140px;
+    background: #fff;
+    max-width: 240px;
+    min-height: 120px;
+    margin-bottom: 20px;
+
+
+  }
+
+  .padding-col-clientele:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    -webkit-transition: all .5s ease 0;
+    transition: all .5s ease 0;
+    transition: all 0.5s ease 0s;
+  }

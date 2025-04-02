@@ -137,6 +137,184 @@
             background-size: cover;
             background-position: center;
         }
+        :root {
+            --primary-color: #4CAF50;
+            --hover-color: #3e8e41;
+            --card-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            --hover-transform: translateY(-10px);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            border-radius: 2px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .tech-card:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+
+        .tech-card:hover .tech-icon {
+            transform: scale(1.1);
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), #2196F3);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .tech-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tech-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+
+        .tech-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+            color: #333;
+        }
+
+        /* Custom colors for each technology */
+        .html5-color { color: #E44D26; }
+        .css3-color { color: #264DE4; }
+        .bootstrap-color { color: #7952B3; }
+        .tailwind-color { color: #38B2AC; }
+        .react-color { color: #61DAFB; }
+        .angular-color { color: #DD0031; }
+        .js-color { color: #F7DF1E; }
+        .nodejs-color { color: #68A063; }
+        .express-color { color: #68A063; }
+        .python-color { color: #3776AB; }
+        .java-color { color: #007396; }
+        .aws-color { color: #232F3E; }
+        .mongodb-color { color: #4DB33D; }
+        .sass-color { color: #CC6699; }
+
+        .technologies-grid {
+            margin-top: 30px;
+        }
+
+        /* Skill level indicator */
+        .skill-level {
+            height: 5px;
+            background: #eee;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-level-bar {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, var(--primary-color), #2196F3);
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Filter buttons */
+        .filter-buttons {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background-color: white;
+            border: 2px solid #eee;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .section-title h1 {
+                font-size: 2rem;
+            }
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .tech-card {
+                margin-bottom: 20px;
+            }
+            .filter-buttons {
+                margin-bottom: 20px;
+            }
+        }
+
         </style>
 </head>
 <body>
@@ -206,10 +384,11 @@
     <section class="video-hero-section">
         <div class="video-container">
             <!-- Video Element -->
-            <video autoplay muted loop playsinline class="hero-video">
+            <video autoplay loop playsinline controls class="hero-video">
+
                 <source src="image/WEBSIT BANER VIDEO.mp4" type="video/mp4">
                 <!-- Fallback image for browsers that don't support video -->
-                Your browser does not support the video tag.
+            
             </video>
             
             <!-- Overlay with text -->
@@ -253,9 +432,9 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 400">
                             <!-- Red L-shape -->
                             <path d="M0,0 L360,0 L360,100 L40,100 L40,300 L0,300 Z" fill="#e93656" />
-                            <path d="M800,270 A40,40 0 0 0 760,310 A40,40 0 0 0 900,350 Z" fill="#1cb963" />
+                            <!-- <path d="M800,270 A40,40 0 0 0 760,310 A40,40 0 0 0 900,350 Z" fill="#1cb963" /> -->
                         </svg>
-                        <img src="image/gefghhh.webp" alt="About">
+                        <img src="image/ab.webp" alt="About">
                          <!-- Navy blue rectangle at bottom right -->
                          
                        
@@ -435,10 +614,203 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-   
+    <!-- technology -->
+<section class="technologies-section py-5">
+    <div class="container">
+        <div class="section-title">
+            <h1 class="animate__animated animate__fadeInDown">Our Technologies</h1>
+            <h2 class="animate__animated animate__fadeInUp">Technologies We Work On</h2>
+        </div>
 
-    <!-- CTA Section -->
+        <div class="filter-buttons animate__animated animate__fadeIn">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="frontend">Frontend</button>
+            <button class="filter-btn" data-filter="backend">Backend</button>
+            <button class="filter-btn" data-filter="cloud">Cloud</button>
+            <button class="filter-btn" data-filter="database">Database</button>
+        </div>
+
+        <div class="technologies-grid">
+            <div class="row g-4">
+                <!-- Frontend Technologies -->
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon html5-color">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3 class="tech-name">HTML5</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="95"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon css3-color">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3 class="tech-name">CSS3</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="90"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon bootstrap-color">
+                            <i class="fab fa-bootstrap"></i>
+                        </div>
+                        <h3 class="tech-name">Bootstrap5</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="85"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon tailwind-color">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" fill="#38B2AC">
+                                <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tech-name">Tailwind</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="80"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon react-color">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3 class="tech-name">React</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="88"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon angular-color">
+                            <i class="fab fa-angular"></i>
+                        </div>
+                        <h3 class="tech-name">Angular</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="82"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon js-color">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3 class="tech-name">JavaScript</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="92"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Technologies -->
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="backend">
+                    <div class="tech-card">
+                        <div class="tech-icon nodejs-color">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h3 class="tech-name">Node.js</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="86"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="backend">
+                    <div class="tech-card">
+                        <div class="tech-icon express-color">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h3 class="tech-name">Express</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="84"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="backend">
+                    <div class="tech-card">
+                        <div class="tech-icon python-color">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3 class="tech-name">Python</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="89"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="backend">
+                    <div class="tech-card">
+                        <div class="tech-icon java-color">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <h3 class="tech-name">Java</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="78"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Technology -->
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="cloud">
+                    <div class="tech-card">
+                        <div class="tech-icon aws-color">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <h3 class="tech-name">AWS</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="82"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Technologies -->
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="database">
+                    <div class="tech-card">
+                        <div class="tech-icon mongodb-color">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="tech-name">MongoDB</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="87"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon sass-color">
+                            <i class="fab fa-sass"></i>
+                        </div>
+                        <h3 class="tech-name">Sass</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="83"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More technologies can be added here -->
+            </div>
+        </div>
+    </div>
+</section>
    
     <!-- Footer -->
     <footer class="footer">
@@ -529,6 +901,97 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation on scroll
+            const observerOptions = {
+                threshold: 0.1
+            };
+    
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__fadeIn');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+    
+            document.querySelectorAll('.tech-item').forEach(item => {
+                observer.observe(item);
+            });
+    
+            // Initialize skill level bars
+            setTimeout(() => {
+                document.querySelectorAll('.skill-level-bar').forEach(bar => {
+                    const level = bar.getAttribute('data-level');
+                    bar.style.width = level + '%';
+                });
+            }, 500);
+    
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const techItems = document.querySelectorAll('.tech-item');
+    
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Update active button state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+    
+                    // Filter tech items
+                    techItems.forEach(item => {
+                        item.classList.remove('animate__fadeIn');
+                        
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.classList.add('animate__fadeIn');
+                            }, 50);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+    
+            // Add hover effects
+            document.querySelectorAll('.tech-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+    
+            // Random floating animation
+            function addFloatingAnimation() {
+                document.querySelectorAll('.tech-icon').forEach((icon, index) => {
+                    const delay = Math.random() * 5;
+                    const duration = 3 + Math.random() * 2;
+                    icon.style.animation = `floating ${duration}s ease-in-out ${delay}s infinite`;
+                });
+            }
+    
+            // Add keyframe animation dynamically
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes floating {
+                    0% { transform: translateY(0); }
+                    50% { transform: translateY(-10px); }
+                    100% { transform: translateY(0); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            addFloatingAnimation();
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.querySelector('.hero-video');

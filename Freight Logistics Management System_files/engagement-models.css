@@ -1,0 +1,31 @@
+.engagement-models-table-section {
+  background: #fff;
+}
+.em-table-container {
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  box-shadow: inset 0 0 80px #253a5812, 0px 0px 25px #253a582b;
+}
+.em-table-row-icons img {
+  width: 80px;
+}
+.em-table {
+  margin: 0;
+}
+.em-table tbody {
+  border: 2px solid #253a5842;
+}
+.em-table td,
+.em-table th {
+  border: 2px solid #253a5842;
+  width: 30px;
+  max-width: 30px;
+  line-height: 1;
+  padding: 12px !important;
+}
+.em-section-padding {
+  padding: 40px 0 0;
+}
+.p-b__30 {
+  padding-bottom: 30px;
+}

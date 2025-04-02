@@ -1,0 +1,554 @@
+.wrapper {
+  /* max-width: 1090px; */
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.wrapper .table1 {
+  background: #fff;
+  width: calc(25% - 20px);
+  padding: 30px 30px;
+  height: 510px;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.table1 .price-section {
+  display: flex;
+  justify-content: center;
+}
+.table1 .price-area {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  padding: 2px;
+}
+.price-area .inner-area {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  line-height: 117px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.price-area .inner-area .text {
+  font-size: 25px;
+  font-weight: 400;
+  position: absolute;
+  top: -10px;
+  left: 17px;
+}
+.price-area .inner-area .price {
+  /* font-size: 45px; */
+  font-weight: 500;
+  /* margin-left: 16px; */
+}
+.price-area .inner-area .price i {
+  font-size: 45px;
+  font-weight: 500;
+  margin-left: 16px;
+  color: #fff;
+}
+.table1 .package-name {
+  width: 100%;
+  height: 2px;
+  margin: 35px 0;
+  position: relative;
+}
+.table1 .package-name::before {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  font-size: 17px;
+  font-weight: 500;
+  background: #fff;
+  /* padding: 0 15px; */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.table1 .features li {
+  margin-bottom: 15px;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+}
+.features li .list-name {
+  font-size: 17px;
+  font-weight: 400;
+}
+.features li .icon {
+  font-size: 15px;
+}
+.features li .icon.check {
+  color: #2db94d;
+  position: static;
+}
+.features li .icon.cross {
+  color: #a26bfa;
+  position: static;
+}
+.features li .icon.yellow {
+  color: #ffd861;
+  position: static;
+}
+.features li .icon.red {
+  color: #ff0f0f;
+  position: static;
+}
+.table1 .btn {
+  width: 100%;
+  display: flex;
+  margin-top: 35px;
+  justify-content: center;
+}
+.table1 .btn button {
+  width: 80%;
+  height: 50px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.table1 .btn button:hover {
+  border-radius: 5px;
+}
+.basic .features li::selection {
+  background: #ffd861;
+}
+.basic ::selection,
+.basic .price-area,
+.basic .inner-area {
+  background: #ffd861;
+}
+.basic .btn button {
+  border: 2px solid #ffd861;
+  background: #fff;
+  color: #ffd861;
+}
+.basic .btn button:hover {
+  background: #ffd861;
+  color: #fff;
+}
+
+.basic2 .features li::selection {
+  background: #ff0f0f;
+}
+.basic2 ::selection,
+.basic2 .price-area,
+.basic2 .inner-area {
+  background: #ff0f0f;
+}
+.basic2 .btn button {
+  border: 2px solid #ff0f0f;
+  background: #fff;
+  color: #ff0f0f;
+}
+.basic2 .btn button:hover {
+  background: #ff0f0f;
+  color: #fff;
+}
+
+.premium ::selection,
+.premium .price-area,
+.premium .inner-area,
+.premium .btn button {
+  background: #a26bfa;
+}
+.premium .btn button:hover {
+  background: #833af8;
+}
+.ultimate ::selection,
+.ultimate .price-area,
+.ultimate .inner-area {
+  background: #43ef8b;
+}
+.ultimate .btn button {
+  border: 2px solid #43ef8b;
+  color: #43ef8b;
+  background: #fff;
+}
+.ultimate .btn button:hover {
+  background: #43ef8b;
+  color: #fff;
+}
+/* .basic .package-name {
+  background: #ffecb3;
+}
+.basic2 .package-name {
+  background: #ff0f0f;
+}
+.premium .package-name {
+  background: #d0b3ff;
+}
+.ultimate .package-name {
+  background: #baf8d4;
+} */
+.basic .package-name::before {
+  content: "SEO Solutions";
+}
+.basic2 .package-name::before {
+  content: "Google Marketing Solutions";
+}
+.premium .package-name::before {
+  content: "Social Media Solutions";
+  /* font-size: 24px; */
+}
+.ultimate .package-name::before {
+  content: "Content Marketing";
+  /* font-size: 24px; */
+}
+@media (max-width: 1020px) {
+  .wrapper .table1 {
+    width: calc(50% - 20px);
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 698px) {
+  .wrapper .table1 {
+    width: 100%;
+    margin: 20px;
+    height: auto;
+  }
+}
+::selection {
+  color: #fff;
+}
+.table1 .ribbon {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  overflow: hidden;
+}
+.table1 .ribbon::before,
+.table1 .ribbon::after {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  display: block;
+  border: 7px solid #4606ac;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.table1 .ribbon::before {
+  top: 0px;
+  right: 15px;
+}
+.table1 .ribbon::after {
+  bottom: 15px;
+  left: 0px;
+}
+.table1 .ribbon span {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  transform: rotate(-45deg);
+  width: 200px;
+  background: #a26bfa;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  text-transform: uppercase;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+}
+.patner-img {
+  width: 60px;
+  height: 60px;
+}
+
+/* ========================================================= */
+
+@media (min-width: 1000px) {
+  #timeline .demo-card:nth-child(odd) .head::after,
+  #timeline .demo-card:nth-child(even) .head::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+  }
+  #timeline .demo-card:nth-child(odd) .head::before,
+  #timeline .demo-card:nth-child(even) .head::before {
+    position: absolute;
+    content: "";
+    width: 9px;
+    height: 9px;
+    background-color: #bdbdbd;
+    border-radius: 9px;
+    box-shadow: 0px 0px 2px 8px #f7f7f7;
+  }
+}
+
+/* Some Cool Stuff */
+
+.demo-card:nth-child(1) {
+  order: 1;
+}
+
+.demo-card:nth-child(2) {
+  order: 4;
+}
+
+.demo-card:nth-child(3) {
+  order: 2;
+}
+
+.demo-card:nth-child(4) {
+  order: 5;
+}
+
+.demo-card:nth-child(5) {
+  order: 3;
+}
+
+.demo-card:nth-child(6) {
+  order: 6;
+}
+
+/* Border Box */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Fonts */
+
+body {
+  font-family: Roboto;
+}
+
+#timeline {
+  /*properties of background*/
+  padding: 50px 10px;
+  background: #f7f7f7;
+  border-top: 1px solid rgba(191, 191, 191, 0.4);
+  border-bottom: 1px solid rgba(191, 191, 191, 0.4);
+}
+
+#timeline .demo-card-wrapper {
+  position: relative;
+  margin: auto;
+}
+
+@media (min-width: 1000px) {
+  #timeline .demo-card-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    width: 1170px;
+    max-height: 1750px;
+    margin: 0 auto;
+  }
+}
+
+#timeline .demo-card-wrapper::after {
+  /* line in the middle */
+  z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 1px solid rgba(191, 191, 191, 0.4);
+}
+
+@media (min-width: 1000px) {
+  #timeline .demo-card-wrapper::after {
+    border-left: 1px solid #bdbdbd;
+  }
+}
+
+#timeline .demo-card {
+  position: relative;
+  display: block;
+  margin: 10px auto 80px;
+  max-width: 94%;
+  z-index: 2;
+}
+
+@media (min-width: 480px) {
+  #timeline .demo-card {
+    max-width: 60%;
+    box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
+  }
+}
+
+@media (min-width: 720px) {
+  #timeline .demo-card {
+    max-width: 40%;
+  }
+}
+
+@media (min-width: 1000px) {
+  #timeline .demo-card {
+    max-width: 450px;
+    height: 380px;
+    margin: 90px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+  #timeline .demo-card:nth-child(odd) {
+    margin-right: 45px;
+  }
+  #timeline .demo-card:nth-child(odd) .head::after {
+    border-left-width: 15px;
+    border-left-style: solid;
+    left: 100%;
+  }
+  #timeline .demo-card:nth-child(odd) .head::before {
+    left: 491.5px;
+  }
+  #timeline .demo-card:nth-child(even) {
+    margin-left: 45px;
+  }
+  #timeline .demo-card:nth-child(even) .head::after {
+    border-right-width: 15px;
+    border-right-style: solid;
+    right: 100%;
+  }
+  #timeline .demo-card:nth-child(even) .head::before {
+    right: 489.5px;
+  }
+  #timeline .demo-card:nth-child(2) {
+    margin-top: 180px;
+  }
+}
+
+#timeline .demo-card .head {
+  /* text inside the box header */
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+#timeline .demo-card .head .number-box {
+  display: inline;
+  float: left;
+  margin: 15px;
+  padding: 10px;
+  font-size: 35px;
+  line-height: 35px;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.17);
+}
+
+#timeline .demo-card .head .p-head {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: inherit;
+  letter-spacing: 2px;
+  margin: 0;
+  padding-bottom: 6px;
+  line-height: 1rem;
+  color: #ffffff;
+}
+
+@media (min-width: 480px) {
+  #timeline .demo-card .head .p-head {
+    font-size: 165%;
+    line-height: 1.2rem;
+  }
+}
+
+#timeline .demo-card .head h2 span {
+  display: block;
+  font-size: 0.6rem;
+  margin: 0;
+}
+
+@media (min-width: 480px) {
+  #timeline .demo-card .head h2 span {
+    font-size: 0.8rem;
+  }
+}
+
+#timeline .demo-card .body {
+  /*color of the body of the boxes*/
+  background: #fff;
+  border: 1px solid rgba(191, 191, 191, 0.4);
+  border-top: 0;
+  padding: 15px;
+}
+
+@media (min-width: 1000px) {
+  #timeline .demo-card .body {
+    height: 290px; /* how big is the box */
+  }
+}
+
+/* text inside my boxes */
+#timeline .demo-card .body p {
+  font-size: 19px;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+
+#timeline .demo-card .body img {
+  display: block;
+  width: 100%;
+}
+
+#timeline .redBox {
+  background-color: #cf0000; /*red box */
+}
+
+#timeline .redBox .head::after {
+  /*red arrow*/
+  border-color: #cf0000;
+}
+
+#timeline .greenBox {
+  /*green box*/
+  background: #7bda4f;
+}
+
+#timeline .greenBox .head::after {
+  /*green arrow*/
+  border-color: #7bda4f;
+}
+
+#timeline .blueBox {
+  /*blue box*/
+  background-color: #0069c2;
+}
+
+#timeline .blueBox .head::after {
+  /*blue arrow*/
+  border-color: #0069c2;
+}
+
+#timeline .yellowBox {
+  /*yellow box*/
+  background-color: #ffc100;
+}
+
+#timeline .yellowBox .head::after {
+  /*yellow arrow*/
+  border-color: #ffc100;
+}
+
+#timeline .purpleBox {
+  /*purple box*/
+  background-color: #7d009f;
+}
+
+#timeline .purplebox .head::after {
+  /*purple arrow*/
+  border-color: #7d009f;
+}
+.sub-heading-partner {
+  font-size: 14px !important;
+  font-weight: 600;
+}
