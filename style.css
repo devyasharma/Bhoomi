@@ -106,7 +106,8 @@
         @media (max-width: 768px) {
             .social-icons {
                 justify-content: center;
-                margin-top: 15px;
+                margin-top: -135px;
+                margin-left: 115px;
             }
             
             .social-icon-link {
