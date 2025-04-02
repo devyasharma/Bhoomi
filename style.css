@@ -1928,7 +1928,7 @@ section {
 
 /* Stats Section */
 .stats-section {
-    background-image: linear-gradient(rgba(13, 110, 253, 0.9), rgba(13, 110, 253, 0.9)), url('https://via.placeholder.com/1600x800');
+    /* background-image: linear-gradient(rgba(13, 110, 253, 0.9), rgba(13, 110, 253, 0.9)), url('https://via.placeholder.com/1600x800'); */
     background-size: cover;
     background-position: center;
     color: white;
