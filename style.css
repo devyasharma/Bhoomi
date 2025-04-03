@@ -610,9 +610,15 @@
         @media (max-width: 767px) {
             .tech-card {
                 margin-bottom: 20px;
+                height: 122px;
+                width: 115px;
             }
+        
             .filter-buttons {
                 margin-bottom: 20px;
+            }
+            .flu{
+                margin-bottom: 60px;
             }
         }
 
