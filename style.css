@@ -7,11 +7,19 @@
 
         /* General Styles */
         body {
-            font-family: 'Poppins', sans-serif;
+            /* font-family: 'Poppins', 'Montserrat'; */
             color: #333;
             /* overflow-x: hidden; */
             /* width: 100%; */
+
+           
+              
         }
+        .zcool-xiaowei-regular {
+            font-family: "ZCOOL XiaoWei", sans-serif ;
+            font-weight: 400;
+            font-style: normal;
+          }
         /* html, body {
             overflow-x: hidden;
             width: 100%;
@@ -122,6 +130,94 @@
             }
         }
 
+        /* Footer Dropdown Styles */
+        .footer-dropdown-toggle {
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-dropdown-toggle i {
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-dropdown-toggle i.rotate {
+            transform: rotate(180deg);
+        }
+        .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 160px;
+    }
+       
+    @media (max-width: 524px){
+        .footer h4{
+            margin-bottom: 10px !important;
+        }
+        .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 325px !important;
+    }
+    }
+        
+        @media (max-width: 991px) {
+            .footer-dropdown-menu {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+        }
+        @media (max-width: 743px){
+            .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 355px;
+            }
+        }
+        @media (max-width: 497px){
+            .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 300px !important;
+            }
+        }
+        @media (max-width: 474px){
+            .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 260px !important;
+            }
+        }
+        @media (max-width: 434px){
+            .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 240px !important;
+            }
+        }
+        @media (max-width: 415px){
+            .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 220px !important;
+            }
+        }
+        @media (max-width: 395px){
+            .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 210px !important;
+            }
+        }
+        @media (max-width: 380px){
+            .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 190px !important;
+            }
+        }
+        @media (max-width: 360px){
+            .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 170px !important;
+            }
+        }
+    
         /* Navigation */
         .navbar {
             padding: 15px 0;
@@ -218,6 +314,309 @@
             }
         }
             
+        /* Video Hero Section Styles */
+        .video-hero-section {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 400px;
+            overflow: hidden;
+        }
+        
+        .video-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: -77px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This makes the video cover the container while maintaining aspect ratio */
+            z-index: 1;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: -77px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent; /* Dark blue overlay with opacity */
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-content {
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        
+        .hero-breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .hero-breadcrumb a:hover {
+            color: #ff5e7d;
+        }
+        
+        .hero-breadcrumb .separator {
+            margin: 0 10px;
+            color: #5d6c92;
+        }
+        
+        .hero-breadcrumb .current-page {
+            color: #6e7bb1;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .video-hero-section {
+                height: 60vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .video-hero-section {
+                height: 50vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-breadcrumb {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .video-hero-section {
+                height: 40vh;
+                min-height: 300px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Fallback for devices that restrict autoplay */
+        .no-autoplay .hero-video {
+            display: none;
+        }
+        
+        .no-autoplay .video-overlay {
+            background: linear-gradient(rgba(10, 16, 51, 0.8), rgba(25, 71, 89, 0.8)), url('image/about-hero-fallback.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        :root {
+            --primary-color: #4CAF50;
+            --hover-color: #3e8e41;
+            --card-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            --hover-transform: translateY(-10px);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            border-radius: 2px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .tech-card:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+
+        .tech-card:hover .tech-icon {
+            transform: scale(1.1);
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), #2196F3);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .tech-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tech-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+
+        .tech-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+            color: #333;
+        }
+
+        /* Custom colors for each technology */
+        .html5-color { color: #E44D26; }
+        .css3-color { color: #264DE4; }
+        .bootstrap-color { color: #7952B3; }
+        .tailwind-color { color: #38B2AC; }
+        .react-color { color: #61DAFB; }
+        .angular-color { color: #DD0031; }
+        .js-color { color: #F7DF1E; }
+        .nodejs-color { color: #68A063; }
+        .express-color { color: #68A063; }
+        .python-color { color: #3776AB; }
+        .java-color { color: #007396; }
+        .aws-color { color: #232F3E; }
+        .mongodb-color { color: #4DB33D; }
+        .sass-color { color: #CC6699; }
+
+        .technologies-grid {
+            margin-top: 30px;
+        }
+
+        /* Skill level indicator */
+        .skill-level {
+            height: 5px;
+            background: #eee;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-level-bar {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, var(--primary-color), #2196F3);
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Filter buttons */
+        .filter-buttons {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background-color: white;
+            border: 2px solid #eee;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .section-title h1 {
+                font-size: 2rem;
+            }
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .tech-card {
+                margin-bottom: 20px;
+            }
+            .filter-buttons {
+                margin-bottom: 20px;
+            }
+        }
+
+        
         
         
         /* Services Section */

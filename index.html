@@ -16,99 +16,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Lobster&family=Mea+Culpa&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spicy+Rice&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-<style>
-    /* Footer Dropdown Styles */
-    .footer-dropdown-toggle {
-        cursor: pointer;
-        position: relative;
-        margin-bottom: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .footer-dropdown-toggle i {
-        transition: transform 0.3s ease;
-    }
-    
-    .footer-dropdown-toggle i.rotate {
-        transform: rotate(180deg);
-    }
-    .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 160px;
-}
-   
-@media (max-width: 524px){
-    .footer h4{
-        margin-bottom: 10px !important;
-    }
-    .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 325px !important;
-}
-}
-    
-    @media (max-width: 991px) {
-        .footer-dropdown-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-    }
-    @media (max-width: 743px){
-        .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 355px;
-        }
-    }
-    @media (max-width: 497px){
-        .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 300px !important;
-        }
-    }
-    @media (max-width: 474px){
-        .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 260px !important;
-        }
-    }
-    @media (max-width: 434px){
-        .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 240px !important;
-        }
-    }
-    @media (max-width: 415px){
-        .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 220px !important;
-        }
-    }
-    @media (max-width: 395px){
-        .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 210px !important;
-        }
-    }
-    @media (max-width: 380px){
-        .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 190px !important;
-        }
-    }
-    @media (max-width: 360px){
-        .fa-chevron-down:before {
-    content: "\f078";
-    margin-right: 170px !important;
-        }
-    }
-</style>
+
 
 </head>
 
-<body>
+<body class="zcool-xiaowei-regular">
     
     <!-- Top Bar with Logo, Contact Info, and Social Media -->
     <div class="container top-bar">
@@ -177,7 +89,7 @@
     <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner" style="border-bottom-right-radius: 15%; border-bottom-left-radius: 15%;" >
             <!-- Slide 1 -->
-            <div class="carousel-item active hero-section " data-bs-interval="2000"style="background-image: url('image/banner.avif')">
+            <div class="carousel-item active hero-section " data-bs-interval="2000"style="background-image: url('image/bn1.jpg')">
             <div class="overlay"></div>
                 <div class=" carousel-caption container text-center">
                     <h1 class="hero-title mea-culpa-regular"><a class="text-decoration-none bh" href="https://www.bhoomitechzone.in/"> <span id="heroskills"></span></a></h1>
@@ -185,7 +97,7 @@
                 </div>
             </div>
             <!-- Slide 2 -->
-            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: url('image/ban.avif');">
+            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: url('image/bn2.jpg');">
                 <div class="overlay"></div>
                 <div class="carousel-caption container text-center">
                     <h1 class="hero-title">Innovative IT Solutions</h1>
@@ -193,7 +105,7 @@
                 </div>
             </div>
             <!-- Slide 3 -->
-            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: url('image/seo.jpg');">
+            <div class="carousel-item hero-section" data-bs-interval="2000" style="background-image: url('image/bn3.png');">
                 <div class="overlay"></div>
                 <div class=" carousel-caption container text-center">
                     <h1 class="hero-title">Social Media Marketing</h1>
@@ -468,6 +380,204 @@
         </div>
     </section>
 
+  <!-- technology -->
+  <section class="technologies-section py-5">
+    <div class="container">
+        <div class="section-title">
+            <h1 class="animate__animated animate__fadeInDown">Our Technologies</h1>
+            <h2 class="animate__animated animate__fadeInUp">Technologies We Work On</h2>
+        </div>
+
+        <div class="filter-buttons animate__animated animate__fadeIn">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="frontend">Frontend</button>
+            <button class="filter-btn" data-filter="backend">Backend</button>
+            <button class="filter-btn" data-filter="cloud">Cloud</button>
+            <button class="filter-btn" data-filter="database">Database</button>
+        </div>
+
+        <div class="technologies-grid">
+            <div class="row g-4">
+                <!-- Frontend Technologies -->
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon html5-color">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3 class="tech-name">HTML5</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="95"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon css3-color">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3 class="tech-name">CSS3</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="90"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon bootstrap-color">
+                            <i class="fab fa-bootstrap"></i>
+                        </div>
+                        <h3 class="tech-name">Bootstrap5</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="85"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon tailwind-color">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" fill="#38B2AC">
+                                <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="tech-name">Tailwind</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="80"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon react-color">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3 class="tech-name">React</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="88"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon angular-color">
+                            <i class="fab fa-angular"></i>
+                        </div>
+                        <h3 class="tech-name">Angular</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="82"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon js-color">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3 class="tech-name">JavaScript</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="92"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Technologies -->
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="backend">
+                    <div class="tech-card">
+                        <div class="tech-icon nodejs-color">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h3 class="tech-name">Node.js</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="86"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="backend">
+                    <div class="tech-card">
+                        <div class="tech-icon express-color">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h3 class="tech-name">Express</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="84"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="backend">
+                    <div class="tech-card">
+                        <div class="tech-icon python-color">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3 class="tech-name">Python</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="89"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="backend">
+                    <div class="tech-card">
+                        <div class="tech-icon java-color">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <h3 class="tech-name">Java</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="78"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Technology -->
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="cloud">
+                    <div class="tech-card">
+                        <div class="tech-icon aws-color">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <h3 class="tech-name">AWS</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="82"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Technologies -->
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="database">
+                    <div class="tech-card">
+                        <div class="tech-icon mongodb-color">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="tech-name">MongoDB</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="87"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3 tech-item animate__animated animate__fadeIn" data-category="frontend">
+                    <div class="tech-card">
+                        <div class="tech-icon sass-color">
+                            <i class="fab fa-sass"></i>
+                        </div>
+                        <h3 class="tech-name">Sass</h3>
+                        <div class="skill-level">
+                            <div class="skill-level-bar" data-level="83"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More technologies can be added here -->
+            </div>
+        </div>
+    </div>
+</section>
+
     <section class="testimonials-section">
         <div class="container">
             <div class="section-title text-center" data-aos="fade-up">Testimonials</div>
@@ -531,8 +641,8 @@
             </div>
         </div>
     </section> 
+
     <!-- Footer -->
-    <!-- Footer HTML -->
 <footer class="footer">
     <div class="container">
         <div class="row">

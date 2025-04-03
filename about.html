@@ -12,310 +12,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <style>
-        /* Video Hero Section Styles */
-        .video-hero-section {
-            position: relative;
-            width: 100%;
-            height: 70vh;
-            min-height: 400px;
-            overflow: hidden;
-        }
-        
-        .video-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .hero-video {
-            position: absolute;
-            top: -77px;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* This makes the video cover the container while maintaining aspect ratio */
-            z-index: 1;
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: -77px;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent; /* Dark blue overlay with opacity */
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .hero-content {
-            color: white;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .hero-breadcrumb {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
-        
-        .hero-breadcrumb a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .hero-breadcrumb a:hover {
-            color: #ff5e7d;
-        }
-        
-        .hero-breadcrumb .separator {
-            margin: 0 10px;
-            color: #5d6c92;
-        }
-        
-        .hero-breadcrumb .current-page {
-            color: #6e7bb1;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .video-hero-section {
-                height: 60vh;
-            }
-            
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .video-hero-section {
-                height: 50vh;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-breadcrumb {
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .video-hero-section {
-                height: 40vh;
-                min-height: 300px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-        }
-        
-        /* Fallback for devices that restrict autoplay */
-        .no-autoplay .hero-video {
-            display: none;
-        }
-        
-        .no-autoplay .video-overlay {
-            background: linear-gradient(rgba(10, 16, 51, 0.8), rgba(25, 71, 89, 0.8)), url('image/about-hero-fallback.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        :root {
-            --primary-color: #4CAF50;
-            --hover-color: #3e8e41;
-            --card-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            --hover-transform: translateY(-10px);
-        }
-
-        .section-title {
-            position: relative;
-            margin-bottom: 60px;
-            text-align: center;
-        }
-
-        .section-title h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #4CAF50, #2196F3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .section-title h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #4CAF50, #2196F3);
-            border-radius: 2px;
-        }
-
-        .tech-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            padding: 30px 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .tech-card:hover {
-            transform: var(--hover-transform);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            border-color: var(--primary-color);
-        }
-
-        .tech-card:hover .tech-icon {
-            transform: scale(1.1);
-        }
-
-        .tech-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), #2196F3);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .tech-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .tech-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            transition: all 0.4s ease;
-            display: inline-block;
-        }
-
-        .tech-name {
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 0;
-            color: #333;
-        }
-
-        /* Custom colors for each technology */
-        .html5-color { color: #E44D26; }
-        .css3-color { color: #264DE4; }
-        .bootstrap-color { color: #7952B3; }
-        .tailwind-color { color: #38B2AC; }
-        .react-color { color: #61DAFB; }
-        .angular-color { color: #DD0031; }
-        .js-color { color: #F7DF1E; }
-        .nodejs-color { color: #68A063; }
-        .express-color { color: #68A063; }
-        .python-color { color: #3776AB; }
-        .java-color { color: #007396; }
-        .aws-color { color: #232F3E; }
-        .mongodb-color { color: #4DB33D; }
-        .sass-color { color: #CC6699; }
-
-        .technologies-grid {
-            margin-top: 30px;
-        }
-
-        /* Skill level indicator */
-        .skill-level {
-            height: 5px;
-            background: #eee;
-            border-radius: 5px;
-            margin-top: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .skill-level-bar {
-            height: 100%;
-            border-radius: 5px;
-            background: linear-gradient(90deg, var(--primary-color), #2196F3);
-            width: 0;
-            transition: width 1.5s ease-in-out;
-        }
-
-        /* Filter buttons */
-        .filter-buttons {
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .filter-btn {
-            background-color: white;
-            border: 2px solid #eee;
-            border-radius: 30px;
-            padding: 8px 20px;
-            font-weight: 600;
-            color: #555;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 991px) {
-            .section-title h1 {
-                font-size: 2rem;
-            }
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .tech-card {
-                margin-bottom: 20px;
-            }
-            .filter-buttons {
-                margin-bottom: 20px;
-            }
-        }
-
-        </style>
+   
 </head>
 <body>
     <!-- Top Bar with Logo, Contact Info, and Social Media -->
@@ -338,9 +35,9 @@
             </div>
             <div class="col-md-3 text-end social-icons">
                 <a href="#" class="social-icon-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-instagram" style="color: rgb(243, 102, 9);"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-youtube" style="color: red;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in" style="color: rgb(40, 158, 255);"></i></a>
             </div>
         </div>
     </div>
@@ -812,28 +509,29 @@
     </div>
 </section>
    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="footer-about">
-                        <img src="/image/6786f6bb-39fb-467c-ac73-2af12742e326-removebg-preview (2).png" style="width: 200px;" alt="" class="footer-logo">
-                        <p>
-                            BhoomiTechZone Pvt. Ltd. is a leading provider of innovative digital solutions and IT services, helping businesses transform and grow in the digital age.
-                        </p>
-                        <div class="footer-social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+      <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="footer-about">
+                    <img src="image/6786f6bb-39fb-467c-ac73-2af12742e326-removebg-preview (2).png" style="width: 200px;" alt="" class="footer-logo">
+                    <p>
+                        BhoomiTechZone Pvt. Ltd. is a leading provider of innovative digital solutions and IT services, helping businesses transform and grow in the digital age.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
-                    <h4>Quick Links</h4>
-                    <ul class="list-unstyled footer-links">
+            <div class="col-lg-2 col-md-6  mb-md-0">
+                <div class="footer-dropdown">
+                    <h4 class="footer-dropdown-toggle">Quick Links <i class="fas fa-chevron-down d-lg-none"></i></h4>
+                    <ul class="list-unstyled footer-links footer-dropdown-menu">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="solution.html">Services</a></li>
@@ -842,52 +540,51 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
+            </div>
 
-                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-                    <h4>Our Services</h4>
-                    <ul class="list-unstyled footer-links">
+            <div class="col-lg-3 col-md-6 mb-md-0">
+                <div class="footer-dropdown">
+                    <h4 class="footer-dropdown-toggle">Our Services <i class="fas fa-chevron-down d-lg-none"></i></h4>
+                    <ul class="list-unstyled footer-links footer-dropdown-menu">
                         <li><a href="solution.html">Web Development</a></li>
                         <li><a href="solution.html">Mobile App Development</a></li>
                         <li><a href="solution.html">UI/UX Design</a></li>
                         <li><a href="solution.html">Digital Marketing</a></li>
                         <li><a href="solution.html">E-Commerce Applications</a></li>
-                        <li><a href="solution.html">WEbsite Design</a></li>
+                        <li><a href="solution.html">Website Design</a></li>
                     </ul>
                 </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <h4>Contact Info</h4>
-                    <ul class="list-unstyled footer-contact">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>A-43,Sector-63,Noida(201301) U.P India</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <span>+91 8130787194
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>info@bhoomitechzone.in</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>Monday - Saturday: 9:00 AM - 7:00 PM</span>
-                        </li>
-                    </ul>
-                   
-                </div>
-                <div class="footer-bottom text-center">
-                    <div class="container">
-                        <p>&copy; 2025 BhoomiTechZone Pvt. Ltd. All Rights Reserved.</p>
-                    </div>
             </div>
-           
+
+            <div class="col-lg-3 col-md-6">
+                <h4>Contact Info</h4>
+                <ul class="list-unstyled footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>A-43,Sector-63,Noida(201301) U.P India</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 8130787194</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@bhoomitechzone.in</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Monday - Saturday: 9:00 AM - 7:00 PM</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-       
-       
-    </footer>
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <p>&copy; 2025 BhoomiTechZone Pvt. Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
    
 <a href="https://wa.me/8130787194" class="whatsapp-button" target="_blank">
