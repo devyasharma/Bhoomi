@@ -13,7 +13,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="style.css" rel="stylesheet">
-   
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Lobster&family=Mea+Culpa&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spicy+Rice&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -45,49 +45,54 @@
                 </a>
             </div>
             <div class="col-md-3 text-end social-icons">
-                <a href="#" class="social-icon-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-instagram" style="color: rgb(243, 102, 9);"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-youtube" style="color: red;"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in" style="color: rgb(40, 158, 255);"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-facebook-f"style="color: rgb(24, 119, 242);"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-instagram" style="color: #C13584;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-youtube" style="color: #FF0000;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in" style="color: #0A66C2;"></i></a>
             </div>
         </div>
     </div>
     
     <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="solution.html">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact-Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="portfoli.html">Portfolio</a>
-                    </li>
-                </ul>
-                
-                <a href="contact.html" class="get-in-touch-btn text-decoration-none">Get In Touch</a>
-            </div>
+   <!-- Navigation Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+        <!-- This logo only appears when scrolling -->
+        <a href="index.html" class="navbar-brand scroll-logo">
+            <img src="image/logo-removebg-preview (3).webp" alt="BhoomiTech Zone Pvt. Ltd." class="logo-img">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="solution.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact-Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="portfoli.html">Portfolio</a>
+                </li>
+            </ul>
+            <a href="contact.html" class="get-in-touch-btn text-decoration-none">Get In Touch</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Hero Section with Slider -->
     <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
@@ -1104,6 +1109,18 @@
                     // This would typically involve showing/hiding portfolio items
                     // based on their category
                 });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             });
         });
     </script>
