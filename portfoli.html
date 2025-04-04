@@ -38,48 +38,55 @@
                 </a>
             </div>
             <div class="col-md-3 text-end social-icons">
-                <a href="#" class="social-icon-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-instagram" style="color: rgb(243, 102, 9);"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-youtube" style="color: red;"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in" style="color: rgb(40, 158, 255);"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-facebook-f"style="color: rgb(24, 119, 242);"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-instagram" style="color: #C13584;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-youtube" style="color: #FF0000;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in" style="color: #0A66C2;"></i></a>
             </div>
         </div>
     </div>
     
     <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="solution.html">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact-Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="portfoli.html">Portfolio</a>
-                    </li>
-                </ul>
-                <a href="contact.html" class="get-in-touch-btn text-decoration-none">Get In Touch</a>
-            </div>
+     
+   <!-- Navigation Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+        <!-- This logo only appears when scrolling -->
+        <a href="index.html" class="navbar-brand scroll-logo">
+            <img src="image/logo-removebg-preview (3).webp" alt="BhoomiTech Zone Pvt. Ltd." class="logo-img">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="solution.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact-Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="portfoli.html">Portfolio</a>
+                </li>
+            </ul>
+            <a href="contact.html" class="get-in-touch-btn text-decoration-none">Get In Touch</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
 
     <!-- Hero Section -->
@@ -308,6 +315,18 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- AOS Animation Library -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    });
+</script>
   </body>
   </html>
 

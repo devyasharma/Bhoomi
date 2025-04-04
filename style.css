@@ -7,23 +7,14 @@
 
         /* General Styles */
         body {
-            font-family: 'DM Sans', 'Roboto', 'Arial', sans-serif;
+            font-family: "Play", sans-serif;
             /* color: #333333; */
             line-height: 1.5;
           }
-          @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+          /* @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap'); */
 
 
-          h1, h2, h3 {
-            font-family: 'DM Sans', 'Roboto', 'Arial', sans-serif;
-            font-weight: 700;
-            /* color: #2d2d2d; */
-            letter-spacing: -0.01em;
-          }
-          
-          h1, h2 {
-            line-height: 1.2;
-          }
+         
       
      
         /* Header Styles */
@@ -374,7 +365,8 @@
         }
         
         .hero-text {
-            font-size: 1rem;
+            font-size: 18px;
+            /* color: rgb(74, 72, 72); */
             max-width: 700px;
             margin: 0 auto;
         }
@@ -953,6 +945,7 @@
         .contact-info {
             /* margin-bottom: 15px; */
             color: #546e7a;
+            font-size: 20px;
         }
         
         .contact-info a {
@@ -2084,7 +2077,7 @@ section {
 }
 
 .section-title {
-    color: #f98181;
+    color: #029b02;
     font-size: 18px;
     margin-bottom: 20px;
     font-weight: 500;
@@ -2135,6 +2128,36 @@ section {
     color: #666;
     font-size: 14px;
 }
+/* Add this CSS to position the hamburger menu */
+@media (max-width: 991px) {
+    
+  .mobile-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 15px;
+  }
+  
+  .logo-container {
+    order: 1; /* Logo first */
+  }
+  
+  .navbar-toggler {
+    order: 2; /* Hamburger second/right */
+    margin-left: auto;
+    position: fixed;
+    top: 15px; /* Adjust this to align with your logo */
+    right: 15px;
+    z-index: 1050; /* Higher z-index to stay on top */
+    transition: none; /* Prevent any animations that might affect position */
+  }
+  }
+  
+  /* Make sure navbar doesn't create extra space */
+  .navbar-collapse {
+    width: 100%;
+  }
 
 
 
