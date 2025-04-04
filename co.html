@@ -3,413 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Laptop with Hexagon Projects</title>
+    <title>Project Marquee</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
-            color: white;
-            perspective: 1000px;
+            background-color: #f5f5f5;
+            padding: 20px 0;
         }
 
-        .container {
+        .marquee-container {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            padding: 40px 0;
+            border-radius: 10px;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
             position: relative;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 1500px;
         }
 
-        .laptop-wrapper {
-            position: relative;
-            transform-style: preserve-3d;
-            transform: rotateX(3deg) rotateY(50deg);
-            width: 500px;
-            height: 320px;
-        }
-
-        .laptop {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(145deg, #444, #222);
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            border: 2px solid #555;
-            overflow: hidden;
-            transform-style: preserve-3d;
-        }
-
-        .laptop-screen {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            background: linear-gradient(120deg, #111, #333);
-            overflow: hidden;
-            border-radius: 5px;
-            border: 1px solid #555;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
-            transform-style: preserve-3d;
-        }
-
-        .laptop-keyboard {
-            position: absolute;
-            height: 25px;
-            bottom: -25px;
-            left: -20px;
-            right: -20px;
-            background: linear-gradient(to bottom, #444, #333);
-            border-radius: 0 0 15px 15px;
-            transform: rotateX(70deg);
-            transform-origin: top center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border-top: 1px solid #666;
-        }
-
-        .laptop-camera {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #222;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(255, 255, 255, 0.3);
-        }
-
-        .hexagon {
-            position: absolute;
-            transform-style: preserve-3d;
-            z-index: 1000;
-            cursor: pointer;
-        }
-
-        .hexagon-inner {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            box-shadow: 0 0 20px rgba(100, 200, 255, 0.5);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: transform 0.2s;
-        }
-
-        .hexagon:hover .hexagon-inner {
-            transform: scale(1.1);
-        }
-
-        .screen-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: white;
+        .marquee-title {
             text-align: center;
-            padding: 20px;
-            overflow: hidden;
-        }
-
-        .screen-glow {
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            top: -25%;
-            left: -25%;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(50, 150, 255, 0.2) 0%,
-                rgba(50, 100, 200, 0.1) 40%,
-                rgba(0, 0, 0, 0) 70%
-            );
-            pointer-events: none;
-            opacity: 0.7;
-            animation: glowPulse 4s ease-in-out infinite;
-        }
-
-        .code-line {
-            position: absolute;
-            height: 1px;
-            background: #00ffff;
-            width: 100%;
-            animation: codeScan 3s linear infinite;
-            opacity: 0.5;
-        }
-
-        .title {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 10px rgba(0, 100, 255, 0.7);
-        }
-
-        .subtitle {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-
-        @keyframes glowPulse {
-            0% { opacity: 0.5; transform: scale(0.95); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-            100% { opacity: 0.5; transform: scale(0.95); }
-        }
-
-        @keyframes codeScan {
-            0% { top: -10%; opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% { top: 110%; opacity: 0; }
-        }
-
-        .tooltip-custom {
-            position: fixed;
-            background: rgba(10, 20, 40, 0.9);
             color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            pointer-events: none;
-            z-index: 2000;
-            max-width: 250px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .tooltip-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #50a0ff;
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 40px;
+        }
+
+        .project-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            transition: all 0.5s ease;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-name {
+            color: white;
+            margin-top: 10px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .project-logo:hover {
+            transform: rotateY(180deg) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) rotateY(180deg); }
+            50% { transform: scale(1.1) rotateY(180deg); }
+            100% { transform: scale(1) rotateY(180deg); }
+        }
+
+        .marquee-content {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .marquee-title {
+                font-size: 2rem;
+            }
+            .project-logo {
+                width: 100px;
+                height: 100px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="laptop-wrapper" id="laptop">
-            <div class="laptop">
-                <div class="laptop-camera"></div>
-                <div class="laptop-screen">
-                    <div class="screen-content">
-                        <div class="screen-glow"></div>
-                        <div class="code-line" style="animation-delay: 0s;"></div>
-                        <div class="code-line" style="animation-delay: 1s;"></div>
-                        <div class="code-line" style="animation-delay: 2s;"></div>
-                        <h3 class="title">Projects</h3>
-                        <p class="subtitle">Interactive Portfolio</p>
+        <div class="marquee-container">
+            <h1 class="marquee-title">Our Projects</h1>
+            <div class="marquee-content">
+                <div class="marquee-track" id="marqueeTrack">
+                    <!-- First set of logos -->
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 1" class="project-logo">
+                        <span class="logo-name">Project Alpha</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 2" class="project-logo">
+                        <span class="logo-name">Project Beta</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 3" class="project-logo">
+                        <span class="logo-name">Project Gamma</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 4" class="project-logo">
+                        <span class="logo-name">Project Delta</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 5" class="project-logo">
+                        <span class="logo-name">Project Epsilon</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 6" class="project-logo">
+                        <span class="logo-name">Project Zeta</span>
+                    </div>
+                    
+                    <!-- Duplicate logos for continuous scrolling effect -->
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 1" class="project-logo">
+                        <span class="logo-name">Project Alpha</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 2" class="project-logo">
+                        <span class="logo-name">Project Beta</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 3" class="project-logo">
+                        <span class="logo-name">Project Gamma</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 4" class="project-logo">
+                        <span class="logo-name">Project Delta</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 5" class="project-logo">
+                        <span class="logo-name">Project Epsilon</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="/api/placeholder/120/120" alt="Project Logo 6" class="project-logo">
+                        <span class="logo-name">Project Zeta</span>
                     </div>
                 </div>
-                <div class="laptop-keyboard"></div>
             </div>
         </div>
     </div>
 
-    <div class="tooltip-custom" id="tooltip"></div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // Project data - REPLACE WITH YOUR OWN PROJECTS
-        const projects = [
-            { 
-                image: '/image/photo-1580894908361-967195033215.avif', 
-                title: 'Web Design',
-                description: 'Modern and responsive web design for businesses',
-                url: 'https://godavariwave.com/'
-            },
-            { 
-                image: '/api/placeholder/300/300?text=Project2', 
-                title: 'Mobile App',
-                description: 'Cross-platform mobile application development',
-                url: '#project2'
-            },
-            { 
-                image: '/api/placeholder/300/300?text=Project3', 
-                title: 'E-commerce',
-                description: 'Online store with payment integration',
-                url: '#project3'
-            },
-            { 
-                image: '/api/placeholder/300/300?text=Project4', 
-                title: 'Brand Identity',
-                description: 'Logo design and brand guidelines',
-                url: '#project4'
-            },
-            { 
-                image: '/api/placeholder/300/300?text=Project5', 
-                title: 'UI/UX Design',
-                description: 'User interface and experience design',
-                url: '#project5'
-            },
-            { 
-                image: '/api/placeholder/300/300?text=Project6', 
-                title: 'Social Media',
-                description: 'Social media marketing and content creation',
-                url: '#project6'
-            }
-        ];
-
-        // DOM Elements
-        const laptop = document.getElementById('laptop');
-        const laptopScreen = document.querySelector('.laptop-screen');
-        const tooltip = document.getElementById('tooltip');
+        // Add particle effect for hover
+        const logos = document.querySelectorAll('.project-logo');
         
-        // 3D animation for laptop
-        gsap.to(laptop, {
-            rotationY: -15,
-            rotationX: 5,
-            duration: 4,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
+        logos.forEach(logo => {
+            logo.addEventListener('mouseover', function() {
+                // Hover animation is handled by CSS
+                // But we can create a more dynamic effect here if needed
+                createParticles(this);
+            });
         });
 
-        // Slight hover animation
-        gsap.to(laptop, {
-            y: -10,
-            duration: 2.5,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        });
-
-        // Get laptop screen position
-        function getLaptopScreenBounds() {
-            return laptopScreen.getBoundingClientRect();
-        }
-
-        // Create hexagon element
-        function createHexagon(size = 'medium') {
-            const hexagon = document.createElement('div');
-            hexagon.className = 'hexagon';
+        function createParticles(logo) {
+            const container = logo.closest('.marquee-container');
             
-            // Set size based on parameter
-            let hexSize;
-            if (size === 'small') hexSize = 80;
-            else if (size === 'large') hexSize = 140;
-            else hexSize = 110; // medium
-            
-            hexagon.style.width = `${hexSize}px`;
-            hexagon.style.height = `${hexSize}px`;
-            
-            // Create inner hexagon with image
-            const hexInner = document.createElement('div');
-            hexInner.className = 'hexagon-inner';
-            
-            // Select random project
-            const project = projects[Math.floor(Math.random() * projects.length)];
-            hexInner.style.backgroundImage = `url(${project.image})`;
-            
-            // Add click handler
-            hexagon.addEventListener('click', () => {
-                window.open(project.url, '_blank');
-            });
-            
-            // Add tooltip
-            hexagon.addEventListener('mouseenter', (e) => {
-                tooltip.innerHTML = `<div class="tooltip-title">${project.title}</div>${project.description}`;
-                tooltip.style.opacity = '1';
-                updateTooltipPosition(e);
-            });
-            
-            hexagon.addEventListener('mousemove', updateTooltipPosition);
-            
-            hexagon.addEventListener('mouseleave', () => {
-                tooltip.style.opacity = '0';
-            });
-            
-            // Add to DOM
-            hexagon.appendChild(hexInner);
-            document.body.appendChild(hexagon);
-            
-            return { element: hexagon, project };
-        }
-
-        // Update tooltip position
-        function updateTooltipPosition(e) {
-            tooltip.style.left = `${e.clientX + 15}px`;
-            tooltip.style.top = `${e.clientY + 15}px`;
-        }
-
-        // Animate hexagon from laptop to outside
-        function animateHexagonFromLaptop(size = 'medium') {
-            const screenBounds = getLaptopScreenBounds();
-            const screenCenterX = screenBounds.left + screenBounds.width / 2;
-            const screenCenterY = screenBounds.top + screenBounds.height / 2;
-            
-            // Create the hexagon
-            const { element: hexagon } = createHexagon(size);
-            
-            // Position at center of screen
-            hexagon.style.left = `${screenCenterX}px`;
-            hexagon.style.top = `${screenCenterY}px`;
-            hexagon.style.transform = 'translate(-50%, -50%) scale(0)';
-            
-            // Calculate random angle in front semicircle (between -90 and 90 degrees)
-            const angle = (Math.random() * 180 - 90) * Math.PI / 180;
-            const distance = window.innerWidth * 0.3 + Math.random() * window.innerWidth * 0.2;
-            
-            const endX = screenCenterX + Math.cos(angle) * distance;
-            const endY = screenCenterY + Math.sin(angle) * distance;
-            
-            // Animation timeline
-            const tl = gsap.timeline({
-                onComplete: () => hexagon.remove()
-            });
-            
-            // Appear animation
-            tl.to(hexagon, {
-                opacity: 1,
-                duration: 0.4,
-                transform: 'translate(-50%, -50%) scale(1)',
-                ease: "back.out(1.7)"
-            });
-            
-            // Move outward
-            tl.to(hexagon, {
-                left: endX,
-                top: endY,
-                opacity: 0,
-                duration: 2 + Math.random(),
-                ease: "power1.out",
-                rotation: Math.random() * 60 - 30
-            });
-        }
-
-        // Create burst of hexagons
-        function createHexagonBurst() {
-            const count = 3 + Math.floor(Math.random() * 3);
-            const sizes = ['small', 'medium', 'large'];
-            
-            for (let i = 0; i < count; i++) {
-                const size = sizes[Math.floor(Math.random() * sizes.length)];
-                setTimeout(() => animateHexagonFromLaptop(size), i * 120);
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                const size = Math.random() * 8 + 4;
+                
+                particle.style.position = 'absolute';
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.background = 'rgba(255, 255, 255, 0.8)';
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                
+                const rect = logo.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                
+                const x = rect.left - containerRect.left + rect.width / 2 + (Math.random() - 0.5) * 20;
+                const y = rect.top - containerRect.top + rect.height / 2 + (Math.random() - 0.5) * 20;
+                
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.opacity = Math.random() * 0.5 + 0.5;
+                
+                container.appendChild(particle);
+                
+                // Animate particles
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 2 + 1;
+                const distance = Math.random() * 80 + 40;
+                
+                setTimeout(() => {
+                    particle.style.transition = 'all 1s ease-out';
+                    particle.style.left = (x + Math.cos(angle) * distance) + 'px';
+                    particle.style.top = (y + Math.sin(angle) * distance) + 'px';
+                    particle.style.opacity = 0;
+                }, 10);
+                
+                // Remove particles
+                setTimeout(() => {
+                    particle.remove();
+                }, 1000);
             }
         }
-
-        // Initial animation
-        setTimeout(() => {
-            // Initial hexagons
-            for (let i = 0; i < 3; i++) {
-                setTimeout(() => animateHexagonFromLaptop(), i * 250);
-            }
-            
-            // Continuous animation
-            setInterval(createHexagonBurst, 1800);
-        }, 1000);
     </script>
 </body>
 </html>

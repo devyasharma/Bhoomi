@@ -217,6 +217,100 @@
         margin-right: 170px !important;
             }
         }
+
+        /* marquee */
+
+        
+        .marquee-container {
+            background: linear-gradient(135deg, #011583 0%, #134b07 100%);
+            padding: 40px 0;
+            /* border-radius: 10px; */
+            margin: 0px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            /* width: 100%; */
+        }
+
+        .marquee-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 40px;
+        }
+
+        .project-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            transition: all 0.5s ease;
+            border-radius: 50%;
+            background-color: white;
+            /* padding: 15px; */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-name {
+            color: white;
+            margin-top: 10px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .project-logo:hover {
+            transform: rotateY(180deg) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) rotateY(180deg); }
+            50% { transform: scale(1.1) rotateY(180deg); }
+            100% { transform: scale(1) rotateY(180deg); }
+        }
+
+        .marquee-content {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .marquee-title {
+                font-size: 2rem;
+            }
+            .project-logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
     
         /* Navigation */
         .navbar {
@@ -1757,7 +1851,7 @@ transform: translateY(0);
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgb(0 0 0 / 74%);
+    background: rgba(0, 0, 0, 0.582);
     z-index: 1; /* Dark overlay for readability */
 }
 .carousel-caption {
@@ -1904,6 +1998,17 @@ transform: translateY(0);
             margin: 0;
             text-align: justify;
         }
+
+        .mouse-cursor {
+            position: fixed;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            border-radius: 50%;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            visibility: hidden;
+          }
         
         /* Maintain horizontal layout even on smaller screens */
         @media (max-width: 992px) {
