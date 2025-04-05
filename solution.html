@@ -16,8 +16,8 @@
        
 </head>
 <body>
-     <!-- Top Bar with Logo, Contact Info, and Social Media -->
-     <div class="container top-bar">
+      <!-- Top Bar with Logo, Contact Info, and Social Media -->
+      <div class="container top-bar">
         <div class="row align-items-center" style="margin-right: 0 !important;">
             <div class="col-md-4">
                 <a href="index.html" class="navbar-brand">
@@ -27,23 +27,21 @@
             <div class="col-md-5 text-end contact-info">
                 <a href="tel:+91
                 8130787194" class="text-decoration-none">
-                    <i class="fas fa-phone-alt flip-horizontal "></i> <span class="tx text-black"> +91
+                <i class="fa-solid fa-phone fa-beat-fade"></i> <span class="tx text-black"> +91
                         8130787194</span></a>&nbsp;
                 <a href="mailto:info@bhoomitechzone.in" class="text-decoration-none">
-                    <i class="fas fa-envelope"></i><span class="tx text-black">
+                    <i class="fas fa-envelope fa-beat-fade"></i><span class="tx text-black">
                         &nbsp;info@bhoomitechzone.in</span>
                 </a>
             </div>
             <div class="col-md-3 text-end social-icons">
-                <a href="#" class="social-icon-link"><i class="fab fa-facebook-f"style="color: rgb(24, 119, 242);"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-instagram" style="color: #C13584;"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-youtube" style="color: #FF0000;"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in" style="color: #0A66C2;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-facebook-f fa-bounce"style="color: rgb(24, 119, 242);"></i></a>
+                <a href="#" class="social-icon-link"> <i class="fab fa-instagram fa-bounce" style="color: #C13584;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-youtube fa-bounce" style="color: #FF0000;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in fa-bounce" style="color: #0A66C2;"></i></a>
             </div>
         </div>
     </div>
-    
-    <!-- Navigation Menu -->
      
    <!-- Navigation Menu -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -382,21 +380,21 @@
   
    
 
-       <!-- Footer -->
+   <!-- Footer -->
 <footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 mb-4 mb-lg-0">
                 <div class="footer-about">
-                    <img src="image/6786f6bb-39fb-467c-ac73-2af12742e326-removebg-preview (2).png" style="width: 200px;" alt="" class="footer-logo">
+                    <img src="image/6786f6bb-39fb-467c-ac73-2af12742e326-removebg-preview (2).png" style="width: 250px;" alt="" class="footer-logo">
                     <p>
                         Bhoomi Techzone Pvt. Ltd. is a leading provider of innovative digital solutions and IT services, helping businesses transform and grow in the digital age.
                     </p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon-link"><i class="fab fa-facebook-f fa-beat"style="color: rgb(24, 119, 242); background-color: white"></i></a>
+                        <a href="#" class="social-icon-link"> <i class="fab fa-instagram fa-beat" style=" color: #C13584;"></i></a>
+                        <a href="#" class="social-icon-link"><i class="fab fa-youtube fa-beat" style="color: #FF0000;"></i></a>
+                        <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in fa-beat" style="color: #0A66C2;"></i></a>
                     </div>
                 </div>
             </div>
@@ -433,20 +431,20 @@
                 <h4>Contact Info</h4>
                 <ul class="list-unstyled footer-contact">
                     <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>A-43,Sector-63,Noida(201301) U.P India</span>
+                        <i class="fas fa-map-marker-alt fa-beat"></i>
+                        <span> A-43, Sector-63,Noida(201301) U.P India</span>
                     </li>
                     <li>
-                        <i class="fas fa-phone-alt"></i>
-                        <span>+91 8130787194</span>
+                        <i class="fa-solid fa-phone fa-shake"></i>
+                        <span> +91 8130787194</span>
                     </li>
                     <li>
-                        <i class="fas fa-envelope"></i>
-                        <span>info@bhoomitechzone.in</span>
+                        <i class="fas fa-envelope fa-beat "></i>
+                        <span> info@bhoomitechzone.in</span>
                     </li>
                     <li>
-                        <i class="fas fa-clock"></i>
-                        <span>Monday - Saturday: 9:00 AM - 7:00 PM</span>
+                        <i class="fas fa-clock fa-bounce"></i>
+                        <span> Monday - Saturday: 9:00 AM - 7:00 PM</span>
                     </li>
                 </ul>
             </div>
@@ -477,6 +475,43 @@
             once: true
         });
     </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Footer dropdown functionality for mobile view
+            const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
+            
+            footerDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    // Check if we're in mobile view
+                    if (window.innerWidth < 992) {
+                        const dropdownMenu = this.nextElementSibling;
+                        const icon = this.querySelector('.fa-chevron-down');
+                        
+                        // Toggle the menu
+                        if (dropdownMenu.style.maxHeight) {
+                            dropdownMenu.style.maxHeight = null;
+                            icon.classList.remove('rotate');
+                        } else {
+                            dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                            icon.classList.add('rotate');
+                        }
+                    }
+                });
+            });
+            
+            // Reset styles when resizing to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 992) {
+                    document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
+                        menu.style.maxHeight = '';
+                    });
+                    document.querySelectorAll('.fa-chevron-down').forEach(icon => {
+                        icon.classList.remove('rotate');
+                    });
+                }
+            });
+        });
+        </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('scroll', function() {
