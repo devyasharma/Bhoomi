@@ -3,100 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vertical Let's Talk with Wave Animation</title>
+    <title>Skorasoft Footer Clone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        /* Page styling */
         body {
             margin: 0;
             padding: 0;
-            background-color: #0f0f0f;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(0, 0, 0, 0.8) 1px, transparent 1px);
-            background-size: 40px 40px;
-            height: 100vh;
-            position: relative;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
         }
         
-        .lets-talk-vertical {
+        /* Footer styling */
+        .footer-wrapper {
+            background-color: #000;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-wrapper::before {
+            content: "";
             position: absolute;
-            right: 100px;
-            top: 50%;
-            transform: translateY(-50%) rotate(180deg);
-            writing-mode: vertical-lr; /* Makes text vertical */
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            font-size: 36px;
-            letter-spacing: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(45deg, rgba(30,30,30,0.2), rgba(30,30,30,0.2) 10px, rgba(0,0,0,0.3) 10px, rgba(0,0,0,0.3) 20px);
+            pointer-events: none;
         }
         
-        .letter {
-            display: inline-block;
+        .footer-container {
             position: relative;
+            padding: 40px 0;
         }
         
-        .l { 
-            color: #32c5cf; 
-            animation: wave 2s ease-in-out infinite;
-        }
-        .e { 
-            color: #9de3d5; 
-            animation: wave 2s ease-in-out infinite;
-            animation-delay: 0.2s;
-        }
-        .t { 
-            color: #8dccd1; 
-            animation: wave 2s ease-in-out infinite;
-            animation-delay: 0.4s;
-        }
-        .ap { 
-            color: #ff9800;  /* Apostrophe */
-            animation: wave 2s ease-in-out infinite;
-            animation-delay: 0.6s;
-        }
-        .s { 
-            color: #ffffff; 
-            animation: wave 2s ease-in-out infinite;
-            animation-delay: 0.8s;
-        }
-        .t2 { 
-            color: #4a8ca1; 
-            animation: wave 2s ease-in-out infinite;
-            animation-delay: 1s;
-        }
-        .a { 
-            color: #e91e63; 
-            animation: wave 2s ease-in-out infinite;
-            animation-delay: 1.2s;
-        }
-        .l2 { 
-            color: #673ab7; 
-            animation: wave 2s ease-in-out infinite;
-            animation-delay: 1.4s;
-        }
-        .k { 
-            color: #3f51b5; 
-            animation: wave 2s ease-in-out infinite;
-            animation-delay: 1.6s;
+        .left-section {
+            padding: 20px 20px 20px 0;
         }
         
-        /* Wave animation */
-        @keyframes wave {
-            0% { transform: translateX(0px); }
-            50% { transform: translateX(10px); }
-            100% { transform: translateX(0px); }
+        .coffee-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        
+        .appointment-btn {
+            display: inline-block;
+            background-color: #17b890;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .appointment-btn:hover {
+            background-color: #129570;
+            color: white;
+        }
+        
+        .appointment-btn i {
+            margin-left: 5px;
+        }
+        
+        .or-text {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+        
+        .contact-info {
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+        
+        .center-section a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .center-section a:hover {
+            padding-left: 5px;
+            color: #17b890;
+        }
+        
+        .right-section {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .lets-talk {
+            font-size: 4rem;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #1e6091;
+            margin-right: 30px;
+        }
+        
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .social-icon {
+            background-color: white;
+            color: black;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            color: white;
+        }
+        
+        .ready-text {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .coffee-title, .lets-talk {
+                font-size: 3rem;
+            }
+            
+            .lets-talk {
+                writing-mode: horizontal-tb;
+                transform: none;
+                margin-right: 0;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            
+            .right-section {
+                align-items: center;
+                margin-top: 40px;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .center-section {
+                margin: 30px 0;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .coffee-title {
+                font-size: 2.5rem;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="lets-talk-vertical">
-        <span class="letter k">k</span>
-        <span class="letter l2">l</span>
-        <span class="letter a">a</span>
-        <span class="letter t2">T</span>
-        <span class="letter s">s</span>
-        <span class="letter ap">'</span>
-        <span class="letter t">t</span>
-        <span class="letter e">e</span>
-        <span class="letter l">L</span>
+    <div class="footer-wrapper">
+        <div class="ready-text">Ready To Do This?</div>
+        
+        <div class="container footer-container">
+            <div class="row">
+                <!-- Left Section -->
+                <div class="col-lg-4 left-section">
+                    <h1 class="coffee-title">Let's Have<br>a Coffee</h1>
+                    <a href="#" class="appointment-btn">Schedule An Appointment <i class="fas fa-arrow-right"></i></a>
+                    <div class="or-text">OR</div>
+                    <div class="contact-info">
+                        Call Us:- +917033313450<br>
+                        Email Us:- info@skorasoft.com
+                    </div>
+                </div>
+                
+                <!-- Center Section - Links -->
+                <div class="col-lg-4">
+                    <div class="row center-section">
+                        <div class="col-6">
+                            <a href="#">About</a>
+                            <a href="#">Services</a>
+                            <a href="#">Career</a>
+                            <a href="#">Blogs</a>
+                            <a href="#">Contact</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="#">Company Profile</a>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms & Condition</a>
+                            <a href="#">Refund Policy</a>
+                            <a href="#">Shipping Policy</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Section -->
+                <div class="col-lg-4 right-section">
+                    <div class="lets-talk">Let's Talk</div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="copyright">
+                © Copyright 2025 SkoraSoft. All rights reserved.
+            </div>
+        </div>
+        
+        <!-- WhatsApp Button -->
+        <a href="#" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

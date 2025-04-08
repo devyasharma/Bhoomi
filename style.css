@@ -1488,6 +1488,14 @@ textarea.form-control {
 .contact-form .submit-btn:hover {
     background-color: #0b5ed7;
 }
+/* footer new */
+
+/* @media (min-width: 768px) {
+    .col-md-12 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+} */
 
 /* Footer */
 @media (max-width: 767px){
@@ -1556,16 +1564,27 @@ textarea.form-control {
     position: relative;
     padding-bottom: 10px;
 }
-
-.footer h4:after {
+.custom-border::before {
+    left: -100px;
+}
+.custom-border::before, .custom-border::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
+    top: 50%;
+    width: 100px;
     height: 2px;
-    background-color: #009933;
+    background-color: #fff;
 }
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.custom-border::after {
+    right: -100px;
+}
+.custom-border {
+    display: inline-block;
+}
+
 
 .footer-links li {
     margin-bottom: 15px;
@@ -1575,7 +1594,7 @@ textarea.form-control {
     color: rgba(255, 255, 255, 0.87);
     transition: color 0.3s;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 30px;
 }
 
 .footer-links a:hover {
@@ -1628,6 +1647,8 @@ textarea.form-control {
     z-index: 1000;
 }
 
+
+  
 .whatsapp-button:hover {
     transform: scale(1.1);
 }

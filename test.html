@@ -1,48 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
-    <!-- Black grid background -->
-    <defs>
-      <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-        <rect width="50" height="50" fill="#111" />
-        <rect width="45" height="45" x="2.5" y="2.5" fill="#000" />
-      </pattern>
-    </defs>
-    <rect width="500" height="500" fill="url(#grid)" />
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #000; /* or whatever your footer bg is */
+  color: white;
+}
 
-   
-    <!-- B-shaped white background for social media icons -->
-    <path d="M200,100 
-             h100 
-             a75,75 0 0 1 0,150 
-             a75,75 0 0 1 0,150 
-             h-100 
-             Z" fill="white" />
-    
-    <!-- Divide the B shape into 6 sections -->
-    <!-- Top horizontal divider -->
-    <line x1="200" y1="175" x2="375" y2="175" stroke="black" stroke-width="2" />
-    <!-- Middle horizontal divider -->
-    <line x1="200" y1="250" x2="300" y2="250" stroke="black" stroke-width="2" />
-    <!-- Bottom horizontal divider -->
-    <line x1="200" y1="325" x2="375" y2="325" stroke="black" stroke-width="2" />
-    <!-- Vertical divider in top half -->
-    <line x1="287.5" y1="100" x2="287.5" y2="250" stroke="black" stroke-width="2" />
-    <!-- Vertical divider in bottom half -->
-    <line x1="287.5" y1="250" x2="287.5" y2="400" stroke="black" stroke-width="2" />
-    
-    <!-- Social Media Icons -->
-    <!-- Instagram (top left) -->
-    <g transform="translate(243.75, 137.5)">
-      <rect x="-20" y="-20" width="40" height="40" rx="10" ry="10" fill="none" stroke="black" stroke-width="3" />
-      <circle cx="0" cy="0" r="10" fill="none" stroke="black" stroke-width="3" />
-      <circle cx="12" cy="-12" r="3" fill="black" />
-    </g>
-    
-    <!-- LinkedIn (top right) -->
-    <g transform="translate(331.25, 137.5)">
-      <rect x="-20" y="-20" width="40" height="40" rx="5" ry="5" fill="black" />
-      <text x="-10" y="7" font-size="24" fill="white" font-weight="bold">in</text>
-    </g>
-    
-    <!-- Pinterest (middle left) -->
-    <g transform="translate(243.75, 287.
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  padding: 20px;
+}
+
+/* Targeting the 4th column */
+.footer-column.social-b-icon {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Optional: resize SVG to fit well */
+.footer-column.social-b-icon svg {
+  width: 200px;
+  height: auto;
+  max-width: 100%;
+}
+  </style>
+</head>
+<body>
+  footer class="footer">
+  <div class="footer-column">Column 1 content</div>
+  <div class="footer-column">Column 2 content</div>
+  <div class="footer-column">Column 3 content</div>
+  <div class="footer-column social-b-icon">
+    <!-- Paste your SVG code here -->
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" ... >...</svg> -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+      <!-- Black grid background -->
+      <defs>
+        <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+          <rect width="50" height="50" fill="#111" />
+          <rect width="45" height="45" x="2.5" y="2.5" fill="#000" />
+        </pattern>
+      </defs>
+      <rect width="500" height="500" fill="url(#grid)" />
+      
+  
+     
+      <!-- B-shaped white background for social media icons -->
+      <path d="M200,100 
+               h100 
+               a75,75 0 0 1 0,150 
+               a75,75 0 0 1 0,150 
+               h-100 
+               Z" fill="white" />
+      
+      <!-- Divide the B shape into 6 sections -->
+      <!-- Top horizontal divider -->
+      <line x1="200" y1="175" x2="375" y2="175" stroke="black" stroke-width="2" />
+      <!-- Middle horizontal divider -->
+      <line x1="200" y1="250" x2="300" y2="250" stroke="black" stroke-width="2" />
+      <!-- Bottom horizontal divider -->
+      <line x1="200" y1="325" x2="375" y2="325" stroke="black" stroke-width="2" />
+      <!-- Vertical divider in top half -->
+      <line x1="287.5" y1="100" x2="287.5" y2="250" stroke="black" stroke-width="2" />
+      <!-- Vertical divider in bottom half -->
+      <line x1="287.5" y1="250" x2="287.5" y2="400" stroke="black" stroke-width="2" />
+      
+      <!-- Social Media Icons -->
+      <!-- Instagram (top left) -->
+      <g transform="translate(243.75, 137.5)">
+        <rect x="-20" y="-20" width="40" height="40" rx="10" ry="10" fill="none" stroke="black" stroke-width="3" />
+        <circle cx="0" cy="0" r="10" fill="none" stroke="black" stroke-width="3" />
+        <circle cx="12" cy="-12" r="3" fill="black" />
+      </g>
+      
+      <!-- LinkedIn (top right) -->
+      <g transform="translate(331.25, 137.5)">
+        <rect x="-20" y="-20" width="40" height="40" rx="5" ry="5" fill="black" />
+        <text x="-10" y="7" font-size="24" fill="white" font-weight="bold">in</text>
+      </g>
+      
+      <!-- Pinterest (middle left) -->
+      <g transform="translate(243.75, 287.
+  </div>
+</footer>
+</body>
+</html>
