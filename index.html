@@ -7,6 +7,7 @@
     <title>Bhoomi Techzone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -26,10 +27,7 @@
 </head>
 
 <body>
-    <!--<< Mouse Cursor Start >>-->
-    <div class="mouse-cursor cursor-outer"></div>
-    <div class="mouse-cursor cursor-inner"></div>
-
+   
     <!-- Top Bar with Logo, Contact Info, and Social Media -->
     <div class="container top-bar">
         <div class="row align-items-center" style="margin-right: 0 !important;">
@@ -69,10 +67,12 @@
                 <img src="image/logo-removebg-preview (3).webp" alt="BhoomiTech Zone Pvt. Ltd." class="logo-img">
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <!-- Single Toggle Button -->
+    <button class="navbar-toggler" type="button" id="menuToggle">
+        <span class="icon-bars"><span class="navbar-toggler-icon"></span></span>
+        <span class="icon-close d-none">&times;</span>
+      </button>
+    
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -104,7 +104,7 @@
 
     <!-- Hero Section with Slider -->
     <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" style="border-bottom-right-radius: 15%; border-bottom-left-radius: 15%;">
+        <div class="carousel-inner" style="border-bottom-right-radius: 40%; border-bottom-left-radius: 40%;">
             <!-- Slide 1 -->
             <div class="carousel-item active hero-section " data-bs-interval="2000"
                 style="background-image: url('image/bn1.jpg')">
@@ -151,65 +151,12 @@
         </button>
     </div>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="about-image">
-                        <img src="image/web-design-icons-set_1284-10684.avif" alt="About">
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="about-text">
-                        <div class="section-title">About Us</div>
-                        <h3>Transforming Business Through Technology</h3>
-                        <p>
-                            Bhoomi Techzone Pvt. Ltd. is a leading IT service provider with a focus on delivering
-                            innovative and scalable solutions to businesses of all sizes. Our team of experts combines
-                            creativity with technical expertise to help organizations achieve their digital
-                            transformation goals.<br>
-                            With years of experience in the industry, we understand the challenges businesses face in
-                            today's digital landscape and provide tailored solutions to overcome them.
-                        </p>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i> Software Development
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i> Mobile App Development
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i> Website Development
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i> Website Design
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i> Social Medial Marketing
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            SEO Optimization
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i> Digital Marketing Services
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="button-container">
-                <a href="solution.html" class="custom-button">Know More</a>
-            </div>
-
-        </div>
-    </section>
-
     <!-- Services Section -->
     <section class="services-section">
         <div class="container">
             <!-- Section Header -->
-            <div class="section-title" data-aos="fade-up">Smart Services</div>
+            <div class="section-title  fw-bold wave" data-aos="fade-up"><span>S</span><span>m</span><span>a</span><span>r</span><span>t</span><span> </span>
+                <span>S</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span></div>
             <h2 class="main-heading" data-aos="fade-up" data-aos-delay="200"> <span id="servicess"></span></h2>
             <p class="section-description" data-aos="fade-up" data-aos-delay="300">
                 Bhoomi Techzone delivers comprehensive tech solutions tailored to meet diverse business needs.
@@ -226,8 +173,7 @@
                                 <img src="image/web.png" alt="Visual Design" class="service-icon">
                                 <h3 class="service-title">Website Design</h3>
                                 <p class="service-description">
-                                    At Bhoomi Techzone Pvt. Ltd., we provide result-driven website development services
-                                    in India that combine creativity, technology, and strategy.
+                                    At Bhoomi Techzone Pvt. Ltd., we provide result-driven website development services in India that combine creativity, technology, and strategy.
                                 </p>
                             </div>
                             <div class="service-card-back">
@@ -543,11 +489,65 @@
         </div>
     </section>
 
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="about-image">
+                    <img src="image/web-design-icons-set_1284-10684.avif" alt="About">
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="about-text">
+                    <div class="section-title fw-bold wave"><span>A</span><span>b</span><span>o</span><span>u</span><span>t</span></div>
+                    <h3>Transforming Business Through Technology</h3>
+                    <p>
+                        Bhoomi Techzone Pvt. Ltd. is a leading IT service provider with a focus on delivering
+                        innovative and scalable solutions to businesses of all sizes. Our team of experts combines
+                        creativity with technical expertise to help organizations achieve their digital
+                        transformation goals.<br>
+                        With years of experience in the industry, we understand the challenges businesses face in
+                        today's digital landscape and provide tailored solutions to overcome them.
+                    </p>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i> Software Development
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i> Mobile App Development
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i> Website Development
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i> Website Design
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i> Social Medial Marketing
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        SEO Optimization
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i> Digital Marketing Services
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <a href="solution.html" class="custom-button">Know More</a>
+        </div>
+
+    </div>
+</section>
+
     <!-- marquee-section -->
     <section class="marquee-section">
 
         <div class="marquee-container">
-            <h1 class="marquee-title">Our Projects</h1>
+            <h1 class="marquee-title fw-bold wave"><span>O</span><span>u</span><span>r</span>&nbsp;<span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span></h1>
             <div class="marquee-content">
                 <div class="center-marker" id="centerMarker"></div>
                 <div class="marquee-track" id="marqueeTrack">
@@ -1052,6 +1052,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Footer -->
     <footer class="footer text-white bg-dark py-5">
         <div class="container">
@@ -1266,6 +1267,8 @@
     <a href="https://wa.me/8130787194" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <!-- pop up project -->
@@ -1336,6 +1339,40 @@
             requestAnimationFrame(checkCenterOverlap);
         });
     </script>
+    <!-- toggle -->
+    <script>
+        const toggleBtn = document.getElementById("menuToggle");
+        const collapseEl = document.getElementById("navbarNav");
+        const iconBars = toggleBtn.querySelector(".icon-bars");
+        const iconClose = toggleBtn.querySelector(".icon-close");
+      
+        // Get or create collapse instance
+        let bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
+      
+        toggleBtn.addEventListener("click", () => {
+          const isShown = collapseEl.classList.contains("show");
+      
+          if (isShown) {
+            bsCollapse.hide();
+          } else {
+            bsCollapse.show();
+          }
+        });
+      
+        // Switch icons on open/close
+        collapseEl.addEventListener("show.bs.collapse", () => {
+          iconBars.classList.add("d-none");
+          iconClose.classList.remove("d-none");
+        });
+      
+        collapseEl.addEventListener("hide.bs.collapse", () => {
+          iconBars.classList.remove("d-none");
+          iconClose.classList.add("d-none");
+        });
+      </script>
+      
+  
+  
     <!-- project -->
     <script>
         // Add particle effect for hover
@@ -1546,7 +1583,7 @@
             }
         };
     </script>
-
+<!-- skill -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Add animation on scroll
