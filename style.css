@@ -2063,11 +2063,11 @@ textarea.form-control {
   
   /* Media Queries */
   @media only screen and (max-width: 990px) {
-    .text-effect { font-size: 60px; }
+    .text-effect { font-size: 70px; }
   }
   
   @media only screen and (max-width: 767px) {
-    .text-effect { font-size: 50px; }
+    .text-effect { font-size: 70px; }
     .foot{
         margin-top: -40px;
       }
@@ -2075,7 +2075,7 @@ textarea.form-control {
   
   @media only screen and (max-width: 576px) {
     .text-effect { 
-      font-size: 40px; 
+      font-size: 70px; 
       margin-bottom: 20px;
     }
     
