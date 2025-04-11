@@ -13,7 +13,42 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="style.css" rel="stylesheet">
-    
+    <style>
+        h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #ff5e7d;
+}
+
+.breadcrumb .separator {
+    margin: 0 10px;
+    color: #5d6c92;
+}
+
+.current-page {
+    color: #6e7bb1;
+}
+    </style>
 </head>
 <body>
       <!-- Top Bar with Logo, Contact Info, and Social Media -->
@@ -254,7 +289,7 @@
             </div>
             <div class="col-lg-2 col-md-6  mb-md-0 d-none d-lg-block">
 
-                <a href="index.html" download=""
+                <a href="index.html"
                     class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Home</a>
                 <a href="about.html"
                     class="d-block  border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">About</a>
@@ -283,7 +318,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6 d-none d-lg-block">
-                <a href="about.html" download=""
+                <a href="about.html"
                     class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Company
                     Profile</a>
                 <a href="blog.html"
@@ -296,9 +331,9 @@
                     class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Location</a>
             </div>
             <div class="col-lg-3 col-md-6 " style="padding-left: 50px;" data-cue="slideInUp">
-                <div class="footer-widget">
+                <div class="footer-widget foot">
 
-                    <div class="text-column" style="margin-top: 100px;margin-left: 163px;">
+                    <div class="text-column">
 
                         <div class="text-effect">
                             <span class="color-change">B</span><span class="color-change  ">h</span><span
@@ -405,6 +440,7 @@
         </div>
     </div>
 </footer>
+
     
 <a href="https://wa.me/8130787194" class="whatsapp-button" target="_blank">
     <i class="fab fa-whatsapp"></i>

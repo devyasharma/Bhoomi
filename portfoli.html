@@ -17,7 +17,42 @@
     <link href="style.css" rel="stylesheet">
    
 </head>
+<style>
+    h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
 
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #ff5e7d;
+}
+
+.breadcrumb .separator {
+    margin: 0 10px;
+    color: #5d6c92;
+}
+
+.current-page {
+    color: #6e7bb1;
+}
+</style>
 <body>
     
      <!-- Top Bar with Logo, Contact Info, and Social Media -->
@@ -185,6 +220,18 @@
                         <a href="portfoli.html" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
+                 <!-- Portfolio Item 1 -->
+                 <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="image/ap.jpg" alt="E-commerce Website">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Web Design</span>
+                        <h3 class="portfolio-title">E-commerce Platform</h3>
+                        <p class="portfolio-description">A fully responsive e-commerce website with seamless user experience and secure payment integration.</p>
+                        <a href="portfoli.html" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -249,7 +296,7 @@
             </div>
             <div class="col-lg-2 col-md-6  mb-md-0 d-none d-lg-block">
 
-                <a href="index.html" download=""
+                <a href="index.html"
                     class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Home</a>
                 <a href="about.html"
                     class="d-block  border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">About</a>
@@ -278,7 +325,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6 d-none d-lg-block">
-                <a href="about.html" download=""
+                <a href="about.html"
                     class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Company
                     Profile</a>
                 <a href="blog.html"
@@ -291,9 +338,9 @@
                     class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Location</a>
             </div>
             <div class="col-lg-3 col-md-6 " style="padding-left: 50px;" data-cue="slideInUp">
-                <div class="footer-widget">
+                <div class="footer-widget foot">
 
-                    <div class="text-column" style="margin-top: 100px;margin-left: 163px;">
+                    <div class="text-column">
 
                         <div class="text-effect">
                             <span class="color-change">B</span><span class="color-change  ">h</span><span

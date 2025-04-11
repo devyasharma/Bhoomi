@@ -14,7 +14,252 @@
     <!-- Custom CSS -->
     <link href="style.css" rel="stylesheet">
    
-       
+       <style>
+        /* Solutions Overview */
+.solutions-overview {
+    text-align: center;
+}
+
+/* Solution Cards */
+.solution-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.solution-card:hover {
+    transform: translateY(-10px);
+}
+
+.solution-card-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.solution-card-img img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.solution-card:hover .solution-card-img img {
+    transform: scale(1.1);
+}
+
+.solution-card-content {
+    padding: 30px;
+    text-align: left;
+}
+
+.solution-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2a3855;
+    margin-bottom: 15px;
+}
+
+.solution-card-text {
+    color: #6c757d;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.solution-card-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.solution-card-features li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: #6c757d;
+}
+
+.solution-card-features li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #0d6efd;
+}
+
+.read-more-btn {
+    display: inline-block;
+    color: #0d6efd;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.read-more-btn i {
+    margin-left: 5px;
+    transition: margin-left 0.3s ease;
+}
+
+.read-more-btn:hover i {
+    margin-left: 10px;
+}
+
+/* Web Development Solutions */
+.web-dev-section {
+    background-color: #f8f9fa;
+}
+
+.web-dev-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.web-dev-image img {
+    width: 100%;
+    height: auto;
+}
+
+.web-dev-content h3 {
+    color: #2a3855;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.web-dev-content p {
+    color: #6c757d;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.web-dev-features {
+    margin-top: 30px;
+}
+
+.web-dev-features .feature-item {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    min-width: 60px;
+    height: 60px;
+    background-color: #e6f0ff;
+    color: #0d6efd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.feature-text h4 {
+    color: #2a3855;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.feature-text p {
+    color: #6c757d;
+    margin-bottom: 0;
+}
+/* Mobile App Solutions */
+.app-dev-section {
+    position: relative;
+}
+
+.app-feature-item {
+    background-color: #489b5261;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.753);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.app-feature-item:hover {
+    transform: translateY(-10px);
+}
+
+.app-feature-icon {
+    width: 70px;
+    height: 70px;
+    background-color: #e6f0ff;
+    color: #009933;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.app-feature-item h4 {
+    color: #013a40;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.app-feature-item p {
+    color: #012002;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.app-image {
+    text-align: center;
+}
+
+.app-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #ff5e7d;
+}
+
+.breadcrumb .separator {
+    margin: 0 10px;
+    color: #5d6c92;
+}
+
+.current-page {
+    color: #6e7bb1;
+}
+       </style>
 </head>
 <body>
       <!-- Top Bar with Logo, Contact Info, and Social Media -->
@@ -347,13 +592,29 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
-                    <div class="app-image">
-                        <img src="image/2.eb13885d1e7504f44092.webp" alt="Mobile App Development">
-                        <img class="mt-3" src="image/17.342a3a669a56c8992de8.webp "  alt="Mobile App Development">
-                        <!-- <img class="mt-3" src="image/ap3.jpg" alt="Mobile App Development"> -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="app-feature-item">
+                        <div class="app-feature-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h4>Database Management</h4>
+                        <p>
+                            Select appropriate local storage (SQLite, Realm, Core Data). Design efficient data schemas and relationships. And Implement proper data migration strategies.
+                        </p>
+                    </div>
+                    
+                    <div class="app-feature-item">
+                        <div class="app-feature-icon">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h4>API Integration</h4>
+                        <p>
+                            We Create robust RESTful or GraphQL API connections and Implement proper error handling and retry mechanisms. We Design efficient caching strategies to minimize network requests.
+                        </p>
                     </div>
                 </div>
+                
+               
                 
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
                     <div class="app-feature-item">
@@ -372,7 +633,7 @@
                         </div>
                         <h4>App Maintenance & Support</h4>
                         <p>
-                            We provide ongoing maintenance and support services to ensure your app remains up-to-date with the latest OS versions and operates smoothly.
+                            We provide ongoing maintenance and support services to ensure your app remains up-to-date with the latest OS versions and operates smoothly. Secure data storage with encryption.
                         </p>
                     </div>
                 </div>
@@ -441,7 +702,7 @@
             </div>
             <div class="col-lg-2 col-md-6  mb-md-0 d-none d-lg-block">
 
-                <a href="index.html" download=""
+                <a href="index.html"
                     class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Home</a>
                 <a href="about.html"
                     class="d-block  border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">About</a>
@@ -470,7 +731,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6 d-none d-lg-block">
-                <a href="about.html" download=""
+                <a href="about.html"
                     class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Company
                     Profile</a>
                 <a href="blog.html"
@@ -483,9 +744,9 @@
                     class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Location</a>
             </div>
             <div class="col-lg-3 col-md-6 " style="padding-left: 50px;" data-cue="slideInUp">
-                <div class="footer-widget">
+                <div class="footer-widget foot">
 
-                    <div class="text-column" style="margin-top: 100px;margin-left: 163px;">
+                    <div class="text-column">
 
                         <div class="text-effect">
                             <span class="color-change">B</span><span class="color-change  ">h</span><span
