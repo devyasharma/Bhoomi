@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRM Software Features</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .features-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #252525;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #4776E6, #8E54E9);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-header {
+            padding: 20px 25px;
+            background: linear-gradient(to right, #4776E6, #8E54E9);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-number {
+            position: absolute;
+            font-size: 100px;
+            font-weight: 700;
+            opacity: 0.1;
+            top: -20px;
+            right: 10px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-content {
+            padding: 25px;
+            color: #555;
+            font-size: 1.05rem;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #f0f4ff;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #4776E6;
+            flex-shrink: 0;
+        }
+
+        /* Animation delays for cards */
+        .feature-card:nth-child(1) { animation: fadeInUp 0.8s ease forwards 0.1s; }
+        .feature-card:nth-child(2) { animation: fadeInUp 0.8s ease forwards 0.2s; }
+        .feature-card:nth-child(3) { animation: fadeInUp 0.8s ease forwards 0.3s; }
+        .feature-card:nth-child(4) { animation: fadeInUp 0.8s ease forwards 0.4s; }
+        .feature-card:nth-child(5) { animation: fadeInUp 0.8s ease forwards 0.5s; }
+        .feature-card:nth-child(6) { animation: fadeInUp 0.8s ease forwards 0.6s; }
+        .feature-card:nth-child(7) { animation: fadeInUp 0.8s ease forwards 0.7s; }
+        .feature-card:nth-child(8) { animation: fadeInUp 0.8s ease forwards 0.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Shine effect on hover */
+        .feature-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.8s ease;
+        }
+
+        .feature-card:hover .feature-header::before {
+            left: 100%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .feature-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Animation for scroll reveal */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+    </style>
+</head>
+<body>
+    <section class="features-section">
+        <h2 class="section-title">Key Features of Our HRM Software</h2>
+        
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">1</div>
+                    <h3 class="feature-title">Employee Database Management</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>👥</i>
+                    </div>
+                    <p>Maintain a centralized, secure, and easily accessible record of all employee information.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">2</div>
+                    <h3 class="feature-title">Attendance & Leave Management</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>📅</i>
+                    </div>
+                    <p>Track employee attendance, manage shifts, handle leave requests, and generate automated reports.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">3</div>
+                    <h3 class="feature-title">Payroll & Salary Management</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>💰</i>
+                    </div>
+                    <p>Simplify payroll processing, salary slips, tax calculations, and compliance — all in just a few clicks.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">4</div>
+                    <h3 class="feature-title">Shift & Scheduling</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>⏱️</i>
+                    </div>
+                    <p>Efficiently assign shifts, manage rosters, and avoid scheduling conflicts with automated notifications.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">5</div>
+                    <h3 class="feature-title">Performance Management</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>📈</i>
+                    </div>
+                    <p>Set goals, track KPIs, conduct evaluations, and provide real-time feedback to boost employee performance.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 6 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">6</div>
+                    <h3 class="feature-title">Recruitment & Onboarding</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>🔍</i>
+                    </div>
+                    <p>Streamline hiring with resume tracking, interview scheduling, and automated onboarding workflows.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 7 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">7</div>
+                    <h3 class="feature-title">Employee Self-Service (ESS) Portal</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>🖥️</i>
+                    </div>
+                    <p>Allow employees to access payslips, apply for leave, update personal info, and stay engaged through their own dashboard.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 8 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">8</div>
+                    <h3 class="feature-title">Role-Based Access & Security</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>🔒</i>
+                    </div>
+                    <p>Ensure data privacy and access control with user-specific roles and permissions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Reveal animation on scroll
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        
+        // Trigger the animation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(reveal, 100);
+        });
+    </script>
+</body>
+</html>

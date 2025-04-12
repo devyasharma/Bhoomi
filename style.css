@@ -1209,7 +1209,7 @@ body {
         background-image: linear-gradient(to right, rgb(2, 63, 7), #009933);
     }
     
-    .service-card:hover * {
+    .service-card p:hover * {
         color: white !important;
     }
     
@@ -1776,7 +1776,25 @@ textarea.form-control {
         width: 100%;
     }
 } */
+.learn-more-btn {
+    display: inline-block;
+    background-color: white !important;
+    color: rgb(31, 8, 8) !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 70px;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 0 20px rgba(119, 119, 119, 0.1);
+}
 
+.learn-more-btn:hover {
+    opacity: .8;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(119, 119, 119, 0.1);
+}
 /* Footer */
 @media (max-width: 767px){
     .footer-about p {

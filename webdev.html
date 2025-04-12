@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Replace your current viewport meta tag with this one -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+   
+</head>
+<style>
+    h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #ff5e7d;
+}
+
+.breadcrumb .separator {
+    margin: 0 10px;
+    color: #5d6c92;
+}
+
+.current-page {
+    color: #6e7bb1;
+}
+
+.features-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #0a748a;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #4776E6, #8E54E9);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-header {
+            padding: 20px 25px;
+            background: linear-gradient(to right, #021238, #009933);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-number {
+            position: absolute;
+            font-size: 100px;
+            font-weight: 700;
+            opacity: 0.1;
+            top: -20px;
+            right: 10px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-content {
+            padding: 25px;
+            color: #555;
+            font-size: 1.05rem;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #f0f4ff;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #4776E6;
+            flex-shrink: 0;
+        }
+
+        /* Animation delays for cards */
+        .feature-card:nth-child(1) { animation: fadeInUp 0.8s ease forwards 0.1s; }
+        .feature-card:nth-child(2) { animation: fadeInUp 0.8s ease forwards 0.2s; }
+        .feature-card:nth-child(3) { animation: fadeInUp 0.8s ease forwards 0.3s; }
+        .feature-card:nth-child(4) { animation: fadeInUp 0.8s ease forwards 0.4s; }
+        .feature-card:nth-child(5) { animation: fadeInUp 0.8s ease forwards 0.5s; }
+        .feature-card:nth-child(6) { animation: fadeInUp 0.8s ease forwards 0.6s; }
+        .feature-card:nth-child(7) { animation: fadeInUp 0.8s ease forwards 0.7s; }
+        .feature-card:nth-child(8) { animation: fadeInUp 0.8s ease forwards 0.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Shine effect on hover */
+        .feature-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.8s ease;
+        }
+
+        .feature-card:hover .feature-header::before {
+            left: 100%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .feature-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Animation for scroll reveal */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+    
+</style>
+<body>
+    
+     <!-- Top Bar with Logo, Contact Info, and Social Media -->
+     <div class="container top-bar">
+        <div class="row align-items-center" style="margin-right: 0 !important;">
+            <div class="col-md-4">
+                <a href="index.html" class="navbar-brand">
+                    <img src="image/logo-removebg-preview (3).webp" alt="BhoomiTech Zone Pvt. Ltd." class="logo-img">
+                </a>
+            </div>
+            <div class="col-md-5 text-end contact-info">
+                <a href="tel:+91
+                8130787194" class="text-decoration-none">
+                <i class="fa-solid fa-phone fa-beat-fade"></i> <span class="tx text-black"> +91
+                        8130787194</span></a>&nbsp;
+                <a href="mailto:info@bhoomitechzone.in" class="text-decoration-none">
+                    <i class="fas fa-envelope fa-beat-fade"></i><span class="tx text-black">
+                        &nbsp;info@bhoomitechzone.in</span>
+                </a>
+            </div>
+            <div class="col-md-3 text-end social-icons">
+                <a href="#" class="social-icon-link"><i class="fab fa-facebook-f fa-bounce"style="color: rgb(24, 119, 242);"></i></a>
+                <a href="#" class="social-icon-link"> <i class="fab fa-instagram fa-bounce" style="color: #C13584;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-youtube fa-bounce" style="color: #FF0000;"></i></a>
+                <a href="#" class="social-icon-link"><i class="fab fa-linkedin-in fa-bounce" style="color: #0A66C2;"></i></a>
+            </div>
+        </div>
+    </div>
+     
+   <!-- Navigation Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+        <!-- This logo only appears when scrolling -->
+        <a href="index.html" class="navbar-brand scroll-logo">
+            <img src="image/logo-removebg-preview (3).webp" alt="BhoomiTech Zone Pvt. Ltd." class="logo-img">
+        </a>
+        
+       <!-- Single Toggle Button -->
+    <button class="navbar-toggler" type="button" id="menuToggle">
+        <span class="icon-bars"><span class="navbar-toggler-icon"></span></span>
+        <span class="icon-close d-none">&times;</span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="solution.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact-Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="portfoli.html">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="career.html">Career</a>
+                </li>
+            </ul>
+            <a href="contact.html" class="get-in-touch-btn text-decoration-none">Get In Touch</a>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="header-section">
+        <!-- Animated shapes -->
+        <div class="shape cross"></div>
+        <div class="shape square"></div>
+        <div class="shape circle-red"></div>
+        <div class="shape circle-blue"></div>
+        
+        <!-- Content -->
+        <h1>Website Development</h1>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="separator">■</span>
+            <span class="current-page">Website Development</span>
+        </div>
+    </section>
+  <!-- feature section -->
+    <section class="features-section">
+        <h2 class="section-title">Custom Web
+            Design & Development
+            </h2>
+        
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">1</div>
+                    <h3 class="feature-title">Fully Customized Solutions</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>👥</i>
+                    </div>
+                    <p>This approach ensures that users have an optimal viewing experience, with easy navigation and readable text, regardless of the device they are using. Responsive design uses flexible grids, images, and CSS media queries to automatically adjust the website's appearance.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">2</div>
+                    <h3 class="feature-title">HTML5, CSS3, Bootstrap, Laravel, React</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>📅</i>
+                    </div>
+                    <p>Modern web development relies on powerful and flexible technologies to create fast, responsive, and user-friendly websites. HTML5 and CSS3 form the foundation, enabling structured content and visually appealing designs with features like semantic tags, animations.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">3</div>
+                    <h3 class="feature-title">SEO & Performance Optimized</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>💰</i>
+                    </div>
+                    <p>Search Engine Optimization (SEO) ensures that the website ranks higher in search engine results, driving organic traffic through optimized content, meta tags, structured data, and clean URLs. Performance optimization focuses on faster load times.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">4</div>
+                    <h3 class="feature-title">On-Time Delivery & Full Support</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>⏱️</i>
+                    </div>
+                    <p>Delivering high-quality work on time is a key priority in every project, ensuring that deadlines are met without compromising on standards. A well-structured development process, clear communication, and efficient project management contribute to timely completion and client satisfaction.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">5</div>
+                    <h3 class="feature-title">Affordable Pricing Plans</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>📈</i>
+                    </div>
+                    <p>We offer affordable pricing plans designed to suit a wide range of needs and budgets, without compromising on quality or functionality. Whether you're a startup, small business, or enterprise, our flexible packages ensure you get the best value for your investment.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 6 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">6</div>
+                    <h3 class="feature-title">WordPress website design services</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>🔍</i>
+                    </div>
+                    <p>Our WordPress website design services offer a perfect blend of creativity, functionality, and ease of use. Whether you need a personal blog, business website, or e-commerce store, we create custom WordPress sites that are responsive, SEO-friendly, and easy to manage.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 7 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">7</div>
+                    <h3 class="feature-title">E-commerce website developers
+                    </h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>🖥️</i>
+                    </div>
+                    <p>As experienced e-commerce website developers, we specialize in building secure, scalable, and user-friendly online stores that drive sales and enhance customer experience. From product catalogs and payment gateway integration to shopping carts and inventory management.</p>
+                </div>
+            </div>
+            
+            <!-- Feature 8 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">8</div>
+                    <h3 class="feature-title">Custom website development services</h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>🔒</i>
+                    </div>
+                    <p>Our custom website development services are tailored to meet the unique goals and requirements of your business. From concept to launch, we build fully customized, scalable, and performance-optimized websites that align with your brand identity and functionality needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+
+    
+  <!-- Footer -->
+  <footer class="footer text-white bg-dark py-5">
+    <div class="container">
+        <div class="col-md-12 text-center">
+
+            <p>Work With Us</p>
+            <h2>We would love to hear more
+                about your project</h2>
+            <div class="d-flex justify-content-center magnet mt-4 text circle-button" data-direction="top"
+                style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+
+                <a href="contact.html"> <button class="btn text-white px-3" style="background-color: #009933;">Get
+                        In Touch</button></a>
+
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="col-lg-4 mb-4 mb-lg-0 "> -->
+            <div class="col-md-7 col-12 col-lg-4 text-center text-white p-2">
+                <p>Together, We Create Digital Impact</p>
+                <h2 class="lh-1 magnet"
+                    style="font-size: 5rem; translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+                    Your Vision Our Code!</h2>
+                <a href="contact.html"> <button class="btn magnet text-white px-4 mt-2 fs-5"
+                        style="background-color: #009933; translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">Ping
+                        Us Anytime<i class="fa-solid fa-arrow-right text-white ms-2"></i></button> </a>
+
+                <div class=" text-white ">
+                    <h4 class="py-1 fw-bold mt-1">OR</h4>
+                    <ul class="list-unstyled py-lg-1 lh-1">
+                        <a class="text-decoration-none text-white fs-5" href="tel:+917033313450">
+                            <li class="mb-3 ">Call Us:- +91 8130787194</li>
+                        </a>
+                        <a class="text-decoration-none text-white fs-5" href="mailto:info@bhoomitechzone.in">
+                            <li class="mb-3">Email Us:- info@bhoomitechzone.in</li>
+                        </a>
+
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="col-lg-2 col-md-6  mb-md-0 d-md-block d-lg-none">
+                <div class="footer-dropdown">
+                    <h4 class="footer-dropdown-toggle">Quick Links <i class="fas fa-chevron-down d-lg-none"></i>
+                    </h4>
+                    <ul class="list-unstyled footer-links footer-dropdown-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solution.html">Services</a></li>
+                        <li><a href="portfoli.html">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6  mb-md-0 d-none d-lg-block">
+
+                <a href="index.html"
+                    class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Home</a>
+                <a href="about.html"
+                    class="d-block  border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">About</a>
+                <a href="solution.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Services</a>
+                <a href="portfoli.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Project</a>
+                <a href="contact.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Contact</a>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-md-0 d-md-block d-lg-none">
+                <div class="footer-dropdown">
+                    <h4 class="footer-dropdown-toggle">Our Services <i class="fas fa-chevron-down d-lg-none"></i>
+                    </h4>
+                    <ul class="list-unstyled footer-links footer-dropdown-menu">
+                        <li><a href="solution.html">Web Development</a></li>
+                        <li><a href="solution.html">Mobile App Development</a></li>
+                        <li><a href="solution.html">UI/UX Design</a></li>
+                        <li><a href="solution.html">Digital Marketing</a></li>
+                        <li><a href="solution.html">E-Commerce Applications</a></li>
+                        <li><a href="solution.html">Website Design</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-none d-lg-block">
+                <a href="about.html"
+                    class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Company
+                    Profile</a>
+                <a href="blog.html"
+                    class="d-block  border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Blog</a>
+                <a href="gallery.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Gallery</a>
+                <a href="portfoli.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Portfolio</a>
+                <a href="contact.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Location</a>
+            </div>
+            <div class="col-lg-3 col-md-6 " style="padding-left: 50px;" data-cue="slideInUp">
+                <div class="footer-widget foot">
+
+                    <div class="text-column">
+
+                        <div class="text-effect">
+                            <span class="color-change">B</span><span class="color-change  ">h</span><span
+                                class="color-change">o</span><span class="color-change">o</span><span
+                                class="color-change">m</span><span class="color-change">i</span>
+
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="up">
+                            <button class="card card1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30px"
+                                    height="30px" class="facebook"
+                                    style="margin-top: 22px;
+                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M459.4 151.7c.3 4.5 .3 9.1 .3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z" />
+                                </svg>
+                                <!-- <svg ... class="instagram"></svg> -->
+                            </button>
+                            <button class="card card2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="40px"
+                                    height="40px" class="pinterest me-3 mt-2"
+                                    style="margin-top: 22px;
+                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3 .8-3.4 5-20.3 6.9-28.1 .6-2.5 .3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="down">
+                            <button class="card card3">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="40px"
+                                    height="40px" class="facebook ms-1 "
+                                    style="margin-top:16px;
+                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                                </svg>
+                            </button>
+                            <button class="card card4">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="40px"
+                                    height="40px" class="whatsapp me-2 mt-2" margin-left:
+                                    0px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                                </svg>
+                            </button>
+
+                        </div>
+                        <div class="down">
+                            <button class="card card5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40px"
+                                    height="40px" class="facebook ms-2 mb-3"
+                                    style="margin-top: 22px;
+                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" />
+                                </svg>
+                            </button>
+                            <button class="card card6">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="40px"
+                                    height="40px" class="github ms-2 mt-4"
+                                    style="margin-top: 22px;
+                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+                                </svg>
+                            </button>
+
+                        </div>
+                        <div class="down">
+                            <button class="card card7">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="40px"
+                                    height="40px"
+                                    style="margin-top: 22px;
+                                 margin-left: 9px;"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                    <path
+                                        d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
+                                </svg>
+                            </button>
+                            <button class="card card8">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" width="40px"
+                                    height="40px"
+                                    style="margin-top: 22px;
+                                    margin-left: 9px;"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                    <path
+                                        d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+                                </svg>
+                            </button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-12 py-3 text-center overflow-hidden">
+            <span class="border-3 border rounded-pill p-2 px-5 position-relative custom-border">
+                © Copyright 2025 Bhoomi Techzone Pvt. Ltd. || All Rights Reserved.
+            </span>
+        </div>
+    </div>
+</footer>
+
+    <a href="https://wa.me/8130787194" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+     <!-- toggle -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+     <script>
+        const toggleBtn = document.getElementById("menuToggle");
+        const collapseEl = document.getElementById("navbarNav");
+        const iconBars = toggleBtn.querySelector(".icon-bars");
+        const iconClose = toggleBtn.querySelector(".icon-close");
+      
+        // Get or create collapse instance
+        let bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
+      
+        toggleBtn.addEventListener("click", () => {
+          const isShown = collapseEl.classList.contains("show");
+      
+          if (isShown) {
+            bsCollapse.hide();
+          } else {
+            bsCollapse.show();
+          }
+        });
+      
+        // Switch icons on open/close
+        collapseEl.addEventListener("show.bs.collapse", () => {
+          iconBars.classList.add("d-none");
+          iconClose.classList.remove("d-none");
+        });
+      
+        collapseEl.addEventListener("hide.bs.collapse", () => {
+          iconBars.classList.remove("d-none");
+          iconClose.classList.add("d-none");
+        });
+      </script>
+       <script>
+        // Reveal animation on scroll
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        
+        // Trigger the animation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(reveal, 100);
+        });
+    </script>
+    <!-- Back to Top Button -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Footer dropdown functionality for mobile view
+            const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
+            
+            footerDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    // Check if we're in mobile view
+                    if (window.innerWidth < 992) {
+                        const dropdownMenu = this.nextElementSibling;
+                        const icon = this.querySelector('.fa-chevron-down');
+                        
+                        // Toggle the menu
+                        if (dropdownMenu.style.maxHeight) {
+                            dropdownMenu.style.maxHeight = null;
+                            icon.classList.remove('rotate');
+                        } else {
+                            dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                            icon.classList.add('rotate');
+                        }
+                    }
+                });
+            });
+            
+            // Reset styles when resizing to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 992) {
+                    document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
+                        menu.style.maxHeight = '';
+                    });
+                    document.querySelectorAll('.fa-chevron-down').forEach(icon => {
+                        icon.classList.remove('rotate');
+                    });
+                }
+            });
+        });
+        </script>
+
+    <!-- JavaScript -->
+  <!-- Rest of your HTML -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all filter buttons
+      const filterButtons = document.querySelectorAll('.portfolio-filter');
+      // Get all portfolio items
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+      
+      // Add click event to each filter button
+      filterButtons.forEach(button => {
+          button.addEventListener('click', function() {
+              // Remove active class from all buttons
+              filterButtons.forEach(btn => btn.classList.remove('active'));
+              
+              // Add active class to clicked button
+              this.classList.add('active');
+              
+              // Get filter value
+              const filterValue = this.getAttribute('data-filter');
+              
+              // Filter items
+              portfolioItems.forEach(item => {
+                  if (filterValue === 'all') {
+                      item.style.display = 'block';
+                  } else {
+                      const itemCategory = item.getAttribute('data-category');
+                      if (itemCategory === filterValue) {
+                          item.style.display = 'block';
+                      } else {
+                          item.style.display = 'none';
+                      }
+                  }
+              });
+          });
+      });
+  });
+  </script>
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    });
+</script>
+  </body>
+  </html>
+

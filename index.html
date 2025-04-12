@@ -25,7 +25,100 @@
 
 
 </head>
+<style>
+           /* Solutions Overview */
+.solutions-overview {
+    text-align: center;
+}
 
+/* Solution Cards */
+.solution-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.solution-card:hover {
+    transform: translateY(-10px);
+}
+
+.solution-card-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.solution-card-img img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.solution-card:hover .solution-card-img img {
+    transform: scale(1.1);
+}
+
+.solution-card-content {
+    padding: 30px;
+    text-align: left;
+}
+
+.solution-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2a3855;
+    margin-bottom: 15px;
+}
+
+.solution-card-text {
+    color: #6c757d;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.solution-card-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.solution-card-features li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: #6c757d;
+}
+
+.solution-card-features li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #0d6efd;
+}
+
+.read-more-btn {
+    display: inline-block;
+    color: #0d6efd;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.read-more-btn i {
+    margin-left: 5px;
+    transition: margin-left 0.3s ease;
+}
+
+.read-more-btn:hover i {
+    margin-left: 10px;
+}
+</style>
 <body>
    
     <!-- Top Bar with Logo, Contact Info, and Social Media -->
@@ -116,12 +209,12 @@
                     <h1 class="hero-title mea-culpa-regular"><a class="text-decoration-none bh"
                             href="https://www.bhoomitechzone.in/"> <span id="heroskills"></span></a></h1>
                     <p class="hero-text">Bhoomi Techzone is a premier IT services company based in India, dedicated to
-                        providing top-notch technology solutions that drive business growth and innovation. </p>
+                        providing top-notch technology solutions that drive business growth and innovation.  </p>
                 </div>
             </div>
             <!-- Slide 2 -->
             <div class="carousel-item hero-section" data-bs-interval="2000"
-                style="background-image: url('image/banner.avif');">
+                style="background-image: url('image/AppsAR05052020.jpg');">
                 <div class="overlay"></div>
                 <div class="carousel-caption container text-center">
                     <h1 class="hero-title">Innovative IT Solutions</h1>
@@ -131,7 +224,7 @@
             </div>
             <!-- Slide 3 -->
             <div class="carousel-item hero-section" data-bs-interval="2000"
-                style="background-image: url('image/bn3.png');">
+                style="background-image: url('image/d5e4efdc5a912177362397d96c5584d6.jpg');">
                 <div class="overlay"></div>
                 <div class=" carousel-caption container text-center">
                     <h1 class="hero-title">Social Media Marketing</h1>
@@ -188,7 +281,8 @@
                                     brand identity and meet
                                     your specific business needs.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                
+                                <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -214,7 +308,7 @@
                                     updates, appearing in reverse chronological order and often categorized and tagged
                                     for better organization.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -240,7 +334,7 @@
                                     technology and a user-first approach. Custom, scalable, and secure Android apps
                                     developed using Java, Kotlin, and modern Android SDKs.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="app.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -269,7 +363,7 @@
                                     visibility
                                     to engaging audiences on social media.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -295,7 +389,7 @@
                                     involves creating an online platform where businesses can showcase and sell their
                                     products or services.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -321,7 +415,7 @@
                                     organic (unpaid) traffic to a website by making it more relevant and useful to both
                                     users and search engines.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -351,7 +445,7 @@
                                     drive quality traffic. Run banner ads across millions of websites to boost brand
                                     visibility and retarget interested users.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -378,7 +472,7 @@
                                     campaign to maximize your ROI and improve
                                     customer journeys.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="app.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -403,7 +497,7 @@
                                     Management) Software solution that automates and simplifies all your HR functions
                                     from hiring to retirement. Designed for modern businesses.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="hrm.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -429,7 +523,7 @@
                                     Whether you're a startup or a growing enterprise — our CRM solution keeps your team
                                     organized, your customers happy and your sales pipeline full.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="crm.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -457,7 +551,7 @@
                                     including inquiries, registrations, and document
                                     submissions.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -483,7 +577,7 @@
                                     inventory, and lab management our hospital software in India is built to improve
                                     efficiency, accuracy, and patient care.
                                 </p>
-                                <!-- <button class="learn-more-btn">Learn More</button> -->
+                                <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btn">Know More</button></a>
                             </div>
                         </div>
                     </div>
@@ -545,7 +639,141 @@
 
     </div>
 </section>
-
+<!-- Solutions Overview Section -->
+<section class="solutions-overview">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">Our Recent Projects</div>
+        <h2 class="main-heading" data-aos="fade-up" data-aos-delay="200">Bhoomi Techzone Provide All Kind Of Tech Project</h2>
+        <p class="section-description" data-aos="fade-up" data-aos-delay="300">
+            "Bhoomi Techzone delivers comprehensive tech solutions tailored to meet diverse business needs.
+            From software development to IT consulting, we ensure innovation and excellence."
+        </p>
+        
+        <div class="row">
+            <!-- Solution Card 1 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="solution-card">
+                    <div class="solution-card-img"><a href="https://redpepperfilms.in/">
+                        <img src="image/fi.jpg" alt="Web Development"></a>
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Red Pepper</h3>
+                        <p class="solution-card-text">
+                            We designed a dynamic and visually stunning film industry website to showcase movies, talent, and industry insights in an engaging way. Whether for production houses, film festivals, or streaming platforms.
+                        </p>
+                        <!-- <ul class="solution-card-features">
+                            <li>Responsive Design</li>
+                            <li>Custom Web Applications</li>
+                            <li>E-commerce Solutions</li>
+                            <li>Content Management Systems</li>
+                        </ul> -->
+                        <!-- <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Solution Card 2 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="solution-card">
+                    <div class="solution-card-img">
+                       <a href="https://dexterousfacilityservices.in/"> <img src="image/de.jpg" alt="Mobile App Development"></a>
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Dexterous Facility Services</h3>
+                        <p class="solution-card-text">
+                            We designed a modern, user-friendly facility service website to streamline property maintenance and management. Whether it's cleaning, security, HVAC, or general repairs.
+                        </p>
+                        <!-- <ul class="solution-card-features">
+                            <li>iOS & Android Development</li>
+                            <li>Cross-Platform Solutions</li>
+                            <li>UI/UX Design</li>
+                            <li>App Maintenance & Support</li>
+                        </ul> -->
+                        <!-- <a href="https://dexterousfacilityservices.in/" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Solution Card 3 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="solution-card">
+                    <div class="solution-card-img"><a href="https://shreebankebiharisansthan.in/">
+                        <img src="image/as.jpg" alt="Digital Marketing"></a>
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Shree Banke Bihari</h3>
+                        <p class="solution-card-text">
+                            We designed a modern and intuitive astrology website to help users explore their destiny, gain insights, and connect with expert astrologers. Whether it’s daily horoscopes, personalized readings.
+                        </p>
+                        <!-- <ul class="solution-card-features">
+                            <li>Search Engine Optimization (SEO)</li>
+                            <li>Social Media Marketing</li>
+                            <li>Content Marketing</li>
+                            <li>PPC Advertising</li>
+                        </ul>
+                        <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Solution Card 4 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="700">
+                <div class="solution-card">
+                    <div class="solution-card-img"><a href="https://estateacresjaipur.com/">
+                        <img src="image/re.jpg" alt="UI/UX Design"></a>
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Estate Acres</h3>
+                        <p class="solution-card-text">
+                            We designed a modern and feature-rich real estate website to make property buying, selling, and renting seamless. Responsive & User-Friendly. Design Optimized for all devices
+                            Advanced Property Search Filter by location, price, type & amenities.
+                        </p>
+                       
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Solution Card 5 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="800">
+                <div class="solution-card">
+                    <div class="solution-card-img"><a href="https://kolhanglobal.com/">
+                        <img src="image/tr.jpg" alt="E-commerce Solutions"></a>
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Kolhan Global</h3>
+                        <p class="solution-card-text">
+                            We designed a powerful and efficient transport website to streamline logistics, freight management, and passenger services. Simplified navigation for customers & businesses Also Real-Time Tracking Live GPS tracking for shipments & vehicles.
+                        </p>
+                        <!-- <ul class="solution-card-features">
+                            <li>Custom E-commerce Websites</li>
+                            <li>Payment Gateway Integration</li>
+                            <li>Inventory Management</li>
+                            <li>Order Processing Systems</li>
+                        </ul>
+                        <a href="#" class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Solution Card 6 -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="900">
+                <div class="solution-card">
+                    <div class="solution-card-img"><a href="https://sharegilltrading.com/">
+                        <img src="image/ar.jpg" alt="IT Consulting"></a>
+                    </div>
+                    <div class="solution-card-content">
+                        <h3 class="solution-card-title">Share Gill Trading</h3>
+                        <p class="solution-card-text">
+                           We designed a modern and efficient agriculture trading website to connect farmers, traders, and buyers in a seamless marketplace. Our platform simplifies the buying and selling of crops, livestock, and agri-products with real-time updates and secure transactions.
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- marquee-section -->
     <section class="marquee-section">
 
@@ -696,7 +924,7 @@
             </div>
         </div>
     </section>
-
+  
 
     <!-- Counter Section -->
     <section class="counter-section mt-5">
