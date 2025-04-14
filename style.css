@@ -1211,7 +1211,7 @@ body {
 /* Mobile styles with improved touch support */
 @media (max-width: 500px) {
     .service-card-container {
-        height: 460px;
+        height: 400px;
         /* max-width: 380px; */
     }
     
@@ -1246,16 +1246,12 @@ body {
     }
 }
 
-@media (max-width: 320px){
+@media (max-width: 375px){
     .service-description {
         font-size: 13px;
     }
 }
-@media (max-width: 375px){
-    .service-description {
-        font-size: 14px;
-    }
-}
+
 /* Fix for desktop flip animation */
 @media (min-width: 501px) {
     .service-card-container:hover .service-card {
