@@ -1181,6 +1181,7 @@ body {
     margin-bottom: 20px;
     width: 100%;
     flex: 1 1 auto;
+    /* padding: 5px 5px; */
 }
 
 /* For the back card, make sure text is white */
@@ -1211,7 +1212,7 @@ body {
 /* Mobile styles with improved touch support */
 @media (max-width: 500px) {
     .service-card-container {
-        height: 400px;
+        height: 550px;
         /* max-width: 380px; */
     }
     
@@ -1231,7 +1232,7 @@ body {
     }
     
     .service-description {
-        font-size: 14px;
+        font-size: 18px;
     }
     
     .section-description {
@@ -1246,11 +1247,6 @@ body {
     }
 }
 
-@media (max-width: 375px){
-    .service-description {
-        font-size: 13px;
-    }
-}
 
 /* Fix for desktop flip animation */
 @media (min-width: 501px) {
