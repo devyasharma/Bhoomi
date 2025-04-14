@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>portfolio</title>
+    <title>HMS</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -52,6 +52,187 @@
 .current-page {
     color: #6e7bb1;
 }
+
+.features-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #0a748a;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #4776E6, #8E54E9);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-header {
+            padding: 20px 25px;
+            background: linear-gradient(to right, #021238, #009933);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-number {
+            position: absolute;
+            font-size: 100px;
+            font-weight: 700;
+            opacity: 0.1;
+            top: -20px;
+            right: 10px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-content {
+            padding: 25px;
+            color: #353434;
+            font-size: 1.05rem;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #f0f4ff;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #4776E6;
+            flex-shrink: 0;
+        }
+
+        /* Animation delays for cards */
+        .feature-card:nth-child(1) { animation: fadeInUp 0.8s ease forwards 0.1s; }
+        .feature-card:nth-child(2) { animation: fadeInUp 0.8s ease forwards 0.2s; }
+        .feature-card:nth-child(3) { animation: fadeInUp 0.8s ease forwards 0.3s; }
+        .feature-card:nth-child(4) { animation: fadeInUp 0.8s ease forwards 0.4s; }
+        .feature-card:nth-child(5) { animation: fadeInUp 0.8s ease forwards 0.5s; }
+        .feature-card:nth-child(6) { animation: fadeInUp 0.8s ease forwards 0.6s; }
+        .feature-card:nth-child(7) { animation: fadeInUp 0.8s ease forwards 0.7s; }
+        .feature-card:nth-child(8) { animation: fadeInUp 0.8s ease forwards 0.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Shine effect on hover */
+        .feature-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.8s ease;
+        }
+
+        .feature-card:hover .feature-header::before {
+            left: 100%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .feature-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Animation for scroll reveal */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+    
 </style>
 <body>
     
@@ -137,178 +318,139 @@
         <div class="shape circle-blue"></div>
         
         <!-- Content -->
-        <h1>Portfolio</h1>
+        <h1> Hospital Management System Software</h1>
         <div class="breadcrumb">
             <a href="index.html">Home</a>
             <span class="separator">■</span>
-            <span class="current-page">Portfolio</span>
+            <span class="current-page"> Hospital Management System Software</span>
         </div>
     </section>
-  
-
-    <!-- Portfolio Section -->
-    <section class="section" id="portfolio">
-        <div class="container">
-            <div class="section-title title-center wave">
-                <h2><span>P</span><span>o</span><span>r</span><span>t</span><span>f</span><span>o</span><span>l</span><span>i</span><span>o</span></h2>
-                <h1>Check out some of Our recent projects</h1>
+  <!-- feature section -->
+    <section class="features-section">
+        <h2 class="section-title">Smart. Secure. Scalable. The Complete Software for Hospital Administration
+            </h2>
+        
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">1</div>
+                    <h3 class="feature-title">Patient Registration & Appointment System
+                    </h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>👥</i>
+                    </div>
+                    <p> This system typically allows patients to register online, providing necessary details such as personal information, medical history, and insurance details, reducing the need for manual paperwork. It also enables patients to schedule, reschedule, or cancel appointments based on their availability.</p>
+                </div>
             </div>
-
-            <div class="portfolio-filters">
-                <button class="portfolio-filter active" data-filter="all">All</button>
-                <button class="portfolio-filter" data-filter="web">Web Design</button>
-                <button class="portfolio-filter" data-filter="app">App Development</button>
-                <button class="portfolio-filter" data-filter="brand">Branding</button>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">2</div>
+                    <h3 class="feature-title">Doctor & Staff Management
+                    </h3>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>📅</i>
+                    </div>
+                    <p>Doctor and staff management refers to the organization and coordination of healthcare professionals, administrative staff, and support teams within a healthcare facility to ensure smooth operations and high-quality patient care.</p>
+                </div>
             </div>
-
-            <div class="portfolio-grid">
-                <!-- Portfolio Item 1 -->
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="image/f.png" alt="E-commerce Website">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Web Design</span>
-                        <h3 class="portfolio-title">Focus Health Care</h3>
-                        <p class="portfolio-description">The HealthCare Portal is a secure and scalable web application developed to simplify patient-doctor interactions. It allows users to book appointments, consult with doctors online, and manage medical records digitally. </p>
-                        <a href="https://focushealthcaredelhi.in/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">3</div>
+                    <h3 class="feature-title">OPD & IPD Management
+                    </h3>
                 </div>
-
-                <!-- Portfolio Item 2 -->
-                <div class="portfolio-item" data-category="app">
-                    <div class="portfolio-image">
-                        <img src="image/app1.avif" alt="Mobile App">
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>💰</i>
                     </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">App Development</span>
-                        <h3 class="portfolio-title">Shree Shyam Channel</h3>
-                        <p class="portfolio-description">A user-friendly Channel for devotional platform designed to bring spiritual music and bhakti into your daily life.</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.channel.shyamchannel" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <p>OPD (Outpatient Department) and IPD (Inpatient Department) Management refer to the processes involved in efficiently handling patient care and operations within both outpatient and inpatient settings of a healthcare facility.</p>
                 </div>
-                <div class="portfolio-item" data-category="app">
-                    <div class="portfolio-image">
-                        <img src="image/bh.png" alt="Mobile App">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">App Development</span>
-                        <h3 class="portfolio-title">BhoomiThe Real Estate</h3>
-                        <p class="portfolio-description">With smart search filters, you can narrow results by budget, property type, size, and location preferences. The app also features real-time notifications for new listings, price drops, and open house events.</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.bhoomi.app.bhoomi_app" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">4</div>
+                    <h3 class="feature-title">Electronic Medical Records (EMR/EHR)
+                    </h3>
                 </div>
-                <div class="portfolio-item" data-category="app">
-                    <div class="portfolio-image">
-                        <img src="image/app.jpg" alt="Mobile App">
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>⏱️</i>
                     </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">App Development</span>
-                        <h3 class="portfolio-title">Jobsworld</h3>
-                        <p class="portfolio-description">A user-friendly Jobseeker App is a comprehensive platform designed to simplify the job search process and connect candidates with the right career opportunities.</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.app.jobsworld" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <p> While EMRs are primarily used by individual healthcare providers to track patient care within a single practice, EHRs provide a more comprehensive view of a patient’s health history across multiple healthcare providers, offering a broader picture of their health journey.</p>
                 </div>
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="image/j.png" alt="Mobile App">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">web Design</span>
-                        <h3 class="portfolio-title">MP Jewwllers</h3>
-                        <p class="portfolio-description">A user-friendly Jobseeker App is a comprehensive platform designed to simplify the job search process and connect candidates with the right career opportunities.</p>
-                        <a href="https://pjewellers.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">5</div>
+                    <h3 class="feature-title">Billing & Invoice System</h3>
                 </div>
-                <div class="portfolio-item" data-category="app">
-                    <div class="portfolio-image">
-                        <img src="image/parcel.jpg" alt="Mobile App">
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>📈</i>
                     </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">App Development</span>
-                        <h3 class="portfolio-title">Delhi Parcel</h3>
-                        <p class="portfolio-description">A user-friendly apps streamline logistics by connecting customers with local delivery partners or courier services. Key features include real-time parcel tracking, pickup and delivery scheduling</p>
-                        <a href="#" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <p> is a digital tool designed to streamline and automate the financial processes within businesses, especially in sectors like healthcare, retail, and services. This system helps in generating accurate invoices, tracking payments, managing taxes, and monitoring outstanding balances.</p>
                 </div>
-               
-               
-                <!-- Portfolio Item 3 -->
-                <div class="portfolio-item" data-category="brand">
-                    <div class="portfolio-image">
-                        <img src="image/eco2.png" alt="Brand Identity">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Branding</span>
-                        <h3 class="portfolio-title">Tech Startup Branding</h3>
-                        <p class="portfolio-description">Complete brand identity design including logo, color palette, typography, and brand guidelines.</p>
-                        <a href="portfoli.html" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+            </div>
+            
+            <!-- Feature 6 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">6</div>
+                    <h3 class="feature-title">Pharmacy & Inventory Management
+                    </h3>
                 </div>
-                 <!-- Portfolio Item 1 -->
-                 <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="image/sa.png" alt="E-commerce Website">
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>🔍</i>
                     </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Web Design</span>
-                        <h3 class="portfolio-title">Satkartar Travel</h3>
-                        <p class="portfolio-description"> The website includes key features such as flight and hotel reservations, tour package listings, destination information, and user reviews to help travelers make informed decisions.</p>
-                        <a href="https://satkartartravelhouse.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <p> Integrated with billing and EHR systems, they enable real-time updates on dispensed medications and automate reordering based on usage trends. Advanced features like barcode scanning, supplier management, and stock audits further enhance accuracy and accountability.</p>
                 </div>
-                 <!-- Portfolio Item 1 -->
-                 <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="image/yatr.png" alt="E-commerce Website">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Web Design</span>
-                        <h3 class="portfolio-title">Tour & Travel</h3>
-                        <p class="portfolio-description">We design a secure payment gateways and user-friendly interfaces make the booking process seamless. Admins can manage bookings, promotions, and customer inquiries via a backend dashboard.</p>
-                        <a href="https://shubhyatraixr.in/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+            </div>
+            
+            <!-- Feature 7 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">7</div>
+                    <h3 class="feature-title">Lab Test & Report Management
+                    </h3>
                 </div>
-                 <!-- Portfolio Item 1 -->
-                 <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="image/ap.jpg" alt="E-commerce Website">
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>🖥️</i>
                     </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Web Design</span>
-                        <h3 class="portfolio-title">E-commerce Platform</h3>
-                        <p class="portfolio-description">A fully responsive e-commerce website with seamless user experience and secure payment integration.</p>
-                        <a href="portfoli.html" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <p>These systems allow healthcare providers to electronically request lab tests, track sample status, and receive test results directly through an integrated platform. They support a wide range of diagnostic tests including pathology, biochemistry, microbiology, and radiology.</p>
                 </div>
-                 <!-- Portfolio Item 1 -->
-                 <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="image/w.png" alt="E-commerce Website">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Web Design</span>
-                        <h3 class="portfolio-title">World Polity</h3>
-                        <p class="portfolio-description">A World Polity Website is a digital platform focused on providing comprehensive information, analysis, and updates on global political systems, international relations, governance models, and geopolitical developments.</p>
-                        <a href="https://worldpolity.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+            </div>
+            
+            <!-- Feature 8 -->
+            <div class="feature-card reveal">
+                <div class="feature-header">
+                    <div class="feature-number">8</div>
+                    <h3 class="feature-title">Admin & Multi-Location Support</h3>
                 </div>
-                 <!-- Portfolio Item 1 -->
-                 <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="image/u.png" alt="E-commerce Website">
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i>🔒</i>
                     </div>
-                    <div class="portfolio-content">
-                        <span class="portfolio-category">Web Design</span>
-                        <h3 class="portfolio-title">Urbon Labour</h3>
-                        <p class="portfolio-description">Urban Labour Connect is a web application designed to bridge the gap between urban workers and individuals or businesses in need of on-demand services.</p>
-                        <a href="https://urbanlabour.com/" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    <p>A robust system with this capability allows administrators to oversee operations like scheduling, billing, inventory, staff management, and reporting from a single platform, regardless of location. It ensures consistency in processes, data standardization.</p>
                 </div>
-
             </div>
         </div>
     </section>
+   
 
     
   <!-- Footer -->
@@ -407,8 +549,8 @@
                     class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Gallery</a>
                 <a href="portfoli.html"
                     class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Portfolio</a>
-                <a href="contact.html"
-                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Location</a>
+                <a href="career.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Career</a>
             </div>
             <div class="col-lg-3 col-md-6 " style="padding-left: 50px;" data-cue="slideInUp">
                 <div class="footer-widget foot">
@@ -556,6 +698,31 @@
           iconClose.classList.add("d-none");
         });
       </script>
+       <script>
+        // Reveal animation on scroll
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        
+        // Trigger the animation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(reveal, 100);
+        });
+    </script>
     <!-- Back to Top Button -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {

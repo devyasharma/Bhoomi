@@ -1246,12 +1246,17 @@ body {
         padding: 15px 15px;
     }
 }
-
+.feature-content p{
+    text-align: justify;
+}
 
 /* Fix for desktop flip animation */
 @media (min-width: 501px) {
     .service-card-container:hover .service-card {
         transform: rotateY(180deg);
+    }
+    .button-container .bb{
+        justify-content: center;
     }
 }
 /* About Section */
@@ -1259,6 +1264,23 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+.button-container .bb{
+    background-color: rgb(226, 224, 224);
+    color: black;
+    box-shadow: 0px 0px 15px gray;
+    padding: 20px 50px;
+    font-weight: 600;
+    /* border: 20px; */
+}
+.button-container.bb:hover{
+cursor: pointer;
+/* padding-top: 5px; */
+transition: all ease-in;
+background-color: #009933;
+color: white;
+
+
 }
 
 .about-image img {
