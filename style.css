@@ -1255,10 +1255,20 @@ body {
     .service-card-container:hover .service-card {
         transform: rotateY(180deg);
     }
-    .button-container .bb{
-        justify-content: center;
-    }
+   
 }
+/* Mobile-specific adjustments if needed */
+@media screen and (max-width: 600px) {
+    .button-container {
+      justify-content: center;
+    }
+  
+    .custom-button.bb {
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
 /* About Section */
 .about-image {
     border-radius: 10px;
