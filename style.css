@@ -1114,7 +1114,7 @@ body {
     perspective: 1000px;
     height: 500px; /* Increased height to ensure content fits */
     margin-bottom: 30px;
-    max-width: 400px; /* Wider cards */
+     /* max-width: 400px; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -1212,15 +1212,13 @@ body {
 @media (max-width: 500px) {
     .service-card-container {
         height: 460px;
-        max-width: 320px;
+        /* max-width: 380px; */
     }
     
     .service-card-front, .service-card-back {
         padding: 20px;
     }
-    .learn-more-btnn{
-        /* margin-top: 5px; */
-    }
+    
     
     /* Mobile flip behavior - use active state for tap */
     .service-card-container.flipped .service-card {
@@ -1242,12 +1240,22 @@ body {
         margin: 0 auto 50px;
         line-height: 1.4;
         text-align: start;
-        font-size: 19px;
+        /* font-size: 19px; */
         font-weight: 500;
         padding: 15px 15px;
     }
 }
 
+@media (max-width: 320px){
+    .service-description {
+        font-size: 13px;
+    }
+}
+@media (max-width: 375px){
+    .service-description {
+        font-size: 14px;
+    }
+}
 /* Fix for desktop flip animation */
 @media (min-width: 501px) {
     .service-card-container:hover .service-card {
