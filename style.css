@@ -31,6 +31,20 @@ body {
 .logo-img {
     max-height: 50px;
 }
+ /* For extremely small screens like 325px */
+ @media (max-width: 320px) {
+    .contact-info span{
+        gap: 10px;
+        flex-wrap: nowrap;
+        font-size: 11px !important;
+    }
+    .tech-card {
+        margin-bottom: 20px;
+        height: 122px;
+        width: 87px !important;
+    }
+   
+}
 
 /* .contact-info span {
             margin-right: 15px;
@@ -1096,25 +1110,26 @@ body {
     }
 }
 /* Services Section */
+/* Base styles for services section */
+/* Base styles for services section */
 .services-section {
     text-align: center;
     background-color: #f8f9fa;
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .section-description {
     color: #3e3e3f;
     max-width: 800px;
-    margin: 0 auto 50px;
+    margin: 0 auto 40px;
     line-height: 1.7;
 }
 
 /* Card flip styles */
 .service-card-container {
     perspective: 1000px;
-    height: 500px; /* Increased height to ensure content fits */
+    height: 480px;
     margin-bottom: 30px;
-     /* max-width: 400px; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -1129,10 +1144,6 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
-.service-card-container:hover .service-card {
-    transform: rotateY(180deg);
-}
-
 .service-card-front, .service-card-back {
     position: absolute;
     width: 100%;
@@ -1140,12 +1151,11 @@ body {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 10px;
-    padding: 25px 30px;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     box-shadow: 0px 0px 10px rgb(90, 90, 90);
+    overflow-y: auto; /* Allow scrolling if content overflows */
 }
 
 .service-card-front {
@@ -1178,13 +1188,13 @@ body {
     line-height: 1.5;
     text-align: justify;
     font-size: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     width: 100%;
-    flex: 1 1 auto;
-    /* padding: 5px 5px; */
+    flex: 1;
+    overflow-y: auto;
 }
 
-/* For the back card, make sure text is white */
+/* Make sure back card text is white */
 .service-card-back .service-title, 
 .service-card-back .service-description {
     color: white;
@@ -1199,9 +1209,10 @@ body {
     border-radius: 5px;
     font-weight: 600;
     transition: all 0.3s ease;
-    margin-top: auto;
+    margin-top: 5px; /* Small fixed margin from content */
     align-self: center;
-    margin-bottom: 15px;
+    display: block;
+    width: fit-content;
 }
 
 .learn-more-btnn:hover {
@@ -1209,66 +1220,84 @@ body {
     transform: translateY(-2px);
 }
 
-/* Mobile styles with improved touch support */
-@media (max-width: 500px) {
-    .service-card-container {
-        height: 550px;
-        /* max-width: 380px; */
-    }
-    
-    .service-card-front, .service-card-back {
-        padding: 20px;
-    }
-    
-    
-    /* Mobile flip behavior - use active state for tap */
-    .service-card-container.flipped .service-card {
-        transform: rotateY(180deg);
-    }
-    
-    /* Add a tap/click event class that will be toggled with JavaScript */
-    .service-card-container:active .service-card {
-        transform: rotateY(180deg);
-    }
-    
-    .service-description {
-        font-size: 16px;
-    }
-    
-    .section-description {
-        color: #111214;
-        max-width: 800px;
-        margin: 0 auto 50px;
-        line-height: 1.4;
-        text-align: start;
-        /* font-size: 19px; */
-        font-weight: 500;
-        padding: 15px 15px;
-    }
-}
-.feature-content p{
-    text-align: justify;
-}
-
-/* Fix for desktop flip animation */
-@media (min-width: 501px) {
+/* Desktop & Tablet Styles */
+@media (min-width: 768px) {
     .service-card-container:hover .service-card {
         transform: rotateY(180deg);
     }
-   
 }
-/* Mobile-specific adjustments if needed */
-@media screen and (max-width: 600px) {
-    .button-container {
-      justify-content: center;
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    .services-section {
+        padding: 40px 0;
     }
-  
-    .custom-button.bb {
-      width: auto;
-      display: block;
-      margin: 0 auto;
+    
+    .section-description {
+        padding: 0 15px;
+        font-size: 14px;
+        text-align: left;
+        margin-bottom: 30px;
     }
-  }
+    
+    .service-card-container {
+        height: 440px;
+        max-width: 90%;
+    }
+    
+    .service-card-front, .service-card-back {
+        padding: 15px;
+    }
+    
+    .service-icon {
+        max-width: 50px;
+    }
+    
+    .service-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .service-description {
+        font-size: 15px;
+    }
+    
+    /* Manual flip for touch devices instead of hover */
+    .service-card-container:hover .service-card {
+        transform: none; /* Disable hover effect on mobile */
+    }
+    
+    /* JS will add this class on tap/click */
+    .service-card-container.active .service-card {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 576px) {
+    .service-card-container {
+        height: 420px;
+    }
+    
+    .service-title {
+        font-size: 17px;
+    }
+    
+    .service-description {
+        font-size: 14px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+    .service-card-container {
+        height: 380px;
+    }
+    
+    .service-description {
+        font-size: 13px;
+    }
+}
 /* About Section */
 .about-image {
     border-radius: 10px;
@@ -1329,6 +1358,104 @@ color: white;
     background: transparent;
     justify-content: center;
 }
+/* Media Queries for Tablet View */
+@media (max-width: 991px) {
+    .about-section .row {
+      flex-direction: column;
+    }
+    
+    .about-section .col-lg-6 {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .about-image {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    .about-image img {
+      max-width: 80%;
+      height: auto;
+    }
+    
+    .about-text {
+      padding: 0 15px;
+    }
+    
+    .feature-item {
+      width: 48%;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+  
+  /* Media Queries for Mobile View */
+  @media (max-width: 767px) {
+    .about-image img {
+      max-width: 100%;
+    }
+    
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    
+    .about-text h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .about-text p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .feature-item {
+      width: 100%;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    
+    .custom-button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+  
+  /* Small Mobile Devices */
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 24px;
+    }
+    
+    .about-text h3 {
+      font-size: 18px;
+    }
+    
+    .about-section {
+      padding: 30px 0;
+    }
+    
+    .about-text {
+      padding: 0 10px;
+    }
+    
+    .feature-item {
+      font-size: 13px;
+      padding: 5px 0;
+    }
+    
+    .button-container {
+      margin-top: 15px;
+    }
+  }
 /* Portfolio Section */
 .portfolio-section {
     background-color: #f8f9fa;
@@ -2012,6 +2139,360 @@ textarea.form-control {
     z-index: 1000;
 }
 
+/* Base Footer Styles */
+.footer {
+    width: 100%;
+    background-color: #212f3d;
+    background-image: linear-gradient(32deg, #090909 30px, transparent);
+    background-size: 60px 60px;
+    background-position: -5px -5px;
+    overflow-x: hidden;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-about p {
+    color: rgba(255, 255, 255, 0.836);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.footer h2 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer h4 {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #009933;
+}
+
+.footer-social a {
+    color: white;
+    background-color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.footer-social a:hover {
+    background-color: #0d6dfd00;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.87);
+    transition: color 0.3s;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.footer-links a:hover {
+    color: #009933;
+}
+
+.footer-contact li {
+    margin-bottom: 15px;
+    display: flex;
+    margin-top: 15px;
+}
+
+.footer-contact li i {
+    width: 30px;
+    color: #009933;
+    font-size: 18px;
+}
+
+.footer-contact li span {
+    color: rgba(255, 255, 255, 0.849);
+    font-size: 18px;
+    margin-left: 7px;
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Social Media Cards */
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.up, .down {
+    display: flex;
+    gap: 10px;
+}
+
+.card {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.color-change {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* Footer dropdowns for mobile */
+.footer-dropdown {
+    margin-bottom: 20px;
+}
+
+.footer-dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer-dropdown-menu {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Copyright text styling */
+.custom-border {
+    border-color: white !important;
+    display: inline-block;
+}
+
+.custom-border::before, .custom-border::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 2px;
+    background-color: #fff;
+}
+
+.custom-border::before {
+    left: -100px;
+}
+
+.custom-border::after {
+    right: -100px;
+}
+
+/* Whatsapp button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-button i {
+    vertical-align: middle;
+}
+
+/* Media Queries */
+
+/* For large screens (desktops 1200px and up) */
+@media (min-width: 1200px) {
+    .foot {
+        padding-left: 50px;
+    }
+    
+    .text-effect .color-change {
+        font-size: 4rem;
+    }
+}
+
+
+    
+/* For tablets (768px to 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+    /* Show the dropdown version for tablets */
+    .d-md-block.d-lg-none {
+        display: block !important;
+    }
+    
+    .d-none.d-lg-block {
+        display: none !important;
+    }
+    
+    .lh-1.magnet[style*="font-size: 5rem"] {
+        font-size: 3rem !important;
+    }
+    
+    /* Fix the footer spacing and layout */
+    .col-md-7.col-12.col-lg-4 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .col-lg-3.col-md-6[style*="padding-left: 50px"] {
+        padding-left: 15px !important;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .text-effect {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .text-effect .color-change {
+        font-size: 4.5rem;
+    }
+    
+    /* Footer dropdown styling for tablet */
+    .footer-dropdown-toggle {
+        font-size: 1.25rem;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .footer-dropdown-menu {
+        margin-top: 10px;
+    }
+    
+    .footer-dropdown-menu li {
+        margin-bottom: 12px;
+    }
+    
+    /* Improve spacing of the copyright text */
+    .col-md-12.py-3.text-center {
+        margin-top: 20px;
+    }
+    
+    .custom-border {
+        font-size: 0.9rem;
+        padding: 8px 15px !important;
+    }
+    
+    /* Fix for the Get In Touch section */
+    .col-md-12.text-center h2 {
+        font-size: 1.75rem;
+    }
+}
+
+
+/* For extra small devices (phones, less than 576px) */
+@media (max-width: 575px) {
+    .lh-1.magnet[style*="font-size: 5rem"] {
+        font-size: 3rem !important;
+    }
+    
+    .footer h2 {
+        font-size: 1.5rem;
+    }
+    
+    .main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .up, .down {
+        gap: 8px;
+    }
+    
+    .card {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .custom-border {
+        font-size: 0.75rem;
+        display: inline-block;
+        margin-top: 10px;
+    }
+    
+    /* Make horizontal lines shorter on very small screens */
+    .custom-border::before, 
+    .custom-border::after {
+        width: 30px;
+    }
+    
+    .custom-border::before {
+        left: -35px;
+    }
+    
+    .custom-border::after {
+        right: -35px;
+    }
+    
+    .footer-logo {
+        margin-top: -20px;
+    }
+    
+    .footer-bottom p {
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: -60px;
+    }
+}
 
   
 .whatsapp-button:hover {
@@ -2074,7 +2555,7 @@ textarea.form-control {
 .text-effect {
     color: #009933;
     font-family: "play", sans-serif;
-    font-size: 80px;
+    font-size: 80px !important;
     font-weight: 900;
     text-align: center;
     letter-spacing: 3px;
@@ -3221,7 +3702,7 @@ section {
     color: white;
 }
 
-/* Footer */
+
 
 
 

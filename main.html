@@ -124,7 +124,6 @@
       line-height: 1.7;
     }
     
-    
 </style>
 <body>
    
@@ -643,7 +642,6 @@
 
     </div>
 </section>
-
 <!-- Solutions Overview Section -->
 <section class="solutions-overview">
     <div class="container">
@@ -1519,44 +1517,7 @@
     <a href="https://wa.me/8130787194" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-    <!-- flip -->
-    <script>
-        // JavaScript for handling card flips on touch devices
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all service card containers
-    const cardContainers = document.querySelectorAll('.service-card-container');
     
-    // Track currently flipped card
-    let currentlyFlipped = null;
-    
-    // Add click event listeners for all devices
-    cardContainers.forEach(container => {
-        container.addEventListener('click', function() {
-            // If there's already a flipped card and it's not this one
-            if (currentlyFlipped && currentlyFlipped !== this) {
-                // Flip the previous card back
-                currentlyFlipped.classList.remove('active');
-            }
-            
-            // Toggle the current card
-            this.classList.toggle('active');
-            
-            // Update the currentlyFlipped reference
-            if (this.classList.contains('active')) {
-                currentlyFlipped = this;
-            } else {
-                currentlyFlipped = null;
-            }
-        });
-    });
-    
-    // For non-touch devices, still allow hover behavior
-    if (window.matchMedia('(hover: hover)').matches) {
-        // Add class to detect devices with hover capability
-        document.body.classList.add('has-hover');
-    }
-});
-    </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

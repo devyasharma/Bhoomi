@@ -689,6 +689,7 @@ h1 {
         </div>
     </div>
 </section>
+
   <!-- Solutions Overview Section -->
   <section class="solutions-overview">
     <div class="container">
@@ -1035,6 +1036,8 @@ h1 {
                         <li><a href="solution.html">Services</a></li>
                         <li><a href="portfoli.html">Portfolio</a></li>
                         <li><a href="blog.html">Blog</a></li>
+                        <li><a href="career.html">Career</a></li>
+
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -1079,8 +1082,8 @@ h1 {
                     class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Gallery</a>
                 <a href="portfoli.html"
                     class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Portfolio</a>
-                <a href="contact.html"
-                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Location</a>
+                <a href="career.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Career</a>
             </div>
             <div class="col-lg-3 col-md-6 " style="padding-left: 50px;" data-cue="slideInUp">
                 <div class="footer-widget foot">
@@ -1236,6 +1239,44 @@ h1 {
             typeSpeed: 200,
             loop: true,
         });
+    </script>
+    <!-- flip -->
+    <script>
+        // JavaScript for handling card flips on touch devices
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all service card containers
+    const cardContainers = document.querySelectorAll('.service-card-container');
+    
+    // Track currently flipped card
+    let currentlyFlipped = null;
+    
+    // Add click event listeners for all devices
+    cardContainers.forEach(container => {
+        container.addEventListener('click', function() {
+            // If there's already a flipped card and it's not this one
+            if (currentlyFlipped && currentlyFlipped !== this) {
+                // Flip the previous card back
+                currentlyFlipped.classList.remove('active');
+            }
+            
+            // Toggle the current card
+            this.classList.toggle('active');
+            
+            // Update the currentlyFlipped reference
+            if (this.classList.contains('active')) {
+                currentlyFlipped = this;
+            } else {
+                currentlyFlipped = null;
+            }
+        });
+    });
+    
+    // For non-touch devices, still allow hover behavior
+    if (window.matchMedia('(hover: hover)').matches) {
+        // Add class to detect devices with hover capability
+        document.body.classList.add('has-hover');
+    }
+});
     </script>
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
