@@ -145,6 +145,19 @@ body {
     .scroll-logo {
         max-height: 55px;
     }
+    .contact-info span {
+        margin-right: 15px;
+        color: #666;
+        font-size: 10px !important;
+    }
+    .fa-envelope:before {
+        content: "\f0e0";
+        font-size: 10px;
+    }
+    .fa-phone:before {
+        content: "\f095";
+        font-size: 10px;
+    }
 
 }
 .close-icon {
@@ -177,6 +190,7 @@ body {
 @media (max-width: 1199px) {
     .get-in-touch-btn{
         padding: 10px 25px;
+        display: none;
     }
 }
 
@@ -1109,6 +1123,7 @@ body {
         margin-left: -10px;
     }
 }
+/* service */
 .services-section {
     text-align: center;
     background-color: #f8f9fa;
@@ -1312,22 +1327,81 @@ body {
     overflow: hidden;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
-.button-container .bb{
+/* Base button styles */
+/* Base button styles for all devices */
+.button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 30px auto; /* Center with margin auto */
+    width: 100%; /* Full width container */
+    text-align: center; /* Text alignment backup */
+}
+
+.button-container .bb {
     background-color: rgb(226, 224, 224);
     color: black;
-    box-shadow: 0px 0px 15px gray;
-    padding: 20px 50px;
+    box-shadow: gray 0px 0px 15px;
     font-weight: 600;
-    /* border: 20px; */
+    padding: 20px 50px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto; /* Auto margins for centering */
 }
-.button-container.bb:hover{
-cursor: pointer;
-/* padding-top: 5px; */
-transition: all ease-in;
-background-color: #009933;
-color: white;
 
+.button-container .bb:hover {
+    background-color: rgb(210, 208, 208);
+    transform: translateY(-3px);
+}
 
+/* Laptop specific styles */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .button-container {
+        justify-content: center;
+    }
+    
+    .button-container .bb {
+        /* Keep the same size as desktop but ensure centering */
+        margin: 0 auto;
+    }
+}
+
+/* Tablet styles */
+@media (max-width: 991px) {
+    .button-container {
+        justify-content: center;
+    }
+    
+    .button-container .bb {
+        padding: 15px 40px;
+        font-size: 0.95rem;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 576px) {
+    .button-container {
+        justify-content: center;
+        padding: 0 15px;
+    }
+    
+    .button-container .bb {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+        margin: 0 auto;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .button-container .bb {
+        padding: 10px 25px;
+        font-size: 0.85rem;
+    }
 }
 
 .about-image img {
