@@ -1109,9 +1109,6 @@ body {
         margin-left: -10px;
     }
 }
-/* Services Section */
-/* Base styles for services section */
-/* Base styles for services section */
 .services-section {
     text-align: center;
     background-color: #f8f9fa;
@@ -1235,31 +1232,32 @@ body {
     
     .section-description {
         padding: 0 15px;
-        font-size: 14px;
+        font-size: 15px; /* Increased font size from 14px */
         text-align: left;
         margin-bottom: 30px;
     }
     
     .service-card-container {
-        height: 440px;
+        height: 520px; /* Increased height from 440px */
         max-width: 90%;
     }
     
     .service-card-front, .service-card-back {
-        padding: 15px;
+        padding: 20px; /* Increased padding from 15px */
     }
     
     .service-icon {
-        max-width: 50px;
+        max-width: 60px; /* Increased icon size from 50px */
     }
     
     .service-title {
-        font-size: 18px;
-        margin-bottom: 10px;
+        font-size: 20px; /* Increased from 18px */
+        margin-bottom: 12px;
     }
     
     .service-description {
-        font-size: 15px;
+        font-size: 16px; /* Increased from 15px */
+        line-height: 1.6; /* Improved line height for readability */
     }
     
     /* Manual flip for touch devices instead of hover */
@@ -1276,26 +1274,36 @@ body {
 /* Small mobile devices */
 @media (max-width: 576px) {
     .service-card-container {
-        height: 420px;
+        height: 550px; /* Further increased height from 420px */
+        margin-bottom: 35px; /* Added more space between cards */
     }
     
     .service-title {
-        font-size: 17px;
+        font-size: 19px; /* Increased from 17px */
     }
     
     .service-description {
-        font-size: 14px;
+        font-size: 16px; /* Increased from 14px */
     }
 }
 
 /* Extra small screens */
 @media (max-width: 375px) {
     .service-card-container {
-        height: 380px;
+        height: 580px; /* Increased from 380px */
+    }
+    
+    .service-title {
+        font-size: 18px;
     }
     
     .service-description {
-        font-size: 13px;
+        font-size: 15px; /* Increased from 13px */
+    }
+    
+    .learn-more-btnn {
+        padding: 10px 22px; /* Larger button for easier tapping */
+        font-size: 16px;
     }
 }
 /* About Section */
