@@ -185,3 +185,180 @@
         font-size: 13px;
     }
 }
+
+
+/* footer dropdown */
+/* Footer Dropdown Styles */
+.footer-dropdown-toggle {
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-dropdown-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.footer-dropdown-toggle i.rotate {
+    transform: rotate(180deg);
+}
+
+.fa-chevron-down:before {
+    content: "\f078";
+    margin-right: 160px;
+}
+
+@media (max-width: 524px) {
+    .footer h4 {
+        margin-bottom: 10px !important;
+    }
+
+    .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 325px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .footer-dropdown-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+}
+
+@media (max-width: 743px) {
+    .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 355px;
+    }
+}
+
+@media (max-width: 497px) {
+    .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 300px !important;
+    }
+}
+
+@media (max-width: 474px) {
+    .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 260px !important;
+    }
+}
+
+@media (max-width: 434px) {
+    .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 240px !important;
+    }
+}
+
+@media (max-width: 415px) {
+    .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 220px !important;
+    }
+}
+
+@media (max-width: 395px) {
+    .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 210px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 190px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .fa-chevron-down:before {
+        content: "\f078";
+        margin-right: 170px !important;
+    }
+}
+/* js */
+<!-- footer dropdown -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Footer dropdown functionality for mobile view
+            const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
+
+            footerDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function () {
+                    // Check if we're in mobile view
+                    if (window.innerWidth < 992) {
+                        const dropdownMenu = this.nextElementSibling;
+                        const icon = this.querySelector('.fa-chevron-down');
+
+                        // Toggle the menu
+                        if (dropdownMenu.style.maxHeight) {
+                            dropdownMenu.style.maxHeight = null;
+                            icon.classList.remove('rotate');
+                        } else {
+                            dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                            icon.classList.add('rotate');
+                        }
+                    }
+                });
+            });
+
+            // Reset styles when resizing to desktop
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 992) {
+                    document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
+                        menu.style.maxHeight = '';
+                    });
+                    document.querySelectorAll('.fa-chevron-down').forEach(icon => {
+                        icon.classList.remove('rotate');
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Footer dropdown functionality for mobile view
+        const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
+    
+        footerDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                // Check if we're in mobile view
+                if (window.innerWidth < 992) {
+                    const dropdownMenu = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down');
+    
+                    // Toggle the clicked dropdown WITHOUT closing others
+                    if (dropdownMenu.style.maxHeight) {
+                        dropdownMenu.style.maxHeight = null;
+                        icon.classList.remove('rotate');
+                    } else {
+                        dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                        icon.classList.add('rotate');
+                    }
+                }
+            });
+        });
+    
+        // Reset styles when resizing to desktop
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 992) {
+                document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
+                    menu.style.maxHeight = '';
+                });
+                document.querySelectorAll('.fa-chevron-down').forEach(icon => {
+                    icon.classList.remove('rotate');
+                });
+            }
+        });
+    });
+    </script>

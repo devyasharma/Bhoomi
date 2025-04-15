@@ -1322,7 +1322,7 @@
         <div class="row">
             <!-- <div class="col-lg-4 mb-4 mb-lg-0 "> -->
           
-            <div class="col-lg-2 col-md-6  mb-md-0 d-md-block d-lg-none">
+            <!-- <div class="col-lg-2 col-md-6  mb-md-0 d-md-block d-lg-none">
                 <div class="footer-dropdown">
                     <h4 class="footer-dropdown-toggle">Quick Links <i class="fas fa-chevron-down d-lg-none"></i>
                     </h4>
@@ -1337,7 +1337,7 @@
 
                     </ul>
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-2 col-md-6  mb-md-0 d-none d-lg-block">
 
                 <a href="index.html"
@@ -1353,7 +1353,7 @@
 
             </div>
 
-            <div class="col-lg-3 col-md-6 mb-md-0 d-md-block d-lg-none">
+            <!-- <div class="col-lg-3 col-md-6 mb-md-0 d-md-block d-lg-none">
                 <div class="footer-dropdown">
                     <h4 class="footer-dropdown-toggle">Our Services <i class="fas fa-chevron-down d-lg-none"></i>
                     </h4>
@@ -1366,7 +1366,43 @@
                         <li><a href="solution.html">Website Design</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
+
+
+<!-- Mobile-only dropdowns in same row -->
+<div class="mobile-only-dropdowns d-block d-lg-none">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 px-1">
+          <div class="footer-dropdown">
+            <h4 class="footer-dropdown-toggle">Quick Links <i class="fas fa-chevron-down"></i></h4>
+            <ul class="list-unstyled footer-links footer-dropdown-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="solution.html">Services</a></li>
+              <li><a href="portfoli.html">Portfolio</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="career.html">Career</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-6 px-1">
+          <div class="footer-dropdown">
+            <h4 class="footer-dropdown-toggle">Our Services <i class="fas fa-chevron-down"></i></h4>
+            <ul class="list-unstyled footer-links footer-dropdown-menu">
+              <li><a href="solution.html">Web Development</a></li>
+              <li><a href="solution.html">Mobile App Development</a></li>
+              <!-- <li><a href="solution.html">UI/UX Design</a></li> -->
+              <li><a href="solution.html">Digital Marketing</a></li>
+              <li><a href="solution.html">E-Commerce Applications</a></li>
+              <li><a href="solution.html">Web Design</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
             <div class="col-lg-3 col-md-6 d-none d-lg-block">
                 <a href="about.html"
@@ -1384,9 +1420,12 @@
 
             <div class="col-md-7 col-12 col-lg-4 text-center text-white p-2">
                 <p>Together, We Create Digital Impact</p>
-                <h2 class="lh-1 magnet"
-                    style="font-size: 5rem; translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
-                    Your Vision Our Code!</h2>
+                <h2 class="lh-1 magnet" style="font-size: 5rem;">
+                    <span class="vision-word">Your</span> 
+                    <span class="vision-word">Vision</span> 
+                    <span class="vision-word">Our</span> 
+                    <span class="vision-word">Code!</span>
+                  </h2>
                 <a href="contact.html"> <button class="btn magnet text-white px-4 mt-2 fs-5"
                         style="background-color: #009933; translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">Ping
                         Us Anytime<i class="fa-solid fa-arrow-right text-white ms-2"></i></button> </a>
@@ -1413,9 +1452,9 @@
                     <div class="text-column">
 
                         <div class="text-effect">
-                            <span class="color-change">B</span><span class="color-change  ">h</span><span
-                                class="color-change">o</span><span class="color-change">o</span><span
-                                class="color-change">m</span><span class="color-change">i</span>
+                            <span class="color-change">B</span><span class="color-change  ">H</span><span
+                                class="color-change">O</span><span class="color-change">O</span><span
+                                class="color-change">M</span><span class="color-change">I</span>
 
                         </div>
                     </div>
@@ -1747,42 +1786,88 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- typescript end -->
 
     <!-- footer dropdown -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Footer dropdown functionality for mobile view
-            const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
+    <!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Footer dropdown functionality for mobile view
+    const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
 
-            footerDropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function () {
-                    // Check if we're in mobile view
-                    if (window.innerWidth < 992) {
-                        const dropdownMenu = this.nextElementSibling;
-                        const icon = this.querySelector('.fa-chevron-down');
-
-                        // Toggle the menu
-                        if (dropdownMenu.style.maxHeight) {
-                            dropdownMenu.style.maxHeight = null;
-                            icon.classList.remove('rotate');
-                        } else {
-                            dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
-                            icon.classList.add('rotate');
-                        }
+    footerDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function () {
+            // Check if we're in mobile view
+            if (window.innerWidth < 992) {
+                const dropdownMenu = this.nextElementSibling;
+                const icon = this.querySelector('.fa-chevron-down');
+                
+                // Close all other dropdowns first
+                document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
+                    if (menu !== dropdownMenu && menu.style.maxHeight) {
+                        menu.style.maxHeight = null;
+                        const otherIcon = menu.previousElementSibling.querySelector('.fa-chevron-down');
+                        if (otherIcon) otherIcon.classList.remove('rotate');
                     }
                 });
-            });
 
-            // Reset styles when resizing to desktop
-            window.addEventListener('resize', function () {
-                if (window.innerWidth >= 992) {
-                    document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
-                        menu.style.maxHeight = '';
-                    });
-                    document.querySelectorAll('.fa-chevron-down').forEach(icon => {
+                // Toggle the clicked dropdown
+                if (dropdownMenu.style.maxHeight) {
+                    dropdownMenu.style.maxHeight = null;
+                    icon.classList.remove('rotate');
+                } else {
+                    dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                    icon.classList.add('rotate');
+                }
+            }
+        });
+    });
+
+    // Reset styles when resizing to desktop
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 992) {
+            document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
+                menu.style.maxHeight = '';
+            });
+            document.querySelectorAll('.fa-chevron-down').forEach(icon => {
+                icon.classList.remove('rotate');
+            });
+        }
+    });
+});
+    </script> -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Footer dropdown functionality for mobile view
+        const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
+    
+        footerDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                // Check if we're in mobile view
+                if (window.innerWidth < 992) {
+                    const dropdownMenu = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down');
+    
+                    // Toggle the clicked dropdown WITHOUT closing others
+                    if (dropdownMenu.style.maxHeight) {
+                        dropdownMenu.style.maxHeight = null;
                         icon.classList.remove('rotate');
-                    });
+                    } else {
+                        dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                        icon.classList.add('rotate');
+                    }
                 }
             });
         });
+    
+        // Reset styles when resizing to desktop
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 992) {
+                document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
+                    menu.style.maxHeight = '';
+                });
+                document.querySelectorAll('.fa-chevron-down').forEach(icon => {
+                    icon.classList.remove('rotate');
+                });
+            }
+        });
+    });
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
