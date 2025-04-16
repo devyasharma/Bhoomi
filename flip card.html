@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+/* service */
+.services-section {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.section-description {
+    color: #3e3e3f;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+}
+
+/* Card flip styles */
+.service-card-container {
+    perspective: 1000px;
+    height: 480px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.service-card-front, .service-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px rgb(90, 90, 90);
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.service-card-front {
+    background-color: #e6e3e3d4;
+}
+
+.service-card-back {
+    background-image: linear-gradient(to right, rgb(1, 43, 5), #009933);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.service-icon {
+    max-width: 70px;
+    margin-bottom: 15px;
+    align-self: flex-start;
+}
+
+.service-title {
+    color: #2a3855;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: left;
+    width: 100%;
+}
+
+.service-description {
+    color: black;
+    line-height: 1.5;
+    text-align: justify;
+    font-size: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Make sure back card text is white */
+.service-card-back .service-title, 
+.service-card-back .service-description {
+    color: white;
+}
+
+/* Button styling */
+.learn-more-btnn {
+    background-color: white;
+    color: #009933;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 5px; /* Small fixed margin from content */
+    align-self: center;
+    display: block;
+    width: fit-content;
+}
+
+.learn-more-btnn:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* Desktop & Tablet Styles */
+@media (min-width: 768px) {
+    .service-card-container:hover .service-card {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    .services-section {
+        padding: 40px 0;
+    }
+    
+    .section-description {
+        padding: 0 15px;
+        font-size: 15px; /* Increased font size from 14px */
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    
+    .service-card-container {
+        height: 520px; /* Increased height from 440px */
+        max-width: 90%;
+    }
+    
+    .service-card-front, .service-card-back {
+        padding: 20px; /* Increased padding from 15px */
+    }
+    
+    .service-icon {
+        max-width: 60px; /* Increased icon size from 50px */
+    }
+    
+    .service-title {
+        font-size: 20px; /* Increased from 18px */
+        margin-bottom: 12px;
+    }
+    
+    .service-description {
+        font-size: 16px; /* Increased from 15px */
+        line-height: 1.6; /* Improved line height for readability */
+    }
+    
+    /* Manual flip for touch devices instead of hover */
+    .service-card-container:hover .service-card {
+        transform: none; /* Disable hover effect on mobile */
+    }
+    
+    /* JS will add this class on tap/click */
+    .service-card-container.active .service-card {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 576px) {
+    .service-card-container {
+        height: 550px; /* Further increased height from 420px */
+        margin-bottom: 35px; /* Added more space between cards */
+    }
+    
+    .service-title {
+        font-size: 19px; /* Increased from 17px */
+    }
+    
+    .service-description {
+        font-size: 16px; /* Increased from 14px */
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+    .service-card-container {
+        height: 580px; /* Increased from 380px */
+    }
+    
+    .service-title {
+        font-size: 18px;
+    }
+    
+    .service-description {
+        font-size: 15px; /* Increased from 13px */
+    }
+    
+    .learn-more-btnn {
+        padding: 10px 22px; /* Larger button for easier tapping */
+        font-size: 16px;
+    }
+}
+@media (max-width: 500px) {
+    .service-card:hover {
+        transform: translateY(-10px);
+        color: white !important;
+        background-image: linear-gradient(to right, rgb(2, 63, 7), #009933);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-title  fw-bold wave" data-aos="fade-up"><span>S</span><span>m</span><span>a</span><span>r</span><span>t</span><span> </span>
+                <span>S</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span></div>
+            <h2 class="main-heading" data-aos="fade-up" data-aos-delay="200"> <span id="servicess"></span></h2>
+            <p class="section-description" data-aos="fade-up" data-aos-delay="300">
+                Bhoomi Techzone delivers comprehensive tech solutions tailored to meet diverse business needs.
+                From software development to IT consulting, we ensure innovation and excellence. Bhoomi Techzone Pvt. Ltd. is the most trusted website development and Digital Marketing Company in India. Bhoomi Techzone Pvt. Ltd. stands as a beacon of excellence in the realm of website development and digital marketing in India. With a steadfast commitment to innovation and client satisfaction, we have carved a niche for ourselves as the most trusted partner for businesses seeking to establish a robust online presence.
+            </p>
+
+            
+             <div class="row">
+            
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/web.png" alt="Visual Design" class="service-icon">
+                                <h3 class="service-title">Website Design</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone Pvt. Ltd., we provide result-driven website development services in India that combine creativity, technology, and strategy.A well-designed website not only looks attractive but also enhances usability and accessibility, making it easy for users to find information and navigate through the site. It involves both frontend development, which focuses on the visual and interactive aspects that users see, and backend development. which manages the server, database, and application logic behind the scenes. </p>
+                                    <!-- <p class="text-dark fs-6">
+                                    <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
+                                    <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
+                                    <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
+                                    <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
+                                    <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
+                                    </p> -->
+                                
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">Website Development</h3>
+                                <p class="service-description">
+                                    Whether you're a startup, SME, or enterprise, our expert developers create
+                                    responsive, SEO-friendly, and high-converting websites tailored to your brand and
+                                    business goals. We build fully customized websites from scratch that reflect your
+                                    brand identity and meet your specific business needs. It involves both frontend development, which focuses on the visual and interactive aspects that users see, and backend development, which manages the server, database, and application logic behind the scenes.
+                                </p>
+                                
+                                <a href="webdev.html"><button class="learn-more-btnn text-decoration-none" style="text-decoration: none !important;">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/dev.png" alt="Development" class="service-icon">
+                                <h3 class="service-title"> CMS</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone Pvt.Ltd. We easily manage your content with dynamic CMS platforms
+                                    like WordPress, Joomla, or custom-built admin panels. It provides an easy-to-use interface where users can update text, images, videos, and other media, helping streamline website maintenance and content updates. Popular CMS platforms like WordPress, Joomla, Drupal, and Shopify offer customizable templates, plugins, and tools that enhance both the design and functionality of websites.
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">WordPress</h3>
+                                <p class="service-description">
+                                    In WordPress, content is the heart of your website, and it primarily comes in the
+                                    form of posts and pages. Posts are typically used for blog articles or regular
+                                    updates, appearing in reverse chronological order and often categorized and tagged
+                                    for better organization. WordPress offers thousands of themes and plugins, allowing users to customize the design and functionality of their websites without needing to code. It is open-source, highly flexible, and supported by a large global community, making it a top choice for both beginners and professional developers.
+                                </p>
+                                <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/test.png" alt="QA Testing" class="service-icon">
+                                <h3 class="service-title">App Development</h3>
+                                <p class="service-description">
+                                    Bhoomi Techzone Pvt. Ltd. is a leading mobile app development company in India,
+                                    delivering innovative, user-friendly, and scalable mobile applications. App development includes both the frontend, which users interact with, and the backend, which handles data processing, authentication, and server-side logic. A successful app combines intuitive design, seamless functionality, and optimized performance to provide a smooth user experience. 
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">Mobile App Development</h3>
+                                <p class="service-description">
+                                    Whether you need an Android app, iOS app, or cross-platform
+                                    solution, our expert developers turn your vision into reality using cutting-edge
+                                    technology and a user-first approach. Custom, scalable, and secure Android apps
+                                    developed using Java, Kotlin, and modern Android SDKs.  With the increasing use of mobile devices, app development has become essential for businesses to engage customers, offer services, and stay competitive in the digital age. It involves designing, coding, testing, and deploying apps for platforms like Android and iOS.
+                                </p>
+                                <a class="text-decoration-none" href="app.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+             <div class="row mt-4"> 
+               
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/digi.png" alt="Digital Marketing" class="service-icon">
+                                <h3 class="service-title">Digital Marketing</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone, we help businesses get noticed online with smart digital
+                                    marketing strategies. From SEO and social media to ads and branding. Digital marketing refers to the promotion of products, services, or brands through digital channels such as search engines, social media, email, websites, and mobile apps. It encompasses a wide range of strategies including Search Engine Optimization (SEO), Social Media Marketing (SMM), Content Marketing, Pay-Per-Click (PPC) advertising, and Email Marketing. 
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">Social Media Marketing</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone Pvt. Ltd., we help businesses of all sizes grow online with data-driven and ROI-focused digital marketing services. From improving your search visibility to engaging audiences on social media. Social media marketing is the use of social media platforms like Facebook, Instagram, Twitter (X), LinkedIn, and TikTok to promote products, services, or brands. It involves creating and sharing content—such as images, videos, and posts—to engage audiences, build brand awareness, drive website traffic, and generate leads or sales. Social media marketing also includes paid advertising options.
+                                </p>
+                                <a class="text-decoration-none" href="digi.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/ecoo.png" alt="E-Commerce Applications" class="service-icon">
+                                <h3 class="service-title">E-Commerce Applications</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone Pvt. Ltd., we build robust, scalable E-Commerce Applications with
+                                    secure payments and intuitive UI/UX. An e-commerce application is a digital platform that enables businesses and consumers to buy and sell products or services online. These applications provide features such as product catalogs, shopping carts, secure payment gateways, user authentication. E-commerce apps can be web-based or mobile-based and are commonly used by retailers to offer a convenient, 24/7 shopping experience.
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">E-commerce Website Development</h3>
+                                <p class="service-description">
+                                    We create customized online shopping experiences with secure payment gateways,
+                                    inventory management, and mobile-responsive designs. E-commerce website development
+                                    involves creating an online platform where businesses can showcase and sell their
+                                    products or services. These websites typically include features such as product listings, detailed descriptions, customer reviews, a shopping cart, and secure checkout options. Popular e-commerce website platforms like Shopify, WooCommerce (for WordPress).
+                                </p>
+                                <a class="text-decoration-none" href="app.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/seoo.png" alt="SEO" class="service-icon">
+                                <h3 class="service-title">SEO</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone, we provide SEO Service that is the process of improving your
+                                    website to increase its visibility on search engines like Google. The goal of SEO is to attract organic (non-paid) traffic by making content more discoverable and relevant to users' search queries. Key elements of SEO include on-page optimization (such as keyword research, content quality, and meta tags), off-page optimization (like backlinks from reputable websites), and technical SEO.
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">Search Engine Optimization</h3>
+                                <p class="service-description">
+                                    Our SEO experts optimize your online presence to improve rankings, increase organic
+                                    traffic, and enhance visibility on major search engines. The goal is to attract more
+                                    organic (unpaid) traffic to a website by making it more relevant and useful to both
+                                    users and search engines. By improving these aspects, businesses can increase their chances of ranking higher in search results, which in turn drives more traffic and potential customers. SEO is an ongoing process that requires monitoring and adjusting to stay competitive in a constantly changing digital landscape.
+                                </p>
+                                <a class="text-decoration-none" href="digi.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+               
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/ppc.png" alt="Digital Marketing" class="service-icon">
+                                <h3 class="service-title">PPC Advertising</h3>
+                                <p class="service-description">
+                                    Bhoomi Techzone Pvt. Ltd. is a trusted name in PPC (Pay-Per-Click) advertising
+                                    services in India, offering data-driven paid ad solutions that deliver real,
+                                    measurable results. It’s commonly used on search engines like Google (through Google Ads) and social media platforms like Facebook and Instagram. In a typical PPC campaign, advertisers bid on specific keywords relevant to their business or target audience. When users search for those keywords or come across relevant content, the ads are displayed.
+
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">Google Ads Management
+                                </h3>
+                                <p class="service-description">
+                                    Reach customers on Google Search & Display Network with keyword-targeted ads that
+                                    drive quality traffic. Run banner ads across millions of websites to boost brand
+                                    visibility and retarget interested users.  Google Ads operates on a Pay-Per-Click (PPC) model, meaning advertisers pay each time someone clicks on their ad. It also offers Display Ads, Video Ads, and Shopping Ads, providing multiple formats to reach different audiences. Google Ads is a powerful online advertising platform that allows businesses to create ads that appear on Google's search engine results pages (SERPs), YouTube, Gmail.
+                                </p>
+                                <a class="text-decoration-none" href="ppc.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce Applications -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/email.png" alt="E-Commerce Applications" class="service-icon">
+                                <h3 class="service-title">Email Marketing</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone Pvt. Ltd. We help businesses maximize their email marketing
+                                    potential by creating high-converting email campaigns. Email marketing is a digital marketing strategy that involves sending emails to a targeted group of recipients with the aim of promoting products, services, or building relationships with potential and existing customers. It is one of the most effective ways to engage with an audience directly, as emails can be personalized and tailored to individual preferences. 
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">Content Marketing</h3>
+                                <p class="service-description">
+                                    We create high-quality, keyword-optimized content like blogs, articles, and landing
+                                    pages to boost brand authority and traffic also We track, analyze, and optimize
+                                    every campaign to maximize your ROI and improve customer journeys.  Key elements of effective email marketing include building a quality email list, segmenting the audience for targeted messaging, creating compelling subject lines, and including a clear call-to-action (CTA). Tools like Mailchimp, Constant Contact, and SendGrid allow businesses to automate campaigns, track performance.
+                                </p>
+                                <a class="text-decoration-none" href="email.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/hrm.png" alt="SEO" class="service-icon">
+                                <h3 class="service-title">HRM</h3>
+                                <p class="service-description">
+                                    Bhoomi Techzone Pvt. Ltd. brings you the most powerful and easy-to-use HRM software
+                                    in India to manage all your human resource operations in one place. HRM involves a range of activities such as recruitment, training and development, performance management, employee relations, compensation and benefits, and ensuring workplace safety and compliance. The goal of HRM is not only to hire and retain the best talent but also to foster a positive organizational culture, promote employee engagement. 
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">HRM</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone Pvt. Ltd., we offer a robust and intuitive HRM (Human Resource
+                                    Management) Software solution that automates and simplifies all your HR functions
+                                    from hiring to retirement. Designed for modern businesses. Modern HRM also incorporates technology through HR software and systems to streamline administrative tasks and make data-driven decisions. Overall, HRM plays a critical role in aligning workforce capabilities with organizational goals to drive success and sustainability.
+                                </p>
+                                <a class="text-decoration-none" href="hrm.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <!-- Digital Marketing -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/CRM.png" alt="Digital Marketing" class="service-icon">
+                                <h3 class="service-title">CRM</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone Pvt. Ltd. we offer powerful and customizable Customer
+                                    Relationship Management Software designed to help businesses manage their customer
+                                    data. Customer Relationship Management (CRM) is a strategy and technology used by businesses to manage and analyze interactions with current and potential customers. The main goal of CRM is to improve customer service, boost customer retention, and drive sales growth by organizing and automating communication.</p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">CRM
+                                </h3>
+                                <p class="service-description">
+                                    Whether you're a startup or a growing enterprise — our CRM solution keeps your team
+                                    organized, your customers happy and your sales pipeline full. CRM systems store valuable customer data, including contact details, purchase history, and preferences, which helps businesses personalize their marketing and sales efforts. Popular CRM tools like Salesforce, HubSpot, and Zoho CRM provide features like lead tracking, task management, sales forecasting, and analytics.By offering a 360-degree view of customer interactions, CRM empowers businesses to build stronger relationships.
+                                </p>
+                                <a class="text-decoration-none" href="crm.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce Applications -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/sms.png" alt="E-Commerce Applications" class="service-icon">
+                                <h3 class="service-title">SMS Software</h3>
+                                <p class="service-description">
+                                    Bhoomi Techzone Pvt. Ltd. offers a fully-featured, user-friendly, and cloud-based
+                                    School Management System (SMS) that helps educational institutions automate their daily
+                                    tasks. SMS software is a tool that allows businesses and organizations to send bulk text messages to customers, clients, or employees quickly and efficiently. It is widely used for marketing campaigns, appointment reminders, notifications, alerts, and customer service updates. SMS software platforms like Twilio, TextMagic, EZ Texting.
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">School Management System</h3>
+                                <p class="service-description">
+                                    Our SMS software is ideal for schools, colleges, coaching
+                                    institutes, and educational academies. Digitize the entire admission process
+                                    including inquiries, registrations, and document submissions. Since SMS has a high open rate compared to emails, it’s a powerful way to ensure messages are seen promptly. Many SMS tools also integrate with CRM and marketing platforms, helping businesses run more cohesive communication strategies. Overall, SMS software is an effective, fast.
+                                </p>
+                                <a class="text-decoration-none" href="sms.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card-container">
+                        <div class="service-card">
+                            <div class="service-card-front">
+                                <img src="image/hms.png" alt="SEO" class="service-icon">
+                                <h3 class="service-title">HMS</h3>
+                                <p class="service-description">
+                                    Bhoomi Techzone Pvt. Ltd. offers a feature-rich and highly secure Hospital
+                                    Management System (HMS) designed to automate and manage your hospital operations
+                                    with ease. A Hospital Management System (HMS) is a comprehensive software solution designed to manage the day-to-day operations of a hospital or healthcare facility. It streamlines various administrative, financial, clinical, and legal processes by integrating different departments such as patient registration, appointment scheduling.
+                                </p>
+                            </div>
+                            <div class="service-card-back">
+                                <h3 class="service-title">Hospital Management Software</h3>
+                                <p class="service-description">
+                                    At Bhoomi Techzone Pvt. Ltd., From patient registration to billing, appointments,
+                                    inventory, and lab management our hospital software in India is built to improve
+                                    efficiency, accuracy, and patient care. HMS improves efficiency, reduces paperwork, enhances patient care, and ensures data accuracy and security. It also helps healthcare providers maintain compliance with regulations and track performance through real-time reports and analytics. Popular HMS solutions like MediBuddy, eHospital.
+                                </p>
+                                <a class="text-decoration-none" href="CMS.html"><button class="learn-more-btnn">Know More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- flip -->
+    <script>
+        // JavaScript for handling card flips on touch devices
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all service card containers
+    const cardContainers = document.querySelectorAll('.service-card-container');
+    
+    // Track currently flipped card
+    let currentlyFlipped = null;
+    
+    // Add click event listeners for all devices
+    cardContainers.forEach(container => {
+        container.addEventListener('click', function() {
+            // If there's already a flipped card and it's not this one
+            if (currentlyFlipped && currentlyFlipped !== this) {
+                // Flip the previous card back
+                currentlyFlipped.classList.remove('active');
+            }
+            
+            // Toggle the current card
+            this.classList.toggle('active');
+            
+            // Update the currentlyFlipped reference
+            if (this.classList.contains('active')) {
+                currentlyFlipped = this;
+            } else {
+                currentlyFlipped = null;
+            }
+        });
+    });
+    
+    // For non-touch devices, still allow hover behavior
+    if (window.matchMedia('(hover: hover)').matches) {
+        // Add class to detect devices with hover capability
+        document.body.classList.add('has-hover');
+    }
+});
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+     <script>
+         var typed = new Typed('#servicess', {
+             strings: ['Bhoomi Techzone Provide All Kind Of Tech Solutions'],
+             typeSpeed: 200,
+             loop: true,
+         });
+     </script>
+      <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html>

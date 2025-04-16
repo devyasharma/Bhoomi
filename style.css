@@ -521,13 +521,13 @@ body {
     right: 20px;
 }
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
     .service-card:hover {
         transform: translateY(-10px);
         color: white !important;
         background-image: linear-gradient(to right, rgb(2, 63, 7), #009933);
     }
-}
+} */
 
 /* Video Hero Section Styles */
 .video-hero-section {
@@ -656,19 +656,39 @@ body {
     background-position: center;
 }
 
+
+  /* service */
+  .services-section {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.section-description {
+    color: #3e3e3f;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    text-align: start;
+}
+
+ 
+
 :root {
     --primary-color: #4CAF50;
     --hover-color: #3e8e41;
     --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     --hover-transform: translateY(-10px);
 }
+
+
 /* section-title */
 
 .section-title {
     position: relative;
     /* margin-bottom: 60px; */
     text-align: center;
-    color: #066d70;
+    color: #045820;
     font-weight: 600;
     margin-bottom: 10px;
     font-size: 30px;
@@ -956,7 +976,7 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 40px;
-    background: linear-gradient(90deg, #4CAF50, #2196F3);
+    background: linear-gradient(90deg, #009933, black);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -971,7 +991,7 @@ body {
     transform: translateX(-50%);
     width: 200px;
     height: 4px;
-    background: linear-gradient(90deg, #4CAF50, #2196F3) !important;
+    background: linear-gradient(90deg, #009933, #000407) !important;
     border-radius: 2px;
 }
 
@@ -1005,7 +1025,7 @@ body {
     left: 0;
     width: 100%;
     height: 5px;
-    background: linear-gradient(90deg, var(--primary-color), #2196F3);
+    background: linear-gradient(90deg, #009933, black);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s ease;
@@ -1103,7 +1123,7 @@ body {
 .skill-level-bar {
     height: 100%;
     border-radius: 5px;
-    background: linear-gradient(90deg, var(--primary-color), #2196F3);
+    background: linear-gradient(90deg, #009933, black);
     width: 0;
     transition: width 1.5s ease-in-out;
 }
@@ -1166,204 +1186,7 @@ body {
         margin-left: -10px;
     }
 }
-/* service */
-.services-section {
-    text-align: center;
-    background-color: #f8f9fa;
-    padding: 60px 0;
-}
 
-.section-description {
-    color: #3e3e3f;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
-}
-
-/* Card flip styles */
-.service-card-container {
-    perspective: 1000px;
-    height: 480px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.service-card {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-}
-
-.service-card-front, .service-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    padding: 25px 20px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 0px 10px rgb(90, 90, 90);
-    overflow-y: auto; /* Allow scrolling if content overflows */
-}
-
-.service-card-front {
-    background-color: #e6e3e3d4;
-}
-
-.service-card-back {
-    background-image: linear-gradient(to right, rgb(1, 43, 5), #009933);
-    color: white;
-    transform: rotateY(180deg);
-}
-
-.service-icon {
-    max-width: 70px;
-    margin-bottom: 15px;
-    align-self: flex-start;
-}
-
-.service-title {
-    color: #2a3855;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    text-align: left;
-    width: 100%;
-}
-
-.service-description {
-    color: black;
-    line-height: 1.5;
-    text-align: justify;
-    font-size: 15px;
-    margin-bottom: 15px;
-    width: 100%;
-    flex: 1;
-    overflow-y: auto;
-}
-
-/* Make sure back card text is white */
-.service-card-back .service-title, 
-.service-card-back .service-description {
-    color: white;
-}
-
-/* Button styling */
-.learn-more-btnn {
-    background-color: white;
-    color: #009933;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-top: 5px; /* Small fixed margin from content */
-    align-self: center;
-    display: block;
-    width: fit-content;
-}
-
-.learn-more-btnn:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
-}
-
-/* Desktop & Tablet Styles */
-@media (min-width: 768px) {
-    .service-card-container:hover .service-card {
-        transform: rotateY(180deg);
-    }
-}
-
-/* Mobile styles */
-@media (max-width: 767px) {
-    .services-section {
-        padding: 40px 0;
-    }
-    
-    .section-description {
-        padding: 0 15px;
-        font-size: 15px; /* Increased font size from 14px */
-        text-align: left;
-        margin-bottom: 30px;
-    }
-    
-    .service-card-container {
-        height: 520px; /* Increased height from 440px */
-        max-width: 90%;
-    }
-    
-    .service-card-front, .service-card-back {
-        padding: 20px; /* Increased padding from 15px */
-    }
-    
-    .service-icon {
-        max-width: 60px; /* Increased icon size from 50px */
-    }
-    
-    .service-title {
-        font-size: 20px; /* Increased from 18px */
-        margin-bottom: 12px;
-    }
-    
-    .service-description {
-        font-size: 16px; /* Increased from 15px */
-        line-height: 1.6; /* Improved line height for readability */
-    }
-    
-    /* Manual flip for touch devices instead of hover */
-    .service-card-container:hover .service-card {
-        transform: none; /* Disable hover effect on mobile */
-    }
-    
-    /* JS will add this class on tap/click */
-    .service-card-container.active .service-card {
-        transform: rotateY(180deg);
-    }
-}
-
-/* Small mobile devices */
-@media (max-width: 576px) {
-    .service-card-container {
-        height: 550px; /* Further increased height from 420px */
-        margin-bottom: 35px; /* Added more space between cards */
-    }
-    
-    .service-title {
-        font-size: 19px; /* Increased from 17px */
-    }
-    
-    .service-description {
-        font-size: 16px; /* Increased from 14px */
-    }
-}
-
-/* Extra small screens */
-@media (max-width: 375px) {
-    .service-card-container {
-        height: 580px; /* Increased from 380px */
-    }
-    
-    .service-title {
-        font-size: 18px;
-    }
-    
-    .service-description {
-        font-size: 15px; /* Increased from 13px */
-    }
-    
-    .learn-more-btnn {
-        padding: 10px 22px; /* Larger button for easier tapping */
-        font-size: 16px;
-    }
-}
 /* About Section */
 .about-image {
     border-radius: 10px;
@@ -1457,7 +1280,7 @@ body {
 }
 
 .about-text h3 {
-    background: linear-gradient(90deg, #4CAF50, #2196F3);
+    background: linear-gradient(90deg, #009933, black);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 30px;
@@ -3463,7 +3286,7 @@ section {
 }
 
 .main-heading {
-    background: linear-gradient(90deg, #4CAF50, #2196F3);
+    background: linear-gradient(#009933, black);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
