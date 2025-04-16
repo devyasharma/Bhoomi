@@ -22,15 +22,14 @@
 
 /* Solution Cards */
 .solution-card {
-    background-color: #fff;
+        background-color: #f0fcf1;
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    height: 100%;
-}
-
+    box-shadow: 15px 15px 30px #8ca38c, -15px -15px 30px #ffffff;
+        margin-bottom: 30px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
 .solution-card:hover {
     transform: translateY(-10px);
 }
@@ -63,7 +62,7 @@
 }
 
 .solution-card-text {
-    color: #6c757d;
+    color: #4c4c4d;
     margin-bottom: 20px;
     line-height: 1.6;
 }
@@ -135,6 +134,7 @@
     color: #6c757d;
     margin-bottom: 20px;
     line-height: 1.6;
+    font-size: 1rem;
 }
 
 .web-dev-features {
@@ -259,6 +259,255 @@ h1 {
 .current-page {
     color: #6e7bb1;
 }
+
+.cnn {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+        .col-lg-4 {
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+
+        .card-wrapper {
+            perspective: 1500px;
+            height: 100%;
+        }
+
+        .cardd {
+    /* background-color: #ebebeb; */
+    
+    background-size: cover; /* Makes the image cover the entire card */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    border-radius: 15px;
+    border: none;
+    /* box-shadow: 0px 0px 15px rgba(34, 34, 34, 0.29); */
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+    transform-style: preserve-3d;
+    position: relative;
+    text-align: start;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+}
+
+/* If you want to add an overlay to ensure text remains readable over the image */
+.cardd::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(235, 235, 235, 0.8); /* Semi-transparent overlay */
+    border-radius: 15px;
+    z-index: 0;
+}
+
+/* Ensure content is positioned above the overlay */
+.card-content, 
+.card-title, 
+.card-subtitle, 
+.card-description, 
+.service-list, 
+.know-more-btn {
+    position: relative;
+    z-index: 1;
+}
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Staggered animation for cards */
+        .col-lg-4:nth-child(1) .cardd { animation-delay: 0.1s; }
+        .col-lg-4:nth-child(2) .cardd { animation-delay: 0.2s; }
+        .col-lg-4:nth-child(3) .cardd { animation-delay: 0.3s; }
+        .col-lg-4:nth-child(4) .cardd { animation-delay: 0.4s; }
+        .col-lg-4:nth-child(5) .cardd { animation-delay: 0.5s; }
+        .col-lg-4:nth-child(6) .cardd { animation-delay: 0.6s; }
+        .col-lg-4:nth-child(7) .cardd { animation-delay: 0.7s; }
+        .col-lg-4:nth-child(8) .cardd { animation-delay: 0.8s; }
+        .col-lg-4:nth-child(9) .cardd { animation-delay: 0.9s; }
+
+        .cardd:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .card-title {
+            font-size: 26px;
+            color: #1d1d1d;
+            margin-bottom: 15px;
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 8px;
+            transform: translateZ(30px);
+        }
+
+        .card-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3a7bd5;
+            transition: width 0.5s ease;
+        }
+
+        .cardd:hover .card-title::after {
+            width: 40px;
+        }
+
+        .card-subtitle {
+            font-size: 17px;
+            color: black;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            transform: translateZ(25px);
+        }
+
+        .card-description {
+            font-size: 17px;
+            color: black;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            transform: translateZ(20px);
+        }
+
+        .service-list {
+            margin-bottom: 25px;
+            flex-grow: 1;
+            transform: translateZ(15px);
+        }
+
+        .service-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 10px;
+            font-size: 17px;
+            color: black;
+            transition: transform 0.3s ease;
+        }
+
+        .cardd:hover .service-item {
+            transform: translateX(5px);
+        }
+
+        .service-item::before {
+            content: '→';
+            color: #333;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .cardd:hover .service-item::before {
+            color: #3a7bd5;
+        }
+
+        .know-more-btn {
+            background-color: #3a7bd5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(35px);
+            border: 1px solid #e8e8e8;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+        }
+
+        .know-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .know-more-btn:hover {
+            background-color: #2c5ea0;
+        }
+
+        .know-more-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .col-lg-4 {
+                flex: 0 0 33.333%;
+                max-width: 33.333%;
+            }
+            
+            .card-title {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .col-lg-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .cardd {
+                padding: 15px;
+            }
+        }
+    /* Solutions Overview */
+    .solutions-overview {
+        text-align: center;
+    }
+
        </style>
 </head>
 <body>
@@ -356,337 +605,258 @@ h1 {
   
  <!-- Services Section -->
  <section class="services-section">
-    <div class="container">
+    <div class="container cnn">
         <!-- Section Header -->
-        <div class="section-title  fw-bold wave" data-aos="fade-up"><span>S</span><span>m</span><span>a</span><span>r</span><span>t</span><span> </span>
-            <span>S</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span></div>
+        <div class="section-title  fw-bold" data-aos="fade-up">
+            <span>S</span><span>m</span><span>a</span><span>r</span><span>t</span><span> </span>
+            <span>S</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span>
+        </div>
         <h2 class="main-heading" data-aos="fade-up" data-aos-delay="200"> <span id="servicess"></span></h2>
-        <p class="section-description" data-aos="fade-up" data-aos-delay="300">
+        <!-- <p class="section-description" data-aos="fade-up" data-aos-delay="300">
             Bhoomi Techzone delivers comprehensive tech solutions tailored to meet diverse business needs.
-            From software development to IT consulting, we ensure innovation and excellence. Bhoomi Techzone Pvt. Ltd. is the most trusted website development and Digital Marketing Company in India. Bhoomi Techzone Pvt. Ltd. stands as a beacon of excellence in the realm of website development and digital marketing in India. With a steadfast commitment to innovation and client satisfaction, we have carved a niche for ourselves as the most trusted partner for businesses seeking to establish a robust online presence.
-        </p>
+            From software development to IT consulting, we ensure innovation and excellence. Bhoomi Techzone Pvt.
+            Ltd. is the most trusted website development and Digital Marketing Company in India. Bhoomi Techzone
+            Pvt. Ltd. stands as a beacon of excellence in the realm of website development and digital marketing in
+            India.
+        </p> -->
 
-        
-         <div class="row">
-        
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/web.png" alt="Visual Design" class="service-icon">
-                            <h3 class="service-title">Website Design</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone Pvt. Ltd., we provide result-driven website development services in India that combine creativity, technology, and strategy.A well-designed website not only looks attractive but also enhances usability and accessibility, making it easy for users to find information and navigate through the site. It involves both frontend development, which focuses on the visual and interactive aspects that users see, and backend development. which manages the server, database, and application logic behind the scenes.</p>
-                                <!-- <p class="text-dark fs-6">
-                                <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
-                                <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
-                                <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
-                                <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
-                                <i class="fa-solid fa-arrow-right"></i>Effective website design<br>
-                                </p> -->
-                            
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">Website Development</h3>
-                            <p class="service-description">
-                                Whether you're a startup, SME, or enterprise, our expert developers create
-                                responsive, SEO-friendly, and high-converting websites tailored to your brand and
-                                business goals. We build fully customized websites from scratch that reflect your
-                                brand identity and meet your specific business needs. It involves both frontend development, which focuses on the visual and interactive aspects that users see, and backend development, which manages the server, database, and application logic behind the scenes.
-                            </p>
-                            
-                            <a href="webdev.html"><button class="learn-more-btnn text-decoration-none">Know More</button></a>
-                        </div>
+        <div class="row">
+            <!-- Card 1: Web & App Development -->
+            <div class="col-lg-4 col-md-4 col-sm-12 ">
+                <div class="cardd" style="background-image: url('image/website-designer-concept-illustration_114360-4449.avif'); ">
+                    <h2 class="card-title">Website Development</h2>
+                    <p class="card-subtitle">Turn your ideas into thriving ventures with our expert web and app
+                        development services.</p>
+                    <p class="card-description">We focus on building projects that provide outstanding user
+                        experiences and deliver real value to your customers. We build fully customized websites from scratch that reflect your brand identity and meet your specific business needs. It involves both frontend development, which focuses on the visual and interactive aspects that users see. We
+                        offer:</p>
+                    <div class="service-list">
+                        <div class="service-item">Static and dynamic websites</div>
+                        <div class="service-item">Clear, responsive, and functional designs</div>
+                        <div class="service-item">Comprehensive content</div>
+                        <div class="service-item">Custom-coded websites</div>
                     </div>
+                    <a href="webdev.html"><button class="know-more-btn">Know More</button></a>
                 </div>
             </div>
 
-           
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/dev.png" alt="Development" class="service-icon">
-                            <h3 class="service-title"> CMS</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone Pvt.Ltd. We easily manage your content with dynamic CMS platforms
-                                like WordPress, Joomla, or custom-built admin panels. It provides an easy-to-use interface where users can update text, images, videos, and other media, helping streamline website maintenance and content updates. Popular CMS platforms like WordPress, Joomla, Drupal, and Shopify offer customizable templates, plugins, and tools that enhance both the design and functionality of websites.
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">WordPress</h3>
-                            <p class="service-description">
-                                In WordPress, content is the heart of your website, and it primarily comes in the
-                                form of posts and pages. Posts are typically used for blog articles or regular
-                                updates, appearing in reverse chronological order and often categorized and tagged
-                                for better organization. WordPress offers thousands of themes and plugins, allowing users to customize the design and functionality of their websites without needing to code. It is open-source, highly flexible, and supported by a large global community, making it a top choice for both beginners and professional developers.
-                            </p>
-                            <a class="text-decoration-none" href="webdev.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
+            <!-- Card 2: Search Engine Optimization -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/seo-concept-illustration_114360-5766.avif'); ">
+                    <h2 class="card-title">Search Engine Optimization</h2>
+                    <p class="card-subtitle">Elevate your online presence with our expert SEO services.</p>
+                    <p class="card-description">We specialize in optimizing websites to enhance visibility, attract
+                        targeted traffic, and drive growth. Improve your personal, business, entertainment,
+                        educational, community, portfolio, news, nonprofit, government, or web portal website with
+                        us. Our comprehensive SEO services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">On-page SEO</div>
+                        <div class="service-item">Off-page SEO</div>
+                        <div class="service-item">Keyword Research and Optimization</div>
+                        <div class="service-item">Content Creation and Optimization</div>
+                        <div class="service-item">Technical SEO</div>
+                        <!-- <div class="service-item">Local SEO</div> -->
+                        <!-- <div class="service-item">Analytics and Reporting</div> -->
                     </div>
+                    <a href="digi.html"><button class="know-more-btn">Know More</button></a>
                 </div>
             </div>
 
-           
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/test.png" alt="QA Testing" class="service-icon">
-                            <h3 class="service-title">App Development</h3>
-                            <p class="service-description">
-                                Bhoomi Techzone Pvt. Ltd. is a leading mobile app development company in India,
-                                delivering innovative, user-friendly, and scalable mobile applications. App development includes both the frontend, which users interact with, and the backend, which handles data processing, authentication, and server-side logic. A successful app combines intuitive design, seamless functionality, and optimized performance to provide a smooth user experience. 
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">Mobile App Development</h3>
-                            <p class="service-description">
-                                Whether you need an Android app, iOS app, or cross-platform
-                                solution, our expert developers turn your vision into reality using cutting-edge
-                                technology and a user-first approach. Custom, scalable, and secure Android apps
-                                developed using Java, Kotlin, and modern Android SDKs.  With the increasing use of mobile devices, app development has become essential for businesses to engage customers, offer services, and stay competitive in the digital age. It involves designing, coding, testing, and deploying apps for platforms like Android and iOS.
-                            </p>
-                            <a class="text-decoration-none" href="app.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
+            <!-- Card 3: Business Listing & Promotion -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/appointment-booking-design_23-2148557730.avif'); ">
+                    <h2 class="card-title">Mobile App Development</h2>
+                    <p class="card-subtitle"> A successful app combines intuitive design, seamless functionality, and optimized performance.</p>
+                    <p class="card-description"> Bhoomi Techzone Pvt. Ltd. is a leading mobile app development company in India,
+                        delivering innovative, user-friendly, and scalable mobile applications. App development includes both the frontend, which users interact with, and the backend, which handles data processing, authentication, and server-side logic. Our
+                        comprehensive services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">Mobile App</div>
+                        <div class="service-item">Cross-Platform</div>
+                        <div class="service-item">App Store / Google Play</div>
+                        <div class="service-item">Performance Optimization</div>
+                        <div class="service-item">API Throttling</div>
+                        <!-- <div class="service-item">Targeted Advertising Campaigns</div> -->
+                        <!-- <div class="service-item">Performance Tracking and Reporting</div> -->
                     </div>
-                </div>
-            </div>
-        </div> 
-
-         <div class="row mt-4"> 
-           
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/digi.png" alt="Digital Marketing" class="service-icon">
-                            <h3 class="service-title">Digital Marketing</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone, we help businesses get noticed online with smart digital
-                                marketing strategies. From SEO and social media to ads and branding. Digital marketing refers to the promotion of products, services, or brands through digital channels such as search engines, social media, email, websites, and mobile apps. It encompasses a wide range of strategies including Search Engine Optimization (SEO), Social Media Marketing (SMM), Content Marketing, Pay-Per-Click (PPC) advertising, and Email Marketing. 
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">Social Media Marketing</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone Pvt. Ltd., we help businesses of all sizes grow online with data-driven and ROI-focused digital marketing services. From improving your search visibility to engaging audiences on social media. Social media marketing is the use of social media platforms like Facebook, Instagram, Twitter (X), LinkedIn, and TikTok to promote products, services, or brands. It involves creating and sharing content—such as images, videos, and posts—to engage audiences, build brand awareness, drive website traffic, and generate leads or sales. Social media marketing also includes paid advertising options.
-                            </p>
-                            <a class="text-decoration-none" href="digi.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
-                    </div>
+                   <a href="app.html"> <button class="know-more-btn">Know More</button></a>
                 </div>
             </div>
 
-           
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/ecoo.png" alt="E-Commerce Applications" class="service-icon">
-                            <h3 class="service-title">E-Commerce Applications</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone Pvt. Ltd., we build robust, scalable E-Commerce Applications with
-                                secure payments and intuitive UI/UX. An e-commerce application is a digital platform that enables businesses and consumers to buy and sell products or services online. These applications provide features such as product catalogs, shopping carts, secure payment gateways, user authentication. E-commerce apps can be web-based or mobile-based and are commonly used by retailers to offer a convenient, 24/7 shopping experience.
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">E-commerce Website Development</h3>
-                            <p class="service-description">
-                                We create customized online shopping experiences with secure payment gateways,
-                                inventory management, and mobile-responsive designs. E-commerce website development
-                                involves creating an online platform where businesses can showcase and sell their
-                                products or services. These websites typically include features such as product listings, detailed descriptions, customer reviews, a shopping cart, and secure checkout options. Popular e-commerce website platforms like Shopify, WooCommerce (for WordPress).
-                            </p>
-                            <a class="text-decoration-none" href="app.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
+            <!-- Card 4: E-Commerce Solutions -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/pay-per-click-internet-advertising_773186-1443.avif'); ">
+                    <h2 class="card-title">PPC Advertising</h2>
+                    <p class="card-subtitle">In a typical PPC campaign, advertisers bid on specific keywords relevant to their business or target audience.
+                    </p>
+                    <p class="card-description"> Bhoomi Techzone Pvt. Ltd. is a trusted name in PPC advertising
+                        services in India, offering data-driven paid ad solutions that deliver real,
+                        measurable results. It’s commonly used on search engines like Google and social media platforms like Facebook and Instagram. Our PPC Advertising services
+                        include:</p>
+                    <div class="service-list">
+                        <div class="service-item">Google Ads Management</div>
+                        <div class="service-item">Ad Campaign Management</div>
+                        <div class="service-item">SEM (Search Engine Marketing)</div>
+                        <div class="service-item">Paid Search Marketing</div>
+                        <div class="service-item">PPC Optimization</div>
+                        <!-- <div class="service-item">E-commerce SEO</div> -->
                     </div>
+                   <a href="ppc.html"><button class="know-more-btn">Know More</button></a>
                 </div>
             </div>
 
-          
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/seoo.png" alt="SEO" class="service-icon">
-                            <h3 class="service-title">SEO</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone, we provide SEO Service that is the process of improving your
-                                website to increase its visibility on search engines like Google. The goal of SEO is to attract organic (non-paid) traffic by making content more discoverable and relevant to users' search queries. Key elements of SEO include on-page optimization (such as keyword research, content quality, and meta tags), off-page optimization (like backlinks from reputable websites), and technical SEO.
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">Search Engine Optimization</h3>
-                            <p class="service-description">
-                                Our SEO experts optimize your online presence to improve rankings, increase organic
-                                traffic, and enhance visibility on major search engines. The goal is to attract more
-                                organic (unpaid) traffic to a website by making it more relevant and useful to both
-                                users and search engines. By improving these aspects, businesses can increase their chances of ranking higher in search results, which in turn drives more traffic and potential customers. SEO is an ongoing process that requires monitoring and adjusting to stay competitive in a constantly changing digital landscape.
-                            </p>
-                            <a class="text-decoration-none" href="digi.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
+            <!-- Card 5: Digital Marketing -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/female-multitasking-work_23-2148390868.avif'); ">
+                    <h2 class="card-title">Digital Marketing</h2>
+                    <p class="card-subtitle">Reach your target audience and grow your business with our digital
+                        marketing expertise.</p>
+                    <p class="card-description">We develop data-driven marketing strategies that connect with your
+                        audience and drive conversions. Our comprehensive approach leverages multiple channels to
+                        maximize your digital presence and ROI. Our digital marketing services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">Social media marketing</div>
+                        <div class="service-item">Email marketing campaigns</div>
+                        <div class="service-item">Content marketing strategies</div>
+                        <div class="service-item">PPC advertising</div>
+                        <div class="service-item">Influencer marketing</div>
+                        <div class="service-item">Marketing analytics</div>
                     </div>
+                    <a href="digi.html"><button class="know-more-btn">Know More</button></a>
+                </div>
+            </div>
+
+            <!-- Card 6: Web Hosting & Maintenance -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/concept-landing-page-new-message_52683-25038.avif'); ">
+                    <h2 class="card-title">Email Marketing</h2>
+                    <p class="card-subtitle">Keep your website secure, fast and digital marketing strategy that involves sending emails to a targeted group of recipients.</p>
+                    <p class="card-description"> At Bhoomi Techzone Pvt. Ltd. We help businesses maximize their email marketing
+                        potential by creating high-converting email campaigns. It is one of the most effective ways to engage with an audience directly, as emails can be personalized. Our Email Marketing services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">Newsletter Marketing</div>
+                        <div class="service-item">Bulk Email</div>
+                        <div class="service-item">Email Automation</div>
+                        <div class="service-item">Click-Through Rate (CTR)</div>
+                        <div class="service-item">Drip Campaigns</div>
+                        <!-- <div class="service-item">Content updates</div> -->
+                    </div>
+                    <a href="email.html"><button class="know-more-btn">Know More</button></a>
+                </div>
+            </div>
+
+            <!-- Card 7: UI/UX Design -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/hand-drawn-remote-recruitment-illustration_52683-144094.avif');">
+                    <h2 class="card-title">HRM</h2>
+                    <p class="card-subtitle">HRM involves a range of activities such as recruitment, training and development, performance management.</p>
+                    <p class="card-description">Bhoomi Techzone Pvt. Ltd. brings you the most powerful and easy-to-use HRM software
+                        in India to manage all your human resource operations in one place. Employee relations, compensation and benefits, and ensuring workplace safety and compliance. Our HRM services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">Payroll Management</div>
+                        <div class="service-item">Compensation & Benefits</div>
+                        <div class="service-item">Onboarding & Offboarding</div>
+                        <div class="service-item">Responsive design</div>
+                        <div class="service-item">Interactive mockups</div>
+                        <!-- <div class="service-item">Recruitment & Selection</div> -->
+                    </div>
+                   <a href="hrm.html"> <button class="know-more-btn">Know More</button></a>
+                </div>
+            </div>
+
+            <!-- Card 8: Content Creation -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/isometric-crm-illustration_52683-83950.avif');">
+                    <h2 class="card-title">CRM</h2>
+                    <p class="card-subtitle">CRM is to improve customer service, boost customer retention, and drive sales growth by organizing and automating communication.</p>
+                    <p class="card-description">At Bhoomi Techzone Pvt. Ltd. we offer powerful and customizable Customer
+                        Relationship Management Software designed to help businesses manage their customer
+                        data.CRM is a strategy and technology used by businesses to manage and analyze interactions with current and potential customers. Our CRM services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">Centralized Customer Data</div>
+                        <div class="service-item">Sales Pipeline Management</div>
+                        <div class="service-item">Marketing Automation</div>
+                        <div class="service-item">Customer Support Integration</div>
+                        <div class="service-item">Real-Time Analytics & Reporting</div>
+                        <!-- <div class="service-item">Social media content</div> -->
+                    </div>
+                   <a href="crm.html"> <button class="know-more-btn">Know More</button></a>
+                </div>
+            </div>
+
+            <!-- Card 9: Analytics & Reporting -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/hmss.avif');">
+                    <h2 class="card-title">HMS</h2>
+                    <p class="card-subtitle">A comprehensive software solution designed to manage the day-to-day operations of a hospital or healthcare facility.</p>
+                    <p class="card-description"> Bhoomi Techzone Pvt. Ltd. offers a feature-rich and highly secure Hospital
+                        Management System (HMS) designed to automate and manage your hospital operations
+                        with ease. Our HMS services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">Patient Information Management</div>
+                        <div class="service-item">Electronic Medical Records (EMR)</div>
+                        <div class="service-item">User behavior insights</div>
+                        <div class="service-item">Custom dashboard creation</div>
+                        <div class="service-item">Security & Data Privacy</div>
+                        <div class="service-item">Billing & Invoicing</div>
+                    </div>
+                   <a href="CMS.html"> <button class="know-more-btn">Know More</button></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/smm.jpg');">
+                    <h2 class="card-title">SMS</h2>
+                    <p class="card-subtitle">A comprehensive software solution designed to manage the day-to-day operations of a hospital or healthcare facility.</p>
+                    <p class="card-description"> Bhoomi Techzone Pvt. Ltd. offers a fully-featured, user-friendly, and cloud-based
+                        School Management System (SMS) that helps educational institutions automate their daily
+                        tasks. Our SMS services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">Instant Communication</div>
+                        <div class="service-item">High Open Rates</div>
+                        <div class="service-item">Bulk SMS Sending</div>
+                        <div class="service-item">Automated Campaigns & Scheduling</div>
+                        <div class="service-item">Customizable Templates</div>
+                        <!-- <div class="service-item">Billing & Invoicing</div> -->
+                    </div>
+                   <a href="sms.html"> <button class="know-more-btn">Know More</button></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/online-shopping-concept-landing-page_52683-22153.avif');">
+                    <h2 class="card-title">E-commerce Website Development</h2>
+                    <p class="card-subtitle"> A digital platform that enables businesses and consumers to buy and sell products or services online.</p>
+                    <p class="card-description">At Bhoomi Techzone Pvt. Ltd., we build robust, scalable E-Commerce Applications with
+                        secure payments and intuitive UI/UX. These applications provide features such as product catalogs, shopping carts, secure payment gateways, user authentication. Our E-commerce Website Development services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">Custom Design & Branding</div>
+                        <div class="service-item">Product Management System</div>
+                        <div class="service-item">Secure Payment Gateway Integration</div>
+                        <div class="service-item">Shopping Cart & Checkout System</div>
+                        <!-- <div class="service-item">Customizable Templates</div> -->
+                        <!-- <div class="service-item">Billing & Invoicing</div> -->
+                    </div>
+                   <a href="app.html"> <button class="know-more-btn">Know More</button></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="cardd" style="background-image: url('image/flat-design-cms-illustration_23-2148825220.jpg');">
+                    <h2 class="card-title">CMS</h2>
+                    <p class="card-subtitle">Provides an easy-to-use interface where users can update text, images, videos, and other media.</p>
+                    <p class="card-description">  At Bhoomi Techzone Pvt.Ltd. We easily manage your content with dynamic CMS platforms like WordPress, Joomla, or custom-built admin panels. It provides an easy-to-use interface where users can update text, images, videos, and other media, helping streamline website maintenance and content updates. Our CMS services include:</p>
+                    <div class="service-list">
+                        <div class="service-item">WordPress</div>
+                        <div class="service-item">Custom-built admin panels</div>
+                        <div class="service-item">Shopify</div>
+                        <div class="service-item">Themes and Plugins,</div>
+                        <div class="service-item">Customizable Templates</div>
+                        <!-- <div class="service-item">Billing & Invoicing</div> -->
+                    </div>
+                   <a href="webdev.html"> <button class="know-more-btn">Know More</button></a>
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
-           
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/ppc.png" alt="Digital Marketing" class="service-icon">
-                            <h3 class="service-title">PPC Advertising</h3>
-                            <p class="service-description">
-                                Bhoomi Techzone Pvt. Ltd. is a trusted name in PPC (Pay-Per-Click) advertising
-                                services in India, offering data-driven paid ad solutions that deliver real,
-                                measurable results. It’s commonly used on search engines like Google (through Google Ads) and social media platforms like Facebook and Instagram. In a typical PPC campaign, advertisers bid on specific keywords relevant to their business or target audience. When users search for those keywords or come across relevant content, the ads are displayed.
 
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">Google Ads Management
-                            </h3>
-                            <p class="service-description">
-                                Reach customers on Google Search & Display Network with keyword-targeted ads that
-                                drive quality traffic. Run banner ads across millions of websites to boost brand
-                                visibility and retarget interested users.  Google Ads operates on a Pay-Per-Click (PPC) model, meaning advertisers pay each time someone clicks on their ad. It also offers Display Ads, Video Ads, and Shopping Ads, providing multiple formats to reach different audiences. Google Ads is a powerful online advertising platform that allows businesses to create ads that appear on Google's search engine results pages (SERPs), YouTube, Gmail.
-                            </p>
-                            <a class="text-decoration-none" href="ppc.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- E-Commerce Applications -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/email.png" alt="E-Commerce Applications" class="service-icon">
-                            <h3 class="service-title">Email Marketing</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone Pvt. Ltd. We help businesses maximize their email marketing
-                                potential by creating high-converting email campaigns. Email marketing is a digital marketing strategy that involves sending emails to a targeted group of recipients with the aim of promoting products, services, or building relationships with potential and existing customers. It is one of the most effective ways to engage with an audience directly, as emails can be personalized and tailored to individual preferences. 
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">Content Marketing</h3>
-                            <p class="service-description">
-                                We create high-quality, keyword-optimized content like blogs, articles, and landing
-                                pages to boost brand authority and traffic also We track, analyze, and optimize
-                                every campaign to maximize your ROI and improve customer journeys.  Key elements of effective email marketing include building a quality email list, segmenting the audience for targeted messaging, creating compelling subject lines, and including a clear call-to-action (CTA). Tools like Mailchimp, Constant Contact, and SendGrid allow businesses to automate campaigns, track performance.
-                            </p>
-                            <a class="text-decoration-none" href="email.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SEO -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/hrm.png" alt="SEO" class="service-icon">
-                            <h3 class="service-title">HRM</h3>
-                            <p class="service-description">
-                                Bhoomi Techzone Pvt. Ltd. brings you the most powerful and easy-to-use HRM software
-                                in India to manage all your human resource operations in one place. HRM involves a range of activities such as recruitment, training and development, performance management, employee relations, compensation and benefits, and ensuring workplace safety and compliance. The goal of HRM is not only to hire and retain the best talent but also to foster a positive organizational culture, promote employee engagement. 
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">HRM</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone Pvt. Ltd., we offer a robust and intuitive HRM (Human Resource
-                                Management) Software solution that automates and simplifies all your HR functions
-                                from hiring to retirement. Designed for modern businesses. Modern HRM also incorporates technology through HR software and systems to streamline administrative tasks and make data-driven decisions. Overall, HRM plays a critical role in aligning workforce capabilities with organizational goals to drive success and sustainability.
-                            </p>
-                            <a class="text-decoration-none" href="hrm.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <!-- Digital Marketing -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/CRM.png" alt="Digital Marketing" class="service-icon">
-                            <h3 class="service-title">CRM</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone Pvt. Ltd. we offer powerful and customizable Customer
-                                Relationship Management Software designed to help businesses manage their customer
-                                data. Customer Relationship Management (CRM) is a strategy and technology used by businesses to manage and analyze interactions with current and potential customers. The main goal of CRM is to improve customer service, boost customer retention, and drive sales growth by organizing and automating communication.</p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">CRM
-                            </h3>
-                            <p class="service-description">
-                                Whether you're a startup or a growing enterprise — our CRM solution keeps your team
-                                organized, your customers happy and your sales pipeline full. CRM systems store valuable customer data, including contact details, purchase history, and preferences, which helps businesses personalize their marketing and sales efforts. Popular CRM tools like Salesforce, HubSpot, and Zoho CRM provide features like lead tracking, task management, sales forecasting, and analytics.By offering a 360-degree view of customer interactions, CRM empowers businesses to build stronger relationships.
-                            </p>
-                            <a class="text-decoration-none" href="crm.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- E-Commerce Applications -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/sms.png" alt="E-Commerce Applications" class="service-icon">
-                            <h3 class="service-title">SMS Software</h3>
-                            <p class="service-description">
-                                Bhoomi Techzone Pvt. Ltd. offers a fully-featured, user-friendly, and cloud-based
-                                School Management System (SMS) that helps educational institutions automate their daily
-                                tasks. SMS software is a tool that allows businesses and organizations to send bulk text messages to customers, clients, or employees quickly and efficiently. It is widely used for marketing campaigns, appointment reminders, notifications, alerts, and customer service updates. SMS software platforms like Twilio, TextMagic, EZ Texting.
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">School Management System</h3>
-                            <p class="service-description">
-                                Our SMS software is ideal for schools, colleges, coaching
-                                institutes, and educational academies. Digitize the entire admission process
-                                including inquiries, registrations, and document submissions. Since SMS has a high open rate compared to emails, it’s a powerful way to ensure messages are seen promptly. Many SMS tools also integrate with CRM and marketing platforms, helping businesses run more cohesive communication strategies. Overall, SMS software is an effective, fast.
-                            </p>
-                            <a class="text-decoration-none" href="sms.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SEO -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-card-container">
-                    <div class="service-card">
-                        <div class="service-card-front">
-                            <img src="image/hms.png" alt="SEO" class="service-icon">
-                            <h3 class="service-title">HMS</h3>
-                            <p class="service-description">
-                                Bhoomi Techzone Pvt. Ltd. offers a feature-rich and highly secure Hospital
-                                Management System (HMS) designed to automate and manage your hospital operations
-                                with ease. A Hospital Management System (HMS) is a comprehensive software solution designed to manage the day-to-day operations of a hospital or healthcare facility. It streamlines various administrative, financial, clinical, and legal processes by integrating different departments such as patient registration, appointment scheduling.
-                            </p>
-                        </div>
-                        <div class="service-card-back">
-                            <h3 class="service-title">Hospital Management Software</h3>
-                            <p class="service-description">
-                                At Bhoomi Techzone Pvt. Ltd., From patient registration to billing, appointments,
-                                inventory, and lab management our hospital software in India is built to improve
-                                efficiency, accuracy, and patient care. HMS improves efficiency, reduces paperwork, enhances patient care, and ensures data accuracy and security. It also helps healthcare providers maintain compliance with regulations and track performance through real-time reports and analytics. Popular HMS solutions like MediBuddy, eHospital.
-                            </p>
-                            <a class="text-decoration-none" href="CMS.html"><button class="learn-more-btnn">Know More</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -1002,11 +1172,113 @@ h1 {
         </div>
         <div class="row">
             <!-- <div class="col-lg-4 mb-4 mb-lg-0 "> -->
+
+            <!-- <div class="col-lg-2 col-md-6  mb-md-0 d-md-block d-lg-none">
+            <div class="footer-dropdown">
+                <h4 class="footer-dropdown-toggle">Quick Links <i class="fas fa-chevron-down d-lg-none"></i>
+                </h4>
+                <ul class="list-unstyled footer-links footer-dropdown-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="solution.html">Services</a></li>
+                    <li><a href="portfoli.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="career.html">Career</a></li>
+
+                </ul>
+            </div>
+        </div> -->
+            <div class="col-lg-2 col-md-6  mb-md-0 d-none d-lg-block">
+
+                <a href="index.html"
+                    class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Home</a>
+                <a href="about.html"
+                    class="d-block  border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">About</a>
+                <a href="solution.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Services</a>
+                <a href="portfoli.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Project</a>
+                <a href="contact.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Contact</a>
+
+            </div>
+
+            <!-- <div class="col-lg-3 col-md-6 mb-md-0 d-md-block d-lg-none">
+            <div class="footer-dropdown">
+                <h4 class="footer-dropdown-toggle">Our Services <i class="fas fa-chevron-down d-lg-none"></i>
+                </h4>
+                <ul class="list-unstyled footer-links footer-dropdown-menu">
+                    <li><a href="solution.html">Web Development</a></li>
+                    <li><a href="solution.html">Mobile App Development</a></li>
+                    <li><a href="solution.html">UI/UX Design</a></li>
+                    <li><a href="solution.html">Digital Marketing</a></li>
+                    <li><a href="solution.html">E-Commerce Applications</a></li>
+                    <li><a href="solution.html">Website Design</a></li>
+                </ul>
+            </div>
+        </div> -->
+
+
+            <!-- Mobile-only dropdowns in same row -->
+            <div class="mobile-only-dropdowns d-block d-lg-none">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 px-1">
+                            <div class="footer-dropdown">
+                                <h4 class="footer-dropdown-toggle">Quick Links <i class="fas fa-chevron-down"></i>
+                                </h4>
+                                <ul class="list-unstyled footer-links footer-dropdown-menu">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="solution.html">Services</a></li>
+                                    <li><a href="portfoli.html">Portfolio</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="career.html">Career</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6 px-1">
+                            <div class="footer-dropdown">
+                                <h4 class="footer-dropdown-toggle">Our Services <i class="fas fa-chevron-down"></i>
+                                </h4>
+                                <ul class="list-unstyled footer-links footer-dropdown-menu">
+                                    <li><a href="solution.html">Web Development</a></li>
+                                    <li><a href="solution.html">Mobile App Development</a></li>
+                                    <!-- <li><a href="solution.html">UI/UX Design</a></li> -->
+                                    <li><a href="solution.html">Digital Marketing</a></li>
+                                    <li><a href="solution.html">E-Commerce Applications</a></li>
+                                    <li><a href="solution.html">Web Design</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-none d-lg-block">
+                <a href="about.html"
+                    class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Company
+                    Profile</a>
+                <a href="blog.html"
+                    class="d-block  border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Blog</a>
+                <a href="gallery.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Gallery</a>
+                <a href="portfoli.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Portfolio</a>
+                <a href="career.html"
+                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Career</a>
+            </div>
+
             <div class="col-md-7 col-12 col-lg-4 text-center text-white p-2">
                 <p>Together, We Create Digital Impact</p>
-                <h2 class="lh-1 magnet"
-                    style="font-size: 5rem; translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
-                    Your Vision Our Code!</h2>
+                <h2 class="lh-1 magnet" style="font-size: 5rem;">
+                    <span class="vision-word">Your</span>
+                    <span class="vision-word">Vision</span>
+                    <span class="vision-word">Our</span>
+                    <span class="vision-word">Code!</span>
+                </h2>
                 <a href="contact.html"> <button class="btn magnet text-white px-4 mt-2 fs-5"
                         style="background-color: #009933; translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">Ping
                         Us Anytime<i class="fa-solid fa-arrow-right text-white ms-2"></i></button> </a>
@@ -1026,74 +1298,16 @@ h1 {
 
 
             </div>
-            <div class="col-lg-2 col-md-6  mb-md-0 d-md-block d-lg-none">
-                <div class="footer-dropdown">
-                    <h4 class="footer-dropdown-toggle">Quick Links <i class="fas fa-chevron-down d-lg-none"></i>
-                    </h4>
-                    <ul class="list-unstyled footer-links footer-dropdown-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="solution.html">Services</a></li>
-                        <li><a href="portfoli.html">Portfolio</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="career.html">Career</a></li>
 
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6  mb-md-0 d-none d-lg-block">
-
-                <a href="index.html"
-                    class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Home</a>
-                <a href="about.html"
-                    class="d-block  border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">About</a>
-                <a href="solution.html"
-                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Services</a>
-                <a href="portfoli.html"
-                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Project</a>
-                <a href="contact.html"
-                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Contact</a>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6 mb-md-0 d-md-block d-lg-none">
-                <div class="footer-dropdown">
-                    <h4 class="footer-dropdown-toggle">Our Services <i class="fas fa-chevron-down d-lg-none"></i>
-                    </h4>
-                    <ul class="list-unstyled footer-links footer-dropdown-menu">
-                        <li><a href="solution.html">Web Development</a></li>
-                        <li><a href="solution.html">Mobile App Development</a></li>
-                        <li><a href="solution.html">UI/UX Design</a></li>
-                        <li><a href="solution.html">Digital Marketing</a></li>
-                        <li><a href="solution.html">E-Commerce Applications</a></li>
-                        <li><a href="solution.html">Website Design</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 d-none d-lg-block">
-                <a href="about.html"
-                    class="d-block border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Company
-                    Profile</a>
-                <a href="blog.html"
-                    class="d-block  border-bottom py-4 p-0 m-0 fs-4 text-decoration-none text-white">Blog</a>
-                <a href="gallery.html"
-                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Gallery</a>
-                <a href="portfoli.html"
-                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Portfolio</a>
-                <a href="career.html"
-                    class="d-block border-bottom  py-4 p-0 m-0 fs-4 text-decoration-none text-white">Career</a>
-            </div>
             <div class="col-lg-3 col-md-6 " style="padding-left: 50px;" data-cue="slideInUp">
                 <div class="footer-widget foot">
 
                     <div class="text-column">
 
                         <div class="text-effect">
-                            <span class="color-change">B</span><span class="color-change  ">h</span><span
-                                class="color-change">o</span><span class="color-change">o</span><span
-                                class="color-change">m</span><span class="color-change">i</span>
+                            <span class="color-change">B</span><span class="color-change  ">H</span><span
+                                class="color-change">O</span><span class="color-change">O</span><span
+                                class="color-change">M</span><span class="color-change">I</span>
 
                         </div>
                     </div>
@@ -1103,7 +1317,7 @@ h1 {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30px"
                                     height="30px" class="facebook"
                                     style="margin-top: 22px;
-                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                     <path
                                         d="M459.4 151.7c.3 4.5 .3 9.1 .3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z" />
                                 </svg>
@@ -1113,7 +1327,7 @@ h1 {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="40px"
                                     height="40px" class="pinterest me-3 mt-2"
                                     style="margin-top: 22px;
-                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                     <path
                                         d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3 .8-3.4 5-20.3 6.9-28.1 .6-2.5 .3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z" />
                                 </svg>
@@ -1124,7 +1338,7 @@ h1 {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="40px"
                                     height="40px" class="facebook ms-1 "
                                     style="margin-top:16px;
-                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                     <path
                                         d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
                                 </svg>
@@ -1144,7 +1358,7 @@ h1 {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40px"
                                     height="40px" class="facebook ms-2 mb-3"
                                     style="margin-top: 22px;
-                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                     <path
                                         d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" />
                                 </svg>
@@ -1153,7 +1367,7 @@ h1 {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="40px"
                                     height="40px" class="github ms-2 mt-4"
                                     style="margin-top: 22px;
-                                    margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                margin-left: 9px;"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                     <path
                                         d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
                                 </svg>
@@ -1165,7 +1379,7 @@ h1 {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="40px"
                                     height="40px"
                                     style="margin-top: 22px;
-                                 margin-left: 9px;"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                             margin-left: 9px;"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                                     <path
                                         d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
                                 </svg>
@@ -1174,7 +1388,7 @@ h1 {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" width="40px"
                                     height="40px"
                                     style="margin-top: 22px;
-                                    margin-left: 9px;"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                margin-left: 9px;"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                                     <path
                                         d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
                                 </svg>
@@ -1240,44 +1454,20 @@ h1 {
             loop: true,
         });
     </script>
-    <!-- flip -->
-    <script>
-        // JavaScript for handling card flips on touch devices
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all service card containers
-    const cardContainers = document.querySelectorAll('.service-card-container');
-    
-    // Track currently flipped card
-    let currentlyFlipped = null;
-    
-    // Add click event listeners for all devices
-    cardContainers.forEach(container => {
-        container.addEventListener('click', function() {
-            // If there's already a flipped card and it's not this one
-            if (currentlyFlipped && currentlyFlipped !== this) {
-                // Flip the previous card back
-                currentlyFlipped.classList.remove('active');
-            }
+   <!-- service -->
+<script>
+    // Add event listeners to all "Know More" buttons
+    document.querySelectorAll('.know-more-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the title of the card
+            const cardTitle = this.closest('.card').querySelector('.card-title').textContent;
+            alert(`You clicked Know More for: ${cardTitle}`);
             
-            // Toggle the current card
-            this.classList.toggle('active');
-            
-            // Update the currentlyFlipped reference
-            if (this.classList.contains('active')) {
-                currentlyFlipped = this;
-            } else {
-                currentlyFlipped = null;
-            }
+            // In a real application, you would redirect to a details page or show a modal
+            // window.location.href = `/services/${cardTitle.toLowerCase().replace(/\s+/g, '-')}`;
         });
     });
-    
-    // For non-touch devices, still allow hover behavior
-    if (window.matchMedia('(hover: hover)').matches) {
-        // Add class to detect devices with hover capability
-        document.body.classList.add('has-hover');
-    }
-});
-    </script>
+</script>
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Animation Library -->
@@ -1291,43 +1481,44 @@ document.addEventListener('DOMContentLoaded', function() {
             once: true
         });
     </script>
-     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Footer dropdown functionality for mobile view
-            const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
-            
-            footerDropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
-                    // Check if we're in mobile view
-                    if (window.innerWidth < 992) {
-                        const dropdownMenu = this.nextElementSibling;
-                        const icon = this.querySelector('.fa-chevron-down');
-                        
-                        // Toggle the menu
-                        if (dropdownMenu.style.maxHeight) {
-                            dropdownMenu.style.maxHeight = null;
-                            icon.classList.remove('rotate');
-                        } else {
-                            dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
-                            icon.classList.add('rotate');
-                        }
-                    }
-                });
-            });
-            
-            // Reset styles when resizing to desktop
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 992) {
-                    document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
-                        menu.style.maxHeight = '';
-                    });
-                    document.querySelectorAll('.fa-chevron-down').forEach(icon => {
+    <!-- footer dropdown -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Footer dropdown functionality for mobile view
+        const footerDropdownToggles = document.querySelectorAll('.footer-dropdown-toggle');
+
+        footerDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                // Check if we're in mobile view
+                if (window.innerWidth < 992) {
+                    const dropdownMenu = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down');
+
+                    // Toggle the clicked dropdown WITHOUT closing others
+                    if (dropdownMenu.style.maxHeight) {
+                        dropdownMenu.style.maxHeight = null;
                         icon.classList.remove('rotate');
-                    });
+                    } else {
+                        dropdownMenu.style.maxHeight = dropdownMenu.scrollHeight + "px";
+                        icon.classList.add('rotate');
+                    }
                 }
             });
         });
-        </script>
+
+        // Reset styles when resizing to desktop
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 992) {
+                document.querySelectorAll('.footer-dropdown-menu').forEach(menu => {
+                    menu.style.maxHeight = '';
+                });
+                document.querySelectorAll('.fa-chevron-down').forEach(icon => {
+                    icon.classList.remove('rotate');
+                });
+            }
+        });
+    });
+</script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('scroll', function() {

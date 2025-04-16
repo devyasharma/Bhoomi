@@ -148,7 +148,7 @@ body {
     .contact-info span {
         margin-right: 15px;
         color: #666;
-        font-size: 10px !important;
+        font-size: 12px !important;
     }
     .fa-envelope:before {
         content: "\f0e0";
@@ -981,6 +981,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: start;
 }
 
 
@@ -1206,7 +1207,7 @@ body {
 }
 
 .button-container .bb {
-    background-color: rgb(226, 224, 224);
+    background-color: #f0fcf1;
     color: black;
     box-shadow: gray 0px 0px 15px;
     font-weight: 600;
@@ -1293,10 +1294,12 @@ body {
     color: #090a0a;
     margin-bottom: 20px;
     line-height: 1.6;
+    font-size: 17px;
 }
 
 .feature-item {
     margin-bottom: 15px;
+    font-size: 17px;
 }
 
 .feature-item i {
@@ -2810,7 +2813,7 @@ textarea.form-control {
 }
 
 .portfolio-item {
-    background-color: white;
+    background-color: rgb(228, 227, 227);
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -2844,7 +2847,7 @@ textarea.form-control {
 
 .portfolio-category {
     color: var(--primary);
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     display: block;
@@ -2856,8 +2859,8 @@ textarea.form-control {
 }
 
 .portfolio-description {
-    color: var(--gray);
-    font-size: 0.9rem;
+    color: rgb(12, 12, 12);
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
 }
 

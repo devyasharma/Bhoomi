@@ -30,12 +30,22 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
+            overflow-x: hidden;
         }
+        /* .row{
+  max-width: 100%; */
+  /* box-sizing: border-box; */
+/* } */
 
         .row {
             margin-left: -15px;
             margin-right: -15px;
         }
+        
+        /* .container, .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+} */
 
         .col-lg-4 {
             padding: 0 15px;
@@ -48,20 +58,50 @@
         }
 
         .cardd {
-            background-color: #ebebeb;
-            border-radius: 15px;
-            border: none;
-            box-shadow: 0px 0px 15px rgba(34, 34, 34, 0.29);
-            padding: 30px;
-            height: 100%;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s ease forwards;
-            transform-style: preserve-3d;
-            position: relative;
-            text-align: start;
-        }
+    /* background-color: #ebebeb; */
+    
+    background-size: cover; /* Makes the image cover the entire card */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    border-radius: 15px;
+    border: none;
+    /* box-shadow: 0px 0px 15px rgba(34, 34, 34, 0.29); */
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+    transform-style: preserve-3d;
+    position: relative;
+    text-align: start;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+}
+
+/* If you want to add an overlay to ensure text remains readable over the image */
+.cardd::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(235, 235, 235, 0.8); /* Semi-transparent overlay */
+    border-radius: 15px;
+    z-index: 0;
+}
+
+/* Ensure content is positioned above the overlay */
+.card-content, 
+.card-title, 
+.card-subtitle, 
+.card-description, 
+.service-list, 
+.know-more-btn {
+    position: relative;
+    z-index: 1;
+}
 
         @keyframes fadeIn {
             from {
@@ -180,6 +220,8 @@
             position: relative;
             overflow: hidden;
             transform: translateZ(35px);
+            border: 1px solid #e8e8e8;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
         }
 
         .know-more-btn::before {
@@ -234,7 +276,7 @@
             }
             
             .cardd {
-                padding: 25px;
+                padding: 15px;
             }
         }
     /* Solutions Overview */
@@ -246,7 +288,7 @@
     .solution-card {
         background-color: #f0fcf1;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgb(2, 51, 2);
+    box-shadow: 15px 15px 30px #8ca38c, -15px -15px 30px #ffffff;
         margin-bottom: 30px;
         overflow: hidden;
         transition: transform 0.3s ease;
@@ -338,6 +380,7 @@
         font-size: 1rem !important;
         line-height: 1.7;
     }
+    
 </style>
 
 <body>
@@ -495,9 +538,9 @@
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i> Website Development
                         </div>
-                        <div class="feature-item">
+                        <!-- <div class="feature-item">
                             <i class="fas fa-check-circle"></i> Website Design
-                        </div>
+                        </div> -->
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i> Social Medial Marketing
                         </div>
@@ -544,7 +587,7 @@
             <div class="row">
                 <!-- Card 1: Web & App Development -->
                 <div class="col-lg-4 col-md-4 col-sm-12 ">
-                    <div class="cardd">
+                    <div class="cardd" style="background-image: url('image/website-designer-concept-illustration_114360-4449.avif'); ">
                         <h2 class="card-title">Website Development</h2>
                         <p class="card-subtitle">Turn your ideas into thriving ventures with our expert web and app
                             development services.</p>
@@ -563,7 +606,7 @@
 
                 <!-- Card 2: Search Engine Optimization -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd">
+                    <div class="cardd" style="background-image: url('image/seo-concept-illustration_114360-5766.avif'); ">
                         <h2 class="card-title">Search Engine Optimization</h2>
                         <p class="card-subtitle">Elevate your online presence with our expert SEO services.</p>
                         <p class="card-description">We specialize in optimizing websites to enhance visibility, attract
@@ -585,7 +628,7 @@
 
                 <!-- Card 3: Business Listing & Promotion -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd">
+                    <div class="cardd" style="background-image: url('image/appointment-booking-design_23-2148557730.avif'); ">
                         <h2 class="card-title">Mobile App Development</h2>
                         <p class="card-subtitle"> A successful app combines intuitive design, seamless functionality, and optimized performance.</p>
                         <p class="card-description"> Bhoomi Techzone Pvt. Ltd. is a leading mobile app development company in India,
@@ -606,7 +649,7 @@
 
                 <!-- Card 4: E-Commerce Solutions -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd">
+                    <div class="cardd" style="background-image: url('image/pay-per-click-internet-advertising_773186-1443.avif'); ">
                         <h2 class="card-title">PPC Advertising</h2>
                         <p class="card-subtitle">In a typical PPC campaign, advertisers bid on specific keywords relevant to their business or target audience.
                         </p>
@@ -628,7 +671,7 @@
 
                 <!-- Card 5: Digital Marketing -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd">
+                    <div class="cardd" style="background-image: url('image/female-multitasking-work_23-2148390868.avif'); ">
                         <h2 class="card-title">Digital Marketing</h2>
                         <p class="card-subtitle">Reach your target audience and grow your business with our digital
                             marketing expertise.</p>
@@ -649,7 +692,7 @@
 
                 <!-- Card 6: Web Hosting & Maintenance -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd">
+                    <div class="cardd" style="background-image: url('image/concept-landing-page-new-message_52683-25038.avif'); ">
                         <h2 class="card-title">Email Marketing</h2>
                         <p class="card-subtitle">Keep your website secure, fast and digital marketing strategy that involves sending emails to a targeted group of recipients.</p>
                         <p class="card-description"> At Bhoomi Techzone Pvt. Ltd. We help businesses maximize their email marketing
@@ -668,7 +711,7 @@
 
                 <!-- Card 7: UI/UX Design -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd">
+                    <div class="cardd" style="background-image: url('image/hand-drawn-remote-recruitment-illustration_52683-144094.avif');">
                         <h2 class="card-title">HRM</h2>
                         <p class="card-subtitle">HRM involves a range of activities such as recruitment, training and development, performance management.</p>
                         <p class="card-description">Bhoomi Techzone Pvt. Ltd. brings you the most powerful and easy-to-use HRM software
@@ -687,43 +730,92 @@
 
                 <!-- Card 8: Content Creation -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd">
-                        <h2 class="card-title">Content Creation</h2>
-                        <p class="card-subtitle">Engage your audience with compelling, SEO-optimized content that
-                            converts.</p>
-                        <p class="card-description">We produce high-quality content that tells your story, showcases
-                            your expertise, and drives action. Our content strategies are designed to attract, engage,
-                            and convert your target audience. Our content creation services include:</p>
+                    <div class="cardd" style="background-image: url('image/isometric-crm-illustration_52683-83950.avif');">
+                        <h2 class="card-title">CRM</h2>
+                        <p class="card-subtitle">CRM is to improve customer service, boost customer retention, and drive sales growth by organizing and automating communication.</p>
+                        <p class="card-description">At Bhoomi Techzone Pvt. Ltd. we offer powerful and customizable Customer
+                            Relationship Management Software designed to help businesses manage their customer
+                            data.CRM is a strategy and technology used by businesses to manage and analyze interactions with current and potential customers. Our CRM services include:</p>
                         <div class="service-list">
-                            <div class="service-item">Blog writing and management</div>
-                            <div class="service-item">Website copywriting</div>
-                            <div class="service-item">Product descriptions</div>
-                            <div class="service-item">Case studies and white papers</div>
-                            <div class="service-item">Email newsletters</div>
-                            <div class="service-item">Social media content</div>
+                            <div class="service-item">Centralized Customer Data</div>
+                            <div class="service-item">Sales Pipeline Management</div>
+                            <div class="service-item">Marketing Automation</div>
+                            <div class="service-item">Customer Support Integration</div>
+                            <div class="service-item">Real-Time Analytics & Reporting</div>
+                            <!-- <div class="service-item">Social media content</div> -->
                         </div>
-                        <button class="know-more-btn">Know More</button>
+                       <a href="crm.html"> <button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
 
                 <!-- Card 9: Analytics & Reporting -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd">
-                        <h2 class="card-title">Analytics & Reporting</h2>
-                        <p class="card-subtitle">Gain valuable insights into your digital performance with our analytics
-                            services.</p>
-                        <p class="card-description">We help you understand your data and make informed decisions to
-                            improve your online presence. Our detailed reports provide clear metrics and actionable
-                            recommendations. Our analytics and reporting services include:</p>
+                    <div class="cardd" style="background-image: url('image/hmss.avif');">
+                        <h2 class="card-title">HMS</h2>
+                        <p class="card-subtitle">A comprehensive software solution designed to manage the day-to-day operations of a hospital or healthcare facility.</p>
+                        <p class="card-description"> Bhoomi Techzone Pvt. Ltd. offers a feature-rich and highly secure Hospital
+                            Management System (HMS) designed to automate and manage your hospital operations
+                            with ease. Our HMS services include:</p>
                         <div class="service-list">
-                            <div class="service-item">Website traffic analysis</div>
-                            <div class="service-item">Conversion tracking</div>
+                            <div class="service-item">Patient Information Management</div>
+                            <div class="service-item">Electronic Medical Records (EMR)</div>
                             <div class="service-item">User behavior insights</div>
                             <div class="service-item">Custom dashboard creation</div>
-                            <div class="service-item">Competitive analysis</div>
-                            <div class="service-item">Performance optimization recommendations</div>
+                            <div class="service-item">Security & Data Privacy</div>
+                            <div class="service-item">Billing & Invoicing</div>
                         </div>
-                        <button class="know-more-btn">Know More</button>
+                       <a href="CMS.html"> <button class="know-more-btn">Know More</button></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="cardd" style="background-image: url('image/smm.jpg');">
+                        <h2 class="card-title">SMS</h2>
+                        <p class="card-subtitle">A comprehensive software solution designed to manage the day-to-day operations of a hospital or healthcare facility.</p>
+                        <p class="card-description"> Bhoomi Techzone Pvt. Ltd. offers a fully-featured, user-friendly, and cloud-based
+                            School Management System (SMS) that helps educational institutions automate their daily
+                            tasks. Our SMS services include:</p>
+                        <div class="service-list">
+                            <div class="service-item">Instant Communication</div>
+                            <div class="service-item">High Open Rates</div>
+                            <div class="service-item">Bulk SMS Sending</div>
+                            <div class="service-item">Automated Campaigns & Scheduling</div>
+                            <div class="service-item">Customizable Templates</div>
+                            <!-- <div class="service-item">Billing & Invoicing</div> -->
+                        </div>
+                       <a href="sms.html"> <button class="know-more-btn">Know More</button></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="cardd" style="background-image: url('image/online-shopping-concept-landing-page_52683-22153.avif');">
+                        <h2 class="card-title">E-commerce Website Development</h2>
+                        <p class="card-subtitle"> A digital platform that enables businesses and consumers to buy and sell products or services online.</p>
+                        <p class="card-description">At Bhoomi Techzone Pvt. Ltd., we build robust, scalable E-Commerce Applications with
+                            secure payments and intuitive UI/UX. These applications provide features such as product catalogs, shopping carts, secure payment gateways, user authentication. Our E-commerce Website Development services include:</p>
+                        <div class="service-list">
+                            <div class="service-item">Custom Design & Branding</div>
+                            <div class="service-item">Product Management System</div>
+                            <div class="service-item">Secure Payment Gateway Integration</div>
+                            <div class="service-item">Shopping Cart & Checkout System</div>
+                            <!-- <div class="service-item">Customizable Templates</div> -->
+                            <!-- <div class="service-item">Billing & Invoicing</div> -->
+                        </div>
+                       <a href="app.html"> <button class="know-more-btn">Know More</button></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="cardd" style="background-image: url('image/flat-design-cms-illustration_23-2148825220.jpg');">
+                        <h2 class="card-title">CMS</h2>
+                        <p class="card-subtitle">Provides an easy-to-use interface where users can update text, images, videos, and other media.</p>
+                        <p class="card-description">  At Bhoomi Techzone Pvt.Ltd. We easily manage your content with dynamic CMS platforms like WordPress, Joomla, or custom-built admin panels. It provides an easy-to-use interface where users can update text, images, videos, and other media, helping streamline website maintenance and content updates. Our CMS services include:</p>
+                        <div class="service-list">
+                            <div class="service-item">WordPress</div>
+                            <div class="service-item">Custom-built admin panels</div>
+                            <div class="service-item">Shopify</div>
+                            <div class="service-item">Themes and Plugins,</div>
+                            <div class="service-item">Customizable Templates</div>
+                            <!-- <div class="service-item">Billing & Invoicing</div> -->
+                        </div>
+                       <a href="webdev.html"> <button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
             </div>
