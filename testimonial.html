@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Animated Review Section</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00a86b;
+            --secondary-color: #ff7d7d;
+            --dark-text: #222;
+            --light-text: #666;
+            --white: #fff;
+            --border-radius: 10px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+        
+        .review-section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title h2 {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-heading h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark-text);
+        }
+        
+        /* Circular Review Layout */
+        .circular-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        
+        .circle-border {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            border: 2px dashed var(--secondary-color);
+            border-radius: 50%;
+            opacity: 0.7;
+            z-index: 1;
+        }
+        
+        .center-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 320px;
+            background-color: var(--white);
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            overflow: hidden;
+        }
+        
+        .center-image img {
+            max-width: 90%;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .tech-icons {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 11;
+        }
+        
+        .tech-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #4285f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tech-icon:nth-child(2) {
+            background-color: #ea4335;
+        }
+        
+        .tech-icon:nth-child(3) {
+            background-color: #fbbc05;
+        }
+        
+        .company-logo {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 150px;
+            z-index: 12;
+        }
+        
+        /* Testimonial Items */
+        .testimonial-item {
+            position: absolute;
+            width: 230px;
+            transition: all 0.5s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .testimonial-item.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .testimonial-card {
+            background-color: #222;
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .testimonial-card::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: #222;
+            transform: rotate(45deg);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-avatar {
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .client-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+        
+        .client-position {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 0;
+        }
+        
+        .testimonial-rating {
+            display: flex;
+            margin-left: auto;
+        }
+        
+        .testimonial-rating i {
+            color: #ffc107;
+            font-size: 12px;
+        }
+        
+        .testimonial-content {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .client-avatar-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            overflow: hidden;
+        }
+        
+        .client-avatar-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Right Side Content */
+        .review-content {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .client-testimonial {
+            padding: 20px 0;
+            position: relative;
+            min-height: 200px;
+            display: none;
+        }
+        
+        .client-testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .client-info-large {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .client-details {
+            margin-left: 20px;
+        }
+        
+        .client-name-large {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--dark-text);
+        }
+        
+        .testimonial-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation controls */
+        .testimonial-nav {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(230, 230, 230, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--dark-text);
+            border: none;
+            font-size: 1.2rem;
+        }
+        
+        .nav-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Small circular testimonials */
+        .small-circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+            overflow: hidden;
+            border: 3px solid var(--primary-color);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+        
+        .small-circle:hover {
+            transform: scale(1.1);
+        }
+        
+        .small-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1199px) {
+            .circular-container {
+                height: 500px;
+            }
+            
+            .center-image {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .testimonial-item {
+                width: 200px;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .circular-container {
+                height: 700px;
+            }
+            
+            .review-content {
+                margin-top: 50px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .circular-container {
+                height: 500px;
+            }
+            
+            .center-image {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .testimonial-item {
+                width: 180px;
+            }
+            
+            .small-circle {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .section-heading h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 575px) {
+            .circular-container {
+                height: 400px;
+            }
+            
+            .center-image {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .testimonial-item {
+                width: 150px;
+            }
+            
+            .tech-icons {
+                left: 5px;
+            }
+            
+            .tech-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 10px;
+            }
+            
+            .section-heading h1 {
+                font-size: 1.8rem;
+            }
+            
+            .client-avatar-large {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .client-name-large {
+                font-size: 1.2rem;
+            }
+            
+            .testimonial-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="review-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>REVIEWS</h2>
+            </div>
+            <div class="section-heading">
+                <h1>What Our Customers Says</h1>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- Circular Layout Container -->
+                    <div class="circular-container">
+                        <!-- Dotted Circle Border -->
+                        <div class="circle-border"></div>
+                        
+                        <!-- Center Image with Character -->
+                        <div class="center-image">
+                            <img src="/api/placeholder/300/300" alt="Character" id="character-image">
+                            
+                            <!-- Tech Icons -->
+                            <div class="tech-icons">
+                                <div class="tech-icon">
+                                    <i class="fas fa-cog"></i>
+                                </div>
+                                <div class="tech-icon">
+                                    HTML
+                                </div>
+                                <div class="tech-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Company Logo -->
+                            <div class="company-logo">
+                                <img src="/api/placeholder/150/40" alt="Company Logo">
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial Cards - will be positioned by JS -->
+                        <div class="testimonial-item" id="testimonial1">
+                            <div class="testimonial-card">
+                                <div class="testimonial-header">
+                                    <div class="client-info">
+                                        <div class="client-avatar">IT</div>
+                                        <div>
+                                            <p class="client-name">IT INNOVATORS</p>
+                                            <p class="client-position">1 review</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="testimonial-content">
+                                    As my friend told me, Bhoomi is good at handling clients and making the website. I was connected to create a website for my yacht business and the work in a better way that I like a lot even I told them to run my ads as well.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Small circular testimonials - will be positioned by JS -->
+                        <div class="small-circle" id="circle1">
+                            <img src="/api/placeholder/100/100" alt="Client 1">
+                        </div>
+                        
+                        <div class="small-circle" id="circle2">
+                            <img src="/api/placeholder/100/100" alt="Client 2">
+                        </div>
+                        
+                        <div class="small-circle" id="circle3">
+                            <img src="/api/placeholder/100/100" alt="Client 3">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <!-- Right Side Content -->
+                    <div class="review-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        
+                        <!-- Thank you message -->
+                        <div class="thank-you-message">
+                            <p>Thank you for your kind words and positive feedback! 😊 We truly appreciate your trust in Bhoomi Techzone. Our team is dedicated to delivering high-quality services on time, and we're glad to hear about your satisfaction. Looking forward to working with you again!</p>
+                        </div>
+                        
+                        <!-- Client Testimonials -->
+                        <div class="client-testimonial active" data-id="1">
+                            <div class="client-info-large">
+                                <div class="client-avatar-large">
+                                    <img src="/api/placeholder/80/80" alt="Mahi Singh">
+                                </div>
+                                <div class="client-details">
+                                    <h3 class="client-name-large">Mahi Singh</h3>
+                                </div>
+                            </div>
+                            <p class="testimonial-message">
+                                We had an excellent experience with Bhoomi Techzone Pvt Ltd. Their team is highly professional, responsive, and efficient in delivering top IT solutions.
+                            </p>
+                        </div>
+                        
+                        <div class="client-testimonial" data-id="2">
+                            <div class="client-info-large">
+                                <div class="client-avatar-large">
+                                    <img src="/api/placeholder/80/80" alt="Rahul Sharma">
+                                </div>
+                                <div class="client-details">
+                                    <h3 class="client-name-large">Rahul Sharma</h3>
+                                </div>
+                            </div>
+                            <p class="testimonial-message">
+                                Bhoomi Techzone helped us transform our digital presence with their innovative solutions. Their team understood our requirements perfectly and delivered beyond our expectations.
+                            </p>
+                        </div>
+                        
+                        <div class="client-testimonial" data-id="3">
+                            <div class="client-info-large">
+                                <div class="client-avatar-large">
+                                    <img src="/api/placeholder/80/80" alt="Priya Patel">
+                                </div>
+                                <div class="client-details">
+                                    <h3 class="client-name-large">Priya Patel</h3>
+                                </div>
+                            </div>
+                            <p class="testimonial-message">
+                                I'm extremely satisfied with the website developed by Bhoomi Techzone. The user interface is intuitive, and their attention to detail has helped increase our conversion rates significantly.
+                            </p>
+                        </div>
+                        
+                        <!-- Navigation Buttons -->
+                        <div class="testimonial-nav">
+                            <button class="nav-btn" id="prevBtn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="nav-btn" id="nextBtn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set character image
+            document.getElementById('character-image').src = '/api/placeholder/300/300';
+            
+            // Position the testimonial items and small circles around the center circle
+            positionElements();
+            
+            // Handle window resize
+            window.addEventListener('resize', positionElements);
+            
+            // Slider functionality
+            let currentTestimonial = 1;
+            const totalTestimonials = 3;
+            
+            // Next button click
+            document.getElementById('nextBtn').addEventListener('click', function() {
+                showTestimonial(currentTestimonial + 1);
+            });
+            
+            // Previous button click
+            document.getElementById('prevBtn').addEventListener('click', function() {
+                showTestimonial(currentTestimonial - 1);
+            });
+            
+            // Small circle click
+            document.querySelectorAll('.small-circle').forEach(circle => {
+                circle.addEventListener('click', function() {
+                    const id = this.id.replace('circle', '');
+                    showTestimonial(parseInt(id));
+                });
+            });
+            
+            // Function to show testimonial by id
+            function showTestimonial(id) {
+                if (id < 1) id = totalTestimonials;
+                if (id > totalTestimonials) id = 1;
+                
+                currentTestimonial = id;
+                
+                // Update active testimonial
+                document.querySelectorAll('.client-testimonial').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelector(`.client-testimonial[data-id="${id}"]`).classList.add('active');
+                
+                // Update small circles to highlight the active one
+                document.querySelectorAll('.small-circle').forEach(circle => {
+                    circle.style.borderColor = 'var(--primary-color)';
+                    circle.style.transform = 'scale(1)';
+                });
+                document.getElementById(`circle${id}`).style.borderColor = 'var(--secondary-color)';
+                document.getElementById(`circle${id}`).style.transform = 'scale(1.1)';
+            }
+            
+            // Position elements function
+            function positionElements() {
+                const container = document.querySelector('.circular-container');
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+                const centerX = containerWidth / 2;
+                const centerY = containerHeight / 2;
+                
+                // Calculate radius - 85% of the smallest dimension/2
+                const radius = Math.min(containerWidth, containerHeight) * 0.38;
+                
+                // Position testimonial item
+                const testimonial1 = document.getElementById('testimonial1');
+                testimonial1.style.top = centerY - (radius * 0.4) + 'px';
+                testimonial1.style.left = centerX - radius - (testimonial1.offsetWidth / 2) + 'px';
+                testimonial1.classList.add('active');
+                
+                // Create and position additional testimonials
+                const testimonial2 = testimonial1.cloneNode(true);
+                testimonial2.id = 'testimonial2';
+                container.appendChild(testimonial2);
+                testimonial2.style.top = centerY - radius - (testimonial2.offsetHeight / 2) + 'px';
+                testimonial2.style.left = centerX + (radius * 0.5) + 'px';
+                
+                const testimonial3 = testimonial1.cloneNode(true);
+                testimonial3.id = 'testimonial3';
+                container.appendChild(testimonial3);
+                testimonial3.style.top = centerY + (radius * 0.6) + 'px';
+                testimonial3.style.left = centerX + (radius * 0.3) + 'px';
+                
+                // Position small circles
+                const circle1 = document.getElementById('circle1');
+                circle1.style.top = centerY - radius * 0.8 + 'px';
+                circle1.style.left = centerX - radius * 0.8 + 'px';
+                
+                const circle2 = document.getElementById('circle2');
+                circle2.style.top = centerY - radius * 0.2 + 'px';
+                circle2.style.left = centerX + radius * 0.8 + 'px';
+                
+                const circle3 = document.getElementById('circle3');
+                circle3.style.top = centerY + radius * 0.8 + 'px';
+                circle3.style.left = centerX - radius * 0.4 + 'px';
+                
+                // Update testimonial content
+                document.querySelectorAll('.testimonial-item').forEach((item, index) => {
+                    const content = item.querySelector('.testimonial-content');
+                    const header = item.querySelector('.testimonial-header');
+                    const clientName = header.querySelector('.client-name');
+                    
+                    // Update content based on index
+                    if (index === 1) {
+                        clientName.textContent = 'WEB DESIGNER';
+                        content.textContent = 'Bhoomi Techzone provided excellent web design services. Their attention to detail and creative approach helped us stand out in our industry.';
+                    } else if (index === 2) {
+                        clientName.textContent = 'MARKETING EXPERT';
+                        content.textContent = 'Their digital marketing strategy transformed our online presence. We saw significant growth in leads and conversions within just a few months.';
+                    }
+                });
+                
+                // Initialize first testimonial
+                showTestimonial(1);
+            }
+            
+            // Add animation for the character
+            const character = document.getElementById('character-image');
+            animateCharacter();
+            
+            function animateCharacter() {
+                // Simple pulse animation
+                let scale = 1;
+                let growing = false;
+                
+                setInterval(() => {
+                    if (growing) {
+                        scale += 0.0005;
+                        if (scale >= 1.02) growing = false;
+                    } else {
+                        scale -= 0.0005;
+                        if (scale <= 0.98) growing = true;
+                    }
+                    
+                    character.style.transform = `scale(${scale})`;
+                }, 20);
+            }
+            
+            // Add automatic rotation of testimonials
+            setInterval(() => {
+                document.getElementById('nextBtn').click();
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
