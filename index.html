@@ -22,262 +22,297 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Lobster&family=Mea+Culpa&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spicy+Rice&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
-        <!-- <link rel="stylesheet" href="css/animate.css"> -->
+    <!-- <link rel="stylesheet" href="css/animate.css"> -->
 
 
 
 </head>
 <style>
- .cnn {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-            overflow-x: hidden;
-        }
-        /* .row{
-  max-width: 100%; */
-  /* box-sizing: border-box; */
-/* } */
- 
+    .cnn {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        overflow-x: hidden;
+    }
 
-        
-        /* .container, .container-fluid {
+    /* .row{
+  max-width: 100%; */
+    /* box-sizing: border-box; */
+    /* } */
+
+
+
+    /* .container, .container-fluid {
     padding-left: 15px;
     padding-right: 15px;
 } */
 
+    .col-lg-4 {
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+
+    .card-wrapper {
+        perspective: 1500px;
+        height: 100%;
+    }
+
+    .cardd {
+        /* background-color: #ebebeb; */
+
+        background-size: cover;
+        /* Makes the image cover the entire card */
+        background-position: center;
+        /* Centers the image */
+        background-repeat: no-repeat;
+        /* Prevents the image from repeating */
+        border-radius: 15px;
+        border: none;
+        /* box-shadow: 0px 0px 15px rgba(34, 34, 34, 0.29); */
+        padding: 30px;
+        height: 100%;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 0.5s ease forwards;
+        transform-style: preserve-3d;
+        position: relative;
+        text-align: start;
+        background: #e0e0e0;
+        box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+    }
+
+    /* If you want to add an overlay to ensure text remains readable over the image */
+    .cardd::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(235, 235, 235, 0.8);
+        /* Semi-transparent overlay */
+        border-radius: 15px;
+        z-index: 0;
+    }
+
+    /* Ensure content is positioned above the overlay */
+    .card-content,
+    .card-title,
+    .card-subtitle,
+    .card-description,
+    .service-list,
+    .know-more-btn {
+        position: relative;
+        z-index: 1;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Staggered animation for cards */
+    .col-lg-4:nth-child(1) .cardd {
+        animation-delay: 0.1s;
+    }
+
+    .col-lg-4:nth-child(2) .cardd {
+        animation-delay: 0.2s;
+    }
+
+    .col-lg-4:nth-child(3) .cardd {
+        animation-delay: 0.3s;
+    }
+
+    .col-lg-4:nth-child(4) .cardd {
+        animation-delay: 0.4s;
+    }
+
+    .col-lg-4:nth-child(5) .cardd {
+        animation-delay: 0.5s;
+    }
+
+    .col-lg-4:nth-child(6) .cardd {
+        animation-delay: 0.6s;
+    }
+
+    .col-lg-4:nth-child(7) .cardd {
+        animation-delay: 0.7s;
+    }
+
+    .col-lg-4:nth-child(8) .cardd {
+        animation-delay: 0.8s;
+    }
+
+    .col-lg-4:nth-child(9) .cardd {
+        animation-delay: 0.9s;
+    }
+
+    .cardd:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-content {
+        transform-style: preserve-3d;
+        position: relative;
+    }
+
+    .card-title {
+        font-size: 26px;
+        color: #1d1d1d;
+        margin-bottom: 15px;
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 8px;
+        transform: translateZ(30px);
+    }
+
+    .card-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: #3a7bd5;
+        transition: width 0.5s ease;
+    }
+
+    .cardd:hover .card-title::after {
+        width: 40px;
+    }
+
+    .card-subtitle {
+        font-size: 17px;
+        color: black;
+        margin-bottom: 15px;
+        line-height: 1.5;
+        transform: translateZ(25px);
+    }
+
+    .card-description {
+        font-size: 17px;
+        color: black;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        transform: translateZ(20px);
+    }
+
+    .service-list {
+        margin-bottom: 25px;
+        flex-grow: 1;
+        transform: translateZ(15px);
+    }
+
+    .service-item {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 10px;
+        font-size: 17px;
+        color: black;
+        transition: transform 0.3s ease;
+    }
+
+    .cardd:hover .service-item {
+        transform: translateX(5px);
+    }
+
+    .service-item::before {
+        content: '→';
+        color: #333;
+        margin-right: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .cardd:hover .service-item::before {
+        color: #3a7bd5;
+    }
+
+    .know-more-btn {
+        background-color: #3a7bd5;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
+        transform: translateZ(35px);
+        border: 1px solid #e8e8e8;
+        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    }
+
+    .know-more-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .know-more-btn:hover {
+        background-color: #2c5ea0;
+    }
+
+    .know-more-btn:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @media (max-width: 992px) {
         .col-lg-4 {
-            padding: 0 15px;
-            margin-bottom: 30px;
-        }
-
-        .card-wrapper {
-            perspective: 1500px;
-            height: 100%;
-        }
-
-        .cardd {
-    /* background-color: #ebebeb; */
-    
-    background-size: cover; /* Makes the image cover the entire card */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    border-radius: 15px;
-    border: none;
-    /* box-shadow: 0px 0px 15px rgba(34, 34, 34, 0.29); */
-    padding: 30px;
-    height: 100%;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.5s ease forwards;
-    transform-style: preserve-3d;
-    position: relative;
-    text-align: start;
-    background: #e0e0e0;
-    box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
-}
-
-/* If you want to add an overlay to ensure text remains readable over the image */
-.cardd::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(235, 235, 235, 0.8); /* Semi-transparent overlay */
-    border-radius: 15px;
-    z-index: 0;
-}
-
-/* Ensure content is positioned above the overlay */
-.card-content, 
-.card-title, 
-.card-subtitle, 
-.card-description, 
-.service-list, 
-.know-more-btn {
-    position: relative;
-    z-index: 1;
-}
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Staggered animation for cards */
-        .col-lg-4:nth-child(1) .cardd { animation-delay: 0.1s; }
-        .col-lg-4:nth-child(2) .cardd { animation-delay: 0.2s; }
-        .col-lg-4:nth-child(3) .cardd { animation-delay: 0.3s; }
-        .col-lg-4:nth-child(4) .cardd { animation-delay: 0.4s; }
-        .col-lg-4:nth-child(5) .cardd { animation-delay: 0.5s; }
-        .col-lg-4:nth-child(6) .cardd { animation-delay: 0.6s; }
-        .col-lg-4:nth-child(7) .cardd { animation-delay: 0.7s; }
-        .col-lg-4:nth-child(8) .cardd { animation-delay: 0.8s; }
-        .col-lg-4:nth-child(9) .cardd { animation-delay: 0.9s; }
-
-        .cardd:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-content {
-            transform-style: preserve-3d;
-            position: relative;
+            flex: 0 0 33.333%;
+            max-width: 33.333%;
         }
 
         .card-title {
-            font-size: 26px;
-            color: #1d1d1d;
-            margin-bottom: 15px;
-            font-weight: bold;
-            position: relative;
-            padding-bottom: 8px;
-            transform: translateZ(30px);
+            font-size: 22px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .col-lg-4 {
+            flex: 0 0 100%;
+            max-width: 100%;
         }
 
-        .card-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: #3a7bd5;
-            transition: width 0.5s ease;
+        .cardd {
+            padding: 15px;
         }
+    }
 
-        .cardd:hover .card-title::after {
-            width: 40px;
-        }
-
-        .card-subtitle {
-            font-size: 17px;
-            color: black;
-            margin-bottom: 15px;
-            line-height: 1.5;
-            transform: translateZ(25px);
-        }
-
-        .card-description {
-            font-size: 17px;
-            color: black;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            transform: translateZ(20px);
-        }
-
-        .service-list {
-            margin-bottom: 25px;
-            flex-grow: 1;
-            transform: translateZ(15px);
-        }
-
-        .service-item {
-            display: flex;
-            align-items: baseline;
-            margin-bottom: 10px;
-            font-size: 17px;
-            color: black;
-            transition: transform 0.3s ease;
-        }
-
-        .cardd:hover .service-item {
-            transform: translateX(5px);
-        }
-
-        .service-item::before {
-            content: '→';
-            color: #333;
-            margin-right: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .cardd:hover .service-item::before {
-            color: #3a7bd5;
-        }
-
-        .know-more-btn {
-            background-color: #3a7bd5;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
-            position: relative;
-            overflow: hidden;
-            transform: translateZ(35px);
-            border: 1px solid #e8e8e8;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-        }
-
-        .know-more-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-        }
-
-        .know-more-btn:hover {
-            background-color: #2c5ea0;
-        }
-
-        .know-more-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @media (max-width: 992px) {
-            .col-lg-4 {
-                flex: 0 0 33.333%;
-                max-width: 33.333%;
-            }
-            
-            .card-title {
-                font-size: 22px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .col-lg-4 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-            
-            .cardd {
-                padding: 15px;
-            }
-        }
     /* Solutions Overview */
     .solutions-overview {
         text-align: center;
@@ -286,8 +321,8 @@
     /* Solution Cards */
     .solution-card {
         background-color: #f0fcf1;
-    border-radius: 10px;
-    box-shadow: 15px 15px 30px #8ca38c, -15px -15px 30px #ffffff;
+        border-radius: 10px;
+        box-shadow: 15px 15px 30px #8ca38c, -15px -15px 30px #ffffff;
         margin-bottom: 30px;
         overflow: hidden;
         transition: transform 0.3s ease;
@@ -378,8 +413,57 @@
         color: #333 !important;
         font-size: 1rem !important;
         line-height: 1.7;
+
+    }
+    .card-top-image {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Place it above the background */
+    display: flex;
+    justify-content: center;
+}
+
+.web-design-icon {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    /* Add a subtle background to help it stand out */
+    /* background-color: rgba(255, 255, 255, 0.85); */
+    padding: 10px;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+    /* Responsive settings */
+    width: 100%;
+    object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .web-design-icon {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .web-design-icon {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-top-image {
+        padding: 10px;
+        margin-bottom: 10px;
     }
     
+    .web-design-icon {
+        max-width: 100%;
+        padding: 8px;
+    }
+}
 </style>
 
 <body>
@@ -509,8 +593,8 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <!-- About Section --> 
-        
+    <!-- About Section -->
+
     <section class="about-section">
         <div class="container">
             <!-- <div class="wow animate__fadeInBottomLeft"> -->
@@ -564,10 +648,10 @@
             <!-- <div class="button-container">
             <a href="solution.html" class="custom-button">Know More</a>
         </div> -->
-<!-- </div> -->
+            <!-- </div> -->
         </div>
     </section>
-    
+
     <!-- Services Section -->
     <section class="services-section">
         <div class="container cnn">
@@ -588,12 +672,21 @@
             <div class="row">
                 <!-- Card 1: Web & App Development -->
                 <div class="col-lg-4 col-md-4 col-sm-12 ">
-                    <div class="cardd" style="background-image: url('image/website-designer-concept-illustration_114360-4449.avif'); ">
+
+                    <div class="cardd"
+                        style="background-image: url('image/website-designer-concept-illustration_114360-4449.avif'); ">
+                        <!-- Web Design Service Image added at the top -->
+                        <div class="card-top-image">
+                            <img src="image/web-removebg-preview.webp" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">Website Development</h2>
                         <p class="card-subtitle">Turn your ideas into thriving ventures with our expert web and app
                             development services.</p>
                         <p class="card-description">We focus on building projects that provide outstanding user
-                            experiences and deliver real value to your customers. We build fully customized websites from scratch that reflect your brand identity and meet your specific business needs. It involves both frontend development, which focuses on the visual and interactive aspects that users see. We
+                            experiences and deliver real value to your customers. We build fully customized websites
+                            from scratch that reflect your brand identity and meet your specific business needs. It
+                            involves both frontend development, which focuses on the visual and interactive aspects that
+                            users see. We
                             offer:</p>
                         <div class="service-list">
                             <div class="service-item">Static and dynamic websites</div>
@@ -604,10 +697,14 @@
                         <a href="webdev.html"><button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
-
                 <!-- Card 2: Search Engine Optimization -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd" style="background-image: url('image/seo-concept-illustration_114360-5766.avif'); ">
+                    <div class="cardd"
+                        style="background-image: url('image/seo-concept-illustration_114360-5766.avif'); ">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/sco.webp" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">Search Engine Optimization</h2>
                         <p class="card-subtitle">Elevate your online presence with our expert SEO services.</p>
                         <p class="card-description">We specialize in optimizing websites to enhance visibility, attract
@@ -629,11 +726,20 @@
 
                 <!-- Card 3: Business Listing & Promotion -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd" style="background-image: url('image/appointment-booking-design_23-2148557730.avif'); ">
+                    <div class="cardd"
+                        style="background-image: url('image/appointment-booking-design_23-2148557730.avif'); ">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/app.png" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">Mobile App Development</h2>
-                        <p class="card-subtitle"> A successful app combines intuitive design, seamless functionality, and optimized performance.</p>
-                        <p class="card-description"> Bhoomi Techzone Pvt. Ltd. is a leading mobile app development company in India,
-                            delivering innovative, user-friendly, and scalable mobile applications. App development includes both the frontend, which users interact with, and the backend, which handles data processing, authentication, and server-side logic. Our
+                        <p class="card-subtitle"> A successful app combines intuitive design, seamless functionality,
+                            and optimized performance.</p>
+                        <p class="card-description"> Bhoomi Techzone Pvt. Ltd. is a leading mobile app development
+                            company in India,
+                            delivering innovative, user-friendly, and scalable mobile applications. App development
+                            includes both the frontend, which users interact with, and the backend, which handles data
+                            processing, authentication, and server-side logic. Our
                             comprehensive services include:</p>
                         <div class="service-list">
                             <div class="service-item">Mobile App</div>
@@ -644,19 +750,26 @@
                             <!-- <div class="service-item">Targeted Advertising Campaigns</div> -->
                             <!-- <div class="service-item">Performance Tracking and Reporting</div> -->
                         </div>
-                       <a href="app.html"> <button class="know-more-btn">Know More</button></a>
+                        <a href="app.html"> <button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
 
                 <!-- Card 4: E-Commerce Solutions -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd" style="background-image: url('image/pay-per-click-internet-advertising_773186-1443.avif'); ">
+                    <div class="cardd"
+                        style="background-image: url('image/pay-per-click-internet-advertising_773186-1443.avif'); ">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/pp-removebg-preview.webp" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">PPC Advertising</h2>
-                        <p class="card-subtitle">In a typical PPC campaign, advertisers bid on specific keywords relevant to their business or target audience.
+                        <p class="card-subtitle">In a typical PPC campaign, advertisers bid on specific keywords
+                            relevant to their business or target audience.
                         </p>
                         <p class="card-description"> Bhoomi Techzone Pvt. Ltd. is a trusted name in PPC advertising
                             services in India, offering data-driven paid ad solutions that deliver real,
-                            measurable results. It’s commonly used on search engines like Google and social media platforms like Facebook and Instagram. Our PPC Advertising services
+                            measurable results. It’s commonly used on search engines like Google and social media
+                            platforms like Facebook and Instagram. Our PPC Advertising services
                             include:</p>
                         <div class="service-list">
                             <div class="service-item">Google Ads Management</div>
@@ -666,13 +779,18 @@
                             <div class="service-item">PPC Optimization</div>
                             <!-- <div class="service-item">E-commerce SEO</div> -->
                         </div>
-                       <a href="ppc.html"><button class="know-more-btn">Know More</button></a>
+                        <a href="ppc.html"><button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
 
                 <!-- Card 5: Digital Marketing -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd" style="background-image: url('image/female-multitasking-work_23-2148390868.avif'); ">
+                    <div class="cardd"
+                        style="background-image: url('image/female-multitasking-work_23-2148390868.avif'); ">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/web-removebg-preview.webp" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">Digital Marketing</h2>
                         <p class="card-subtitle">Reach your target audience and grow your business with our digital
                             marketing expertise.</p>
@@ -693,11 +811,20 @@
 
                 <!-- Card 6: Web Hosting & Maintenance -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd" style="background-image: url('image/concept-landing-page-new-message_52683-25038.avif'); ">
+                    <div class="cardd"
+                        style="background-image: url('image/concept-landing-page-new-message_52683-25038.avif'); ">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/email-removebg-preview.webp" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">Email Marketing</h2>
-                        <p class="card-subtitle">Keep your website secure, fast and digital marketing strategy that involves sending emails to a targeted group of recipients.</p>
-                        <p class="card-description"> At Bhoomi Techzone Pvt. Ltd. We help businesses maximize their email marketing
-                            potential by creating high-converting email campaigns. It is one of the most effective ways to engage with an audience directly, as emails can be personalized. Our Email Marketing services include:</p>
+                        <p class="card-subtitle">Keep your website secure, fast and digital marketing strategy that
+                            involves sending emails to a targeted group of recipients.</p>
+                        <p class="card-description"> At Bhoomi Techzone Pvt. Ltd. We help businesses maximize their
+                            email marketing
+                            potential by creating high-converting email campaigns. It is one of the most effective ways
+                            to engage with an audience directly, as emails can be personalized. Our Email Marketing
+                            services include:</p>
                         <div class="service-list">
                             <div class="service-item">Newsletter Marketing</div>
                             <div class="service-item">Bulk Email</div>
@@ -712,11 +839,20 @@
 
                 <!-- Card 7: UI/UX Design -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd" style="background-image: url('image/hand-drawn-remote-recruitment-illustration_52683-144094.avif');">
+                    <div class="cardd"
+                        style="background-image: url('image/hand-drawn-remote-recruitment-illustration_52683-144094.avif');">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/web-removebg-preview.webp" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">HRM</h2>
-                        <p class="card-subtitle">HRM involves a range of activities such as recruitment, training and development, performance management.</p>
-                        <p class="card-description">Bhoomi Techzone Pvt. Ltd. brings you the most powerful and easy-to-use HRM software
-                            in India to manage all your human resource operations in one place. Employee relations, compensation and benefits, and ensuring workplace safety and compliance. Our HRM services include:</p>
+                        <p class="card-subtitle">HRM involves a range of activities such as recruitment, training and
+                            development, performance management.</p>
+                        <p class="card-description">Bhoomi Techzone Pvt. Ltd. brings you the most powerful and
+                            easy-to-use HRM software
+                            in India to manage all your human resource operations in one place. Employee relations,
+                            compensation and benefits, and ensuring workplace safety and compliance. Our HRM services
+                            include:</p>
                         <div class="service-list">
                             <div class="service-item">Payroll Management</div>
                             <div class="service-item">Compensation & Benefits</div>
@@ -725,18 +861,26 @@
                             <div class="service-item">Interactive mockups</div>
                             <!-- <div class="service-item">Recruitment & Selection</div> -->
                         </div>
-                       <a href="hrm.html"> <button class="know-more-btn">Know More</button></a>
+                        <a href="hrm.html"> <button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
 
                 <!-- Card 8: Content Creation -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd" style="background-image: url('image/isometric-crm-illustration_52683-83950.avif');">
+                    <div class="cardd"
+                        style="background-image: url('image/isometric-crm-illustration_52683-83950.avif');">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/web-removebg-preview.webp" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">CRM</h2>
-                        <p class="card-subtitle">CRM is to improve customer service, boost customer retention, and drive sales growth by organizing and automating communication.</p>
-                        <p class="card-description">At Bhoomi Techzone Pvt. Ltd. we offer powerful and customizable Customer
+                        <p class="card-subtitle">CRM is to improve customer service, boost customer retention, and drive
+                            sales growth by organizing and automating communication.</p>
+                        <p class="card-description">At Bhoomi Techzone Pvt. Ltd. we offer powerful and customizable
+                            Customer
                             Relationship Management Software designed to help businesses manage their customer
-                            data.CRM is a strategy and technology used by businesses to manage and analyze interactions with current and potential customers. Our CRM services include:</p>
+                            data.CRM is a strategy and technology used by businesses to manage and analyze interactions
+                            with current and potential customers. Our CRM services include:</p>
                         <div class="service-list">
                             <div class="service-item">Centralized Customer Data</div>
                             <div class="service-item">Sales Pipeline Management</div>
@@ -745,16 +889,22 @@
                             <div class="service-item">Real-Time Analytics & Reporting</div>
                             <!-- <div class="service-item">Social media content</div> -->
                         </div>
-                       <a href="crm.html"> <button class="know-more-btn">Know More</button></a>
+                        <a href="crm.html"> <button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
 
                 <!-- Card 9: Analytics & Reporting -->
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="cardd" style="background-image: url('image/hmss.avif');">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/web-removebg-preview.webp" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">HMS</h2>
-                        <p class="card-subtitle">A comprehensive software solution designed to manage the day-to-day operations of a hospital or healthcare facility.</p>
-                        <p class="card-description"> Bhoomi Techzone Pvt. Ltd. offers a feature-rich and highly secure Hospital
+                        <p class="card-subtitle">A comprehensive software solution designed to manage the day-to-day
+                            operations of a hospital or healthcare facility.</p>
+                        <p class="card-description"> Bhoomi Techzone Pvt. Ltd. offers a feature-rich and highly secure
+                            Hospital
                             Management System (HMS) designed to automate and manage your hospital operations
                             with ease. Our HMS services include:</p>
                         <div class="service-list">
@@ -765,14 +915,20 @@
                             <div class="service-item">Security & Data Privacy</div>
                             <div class="service-item">Billing & Invoicing</div>
                         </div>
-                       <a href="CMS.html"> <button class="know-more-btn">Know More</button></a>
+                        <a href="CMS.html"> <button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="cardd" style="background-image: url('image/smm.jpg');">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/Untitled (615 x 410 px) (2).png" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">SMS</h2>
-                        <p class="card-subtitle">A comprehensive software solution designed to manage the day-to-day operations of a hospital or healthcare facility.</p>
-                        <p class="card-description"> Bhoomi Techzone Pvt. Ltd. offers a fully-featured, user-friendly, and cloud-based
+                        <p class="card-subtitle">A comprehensive software solution designed to manage the day-to-day
+                            operations of a hospital or healthcare facility.</p>
+                        <p class="card-description"> Bhoomi Techzone Pvt. Ltd. offers a fully-featured, user-friendly,
+                            and cloud-based
                             School Management System (SMS) that helps educational institutions automate their daily
                             tasks. Our SMS services include:</p>
                         <div class="service-list">
@@ -783,15 +939,24 @@
                             <div class="service-item">Customizable Templates</div>
                             <!-- <div class="service-item">Billing & Invoicing</div> -->
                         </div>
-                       <a href="sms.html"> <button class="know-more-btn">Know More</button></a>
+                        <a href="sms.html"> <button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd" style="background-image: url('image/online-shopping-concept-landing-page_52683-22153.avif');">
+                    <div class="cardd"
+                        style="background-image: url('image/online-shopping-concept-landing-page_52683-22153.avif');">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/Untitled (615 x 410 px) (3).png" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">E-commerce Website Development</h2>
-                        <p class="card-subtitle"> A digital platform that enables businesses and consumers to buy and sell products or services online.</p>
-                        <p class="card-description">At Bhoomi Techzone Pvt. Ltd., we build robust, scalable E-Commerce Applications with
-                            secure payments and intuitive UI/UX. These applications provide features such as product catalogs, shopping carts, secure payment gateways, user authentication. Our E-commerce Website Development services include:</p>
+                        <p class="card-subtitle"> A digital platform that enables businesses and consumers to buy and
+                            sell products or services online.</p>
+                        <p class="card-description">At Bhoomi Techzone Pvt. Ltd., we build robust, scalable E-Commerce
+                            Applications with
+                            secure payments and intuitive UI/UX. These applications provide features such as product
+                            catalogs, shopping carts, secure payment gateways, user authentication. Our E-commerce
+                            Website Development services include:</p>
                         <div class="service-list">
                             <div class="service-item">Custom Design & Branding</div>
                             <div class="service-item">Product Management System</div>
@@ -800,14 +965,23 @@
                             <!-- <div class="service-item">Customizable Templates</div> -->
                             <!-- <div class="service-item">Billing & Invoicing</div> -->
                         </div>
-                       <a href="app.html"> <button class="know-more-btn">Know More</button></a>
+                        <a href="app.html"> <button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <div class="cardd" style="background-image: url('image/flat-design-cms-illustration_23-2148825220.jpg');">
+                    <div class="cardd"
+                        style="background-image: url('image/flat-design-cms-illustration_23-2148825220.jpg');">
+                          <!-- Web Design Service Image added at the top -->
+                          <div class="card-top-image">
+                            <img src="image/Untitled (615 x 410 px) (4).png" alt="Web Design Service" class="web-design-icon">
+                        </div>
                         <h2 class="card-title">CMS</h2>
-                        <p class="card-subtitle">Provides an easy-to-use interface where users can update text, images, videos, and other media.</p>
-                        <p class="card-description">  At Bhoomi Techzone Pvt.Ltd. We easily manage your content with dynamic CMS platforms like WordPress, Joomla, or custom-built admin panels. It provides an easy-to-use interface where users can update text, images, videos, and other media, helping streamline website maintenance and content updates. Our CMS services include:</p>
+                        <p class="card-subtitle">Provides an easy-to-use interface where users can update text, images,
+                            videos, and other media.</p>
+                        <p class="card-description"> At Bhoomi Techzone Pvt.Ltd. We easily manage your content with
+                            dynamic CMS platforms like WordPress, Joomla, or custom-built admin panels. It provides an
+                            easy-to-use interface where users can update text, images, videos, and other media, helping
+                            streamline website maintenance and content updates. Our CMS services include:</p>
                         <div class="service-list">
                             <div class="service-item">WordPress</div>
                             <div class="service-item">Custom-built admin panels</div>
@@ -816,7 +990,7 @@
                             <div class="service-item">Customizable Templates</div>
                             <!-- <div class="service-item">Billing & Invoicing</div> -->
                         </div>
-                       <a href="webdev.html"> <button class="know-more-btn">Know More</button></a>
+                        <a href="webdev.html"> <button class="know-more-btn">Know More</button></a>
                     </div>
                 </div>
             </div>
@@ -931,7 +1105,8 @@
                                 appointments, access video or voice consultations, receive digital
                                 prescriptions, and chat with doctors securely. Additional features may include
                                 symptom checkers, health record storage, medicine reminders, and lab test
-                                bookings.  With advancements in telemedicine and patient-centered approaches, doctor care is now more accessible, convenient, and compassionate than ever before.
+                                bookings. With advancements in telemedicine and patient-centered approaches, doctor care
+                                is now more accessible, convenient, and compassionate than ever before.
                             </p>
                             <ul class="solution-card-features">
                                 <li>Custom E-commerce Websites</li>
@@ -1163,7 +1338,7 @@
             </div>
         </div>
     </section>
-  
+
 
     <!-- Counter Section -->
     <section class="counter-section mt-5">
@@ -1530,146 +1705,49 @@
         </div>
     </section> -->
 
-   <section class="review-section">
-    <div class="container">
-        <div class="section-title re">
-            <h2>REVIEWS</h2>
-        </div>
-        <div class="section-heading">
-            <h1>What Our Customers Says</h1>
-        </div>
-        
-        <div class="row">
-            <!-- Left Side with Circular Layout (desktop) and Linear Layout (mobile) -->
-            <div class="col-lg-6">
-                <!-- Circular Layout Container - Hidden on mobile -->
-                <div class="circular-container desktop-only">
-                    <!-- Dotted Circle Border -->
-                    <div class="circle-border"></div>
-                    
-                    <!-- Center Image with Character -->
-                    <div class="center-image">
-                        <img src="image/realistic-3d-feedback-concept_23-2148961127-removebg-preview.png" alt="Character" id="character-image">
-                        
-                        <!-- Tech Icons -->
-                        <div class="tech-icons">
-                            <div class="tech-icon tt">
-                                <i class="fas fa-cog"></i>
-                            </div>
-                            <div class="tech-icon tt">
-                                HTML
-                            </div>
-                            <div class="tech-icon tt">
-                                <i class="fas fa-code"></i>
-                            </div>
-                        </div>
-                        
-                        <!-- Company Logo -->
-                        <div class="company-logo">
-                            <img src="image/logo-removebg-preview (3).webp" alt="Company Logo">
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial Cards (Desktop) -->
-                    <div class="testimonial-item" id="testimonial1" data-position="1">
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <div class="client-info">
-                                    <div class="client-avatar">IT</div>
-                                    <div>
-                                        <p class="client-name">IT INNOVATORS</p>
-                                        <p class="client-position">1 review</p>
-                                    </div>
+    <section class="review-section">
+        <div class="container">
+            <div class="section-title re">
+                <h2>REVIEWS</h2>
+            </div>
+            <div class="section-heading">
+                <h1>What Our Customers Says</h1>
+            </div>
+
+            <div class="row">
+                <!-- Left Side with Circular Layout (desktop) and Linear Layout (mobile) -->
+                <div class="col-lg-6">
+                    <!-- Circular Layout Container - Hidden on mobile -->
+                    <div class="circular-container desktop-only">
+                        <!-- Dotted Circle Border -->
+                        <div class="circle-border"></div>
+
+                        <!-- Center Image with Character -->
+                        <div class="center-image">
+                            <img src="image/realistic-3d-feedback-concept_23-2148961127-removebg-preview.png"
+                                alt="Character" id="character-image">
+
+                            <!-- Tech Icons -->
+                            <div class="tech-icons">
+                                <div class="tech-icon tt">
+                                    <i class="fas fa-cog"></i>
                                 </div>
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                <div class="tech-icon tt">
+                                    HTML
+                                </div>
+                                <div class="tech-icon tt">
+                                    <i class="fas fa-code"></i>
                                 </div>
                             </div>
-                            <div class="testimonial-content">
-                                As my friend told me, Bhoomi is good at handling clients and making the website. I was connected to create a website for my yacht business and the work in a better way that I like a lot even I told them to run my ads as well.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-item" id="testimonial2" data-position="2">
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <div class="client-info">
-                                    <div class="client-avatar">WD</div>
-                                    <div>
-                                        <p class="client-name">WEB DESIGNER</p>
-                                        <p class="client-position">1 review</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="testimonial-content">
-                                Bhoomi Techzone provided excellent web design services. Their attention to detail and creative approach helped us stand out in our industry.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-item" id="testimonial3" data-position="3">
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <div class="client-info">
-                                    <div class="client-avatar">ME</div>
-                                    <div>
-                                        <p class="client-name">MARKETING EXPERT</p>
-                                        <p class="client-position">1 review</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="testimonial-content">
-                                Their digital marketing strategy transformed our online presence. We saw significant growth in leads and conversions within just a few months.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Small circular testimonials -->
-                    <div class="small-circle"  id="circle1" data-id="1">
-                        <img src="image/r1.jpg"  alt="Client 1">
-                    </div>
-                    
-                    <div class="small-circle" id="circle2" data-id="2">
-                        <img src="image/Untitled design (64).webp" alt="Client 2">
-                    </div>
-                    
-                    <div class="small-circle" id="circle3" data-id="3">
-                        <img src="image/r2.webp" alt="Client 3">
-                    </div>
-                </div>
-                
-                <!-- Mobile Linear Layout - Only visible on mobile/tablet -->
-                <div class="mobile-testimonials mobile-only">
-                    <div class="mobile-center">
-                        <div class="center-image-mobile">
-                            <img src="image/realistic-3d-feedback-concept_23-2148961127-removebg-preview.png" alt="Character">
-                            <div class="company-logo-mobile">
+
+                            <!-- Company Logo -->
+                            <div class="company-logo">
                                 <img src="image/logo-removebg-preview (3).webp" alt="Company Logo">
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="mobile-slides-container">
-                        <div class="mobile-slide active" data-id="1">
+
+                        <!-- Testimonial Cards (Desktop) -->
+                        <div class="testimonial-item" id="testimonial1" data-position="1">
                             <div class="testimonial-card">
                                 <div class="testimonial-header">
                                     <div class="client-info">
@@ -1688,12 +1766,14 @@
                                     </div>
                                 </div>
                                 <div class="testimonial-content">
-                                    As my friend told me, Bhoomi is good at handling clients and making the website. I was connected to create a website for my yacht business and the work in a better way that I like a lot even I told them to run my ads as well.
+                                    As my friend told me, Bhoomi is good at handling clients and making the website. I
+                                    was connected to create a website for my yacht business and the work in a better way
+                                    that I like a lot even I told them to run my ads as well.
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mobile-slide" data-id="2">
+
+                        <div class="testimonial-item" id="testimonial2" data-position="2">
                             <div class="testimonial-card">
                                 <div class="testimonial-header">
                                     <div class="client-info">
@@ -1712,12 +1792,13 @@
                                     </div>
                                 </div>
                                 <div class="testimonial-content">
-                                    Bhoomi Techzone provided excellent web design services. Their attention to detail and creative approach helped us stand out in our industry.
+                                    Bhoomi Techzone provided excellent web design services. Their attention to detail
+                                    and creative approach helped us stand out in our industry.
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mobile-slide" data-id="3">
+
+                        <div class="testimonial-item" id="testimonial3" data-position="3">
                             <div class="testimonial-card">
                                 <div class="testimonial-header">
                                     <div class="client-info">
@@ -1736,89 +1817,201 @@
                                     </div>
                                 </div>
                                 <div class="testimonial-content">
-                                    Their digital marketing strategy transformed our online presence. We saw significant growth in leads and conversions within just a few months.
+                                    Their digital marketing strategy transformed our online presence. We saw significant
+                                    growth in leads and conversions within just a few months.
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Small circular testimonials -->
+                        <div class="small-circle" id="circle1" data-id="1">
+                            <img src="image/r1.jpg" alt="Client 1">
+                        </div>
+
+                        <div class="small-circle" id="circle2" data-id="2">
+                            <img src="image/Untitled design (64).webp" alt="Client 2">
+                        </div>
+
+                        <div class="small-circle" id="circle3" data-id="3">
+                            <img src="image/r2.webp" alt="Client 3">
+                        </div>
                     </div>
-                    
-                    <div class="mobile-indicator">
-                        <span class="dot active" data-id="1"></span>
-                        <span class="dot" data-id="2"></span>
-                        <span class="dot" data-id="3"></span>
+
+                    <!-- Mobile Linear Layout - Only visible on mobile/tablet -->
+                    <div class="mobile-testimonials mobile-only">
+                        <div class="mobile-center">
+                            <div class="center-image-mobile">
+                                <img src="image/realistic-3d-feedback-concept_23-2148961127-removebg-preview.png"
+                                    alt="Character">
+                                <div class="company-logo-mobile">
+                                    <img src="image/logo-removebg-preview (3).webp" alt="Company Logo">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mobile-slides-container">
+                            <div class="mobile-slide active" data-id="1">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="client-info">
+                                            <div class="client-avatar">IT</div>
+                                            <div>
+                                                <p class="client-name">IT INNOVATORS</p>
+                                                <p class="client-position">1 review</p>
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-content">
+                                        As my friend told me, Bhoomi is good at handling clients and making the website.
+                                        I was connected to create a website for my yacht business and the work in a
+                                        better way that I like a lot even I told them to run my ads as well.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mobile-slide" data-id="2">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="client-info">
+                                            <div class="client-avatar">WD</div>
+                                            <div>
+                                                <p class="client-name">WEB DESIGNER</p>
+                                                <p class="client-position">1 review</p>
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-content">
+                                        Bhoomi Techzone provided excellent web design services. Their attention to
+                                        detail and creative approach helped us stand out in our industry.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mobile-slide" data-id="3">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-header">
+                                        <div class="client-info">
+                                            <div class="client-avatar">ME</div>
+                                            <div>
+                                                <p class="client-name">MARKETING EXPERT</p>
+                                                <p class="client-position">1 review</p>
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-content">
+                                        Their digital marketing strategy transformed our online presence. We saw
+                                        significant growth in leads and conversions within just a few months.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mobile-indicator">
+                            <span class="dot active" data-id="1"></span>
+                            <span class="dot" data-id="2"></span>
+                            <span class="dot" data-id="3"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <!-- Right Side Content -->
-                <div class="review-content">
-                    <div class="quote-icon">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-                    
-                    <!-- Thank you message -->
-                    <div class="thank-you-message">
-                        <p>Thank you for your kind words and positive feedback! 😊 We truly appreciate your trust in Bhoomi Techzone. Our team is dedicated to delivering high-quality services on time, and we're glad to hear about your satisfaction. Looking forward to working with you again!</p>
-                    </div>
-                    
-                    <!-- Client Testimonials -->
-                    <div class="client-testimonial active" data-id="1">
-                        <div class="client-info-large">
-                            <div class="client-avatar-large">
-                                <img src="image/mahi.jpg" alt="Mahi Singh">
-                            </div>
-                            <div class="client-details">
-                                <h3 class="client-name-large">Mahi Singh</h3>
-                            </div>
+
+                <div class="col-lg-6">
+                    <!-- Right Side Content -->
+                    <div class="review-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
                         </div>
-                        <p class="testimonial-message">
-                            We had an excellent experience with Bhoomi Techzone Pvt Ltd. Their team is highly professional, responsive, and efficient in delivering top IT solutions.
-                        </p>
-                    </div>
-                    
-                    <div class="client-testimonial" data-id="2">
-                        <div class="client-info-large">
-                            <div class="client-avatar-large">
-                                <img src="image/ra.webp" alt="Rahul Sharma">
-                            </div>
-                            <div class="client-details">
-                                <h3 class="client-name-large">Rahul Sharma</h3>
-                            </div>
+
+                        <!-- Thank you message -->
+                        <div class="thank-you-message">
+                            <p>Thank you for your kind words and positive feedback! 😊 We truly appreciate your trust in
+                                Bhoomi Techzone. Our team is dedicated to delivering high-quality services on time, and
+                                we're glad to hear about your satisfaction. Looking forward to working with you again!
+                            </p>
                         </div>
-                        <p class="testimonial-message">
-                            Bhoomi Techzone helped us transform our digital presence with their innovative solutions. Their team understood our requirements perfectly and delivered beyond our expectations.
-                        </p>
-                    </div>
-                    
-                    <div class="client-testimonial" data-id="3">
-                        <div class="client-info-large">
-                            <div class="client-avatar-large">
-                                <img src="image/pri.png" alt="Priya Patel">
+
+                        <!-- Client Testimonials -->
+                        <div class="client-testimonial active" data-id="1">
+                            <div class="client-info-large">
+                                <div class="client-avatar-large">
+                                    <img src="image/mahi.jpg" alt="Mahi Singh">
+                                </div>
+                                <div class="client-details">
+                                    <h3 class="client-name-large">Mahi Singh</h3>
+                                </div>
                             </div>
-                            <div class="client-details">
-                                <h3 class="client-name-large">Priya Patel</h3>
-                            </div>
+                            <p class="testimonial-message">
+                                We had an excellent experience with Bhoomi Techzone Pvt Ltd. Their team is highly
+                                professional, responsive, and efficient in delivering top IT solutions.
+                            </p>
                         </div>
-                        <p class="testimonial-message">
-                            I'm extremely satisfied with the website developed by Bhoomi Techzone. The user interface is intuitive, and their attention to detail has helped increase our conversion rates significantly.
-                        </p>
-                    </div>
-                    
-                    <!-- Navigation Buttons -->
-                    <div class="testimonial-nav">
-                        <button class="nav-btn" id="prevBtn">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="nav-btn" id="nextBtn">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+
+                        <div class="client-testimonial" data-id="2">
+                            <div class="client-info-large">
+                                <div class="client-avatar-large">
+                                    <img src="image/ra.webp" alt="Rahul Sharma">
+                                </div>
+                                <div class="client-details">
+                                    <h3 class="client-name-large">Rahul Sharma</h3>
+                                </div>
+                            </div>
+                            <p class="testimonial-message">
+                                Bhoomi Techzone helped us transform our digital presence with their innovative
+                                solutions. Their team understood our requirements perfectly and delivered beyond our
+                                expectations.
+                            </p>
+                        </div>
+
+                        <div class="client-testimonial" data-id="3">
+                            <div class="client-info-large">
+                                <div class="client-avatar-large">
+                                    <img src="image/pri.png" alt="Priya Patel">
+                                </div>
+                                <div class="client-details">
+                                    <h3 class="client-name-large">Priya Patel</h3>
+                                </div>
+                            </div>
+                            <p class="testimonial-message">
+                                I'm extremely satisfied with the website developed by Bhoomi Techzone. The user
+                                interface is intuitive, and their attention to detail has helped increase our conversion
+                                rates significantly.
+                            </p>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="testimonial-nav">
+                            <button class="nav-btn" id="prevBtn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="nav-btn" id="nextBtn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="footer text-white bg-dark py-5">
@@ -2186,261 +2379,261 @@
         });
     </script>
 
-<!-- service -->
-<script>
-    // Add event listeners to all "Know More" buttons
-    document.querySelectorAll('.know-more-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            // Get the title of the card
-            const cardTitle = this.closest('.card').querySelector('.card-title').textContent;
-            alert(`You clicked Know More for: ${cardTitle}`);
-            
-            // In a real application, you would redirect to a details page or show a modal
-            // window.location.href = `/services/${cardTitle.toLowerCase().replace(/\s+/g, '-')}`;
-        });
-    });
-</script>
+    <!-- service -->
+    <script>
+        // Add event listeners to all "Know More" buttons
+        document.querySelectorAll('.know-more-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                // Get the title of the card
+                const cardTitle = this.closest('.card').querySelector('.card-title').textContent;
+                alert(`You clicked Know More for: ${cardTitle}`);
 
-<!-- review -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Initialize variables
-    let currentTestimonial = 1;
-    const totalTestimonials = 3;
-    
-    // Position the testimonial items and small circles
-    positionElements();
-    
-    // Handle window resize - reposition elements when screen size changes
-    window.addEventListener('resize', positionElements);
-    
-    // Next button click
-    document.getElementById('nextBtn').addEventListener('click', function() {
-        showTestimonial(currentTestimonial + 1);
-    });
-    
-    // Previous button click
-    document.getElementById('prevBtn').addEventListener('click', function() {
-        showTestimonial(currentTestimonial - 1);
-    });
-    
-    // Small circle click events
-    document.querySelectorAll('.small-circle').forEach(circle => {
-        circle.addEventListener('click', function() {
-            const id = parseInt(this.getAttribute('data-id'));
-            showTestimonial(id);
+                // In a real application, you would redirect to a details page or show a modal
+                // window.location.href = `/services/${cardTitle.toLowerCase().replace(/\s+/g, '-')}`;
+            });
         });
-    });
-    
-    // Mobile dot indicators click events
-    document.querySelectorAll('.dot').forEach(dot => {
-        dot.addEventListener('click', function() {
-            const id = parseInt(this.getAttribute('data-id'));
-            showTestimonial(id);
-        });
-    });
-    
-    // Add touch swipe functionality for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    const mobileContainer = document.querySelector('.mobile-slides-container');
-    if (mobileContainer) {
-        mobileContainer.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX;
-        }, false);
-        
-        mobileContainer.addEventListener('touchend', function(e) {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, false);
-    }
-    
-    function handleSwipe() {
-        if (touchEndX < touchStartX) {
-            // Swipe left - next slide
-            showTestimonial(currentTestimonial + 1);
-        }
-        if (touchEndX > touchStartX) {
-            // Swipe right - previous slide
-            showTestimonial(currentTestimonial - 1);
-        }
-    }
-    
-    // Function to show testimonial by id
-    function showTestimonial(id) {
-        // Handle loop back to start/end
-        if (id < 1) id = totalTestimonials;
-        if (id > totalTestimonials) id = 1;
-        
-        currentTestimonial = id;
-        
-        // Update active client testimonial in right column
-        document.querySelectorAll('.client-testimonial').forEach(item => {
-            item.classList.remove('active');
-        });
-        document.querySelector(`.client-testimonial[data-id="${id}"]`).classList.add('active');
-        
-        // Update active testimonial items in desktop layout
-        document.querySelectorAll('.testimonial-item').forEach(item => {
-            item.classList.remove('active');
-        });
-        document.getElementById(`testimonial${id}`).classList.add('active');
-        
-        // Update small circles to highlight the active one
-        document.querySelectorAll('.small-circle').forEach(circle => {
-            circle.style.borderColor = 'var(--primary-color)';
-            circle.style.transform = 'scale(1)';
-        });
-        document.getElementById(`circle${id}`).style.borderColor = 'var(--secondary-color)';
-        document.getElementById(`circle${id}`).style.transform = 'scale(1.1)';
-        
-        // Update mobile slides
-        document.querySelectorAll('.mobile-slide').forEach(slide => {
-            slide.classList.remove('active');
-        });
-        document.querySelector(`.mobile-slide[data-id="${id}"]`).classList.add('active');
-        
-        // Update dots in mobile layout
-        document.querySelectorAll('.dot').forEach(dot => {
-            dot.classList.remove('active');
-        });
-        document.querySelector(`.dot[data-id="${id}"]`).classList.add('active');
-    }
-    
-    // Position elements function - handles responsive positioning of testimonials and circles
-    function positionElements() {
-        const container = document.querySelector('.circular-container');
-        if (!container) return; // Exit if container not found (mobile view)
-        
-        const containerWidth = container.offsetWidth;
-        const containerHeight = container.offsetHeight;
-        const centerX = containerWidth / 2;
-        const centerY = containerHeight / 2;
-        
-        // Calculate radius - adaptive to the container size
-        const radius = Math.min(containerWidth, containerHeight) * 0.35;
-        
-        // Calculate positions for different screen sizes
-        let positions;
-        
-        if (window.innerWidth > 1199) {
-            // Large screens
-            positions = [
-                { top: centerY - (radius * 0.4), left: centerX - radius - 100 }, // Position 1
-                { top: centerY - radius - 20, left: centerX + (radius * 0.4) },   // Position 2
-                { top: centerY + (radius * 0.6), left: centerX + (radius * 0.3) } // Position 3
-            ];
-        } else if (window.innerWidth > 767) {
-            // Medium screens
-            positions = [
-                { top: centerY - (radius * 0.4), left: centerX - radius - 60 },   // Position 1
-                { top: centerY - radius - 20, left: centerX + (radius * 0.3) },   // Position 2
-                { top: centerY + (radius * 0.6), left: centerX + (radius * 0.2) } // Position 3
-            ];
-        } else if (window.innerWidth > 575) {
-            // Small screens
-            positions = [
-                { top: centerY - (radius * 0.4), left: centerX - radius - 30 },   // Position 1
-                { top: centerY - radius - 10, left: centerX + (radius * 0.2) },   // Position 2
-                { top: centerY + (radius * 0.6), left: centerX + (radius * 0.1) } // Position 3
-            ];
-        } else {
-            // Extra small screens
-            positions = [
-                { top: centerY - (radius * 0.8), left: centerX - radius + 20 },  // Position 1
-                { top: centerY, left: centerX + radius - 80 },                   // Position 2
-                { top: centerY + (radius * 0.8), left: centerX - (radius * 0.4) }// Position 3
-            ];
-        }
-        
-        // Position testimonial items
-        for (let i = 1; i <= totalTestimonials; i++) {
-            const testimonial = document.getElementById(`testimonial${i}`);
-            if (testimonial) {
-                const pos = positions[i-1];
-                testimonial.style.top = pos.top + 'px';
-                testimonial.style.left = pos.left + 'px';
+    </script>
+
+    <!-- review -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize variables
+            let currentTestimonial = 1;
+            const totalTestimonials = 3;
+
+            // Position the testimonial items and small circles
+            positionElements();
+
+            // Handle window resize - reposition elements when screen size changes
+            window.addEventListener('resize', positionElements);
+
+            // Next button click
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                showTestimonial(currentTestimonial + 1);
+            });
+
+            // Previous button click
+            document.getElementById('prevBtn').addEventListener('click', function () {
+                showTestimonial(currentTestimonial - 1);
+            });
+
+            // Small circle click events
+            document.querySelectorAll('.small-circle').forEach(circle => {
+                circle.addEventListener('click', function () {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    showTestimonial(id);
+                });
+            });
+
+            // Mobile dot indicators click events
+            document.querySelectorAll('.dot').forEach(dot => {
+                dot.addEventListener('click', function () {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    showTestimonial(id);
+                });
+            });
+
+            // Add touch swipe functionality for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            const mobileContainer = document.querySelector('.mobile-slides-container');
+            if (mobileContainer) {
+                mobileContainer.addEventListener('touchstart', function (e) {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, false);
+
+                mobileContainer.addEventListener('touchend', function (e) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, false);
             }
-        }
-        
-        // Position small circles around the circular container - adaptive to screen size
-        let circlePositions;
-        
-        if (window.innerWidth > 1199) {
-            // Large screens
-            circlePositions = [
-                { top: centerY - radius * 1.2, left: centerX - radius * 0.8 },  // Circle 1
-                { top: centerY - radius * 0.2, left: centerX + radius * 0.8 },  // Circle 2
-                { top: centerY + radius * 0.8, left: centerX - radius * 0.4 }   // Circle 3
-            ];
-        } else if (window.innerWidth > 767) {
-            // Medium screens
-            circlePositions = [
-                { top: centerY - radius * 0.8, left: centerX - radius * 0.7 },  // Circle 1
-                { top: centerY - radius * 0.2, left: centerX + radius * 0.7 },  // Circle 2
-                { top: centerY + radius * 0.8, left: centerX - radius * 0.3 }   // Circle 3
-            ];
-        } else if (window.innerWidth > 575) {
-            // Small screens
-            circlePositions = [
-                { top: centerY - radius * 0.7, left: centerX - radius * 0.6 },  // Circle 1
-                { top: centerY - radius * 0.1, left: centerX + radius * 0.6 },  // Circle 2
-                { top: centerY + radius * 0.7, left: centerX - radius * 0.2 }   // Circle 3
-            ];
-        } else {
-            // Extra small screens
-            circlePositions = [
-                { top: centerY - radius * 0.6, left: centerX - radius * 0.5 },  // Circle 1
-                { top: centerY, left: centerX + radius * 0.5 },                 // Circle 2
-                { top: centerY + radius * 0.6, left: centerX }                  // Circle 3
-            ];
-        }
-        
-        // Position the small circles
-        for (let i = 1; i <= totalTestimonials; i++) {
-            const circle = document.getElementById(`circle${i}`);
-            if (circle) {
-                const pos = circlePositions[i-1];
-                circle.style.top = pos.top + 'px';
-                circle.style.left = pos.left + 'px';
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX) {
+                    // Swipe left - next slide
+                    showTestimonial(currentTestimonial + 1);
+                }
+                if (touchEndX > touchStartX) {
+                    // Swipe right - previous slide
+                    showTestimonial(currentTestimonial - 1);
+                }
             }
-        }
-    }
-    
-    // Initialize by showing the first testimonial
-    showTestimonial(1);
-    
-    // Add animation for the character
-    animateCharacter();
-    
-    function animateCharacter() {
-        // Simple pulse animation
-        let scale = 1;
-        let growing = false;
-        
-        const character = document.getElementById('character-image');
-        if (!character) return;
-        
-        setInterval(() => {
-            if (growing) {
-                scale += 0.0005;
-                if (scale >= 1.02) growing = false;
-            } else {
-                scale -= 0.0005;
-                if (scale <= 0.98) growing = true;
+
+            // Function to show testimonial by id
+            function showTestimonial(id) {
+                // Handle loop back to start/end
+                if (id < 1) id = totalTestimonials;
+                if (id > totalTestimonials) id = 1;
+
+                currentTestimonial = id;
+
+                // Update active client testimonial in right column
+                document.querySelectorAll('.client-testimonial').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelector(`.client-testimonial[data-id="${id}"]`).classList.add('active');
+
+                // Update active testimonial items in desktop layout
+                document.querySelectorAll('.testimonial-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.getElementById(`testimonial${id}`).classList.add('active');
+
+                // Update small circles to highlight the active one
+                document.querySelectorAll('.small-circle').forEach(circle => {
+                    circle.style.borderColor = 'var(--primary-color)';
+                    circle.style.transform = 'scale(1)';
+                });
+                document.getElementById(`circle${id}`).style.borderColor = 'var(--secondary-color)';
+                document.getElementById(`circle${id}`).style.transform = 'scale(1.1)';
+
+                // Update mobile slides
+                document.querySelectorAll('.mobile-slide').forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                document.querySelector(`.mobile-slide[data-id="${id}"]`).classList.add('active');
+
+                // Update dots in mobile layout
+                document.querySelectorAll('.dot').forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                document.querySelector(`.dot[data-id="${id}"]`).classList.add('active');
             }
-            
-            character.style.transform = `scale(${scale})`;
-        }, 20);
-    }
-    
-    // Add automatic rotation of testimonials
-    setInterval(() => {
-        showTestimonial(currentTestimonial + 1);
-    }, 5000);
-});
-</script>
+
+            // Position elements function - handles responsive positioning of testimonials and circles
+            function positionElements() {
+                const container = document.querySelector('.circular-container');
+                if (!container) return; // Exit if container not found (mobile view)
+
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+                const centerX = containerWidth / 2;
+                const centerY = containerHeight / 2;
+
+                // Calculate radius - adaptive to the container size
+                const radius = Math.min(containerWidth, containerHeight) * 0.35;
+
+                // Calculate positions for different screen sizes
+                let positions;
+
+                if (window.innerWidth > 1199) {
+                    // Large screens
+                    positions = [
+                        { top: centerY - (radius * 0.4), left: centerX - radius - 100 }, // Position 1
+                        { top: centerY - radius - 20, left: centerX + (radius * 0.4) },   // Position 2
+                        { top: centerY + (radius * 0.6), left: centerX + (radius * 0.3) } // Position 3
+                    ];
+                } else if (window.innerWidth > 767) {
+                    // Medium screens
+                    positions = [
+                        { top: centerY - (radius * 0.4), left: centerX - radius - 60 },   // Position 1
+                        { top: centerY - radius - 20, left: centerX + (radius * 0.3) },   // Position 2
+                        { top: centerY + (radius * 0.6), left: centerX + (radius * 0.2) } // Position 3
+                    ];
+                } else if (window.innerWidth > 575) {
+                    // Small screens
+                    positions = [
+                        { top: centerY - (radius * 0.4), left: centerX - radius - 30 },   // Position 1
+                        { top: centerY - radius - 10, left: centerX + (radius * 0.2) },   // Position 2
+                        { top: centerY + (radius * 0.6), left: centerX + (radius * 0.1) } // Position 3
+                    ];
+                } else {
+                    // Extra small screens
+                    positions = [
+                        { top: centerY - (radius * 0.8), left: centerX - radius + 20 },  // Position 1
+                        { top: centerY, left: centerX + radius - 80 },                   // Position 2
+                        { top: centerY + (radius * 0.8), left: centerX - (radius * 0.4) }// Position 3
+                    ];
+                }
+
+                // Position testimonial items
+                for (let i = 1; i <= totalTestimonials; i++) {
+                    const testimonial = document.getElementById(`testimonial${i}`);
+                    if (testimonial) {
+                        const pos = positions[i - 1];
+                        testimonial.style.top = pos.top + 'px';
+                        testimonial.style.left = pos.left + 'px';
+                    }
+                }
+
+                // Position small circles around the circular container - adaptive to screen size
+                let circlePositions;
+
+                if (window.innerWidth > 1199) {
+                    // Large screens
+                    circlePositions = [
+                        { top: centerY - radius * 1.2, left: centerX - radius * 0.8 },  // Circle 1
+                        { top: centerY - radius * 0.2, left: centerX + radius * 0.8 },  // Circle 2
+                        { top: centerY + radius * 0.8, left: centerX - radius * 0.4 }   // Circle 3
+                    ];
+                } else if (window.innerWidth > 767) {
+                    // Medium screens
+                    circlePositions = [
+                        { top: centerY - radius * 0.8, left: centerX - radius * 0.7 },  // Circle 1
+                        { top: centerY - radius * 0.2, left: centerX + radius * 0.7 },  // Circle 2
+                        { top: centerY + radius * 0.8, left: centerX - radius * 0.3 }   // Circle 3
+                    ];
+                } else if (window.innerWidth > 575) {
+                    // Small screens
+                    circlePositions = [
+                        { top: centerY - radius * 0.7, left: centerX - radius * 0.6 },  // Circle 1
+                        { top: centerY - radius * 0.1, left: centerX + radius * 0.6 },  // Circle 2
+                        { top: centerY + radius * 0.7, left: centerX - radius * 0.2 }   // Circle 3
+                    ];
+                } else {
+                    // Extra small screens
+                    circlePositions = [
+                        { top: centerY - radius * 0.6, left: centerX - radius * 0.5 },  // Circle 1
+                        { top: centerY, left: centerX + radius * 0.5 },                 // Circle 2
+                        { top: centerY + radius * 0.6, left: centerX }                  // Circle 3
+                    ];
+                }
+
+                // Position the small circles
+                for (let i = 1; i <= totalTestimonials; i++) {
+                    const circle = document.getElementById(`circle${i}`);
+                    if (circle) {
+                        const pos = circlePositions[i - 1];
+                        circle.style.top = pos.top + 'px';
+                        circle.style.left = pos.left + 'px';
+                    }
+                }
+            }
+
+            // Initialize by showing the first testimonial
+            showTestimonial(1);
+
+            // Add animation for the character
+            animateCharacter();
+
+            function animateCharacter() {
+                // Simple pulse animation
+                let scale = 1;
+                let growing = false;
+
+                const character = document.getElementById('character-image');
+                if (!character) return;
+
+                setInterval(() => {
+                    if (growing) {
+                        scale += 0.0005;
+                        if (scale >= 1.02) growing = false;
+                    } else {
+                        scale -= 0.0005;
+                        if (scale <= 0.98) growing = true;
+                    }
+
+                    character.style.transform = `scale(${scale})`;
+                }, 20);
+            }
+
+            // Add automatic rotation of testimonials
+            setInterval(() => {
+                showTestimonial(currentTestimonial + 1);
+            }, 5000);
+        });
+    </script>
 
     <!-- project -->
     <script>
@@ -2810,7 +3003,7 @@
     <!-- animation wow -->
     <script src="js/wow.min.js"></script>
     <script>
-    new WOW().init();
+        new WOW().init();
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
