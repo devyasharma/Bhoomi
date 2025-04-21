@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Website Hero Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link href="style.css" rel="stylesheet"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #0aaf0f;
+            --text-white: #ffffff;
+            --dark-bg: #051525;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .mask-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(5, 21, 37, 0.75) 30%, rgba(5, 21, 37, 0.5) 60%, rgba(5, 21, 37, 0.3) 100%);
+            z-index: -1;
+        }
+
+        .booking-badge {
+            position: absolute;
+            top: 120px;
+            right: 15%;
+            background-color: transparent;
+            padding: 10px;
+            animation: rotate 6s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        @media (max-width: 1400px) {
+            .booking-badge {
+                right: 10%;
+                top: 80px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .booking-badge {
+                right: 5%;
+                top: 60px;
+            }
+        }
+
+        .booking-badge-inner {
+            width: 200px;
+            height: 80px;
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            font-size: 30px;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+        }
+
+        .booking-badge-inner::before,
+        .booking-badge-inner::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary-color);
+        }
+
+        .booking-badge-inner::before {
+            top: -5px;
+            left: -5px;
+        }
+
+        .booking-badge-inner::after {
+            bottom: -5px;
+            right: -5px;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+            100% { transform: rotate(-5deg); }
+        }
+
+        .slide-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: var(--text-white);
+            z-index: 1;
+        }
+
+        .subtitle {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.3s;
+        }
+
+        .title {
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.5s;
+            max-width: 80%;
+        }
+
+        .title .highlight {
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .description {
+            font-size: 25px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 45px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.7s;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.9s;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: var(--text-white);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #3e8e41;
+        }
+
+        .btn-primary i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover i {
+            transform: translateX(5px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            background-color: transparent;
+            color: var(--text-white);
+            padding: 15px 30px;
+            border: 1px solid var(--text-white);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-white);
+            color: var(--dark-bg);
+        }
+
+        .btn-secondary i {
+            margin-left: 10px;
+        }
+
+        .navigation {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: var(--primary-color);
+        }
+
+        .typing-animation {
+            position: relative;
+            display: inline-block;
+        }
+
+        .typing-animation::after {
+            content: '|';
+            position: absolute;
+            right: -5px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .subtitle {
+                font-size: 20px;
+            }
+            
+            .title {
+                font-size: 40px;
+            }
+            
+            .description {
+                font-size: 16px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .booking-badge {
+                top: 60px;
+                right: 60px;
+            }
+            
+            .booking-badge-inner {
+                width: 120px;
+                height: 50px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="slider-container" id="heroSlider">
+            <div class="slide active" data-type="SOLUTIONS">
+                <img src="image/bn1.jpg" alt="IT Solutions" class="slide-image">
+                <div class="mask-overlay"></div>
+                <div class="slide-content">
+                    <h3 class="subtitle">Digital Transformation</h3>
+                    <h1 class="title">IT SOLUTIONS & <span class="highlight typing-animation" id="typingText">SERVICES</span></h1>
+                    <p class="description">We develop innovative IT solutions to help businesses optimize operations, increase efficiency, and achieve digital transformation goals in today's competitive landscape.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+                        <!-- <a href="#" class="btn-secondary">Our Services <i class="fas fa-circle-info"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide" data-type="DEVELOPMENT">
+                <img src="image/photo-1485827404703-89b55fcc595e.avif" alt="Software Development" class="slide-image">
+                <div class="mask-overlay"></div>
+                <div class="slide-content">
+                    <h3 class="subtitle">Software Solutions</h3>
+                    <h1 class="title">CUSTOM SOFTWARE <span class="highlight typing-animation" id="typingTextt">DEVELOPMENT</span></h1>
+                    <p class="description">Our talented developers build tailored software solutions that address your specific business challenges and help you stay ahead of the competition.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+                        <!-- <a href="#" class="btn-secondary">Our Portfolio <i class="fas fa-circle-info"></i></a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide" data-type="CLOUD">
+                <img src="image/oo.avif" alt="Cloud Services" class="slide-image">
+                <div class="mask-overlay"></div>
+                <div class="slide-content">
+                    <h3 class="subtitle">Cloud Infrastructure</h3>
+                    <h1 class="title">CLOUD-BASED <span class="highlight typing-animation" id="typingTexttt">SOLUTIONS</span></h1>
+                    <p class="description">Leverage the power of cloud computing with our comprehensive suite of cloud services designed to enhance scalability, security, and performance.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+                        <!-- <a href="#" class="btn-secondary">Learn More <i class="fas fa-circle-info"></i></a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="booking-badge">
+            <div class="booking-badge-inner">
+                Solutions
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <div class="nav-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="nav-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        
+        <div class="slide-indicators" id="slideIndicators">
+            <div class="indicator active" data-index="0"></div>
+            <div class="indicator" data-index="1"></div>
+            <div class="indicator" data-index="2"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        // TypeScript Implementation
+        // This code would normally be compiled from TypeScript to JavaScript
+        // Here we're demonstrating the TypeScript structure that would be used
+        
+        // When DOM is loaded, initialize the slider
+        document.addEventListener('DOMContentLoaded', function() {
+            // Slider TypeScript implementation (converted to JS for browser execution)
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const bookingBadge = document.querySelector('.booking-badge-inner');
+            let currentSlide = 0;
+            
+            // Typing animation text options
+            const textOptions = ['SERVICES', 'INNOVATION', 'SECURITY', 'DEVELOPMENT', 'SOLUTIONS'];
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingElement = document.getElementById('typingText');
+            
+            // Function to show a specific slide
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Remove active class from all indicators
+                indicators.forEach(indicator => {
+                    indicator.classList.remove('active');
+                });
+                
+                // Show the selected slide and update indicator
+                slides[index].classList.add('active');
+                indicators[index].classList.add('active');
+                
+                // Update badge text based on slide type
+                const slideType = slides[index].getAttribute('data-type');
+                bookingBadge.textContent = slideType;
+                
+                // Reset animation for the new slide content
+                const elements = slides[index].querySelectorAll('.subtitle, .title, .description, .btn-group');
+                elements.forEach((el, i) => {
+                    el.style.animation = 'none';
+                    setTimeout(() => {
+                        el.style.animation = `fadeInUp 0.8s forwards ${0.3 + (i * 0.2)}s`;
+                    }, 50);
+                });
+                
+                currentSlide = index;
+            }
+            
+            // Set up event listeners for navigation
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    let newIndex = currentSlide - 1;
+                    if (newIndex < 0) newIndex = slides.length - 1;
+                    showSlide(newIndex);
+                    resetAutoSlide();
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    showSlide(newIndex);
+                    resetAutoSlide();
+                });
+            }
+            
+            // Set up event listeners for indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    const slideIndex = parseInt(indicator.getAttribute('data-index') || '0');
+                    showSlide(slideIndex);
+                    resetAutoSlide();
+                });
+            });
+            
+            // Auto slide timer
+            let autoSlideTimer = null;
+            
+            // Start auto slide
+            function startAutoSlide() {
+                autoSlideTimer = setInterval(() => {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    showSlide(newIndex);
+                }, 7000);
+            }
+            
+            // Reset auto slide timer
+            function resetAutoSlide() {
+                if (autoSlideTimer) {
+                    clearInterval(autoSlideTimer);
+                    startAutoSlide();
+                }
+            }
+            
+            // Typing animation function
+            function typeText() {
+                if (!typingElement) return;
+                
+                const currentText = textOptions[textIndex];
+                
+                if (isDeleting) {
+                    // Delete text
+                    typingElement.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    // Type text
+                    typingElement.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+                
+                // Speed control
+                let typeSpeed = isDeleting ? 100 : 150;
+                
+                // If complete word is typed
+                if (!isDeleting && charIndex === currentText.length) {
+                    isDeleting = true;
+                    typeSpeed = 2000; // Pause at end
+                } 
+                // If deletion is complete
+                else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % textOptions.length;
+                    typeSpeed = 500; // Pause before typing next word
+                }
+                
+                setTimeout(typeText, typeSpeed);
+            }
+            
+            // Initialize
+            startAutoSlide();
+            typeText();
+        });
+    </script>
+               
+</body>
+</html>

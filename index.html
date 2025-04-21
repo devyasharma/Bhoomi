@@ -464,6 +464,441 @@
         padding: 8px;
     }
 }
+:root {
+            --primary-color: #0aaf0f;
+            --text-white: #ffffff;
+            --dark-bg: #051525;
+        }
+
+        /* body {
+            overflow-x: hidden;
+        } */
+
+        .hero-sectionn {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            padding: 0 !important;
+        }
+
+        .slider-containerr {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            animation: zoomEffect 20s infinite alternate;
+        }
+
+        @keyframes zoomEffect {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .mask-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(5, 21, 37, 0.75) 30%, rgba(5, 21, 37, 0.5) 60%, rgba(5, 21, 37, 0.3) 100%);
+            z-index: -1;
+        }
+
+        .booking-badge {
+            position: absolute;
+            top: 120px;
+            right: 15%;
+            background-color: transparent;
+            padding: 10px;
+            animation: rotate 6s ease-in-out infinite;
+            z-index: 5;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .booking-badge-inner {
+            width: 230px;
+            height: 80px;
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            font-size: 30px;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 0 15px rgba(10, 175, 15, 0.5);
+            background: rgba(5, 21, 37, 0.6);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            text-shadow: 0 0 8px rgba(10, 175, 15, 0.8);
+            letter-spacing: 1px;
+        }
+
+        .booking-badge-inner::before,
+        .booking-badge-inner::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .booking-badge-inner::before {
+            top: -7px;
+            left: -7px;
+            border-top: 3px solid var(--primary-color);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .booking-badge-inner::after {
+            bottom: -7px;
+            right: -7px;
+            border-bottom: 3px solid var(--primary-color);
+            border-right: 3px solid var(--primary-color);
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+            100% { transform: rotate(-3deg); }
+        }
+
+        @media (max-width: 1400px) {
+            .booking-badge {
+                right: 10%;
+                top: 80px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .booking-badge {
+                right: 5%;
+                top: 60px;
+            }
+        }
+
+        .slide-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: var(--text-white);
+            z-index: 1;
+        }
+
+        .he1 {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.3s;
+            text-shadow: 0 0 15px rgba(10, 175, 15, 0.3);
+        }
+
+        .he {
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.5s;
+            max-width: 80%;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .he .highlight {
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 10px rgba(10, 175, 15, 0.4);
+            font-weight: 600;
+        }
+
+        .typing-animation {
+            position: relative;
+            display: inline-block;
+        }
+
+        .typing-animation::after {
+            content: '|';
+            position: absolute;
+            right: -5px;
+            animation: blink 0.8s infinite;
+            color: var(--primary-color);
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        .dd {
+            font-size: 25px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 45px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.7s;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.9s;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: var(--text-white);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(10, 175, 15, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            background-color: #3e8e41;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(10, 175, 15, 0.4);
+        }
+
+        .btn-primary i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover i {
+            transform: translateX(5px);
+        }
+
+        .navigation {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: var(--primary-color);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Code particles animation */
+        .code-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .code-line {
+            position: absolute;
+            color: var(--primary-color);
+            opacity: 0.2;
+            font-family: monospace;
+            font-size: 1rem;
+            animation: floatCode 15s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes floatCode {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.2;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-50px) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .he1 {
+                font-size: 40px;
+            }
+            
+            .he {
+                font-size: 60px;
+                max-width: 100%;
+            }
+            
+            .dd {
+                font-size: 30px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .booking-badge {
+                top: 60px;
+                right: 60px;
+            }
+            
+            .booking-badge-inner {
+                width: 200px;
+                height: 65px;
+                font-size: 25px;
+            }
+
+            .code-line {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .booking-badge {
+                top: 20px;
+                right: 20px;
+            }
+            
+            .booking-badge-inner {
+                width: 100px;
+                height: 40px;
+                font-size: 14px;
+            }
+            
+            .he {
+                font-size: 32px;
+            }
+            
+            .he1 {
+                font-size: 16px;
+            }
+            
+            .dd {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+            
+            .navigation {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
 </style>
 
 <body>
@@ -547,9 +982,9 @@
     </nav>
 
     <!-- Hero Section with Slider -->
-    <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+    <!-- <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <!-- Slide 1 -->
+            
             <div class="carousel-item active hero-section " data-bs-interval="2000"
                 style="background-image: url('image/bn1.jpg')">
                 <div class="overlay"></div>
@@ -560,7 +995,7 @@
                         providing top-notch technology solutions that drive business growth and innovation. </p>
                 </div>
             </div>
-            <!-- Slide 2 -->
+            
             <div class="carousel-item hero-section" data-bs-interval="2000"
                 style="background-image: url('image/AppsAR05052020.jpg');">
                 <div class="overlay"></div>
@@ -570,7 +1005,7 @@
                         brand's identity and meet your specific business needs. </p>
                 </div>
             </div>
-            <!-- Slide 3 -->
+            
             <div class="carousel-item hero-section" data-bs-interval="2000"
                 style="background-image: url('image/soo.avif');">
                 <div class="overlay"></div>
@@ -582,7 +1017,7 @@
                 </div>
             </div>
         </div>
-        <!-- Navigation Arrows -->
+        
         <button class="nav-arrow left carousel-control-prev" type="button" data-bs-target="#heroSlider"
             data-bs-slide="prev">
             <i class="fas fa-chevron-left"></i>
@@ -593,7 +1028,93 @@
             <i class="fas fa-chevron-right"></i>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> -->
+    
+    <section class="hero-sectionn">
+        <div class="slider-containerr" id="heroSlider">
+            <div class="slide active" data-type="Development">
+                <img src="image/bn1.jpg" alt="IT Solutions" class="slide-image">
+                <div class="mask-overlay"></div>
+                <div class="code-particles">
+                    <div class="code-line" style="top: 10%; left: 20%; animation-duration: 20s;">interface ITSolution { name: string; implementation: () => void; }</div>
+                    <div class="code-line" style="top: 30%; left: 60%; animation-duration: 15s;">const transform = async (data: BusinessData): Promise<Solution> => {</div>
+                    <div class="code-line" style="top: 50%; left: 30%; animation-duration: 25s;">class DigitalTransformation implements Strategy {</div>
+                    <div class="code-line" style="top: 70%; left: 10%; animation-duration: 18s;">function optimizeProcess<T extends BusinessProcess>(process: T): T {</div>
+                    <div class="code-line" style="top: 90%; left: 40%; animation-duration: 22s;">export default new SolutionFactory().create();</div>
+                </div>
+                <div class="slide-content">
+                    <h3 class=" he1">App Development for Business Growth</h3>
+                    <h1 class=" he">App Development <span class="highlight typing-animation" id="typingText"></span></h1>
+                    <p class="description dd">Our team of elite innovators combines cutting-edge expertise with strategic vision to deliver solutions that outpace the competition and redefine what's possible, Whether you need an iOS app, Android app, or a cross-platform solution.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide" data-type="Solutions">
+                <img src="image/photo-1485827404703-89b55fcc595e.avif" alt="Software Development" class="slide-image">
+                <div class="mask-overlay"></div>
+                <div class="code-particles">
+                    <div class="code-line" style="top: 15%; left: 15%; animation-duration: 19s;">import { Component, OnInit } from '@angular/core';</div>
+                    <div class="code-line" style="top: 35%; left: 65%; animation-duration: 17s;">const app = new React.createElement(App, props);</div>
+                    <div class="code-line" style="top: 55%; left: 25%; animation-duration: 23s;">export class CustomSoftware extends BaseSolution {</div>
+                    <div class="code-line" style="top: 75%; left: 50%; animation-duration: 21s;">function deployApplication(config: DeployConfig): void {</div>
+                    <div class="code-line" style="top: 85%; left: 15%; animation-duration: 18s;">const result = await api.fetchData<ResponseType>();</div>
+                </div>
+                <div class="slide-content">
+                    <h3 class=" he1">Software Solutions</h3>
+                    <h1 class="he">CUSTOM SOFTWARE <span class="highlight typing-animation" id="typingTextt">DEVELOPMENT</span></h1>
+                    <p class="description dd">There are different types of software solutions available, each catering to different requirements. Custom software solutions are tailored to meet the unique needs of a particular organization.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide" data-type="Marketing">
+                <img src="image/oo.avif" alt="Cloud Services" class="slide-image">
+                <div class="mask-overlay"></div>
+                <div class="code-particles">
+                    <div class="code-line" style="top: 5%; left: 30%; animation-duration: 18s;">interface CloudProvider<T extends ServiceType> {</div>
+                    <div class="code-line" style="top: 25%; left: 70%; animation-duration: 22s;">class AzureService implements CloudService {</div>
+                    <div class="code-line" style="top: 45%; left: 15%; animation-duration: 19s;">const deployment = new Kubernetes.Deployment(name, {</div>
+                    <div class="code-line" style="top: 65%; left: 55%; animation-duration: 20s;">function scaleResources(load: number): Promise<void> {</div>
+                    <div class="code-line" style="top: 85%; left: 35%; animation-duration: 21s;">export type ServerlessFunction = (event: Event) => Promise<Response>;</div>
+                </div>
+                <div class="slide-content">
+                    <h3 class=" he1">Boost Your Brand Presence Through Social Media Campaigns</h3>
+                    <h1 class=" he">SOCIAL MEDIA MARKETING<span class="highlight typing-animation" id="typingTexttt">SOLUTIONS</span></h1>
+                    <p class="description dd">we specialize in crafting powerful social media strategies that connect, engage, and convert. From eye-catching content creation to targeted ad campaigns, we help your brand stand out in crowded feeds and make a lasting impact.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="booking-badge">
+            <div class="booking-badge-inner">
+                Solutions
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <div class="nav-btn prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="nav-btn next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        
+        <div class="slide-indicators" id="slideIndicators">
+            <div class="indicator active" data-index="0"></div>
+            <div class="indicator" data-index="1"></div>
+            <div class="indicator" data-index="2"></div>
+        </div>
+    </section>
+    
     <!-- About Section -->
 
     <section class="about-section">
@@ -2694,6 +3215,179 @@
             }
         }
     </script>
+<!-- herooo -->
+<script>
+    // This is the JavaScript version of the TypeScript implementation
+    document.addEventListener('DOMContentLoaded', function() {
+        // DOM elements
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const bookingBadge = document.querySelector('.booking-badge-inner');
+        let currentSlide = 0;
+        
+        // Typing animation elements
+        const typingElements = [
+            document.getElementById('typingText'),
+            document.getElementById('typingTextt'),
+            document.getElementById('typingTexttt')
+        ];
+        
+        // Typing animation options for each slide
+        const typingOptions = [
+            {
+                textOptions: ['SERVICES', 'INNOVATION', 'INTEGRATION'],
+                element: typingElements[0]
+            },
+            {
+                textOptions: ['DEVELOPMENT','UI/UX', 'DESIGN'],
+                element: typingElements[1]
+            },
+            {
+                textOptions: ['Connect, Engage, Convert'],
+                element: typingElements[2]
+            }
+        ];
+        
+        // Function to show a specific slide
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Remove active class from all indicators
+            indicators.forEach(indicator => {
+                indicator.classList.remove('active');
+            });
+            
+            // Show the selected slide and update indicator
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+            
+            // Update badge text based on slide type
+            if (bookingBadge) {
+                const slideType = slides[index].getAttribute('data-type');
+                if (slideType) {
+                    bookingBadge.textContent = slideType;
+                }
+            }
+            
+            // Reset animation for slide content
+            const elements = slides[index].querySelectorAll('.subtitle, .title, .description, .btn-group');
+            elements.forEach((el, i) => {
+                el.style.animation = 'none';
+                
+                // Force reflow
+                void el.offsetWidth;
+                
+                el.style.animation = `fadeInUp 0.8s forwards ${0.3 + (i * 0.2)}s`;
+            });
+            
+            currentSlide = index;
+        }
+        
+        // Typing animation implementation
+        function setupTypewriter(options) {
+            const { textOptions, element } = options;
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            
+            if (!element) return;
+            
+            function typeText() {
+                const currentText = textOptions[textIndex];
+                
+                if (isDeleting) {
+                    // Delete text
+                    element.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    // Type text
+                    element.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+                
+                // Speed control
+                let typeSpeed = isDeleting ? 100 : 150;
+                
+                // If complete word is typed
+                if (!isDeleting && charIndex === currentText.length) {
+                    isDeleting = true;
+                    typeSpeed = 2000; // Pause at end
+                } 
+                // If deletion is complete
+                else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % textOptions.length;
+                    typeSpeed = 500; // Pause before typing next word
+                }
+                
+                setTimeout(typeText, typeSpeed);
+            }
+            
+            // Start typing animation
+            typeText();
+        }
+        
+        // Add event listeners for navigation buttons
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                let newIndex = currentSlide - 1;
+                if (newIndex < 0) newIndex = slides.length - 1;
+                showSlide(newIndex);
+                resetAutoSlide();
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                let newIndex = currentSlide + 1;
+                if (newIndex >= slides.length) newIndex = 0;
+                showSlide(newIndex);
+                resetAutoSlide();
+            });
+        }
+        
+        // Add event listeners for indicator dots
+        indicators.forEach(function(indicator) {
+            indicator.addEventListener('click', function() {
+                const dataIndex = indicator.getAttribute('data-index');
+                if (dataIndex) {
+                    const index = parseInt(dataIndex, 10);
+                    showSlide(index);
+                    resetAutoSlide();
+                }
+            });
+        });
+        
+        // Auto-slide functionality
+        let autoSlideTimer = null;
+        
+        function startAutoSlide() {
+            autoSlideTimer = setInterval(function() {
+                let newIndex = currentSlide + 1;
+                if (newIndex >= slides.length) newIndex = 0;
+                showSlide(newIndex);
+            }, 7000);
+        }
+        
+        function resetAutoSlide() {
+            if (autoSlideTimer) {
+                clearInterval(autoSlideTimer);
+                startAutoSlide();
+            }
+        }
+        
+        // Initialize all typing animations
+        typingOptions.forEach(setupTypewriter);
+        
+        // Start the auto-slide
+        startAutoSlide();
+    });
+</script>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

@@ -132,7 +132,7 @@ body {
 
 /* Adjust spacing when logo appears */
 .navbar.scrolled {
-    padding-bottom: 40px;
+    padding-bottom: 25px;
 }
 
 @media (max-width: 991px) {
@@ -471,7 +471,7 @@ body {
 
 
 /* Hero Section */
-.hero-section {
+/* .hero-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1600x800');
     background-size: cover;
     background-position: center;
@@ -489,7 +489,7 @@ body {
 
 .hero-text {
     font-size: 18px;
-    /* color: rgb(74, 72, 72); */
+    
     max-width: 700px;
     margin: 0 auto;
 }
@@ -523,7 +523,7 @@ body {
 
 .nav-arrow.right {
     right: 20px;
-}
+} */
 
 /* @media (max-width: 500px) {
     .service-card:hover {
