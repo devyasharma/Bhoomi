@@ -29,7 +29,7 @@ body {
 
 
 .logo-img {
-    max-height: 80px;
+    max-height: 65px;
 }
  /* For extremely small screens like 325px */
  @media (max-width: 320px) {
@@ -3355,6 +3355,7 @@ textarea.form-control {
 .hero-title {
     font-size: 3rem;
     margin-bottom: 1.5rem;
+    color: #58e40e;
 }
 
 .hero-description {
@@ -3550,7 +3551,7 @@ textarea.form-control {
 
 @media (max-width: 576px) {
     .hero-title {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .section-title h2 {
@@ -3942,7 +3943,7 @@ section {
 @media (max-width: 600px) {
     .logo-img {
         margin-left: 15px;
-        max-height: 80px;
+        max-height: 65px;
     }
 
     .carousel-item .bh {
