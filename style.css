@@ -705,7 +705,7 @@ body {
   .services-section {
     text-align: center;
     background-color: #f8f9fa;
-    /* padding: 60px 0; */
+    padding: 30px 0;
 }
 
 .section-description {
@@ -3871,14 +3871,14 @@ textarea.form-control {
 }
 
 .step h3 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 900;
     margin-bottom: 15px;
     color: rgb(250, 249, 249);
 }
 
 .step p {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.6;
     color: white;
     margin: 0;
