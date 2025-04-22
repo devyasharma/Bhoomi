@@ -31,6 +31,46 @@ body {
 .logo-img {
     max-height: 65px;
 }
+
+@media (max-width: 768px) {
+    /* Reduce spacing between elements */
+    .top-bar {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    /* Make sticky navbar connect directly to top bar */
+    .navbar.sticky-top {
+      margin-top: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    
+    /* Reduce spacing in container elements */
+    .container {
+      padding-bottom: 0;
+    }
+    
+    /* Remove extra margins from rows */
+    .row {
+      margin-bottom: 0;
+    }
+    
+    /* Adjust logo size if needed */
+    .logo-img {
+      max-height: 40px; /* Adjust as needed */
+    }
+    
+    /* Ensure that there's no gap between navbar and hero section */
+    #navbarNav {
+      padding-bottom: 0;
+    }
+    
+    /* If you have a hero section after the navbar */
+    .your-hero-section-class {
+      margin-top: 0;
+    }
+  }
  /* For extremely small screens like 325px */
  @media (max-width: 320px) {
     .contact-info span{
