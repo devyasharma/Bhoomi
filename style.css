@@ -2019,7 +2019,7 @@ textarea.form-control {
 }
 
 .client-name {
-    font-size: 14px;
+    font-size: 19px;
     font-weight: 600;
     margin-bottom: 0;
 }
@@ -2369,8 +2369,8 @@ textarea.form-control {
     }
     
     .center-image-mobile {
-        width: 150px;
-        height: 150px;
+        width: 250px;
+        height: 250px;
     }
     
     .company-logo-mobile {
@@ -2383,7 +2383,7 @@ textarea.form-control {
     }
     
     .testimonial-content {
-        font-size: 13px;
+        font-size: 17px;
     }
     
     .client-avatar-large {
@@ -2400,7 +2400,7 @@ textarea.form-control {
     }
     
     .testimonial-message {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
     
     .nav-btn {
@@ -2411,7 +2411,7 @@ textarea.form-control {
     
     .thank-you-message {
         padding: 10px;
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
 }
 
